@@ -26,7 +26,7 @@ public class Biology implements KNN {
     }
 
     public enum ethnicity {
-        WHITE, BLACK, ASIAN, LATINO;
+        WHITE, ASIAN, LATINO, BLACK;
 
         private static final List<ethnicity> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
         private static final int SIZE = VALUES.size();
@@ -70,6 +70,14 @@ public class Biology implements KNN {
 
     public void setBsex(sex bsex) {
         Bsex = bsex;
+    }
+
+    public ethnicity getBethnicity() {
+        return Bethnicity;
+    }
+
+    public void setBethnicity(ethnicity bethnicity) {
+        Bethnicity = bethnicity;
     }
 
     public String toString() {
