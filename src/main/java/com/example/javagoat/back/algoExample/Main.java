@@ -6,7 +6,7 @@ import java.util.TreeMap;
 public class Main {
     
     // Possibilité d'utiliser un HashMap à la place du 1er TreeMap (j'utilise içi un TreeMap pour mieux visualiser avec un print)
-    public TreeMap<Integer /*id*/, TreeMap<Integer /*distance*/, Integer /*id*/>> stockD = new TreeMap<Integer, TreeMap<Integer, Integer>>();
+    public HashMap<Integer /*id*/, TreeMap<Integer /*distance*/, Integer /*id*/>> stockD = new HashMap<>();
 
     // Stocke tous les profils à partir de leurs id
     public HashMap<Integer /*id*/, Profile> profileHashMap = new HashMap<>();
