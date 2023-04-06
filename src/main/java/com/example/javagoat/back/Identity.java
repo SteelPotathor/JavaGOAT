@@ -1,7 +1,9 @@
 package com.example.javagoat.back;
 
 
-public class Identity extends Biology {
+import java.io.Serializable;
+
+public class Identity extends Biology implements Serializable {
 
     public String lastname;
     public String firstname;
@@ -49,6 +51,14 @@ public class Identity extends Biology {
 
     public void setNoId(int noId) {
         this.noId = noId;
+    }
+
+    public static int getCurrentMembers() {
+        return currentMembers;
+    }
+
+    public static void setCurrentMembers(int currentMembers) {
+        Identity.currentMembers = currentMembers;
     }
 
     public String toString() {

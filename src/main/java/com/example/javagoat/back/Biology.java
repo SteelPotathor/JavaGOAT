@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class Biology implements KNN {
+public class Biology {
 
     public int age;
     public sex Bsex;
@@ -26,7 +26,7 @@ public class Biology implements KNN {
     }
 
     public enum ethnicity {
-        WHITE, ASIAN, LATINO, BLACK;
+        WHITE, BLACK, ASIAN, LATINO;
 
         private static final List<ethnicity> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
         private static final int SIZE = VALUES.size();
@@ -49,11 +49,6 @@ public class Biology implements KNN {
         this.age = random.nextInt(40) + 20;
         this.Bsex = sex.randomSex();
         this.Bethnicity = ethnicity.randomEthnicity();
-    }
-
-    @Override
-    public void point() {
-
     }
 
     public int getAge() {
