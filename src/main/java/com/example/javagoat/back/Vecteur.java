@@ -1,6 +1,8 @@
 package com.example.javagoat.back;
 
-public class Vecteur {
+import java.io.Serializable;
+
+public class Vecteur implements Serializable {
 
     public float xSize;
     public float xAge;

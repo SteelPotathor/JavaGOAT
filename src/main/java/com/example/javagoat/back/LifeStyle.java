@@ -1,11 +1,12 @@
 package com.example.javagoat.back;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class LifeStyle {
+public class LifeStyle implements Serializable {
 
     public smoker LSsmoker;
     public athlete LSathlete;

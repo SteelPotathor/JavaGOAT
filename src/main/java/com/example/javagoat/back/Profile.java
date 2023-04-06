@@ -1,8 +1,9 @@
 package com.example.javagoat.back;
 
-import java.util.HashMap;
+import java.io.Serializable;
 
-public class Profile {
+
+public class Profile implements Serializable {
 
     public Identity identity;
     public PhysicalAttributes physicalAttributes;
@@ -13,21 +14,6 @@ public class Profile {
     public Vecteur vectProfile;
     public Vecteur vectPreferences;
 
-    public HashMap<String, Integer> attributesWeights = new HashMap<>() {{
-        put("Size", 10);
-        put("Age", 10);
-        put("HairColor", 10);
-        put("HairLenght", 10);
-        put("HairType", 10);
-        put("Smoker", 10);
-        put("Athlete", 10);
-        put("Feed", 10);
-        put("BodyBuild", 10);
-        put("Ethnicity", 10);
-        put("Sex", 1000);
-        put("Religion", 10);
-
-    }};
 
     // Customised Profile
     public Profile(Identity identity, PhysicalAttributes physicalAttributes, LifeStyle lifeStyle, Preferences preferences, Passion passion) {
@@ -61,24 +47,8 @@ public class Profile {
         this.vectPreferences = new Vecteur(this.getPreferences());
     }
 
-    public float distance(Profile profile) {
-        float distance = Math.abs(profile.vectProfile.getxSize() - this.vectPreferences.getxSize())
-                + Math.abs(profile.vectProfile.getxAge() - this.vectPreferences.getxAge())
-                + Math.abs(profile.vectProfile.getxHairColor() - this.vectPreferences.getxHairColor())
-                + Math.abs(profile.vectProfile.getxHairLenght() - this.vectPreferences.getxHairLenght())
-                + Math.abs(profile.vectProfile.getxHairType() - this.vectPreferences.getxHairType())
-                + Math.abs(profile.vectProfile.getxSmoker() - this.vectPreferences.getxSmoker())
-                + Math.abs(profile.vectProfile.getxAthlete() - this.vectPreferences.getxAthlete())
-                + Math.abs(profile.vectProfile.getxFeed() - this.vectPreferences.getxFeed())
-                + Math.abs(profile.vectProfile.getxBodyBuild() - this.vectPreferences.getxBodyBuild())
-                + Math.abs(profile.vectProfile.getxEthnicity() - this.vectPreferences.getxEthnicity())
-                + Math.abs(profile.vectProfile.getxSex() - this.vectPreferences.getxSex());
-
-        if (profile.getLifeStyle().getLSreligion() != this.getPreferences().getLifestyle().getLSreligion()) {
-            distance ++;
-        }
-
-        return distance;
+    public float getDistance(Profile profile) {
+        return new DistanceCalculator(this).getDistance(profile);
     }
 
     public Identity getIdentity() {
@@ -138,9 +108,6 @@ public class Profile {
     }
 
     public String toString() {
-        return "Size : " + this.getPhysicalAttributes().getSize() +
-                ", hColor : " + this.getPhysicalAttributes().getHairColor() +
-                ", hLenght : " + this.getPhysicalAttributes().getHairLength() +
-                ", hType : " + this.getPhysicalAttributes().getHairType();
+        return " (" + this.getIdentity() + " | " + this.getPhysicalAttributes() + " | " + this.getLifeStyle() + ") ";
     }
 }

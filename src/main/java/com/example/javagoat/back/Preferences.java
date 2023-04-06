@@ -1,6 +1,8 @@
 package com.example.javagoat.back;
 
-public class Preferences {
+import java.io.Serializable;
+
+public class Preferences implements Serializable {
 
     public PhysicalAttributes physicalAttributes;
     public Biology biology;

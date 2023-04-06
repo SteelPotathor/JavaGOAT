@@ -1,32 +1,36 @@
 package com.example.javagoat.back;
 
 import java.beans.XMLDecoder;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
+import java.beans.XMLEncoder;
+import java.io.*;
 import java.util.*;
 
-public class ModelProfile {
+public class ModelMatch implements Serializable {
 
     public HashMap<Integer /*id*/, TreeMap<Float /*distance*/, Integer /*id*/>> stockDistance;
+    public ModelProfile modelP;
 
-    public HashMap<Integer /*id*/, Profile> profileHashMap;
+    String DistancePath = "src\\main\\java\\com\\example\\javagoat\\back\\Distances.xml";
+    String ProfilePath = "src\\main\\java\\com\\example\\javagoat\\back\\Profiles.xml";
 
-    String testPath = "https://github.com/SteelPotathor/JavaGOAT/blob/0423a094b021e13e186644eb7925ea7490c2d266/src/main/java/com/example/javagoat/back/Biology.java";
-    String path = "src/main/java/com/example/javagoat/back/Biology.java";
 
-    public ModelProfile() {
+    public ModelMatch() {
         XMLDecoder decoder = null;
         try {
-            FileInputStream fis = new FileInputStream(this.path);
+            FileInputStream fis = new FileInputStream(this.ProfilePath);
             BufferedInputStream ois = new BufferedInputStream(fis);
             decoder = new XMLDecoder(ois);
 
-            this.profileHashMap = (HashMap<Integer, Profile>) decoder.readObject();
+            this.modelP = new ModelProfile();
+            this.modelP.profileHashMap = ((HashMap<Integer, Profile>) decoder.readObject());
+
+            fis = new FileInputStream(this.DistancePath);
+            ois = new BufferedInputStream(fis);
+            decoder = new XMLDecoder(ois);
             this.stockDistance = (HashMap<Integer, TreeMap<Float, Integer>>) decoder.readObject();
 
         } catch (Exception e) {
-            this.profileHashMap = new HashMap<>();
+            this.modelP = new ModelProfile();
             this.stockDistance = new HashMap<>();
         } finally {
             if (decoder != null) decoder.close();
@@ -35,26 +39,26 @@ public class ModelProfile {
 
     public void addProfile(Profile p) {
         // Add in every TreeMaps the new distance between the profile 'p' and every other profiles contained in this TreeMap
-        for (int idProfile : stockDistance.keySet()) {
-            TreeMap<Float, Integer> treeMapProfile = stockDistance.get(idProfile);
-            Profile profile = profileHashMap.get(idProfile);
+        for (int idProfile : this.stockDistance.keySet()) {
+            TreeMap<Float, Integer> treeMapProfile = this.stockDistance.get(idProfile);
+            Profile profile = this.modelP.profileHashMap.get(idProfile);
             float distanceP = profile.getDistance(p);
             treeMapProfile.put(distanceP, p.identity.getNoId());
         }
 
         // Create a TreeMap for the profile 'p'
-        stockDistance.put(p.identity.getNoId(), new TreeMap<>());
-        TreeMap<Float, Integer> treeMapP = stockDistance.get(p.identity.getNoId());
+        this.stockDistance.put(p.identity.getNoId(), new TreeMap<>());
+        TreeMap<Float, Integer> treeMapP = this.stockDistance.get(p.identity.getNoId());
 
         // Add in the new TreeMap every distance with other profiles
-        for (int idProfile : profileHashMap.keySet()) {
-            Profile profile = profileHashMap.get(idProfile);
+        for (int idProfile : this.modelP.profileHashMap.keySet()) {
+            Profile profile = this.modelP.profileHashMap.get(idProfile);
             float distanceP = profile.getDistance(p);
             treeMapP.put(distanceP, p.identity.getNoId());
         }
 
         // Add the profile 'p' in the hashMap
-        this.profileHashMap.put(p.identity.getNoId(), p);
+        this.modelP.profileHashMap.put(p.identity.getNoId(), p);
     }
 
     public ArrayList<Profile> getKNN(int noProfile, int howMany) {
@@ -70,27 +74,65 @@ public class ModelProfile {
         // Obtains the nearest profiles in the ArrayList
         while (n < howMany && iterator.hasNext()) {
             int noId = iterator.next().getValue();
-            KNNProfiles.add(this.profileHashMap.get(noId));
+            KNNProfiles.add(this.modelP.profileHashMap.get(noId));
             n++;
         }
 
         return KNNProfiles;
     }
 
-    public HashMap<Integer, TreeMap<Float, Integer>> getStockD() {
+    public void saveProfiles() {
+        XMLEncoder encoder = null;
+        try {
+            FileOutputStream fos = new FileOutputStream(ProfilePath);
+            BufferedOutputStream oos = new BufferedOutputStream(fos);
+            encoder = new XMLEncoder(oos);
+            encoder.writeObject(this.getModelP().getProfileHashMap());
+            encoder.flush();
+
+        } catch (final IOException e) {
+            throw new RuntimeException();
+        } finally {
+            if (encoder != null) encoder.close();
+        }
+
+    }
+
+    public void saveDistances() {
+        XMLEncoder encoder = null;
+        try {
+            FileOutputStream fos = new FileOutputStream(DistancePath);
+            BufferedOutputStream oos = new BufferedOutputStream(fos);
+            encoder = new XMLEncoder(oos);
+            encoder.writeObject(this.getStockDistance());
+            encoder.flush();
+
+        } catch (final IOException e) {
+            throw new RuntimeException();
+        } finally {
+            if (encoder != null) encoder.close();
+        }
+
+    }
+
+
+    public HashMap<Integer, TreeMap<Float, Integer>> getStockDistance() {
         return stockDistance;
     }
 
-    public void setStockD(HashMap<Integer, TreeMap<Float, Integer>> stockD) {
-        this.stockDistance = stockD;
+    public void setStockDistance(HashMap<Integer, TreeMap<Float, Integer>> stockDistance) {
+        this.stockDistance = stockDistance;
     }
 
-    public HashMap<Integer, Profile> getProfileHashMap() {
-        return profileHashMap;
+    public ModelProfile getModelP() {
+        return modelP;
     }
 
-    public void setProfileHashMap(HashMap<Integer, Profile> profileHashMap) {
-        this.profileHashMap = profileHashMap;
+    public void setModelP(ModelProfile modelP) {
+        this.modelP = modelP;
     }
+
+
+
 
 }
