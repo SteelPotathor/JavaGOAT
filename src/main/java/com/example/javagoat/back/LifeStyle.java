@@ -1,11 +1,12 @@
 package com.example.javagoat.back;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class LifeStyle {
+public class LifeStyle implements Serializable {
 
     public smoker LSsmoker;
     public athlete LSathlete;
@@ -46,9 +47,9 @@ public class LifeStyle {
     }
 
     public enum feed {
+        VEGAN,
         VEGETARIAN,
         OMNIVORE,
-        VEGAN,
         FLEXIVORE;
 
         private static final List<feed> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
@@ -62,8 +63,8 @@ public class LifeStyle {
 
     public enum bodyBuild {
         SKINNY,
-        OVERWEIGHT,
-        MEDIUM;
+        MEDIUM,
+        OVERWEIGHT;
 
         private static final List<bodyBuild> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
         private static final int SIZE = VALUES.size();
@@ -139,6 +140,14 @@ public class LifeStyle {
 
     public void setLSbodyBuild(bodyBuild LSbodyBuild) {
         this.LSbodyBuild = LSbodyBuild;
+    }
+
+    public religion getLSreligion() {
+        return LSreligion;
+    }
+
+    public void setLSreligion(religion LSreligion) {
+        this.LSreligion = LSreligion;
     }
 
     public String toString() {

@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class Biology implements KNN {
+public class Biology {
 
     public int age;
     public sex Bsex;
@@ -51,11 +51,6 @@ public class Biology implements KNN {
         this.Bethnicity = ethnicity.randomEthnicity();
     }
 
-    @Override
-    public void point() {
-
-    }
-
     public int getAge() {
         return age;
     }
@@ -70,6 +65,14 @@ public class Biology implements KNN {
 
     public void setBsex(sex bsex) {
         Bsex = bsex;
+    }
+
+    public ethnicity getBethnicity() {
+        return Bethnicity;
+    }
+
+    public void setBethnicity(ethnicity bethnicity) {
+        Bethnicity = bethnicity;
     }
 
     public String toString() {

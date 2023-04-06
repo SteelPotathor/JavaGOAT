@@ -125,6 +125,22 @@ public class Passion {
         }
     }
 
+    public HashSet<video_games> getPassionVG() {
+        return passionVG;
+    }
+
+    public void setPassionVG(HashSet<video_games> passionVG) {
+        this.passionVG = passionVG;
+    }
+
+    public HashSet<miscellaneous> getPassionM() {
+        return passionM;
+    }
+
+    public void setPassionM(HashSet<miscellaneous> passionM) {
+        this.passionM = passionM;
+    }
+
     public String toString() {
         return "Passion VG : " + this.passionVG + " | Passion M : " + this.passionM;
     }

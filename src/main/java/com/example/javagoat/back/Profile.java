@@ -1,12 +1,18 @@
 package com.example.javagoat.back;
 
-public class Profile {
+import java.io.Serializable;
+
+
+public class Profile implements Serializable {
 
     public Identity identity;
     public PhysicalAttributes physicalAttributes;
     public LifeStyle lifeStyle;
     public Preferences preferences;
     public Passion passion;
+
+    public Vecteur vectProfile;
+    public Vecteur vectPreferences;
 
 
     // Customised Profile
@@ -20,6 +26,9 @@ public class Profile {
         if (this.identity.getBsex() == Biology.sex.MALE) {
             this.physicalAttributes.setSize(this.physicalAttributes.getSize() + 15);
         }
+
+        this.vectProfile = new Vecteur(this);
+        this.vectPreferences = new Vecteur(this.getPreferences());
     }
 
     // Random Profile
@@ -33,6 +42,13 @@ public class Profile {
         if (this.identity.getBsex() == Biology.sex.MALE) {
             this.physicalAttributes.setSize(this.physicalAttributes.getSize() + 15);
         }
+
+        this.vectProfile = new Vecteur(this);
+        this.vectPreferences = new Vecteur(this.getPreferences());
+    }
+
+    public float getDistance(Profile profile) {
+        return new DistanceCalculator(this).getDistance(profile);
     }
 
     public Identity getIdentity() {
@@ -75,20 +91,23 @@ public class Profile {
         this.passion = passion;
     }
 
-
-    public static void main(String[] args) {
-
-        // Generation of 500 random profiles
-        for (int i = 0; i < 10000; i++) {
-            Profile p1 = new Profile();
-            System.out.println(p1.getPhysicalAttributes());
-            System.out.println(p1.getPreferences());
-            System.out.println(p1.getPassion());
-            System.out.println(p1.getLifeStyle());
-            System.out.println(p1.getIdentity());
-            System.out.println(" ");
-        }
-
+    public Vecteur getVectProfile() {
+        return vectProfile;
     }
 
+    public void setVectProfile(Vecteur vectProfile) {
+        this.vectProfile = vectProfile;
+    }
+
+    public Vecteur getVectPreferences() {
+        return vectPreferences;
+    }
+
+    public void setVectPreferences(Vecteur vectPreferences) {
+        this.vectPreferences = vectPreferences;
+    }
+
+    public String toString() {
+        return " (" + this.getIdentity() + " | " + this.getPhysicalAttributes() + " | " + this.getLifeStyle() + ") ";
+    }
 }
