@@ -1,11 +1,12 @@
 package com.example.javagoat.back;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class PhysicalAttributes {
+public class PhysicalAttributes implements Serializable {
 
     public int size;
     public hairColor PAhairColor;
@@ -98,6 +99,29 @@ public class PhysicalAttributes {
         this.PAhairLength = hairLength;
     }
 
+    public hairColor getPAhairColor() {
+        return PAhairColor;
+    }
+
+    public void setPAhairColor(hairColor PAhairColor) {
+        this.PAhairColor = PAhairColor;
+    }
+
+    public hairType getPAhairType() {
+        return PAhairType;
+    }
+
+    public void setPAhairType(hairType PAhairType) {
+        this.PAhairType = PAhairType;
+    }
+
+    public hairLength getPAhairLength() {
+        return PAhairLength;
+    }
+
+    public void setPAhairLength(hairLength PAhairLength) {
+        this.PAhairLength = PAhairLength;
+    }
 
     public String toString() {
         return "Physical Attributes : {" + getSize() + ", " + getHairColor() + ", " + getHairType() + ", " + getHairLength() + "}";
