@@ -1,5 +1,7 @@
 package com.example.javagoat.back;
 
+import com.example.javagoat.back.names.NameGenerator;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -49,6 +51,10 @@ public class Biology {
         this.age = random.nextInt(40) + 20;
         this.Bsex = sex.randomSex();
         this.Bethnicity = ethnicity.randomEthnicity();
+    }
+
+    public String[] getRandomName() {
+        return new NameGenerator(this).getRandomName();
     }
 
     public int getAge() {
