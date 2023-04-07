@@ -1,8 +1,6 @@
 package com.example.javagoat.back;
 
 
-import java.io.IOException;
-
 public class Launcher {
 
     public ModelMatch modelM;
@@ -12,7 +10,7 @@ public class Launcher {
     }
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Launcher launcher = new Launcher(new ModelMatch());
 
         System.out.println(launcher.modelM.getModelP().getProfileHashMap().get(10).getPreferences());

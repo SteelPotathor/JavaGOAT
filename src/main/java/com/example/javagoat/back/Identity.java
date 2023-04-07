@@ -23,8 +23,8 @@ public class Identity extends Biology implements Serializable {
     // Random Identity
     public Identity() {
         super();
-        this.lastname = "kebab";
-        this.firstname = "italien";
+        this.lastname = getRandomName()[1];
+        this.firstname = getRandomName()[0];
         currentMembers ++;
         this.noId = currentMembers;
     }

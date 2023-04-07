@@ -19,15 +19,18 @@ public class NameGenerator {
         }
     }
 
-    public String[] getRandomName() throws IOException {
+    public String[] getRandomName() {
 
-        RandomAccessFile raf = new RandomAccessFile(this.file, "r");
-        Random rand = new Random();
+        try {
+            RandomAccessFile raf = new RandomAccessFile(this.file, "r");
+            Random rand = new Random();
 
-        raf.seek(rand.nextInt(1000));
-        raf.readLine();
-        String[] res = raf.readLine().split(",");
-        return res;
+            raf.seek(rand.nextInt(1000));
+            raf.readLine();
+            return raf.readLine().split(",");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 

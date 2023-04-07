@@ -7,5 +7,6 @@ module com.example.javagoat {
     opens com.example.javagoat to javafx.fxml;
     exports com.example.javagoat.back;
     exports com.example.javagoat;
+    exports com.example.javagoat.back.names;
 
 }
