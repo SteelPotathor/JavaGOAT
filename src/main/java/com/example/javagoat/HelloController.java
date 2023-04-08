@@ -7,6 +7,7 @@ import javafx.scene.layout.Pane;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -17,9 +18,8 @@ public class HelloController {
     private Pane panel;
 
     @FXML
-    protected void onMouseClicked() {
+    protected void dashboardclick() {
         System.out.println("Hello World!");
-        System.out.println(panel);
     }
 
 }

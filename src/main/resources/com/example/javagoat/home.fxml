@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="1574.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#dashboardclick" prefHeight="699.0" prefWidth="1426.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.HelloController">
    <children>
       <Pane prefHeight="699.0" prefWidth="228.0" style="-fx-background-color: linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%);" stylesheets="@style.css">
          <children>
             <VBox layoutY="169.0" prefHeight="516.0" prefWidth="228.0">
                <children>
-                  <Pane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onMouseClicked" prefHeight="69.0" prefWidth="228.0">
+                  <Pane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -71,5 +75,86 @@
                </image>
             </ImageView>
          </children></Pane>
+      <HBox layoutX="241.0" layoutY="27.0" prefHeight="100.0" prefWidth="837.0">
+         <children>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to right, #ffd89b, #19547b);">
+               <children>
+                  <ImageView fitHeight="87.0" fitWidth="98.0" layoutX="167.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fill="WHITE" layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of people">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="63.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5,120">
+                     <font>
+                        <Font name="Arial Bold" size="22.0" />
+                     </font>
+                  </Text>
+                  <ProgressBar layoutX="14.0" layoutY="111.0" prefHeight="20.0" prefWidth="153.0" progress="0.46" />
+               </children>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to right, #ffd89b, #19547b);">
+               <children>
+                  <ImageView fitHeight="87.0" fitWidth="98.0" layoutX="167.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fill="WHITE" layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="63.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5,120">
+                     <font>
+                        <Font name="Arial Bold" size="22.0" />
+                     </font>
+                  </Text>
+                  <ProgressBar layoutX="14.0" layoutY="111.0" prefHeight="20.0" prefWidth="153.0" progress="0.46">
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                  </ProgressBar>
+               </children>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to right, #ffd89b, #19547b);">
+               <children>
+                  <ImageView fitHeight="87.0" fitWidth="98.0" layoutX="167.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fill="WHITE" layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of people">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="63.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5,120">
+                     <font>
+                        <Font name="Arial Bold" size="22.0" />
+                     </font>
+                  </Text>
+                  <ProgressBar layoutX="14.0" layoutY="111.0" prefHeight="20.0" prefWidth="153.0" progress="0.46" />
+               </children>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to right, #ffd89b, #19547b);">
+               <children>
+                  <ImageView fitHeight="87.0" fitWidth="98.0" layoutX="167.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fill="WHITE" layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of people">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="63.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5,120">
+                     <font>
+                        <Font name="Arial Bold" size="22.0" />
+                     </font>
+                  </Text>
+                  <ProgressBar layoutX="14.0" layoutY="111.0" prefHeight="20.0" prefWidth="153.0" progress="0.46" />
+               </children>
+            </Pane>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
