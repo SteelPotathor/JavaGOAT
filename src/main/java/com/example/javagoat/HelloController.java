@@ -3,9 +3,11 @@ package com.example.javagoat;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
 
 import javax.swing.*;
+import javax.swing.text.html.ImageView;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.net.URL;
@@ -16,6 +18,8 @@ public class HelloController {
     private Label welcomeText;
     @FXML
     private Pane panel;
+    @FXML
+    private TableView<String> table;
 
     @FXML
     protected void dashboardclick() {
