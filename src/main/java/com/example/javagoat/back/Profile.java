@@ -9,7 +9,7 @@ public class Profile implements Serializable {
     public PhysicalAttributes physicalAttributes;
     public LifeStyle lifeStyle;
     public Preferences preferences;
-    public Passion passion;
+
 
     public Vecteur vectProfile;
     public Vecteur vectPreferences;
@@ -21,30 +21,42 @@ public class Profile implements Serializable {
         this.physicalAttributes = physicalAttributes;
         this.lifeStyle = lifeStyle;
         this.preferences = preferences;
-        this.passion = passion;
+
         // DONT REPEAT YOURSELF (DRY)
         if (this.identity.getBsex() == Biology.sex.MALE) {
             this.physicalAttributes.setSize(this.physicalAttributes.getSize() + 15);
         }
 
-        this.vectProfile = new Vecteur(this);
-        this.vectPreferences = new Vecteur(this.getPreferences());
+        this.vectProfile = new Vecteur();
+        this.vectPreferences = new Vecteur();
+        this.vectProfile.setProfileVecteur(this);
+        this.vectPreferences.setPrefVecteur(this.getPreferences());
     }
 
     // Random Profile
-    public Profile() {
-        this.identity = new Identity();
+    public Profile() {}
+
+    public void setRandomProfile() {
         this.physicalAttributes = new PhysicalAttributes();
+        this.physicalAttributes.setRandomPhysicalAttributes();
+
+        this.identity = new Identity();
+        this.identity.setRandomIdentity();
+
         this.lifeStyle = new LifeStyle();
+        this.lifeStyle.setRandomLifeStyle();
+
         this.preferences = new Preferences();
-        this.passion = new Passion();
-        // DONT REPEAT YOURSELF (DRY)
+        this.preferences.setRandomPreferences();
+
         if (this.identity.getBsex() == Biology.sex.MALE) {
             this.physicalAttributes.setSize(this.physicalAttributes.getSize() + 15);
         }
 
-        this.vectProfile = new Vecteur(this);
-        this.vectPreferences = new Vecteur(this.getPreferences());
+        this.vectProfile = new Vecteur();
+        this.vectPreferences = new Vecteur();
+        this.vectProfile.setProfileVecteur(this);
+        this.vectPreferences.setPrefVecteur(this.getPreferences());
     }
 
     public float getDistance(Profile profile) {
@@ -83,13 +95,6 @@ public class Profile implements Serializable {
         this.preferences = preferences;
     }
 
-    public Passion getPassion() {
-        return passion;
-    }
-
-    public void setPassion(Passion passion) {
-        this.passion = passion;
-    }
 
     public Vecteur getVectProfile() {
         return vectProfile;

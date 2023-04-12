@@ -60,11 +60,13 @@ public class PhysicalAttributes implements Serializable {
     }
 
     // Random PhysicalAttributes
-    public PhysicalAttributes() {
-        this.size = random.nextInt(30) + 150;
-        this.PAhairColor = hairColor.randomHColor();
-        this.PAhairType = hairType.randomHType();
-        this.PAhairLength = hairLength.randomHLength();
+    public PhysicalAttributes() {}
+
+    public void setRandomPhysicalAttributes() {
+        setSize(random.nextInt(30) + 150);
+        setHairColor(hairColor.randomHColor());
+        setHairType(hairType.randomHType());
+        setHairLength(hairLength.randomHLength());
     }
 
     public int getSize() {

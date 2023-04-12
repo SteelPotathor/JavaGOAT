@@ -8,11 +8,12 @@ import java.util.Random;
 
 public class LifeStyle implements Serializable {
 
-    public smoker LSsmoker;
-    public athlete LSathlete;
-    public feed LSfeed;
-    public bodyBuild LSbodyBuild;
-    public religion LSreligion;
+    private smoker LSsmoker;
+    private athlete LSathlete;
+    private feed LSfeed;
+    private bodyBuild LSbodyBuild;
+    private religion LSreligion;
+    private alcohol LSalcohol;
 
     private static final Random random = new Random();
 
@@ -27,6 +28,21 @@ public class LifeStyle implements Serializable {
         private static final int SIZE = VALUES.size();
 
         public static smoker randomLSsmoker() {
+            return VALUES.get(random.nextInt(SIZE));
+        }
+
+    }
+
+    public enum alcohol {
+        NEVER,
+        OCCASIONNALY,
+        REGULARLY,
+        DAILY;
+
+        private static final List<alcohol> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
+        private static final int SIZE = VALUES.size();
+
+        public static alcohol randomLSalcohol() {
             return VALUES.get(random.nextInt(SIZE));
         }
 
@@ -93,21 +109,25 @@ public class LifeStyle implements Serializable {
     }
 
     // Customised LifeStyle
-    public LifeStyle(smoker LSsmoker, athlete LSathlete, feed LSfeed, bodyBuild LSbodyBuild, religion LSreligion) {
+    public LifeStyle(smoker LSsmoker, athlete LSathlete, feed LSfeed, bodyBuild LSbodyBuild, religion LSreligion, alcohol LSalcohol) {
         this.LSsmoker = LSsmoker;
         this.LSathlete = LSathlete;
         this.LSfeed = LSfeed;
         this.LSbodyBuild = LSbodyBuild;
         this.LSreligion = LSreligion;
+        this.LSalcohol = LSalcohol;
     }
 
     // Random LifeStyle
-    public LifeStyle() {
-        this.LSsmoker = smoker.randomLSsmoker();
-        this.LSathlete = athlete.randomLSathlete();
-        this.LSfeed = feed.randomLSfeed();
-        this.LSbodyBuild = bodyBuild.randomLSbodyBuild();
-        this.LSreligion = religion.randomLSreligion();
+    public LifeStyle() {}
+
+    public void setRandomLifeStyle() {
+        setLSsmoker(smoker.randomLSsmoker());
+        setLSathlete(athlete.randomLSathlete());
+        setLSfeed(feed.randomLSfeed());
+        setLSbodyBuild(bodyBuild.randomLSbodyBuild());
+        setLSreligion(religion.randomLSreligion());
+        setLSalcohol(alcohol.randomLSalcohol());
     }
 
     public smoker getLSsmoker() {
@@ -148,6 +168,14 @@ public class LifeStyle implements Serializable {
 
     public void setLSreligion(religion LSreligion) {
         this.LSreligion = LSreligion;
+    }
+
+    public alcohol getLSalcohol() {
+        return LSalcohol;
+    }
+
+    public void setLSalcohol(alcohol LSalcohol) {
+        this.LSalcohol = LSalcohol;
     }
 
     public String toString() {

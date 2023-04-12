@@ -15,9 +15,13 @@ public class Vecteur implements Serializable {
     public float xBodyBuild;
     public float xEthnicity;
     public float xSex;
+    public float xAlcohol;
 
 
-    public Vecteur(Profile profile) {
+    public Vecteur() {
+    }
+
+    public void setProfileVecteur(Profile profile) {
         this.xSize = (float) profile.getPhysicalAttributes().getSize() / (float) 195;
         this.xAge = (float) profile.getIdentity().getAge() / (float) 100;
         this.xHairColor = getHairColorCoord(profile.getPhysicalAttributes().getHairColor());
@@ -29,9 +33,10 @@ public class Vecteur implements Serializable {
         this.xBodyBuild = getBodyBuildCoord(profile.getLifeStyle().getLSbodyBuild());
         this.xEthnicity = getEthnicityCoord(profile.getIdentity().getBethnicity());
         this.xSex = getSexCoord(profile.getIdentity().getBsex());
+        this.xAlcohol = getAlcoholCoord(profile.getLifeStyle().getLSalcohol());
     }
 
-    public Vecteur(Preferences preferences) {
+    public void setPrefVecteur(Preferences preferences) {
         this.xSize = (float) preferences.getPhysicalAttributes().getSize() / (float) 195;
         this.xAge = (float) preferences.getBiology().getAge() / (float) 100;
         this.xHairColor = getHairColorCoord(preferences.getPhysicalAttributes().getHairColor());
@@ -43,6 +48,7 @@ public class Vecteur implements Serializable {
         this.xBodyBuild = getBodyBuildCoord(preferences.getLifestyle().getLSbodyBuild());
         this.xEthnicity = getEthnicityCoord(preferences.getBiology().getBethnicity());
         this.xSex = getSexCoord(preferences.getBiology().getBsex());
+        this.xAlcohol = getAlcoholCoord(preferences.getLifestyle().getLSalcohol());
     }
 
     public float getHairColorCoord(PhysicalAttributes.hairColor hairColor) {
@@ -201,6 +207,25 @@ public class Vecteur implements Serializable {
         }
     }
 
+    public float getAlcoholCoord(LifeStyle.alcohol alcohol) {
+        switch (alcohol) {
+            case NEVER -> {
+                return (float) 0.25;
+            }
+            case OCCASIONNALY -> {
+                return (float) 0.5;
+            }
+            case REGULARLY -> {
+                return (float) 0.75;
+            }
+            case DAILY -> {
+                return (float) 1;
+            }
+            default -> {
+                return (float) 0;
+            }
+        }
+    }
 
     public float getxSize() {
         return xSize;
@@ -290,4 +315,11 @@ public class Vecteur implements Serializable {
         this.xSex = xSex;
     }
 
+    public float getxAlcohol() {
+        return xAlcohol;
+    }
+
+    public void setxAlcohol(float xAlcohol) {
+        this.xAlcohol = xAlcohol;
+    }
 }

@@ -20,11 +20,15 @@ public class Preferences implements Serializable {
     }
 
     // Random Preferences
-    public Preferences() {
-        this.physicalAttributes = new PhysicalAttributes();
-        this.biology = new Biology();
-        this.lifestyle = new LifeStyle();
+    public Preferences() {}
 
+    public void setRandomPreferences() {
+        this.physicalAttributes = new PhysicalAttributes();
+        this.physicalAttributes.setRandomPhysicalAttributes();
+        this.biology = new Biology();
+        this.biology.setRandomBiology();
+        this.lifestyle = new LifeStyle();
+        this.lifestyle.setRandomLifeStyle();
         if (this.biology.getBsex() == Biology.sex.MALE) {
             this.physicalAttributes.setSize(this.physicalAttributes.getSize() + 15);
         }
