@@ -17,7 +17,7 @@
          <children>
             <VBox layoutY="169.0" prefHeight="516.0" prefWidth="228.0">
                <children>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="228.0">
+                  <Pane fx:id="dashboard_page" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_dashboard" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -27,7 +27,7 @@
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" />
                      </children>
                   </Pane>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="228.0">
+                  <Pane fx:id="profile_page" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_profile" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -100,7 +100,7 @@
          <graphic>
             <ImageView fitHeight="36.0" fitWidth="47.0">
                <image>
-                  <Image url="@../../../../../../../../../Downloads/loupe.png" />
+                  <Image url="@loupe.png" />
                </image>
             </ImageView>
          </graphic>
