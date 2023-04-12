@@ -19,8 +19,6 @@ public class HelloApplication extends Application {
         stage.setTitle("Hello!");
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
-
-
         stage.show();
     }
 

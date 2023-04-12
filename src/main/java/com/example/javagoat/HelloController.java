@@ -17,10 +17,15 @@ public class HelloController {
     @FXML
     private Label welcomeText;
     @FXML
+    private ImageView cross_exit;
+    @FXML
     private Pane panel;
     @FXML
     private TableView<String> table;
-
+    @FXML
+    void exit_script() {
+        System.exit(0);
+    }
     @FXML
     protected void dashboardclick() {
         System.out.println("Hello World!");
