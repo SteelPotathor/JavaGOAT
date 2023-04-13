@@ -9,6 +9,7 @@ public class Passion {
 
     private static final Random random = new Random();
 
+
     public enum video_games {
         LEAGUE_OF_LEGENDS,
         VALORANT,
@@ -116,7 +117,9 @@ public class Passion {
     }
 
     // Random Passion
-    public Passion() {
+    public Passion() {}
+
+    public void setRandomPassion() {
         while (this.passionVG.size() < random.nextInt(6)) {
             this.passionVG.add(video_games.randomVideoGame());
         }

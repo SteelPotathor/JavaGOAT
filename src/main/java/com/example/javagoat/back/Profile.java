@@ -9,7 +9,7 @@ public class Profile implements Serializable {
     public PhysicalAttributes physicalAttributes;
     public LifeStyle lifeStyle;
     public Preferences preferences;
-
+    public Passion passion;
 
     public Vecteur vectProfile;
     public Vecteur vectPreferences;
@@ -21,7 +21,7 @@ public class Profile implements Serializable {
         this.physicalAttributes = physicalAttributes;
         this.lifeStyle = lifeStyle;
         this.preferences = preferences;
-
+        this.passion = passion;
         // DONT REPEAT YOURSELF (DRY)
         if (this.identity.getBsex() == Biology.sex.MALE) {
             this.physicalAttributes.setSize(this.physicalAttributes.getSize() + 15);
@@ -52,6 +52,9 @@ public class Profile implements Serializable {
         if (this.identity.getBsex() == Biology.sex.MALE) {
             this.physicalAttributes.setSize(this.physicalAttributes.getSize() + 15);
         }
+
+        this.passion = new Passion();
+        this.passion.setRandomPassion();
 
         this.vectProfile = new Vecteur();
         this.vectPreferences = new Vecteur();
