@@ -65,6 +65,7 @@ public class Biology implements Serializable {
         double randomNumber2 = random.nextFloat(0, 1);
 
         int numberSimulated = (int) (Math.sqrt(-2 * Math.log(randomNumber)) * Math.cos(2 * Math.PI * randomNumber2));
+
         return numberSimulated;
     }
 
@@ -110,7 +111,7 @@ public class Biology implements Serializable {
     }
 
     public String toString() {
-        return "Biology : {" + getBsex() + ", " + getAge() + ", " + getBethnicity() + "}";
+        return "Biology : {" + getBsex() + ", " + getAge() + ", " + getBethnicity() + ", " + getQi() + "}";
     }
 
 }

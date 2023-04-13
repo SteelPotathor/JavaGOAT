@@ -13,7 +13,14 @@ public class Launcher {
     public static void main(String[] args) {
         Launcher launcher = new Launcher(new ModelMatch());
 
+        for (int i = 0; i < 5000; i++) {
+            Profile p = new Profile();
+            p.setRandomProfile();
+            launcher.modelM.addProfile(p);
+        }
+
         System.out.println(launcher.modelM.getModelP().getProfileHashMap().get(1).getPreferences());
+        System.out.println(launcher.modelM.getKNN(1,10));
 
     }
 

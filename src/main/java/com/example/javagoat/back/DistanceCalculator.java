@@ -20,6 +20,7 @@ public class DistanceCalculator {
         put("Sex", 200);
         put("Religion", 1);
         put("Alcohol", 10);
+        put("IQ", 10);
     }};
 
     public DistanceCalculator(Profile profile) {
@@ -27,6 +28,8 @@ public class DistanceCalculator {
     }
 
     public float getDistance(Profile profile) {
+        float IQdistance = Math.abs(profile.vectProfile.getxIQ() - this.profile.vectPreferences.getxIQ());
+
         float distance = Math.abs(profile.vectProfile.getxSize() - this.profile.vectPreferences.getxSize()) * attributesWeights.get("Size")
                 + Math.abs(profile.vectProfile.getxAge() - this.profile.vectPreferences.getxAge()) * attributesWeights.get("Age")
                 + Math.abs(profile.vectProfile.getxHairColor() - this.profile.vectPreferences.getxHairColor()) * attributesWeights.get("HairColor")
@@ -42,6 +45,10 @@ public class DistanceCalculator {
 
         if (profile.getLifeStyle().getLSreligion() != this.profile.getPreferences().getLifestyle().getLSreligion()) {
             distance += attributesWeights.get("Religion");
+        }
+
+        if (IQdistance > 30) {
+            distance += IQdistance * attributesWeights.get("IQ");
         }
 
         return distance;

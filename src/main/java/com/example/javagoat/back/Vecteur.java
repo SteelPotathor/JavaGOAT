@@ -16,6 +16,7 @@ public class Vecteur implements Serializable {
     public float xEthnicity;
     public float xSex;
     public float xAlcohol;
+    public float xIQ;
 
 
     public Vecteur() {
@@ -34,6 +35,7 @@ public class Vecteur implements Serializable {
         this.xEthnicity = getEthnicityCoord(profile.getIdentity().getBethnicity());
         this.xSex = getSexCoord(profile.getIdentity().getBsex());
         this.xAlcohol = getAlcoholCoord(profile.getLifeStyle().getLSalcohol());
+        this.xIQ = (float) profile.getIdentity().getQi() / (float) 150;
     }
 
     public void setPrefVecteur(Preferences preferences) {
@@ -49,6 +51,7 @@ public class Vecteur implements Serializable {
         this.xEthnicity = getEthnicityCoord(preferences.getBiology().getBethnicity());
         this.xSex = getSexCoord(preferences.getBiology().getBsex());
         this.xAlcohol = getAlcoholCoord(preferences.getLifestyle().getLSalcohol());
+        this.xIQ = (float) preferences.getBiology().getQi() / (float) 150;
     }
 
     public float getHairColorCoord(PhysicalAttributes.hairColor hairColor) {
@@ -321,5 +324,13 @@ public class Vecteur implements Serializable {
 
     public void setxAlcohol(float xAlcohol) {
         this.xAlcohol = xAlcohol;
+    }
+
+    public float getxIQ() {
+        return xIQ;
+    }
+
+    public void setxIQ(float xIQ) {
+        this.xIQ = xIQ;
     }
 }
