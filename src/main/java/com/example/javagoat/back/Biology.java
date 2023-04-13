@@ -56,7 +56,21 @@ public class Biology implements Serializable {
         setAge(random.nextInt(40) + 20);
         setBsex(sex.randomSex());
         setBethnicity(ethnicity.randomEthnicity());
-        setQi(random.nextInt());
+        setQi(gauss_law_simulation(100, 15));
+    }
+
+    public int gauss_law_simulation_classic() {
+        Random random = new Random();
+        double randomNumber = random.nextFloat(0, 1);
+        double randomNumber2 = random.nextFloat(0, 1);
+
+        int numberSimulated = (int) (Math.sqrt(-2 * Math.log(randomNumber)) * Math.cos(2 * Math.PI * randomNumber2));
+        return numberSimulated;
+    }
+
+    public int gauss_law_simulation(int average, int standard_deviation) {
+        int number = gauss_law_simulation_classic();
+        return average + standard_deviation * number;
     }
 
     public String[] getRandomName() {

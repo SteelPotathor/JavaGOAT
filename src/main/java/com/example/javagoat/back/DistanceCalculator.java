@@ -19,6 +19,7 @@ public class DistanceCalculator {
         put("Ethnicity", 8);
         put("Sex", 200);
         put("Religion", 1);
+        put("Alcohol", 10);
     }};
 
     public DistanceCalculator(Profile profile) {
@@ -28,7 +29,7 @@ public class DistanceCalculator {
     public float getDistance(Profile profile) {
         float distance = Math.abs(profile.vectProfile.getxSize() - this.profile.vectPreferences.getxSize()) * attributesWeights.get("Size")
                 + Math.abs(profile.vectProfile.getxAge() - this.profile.vectPreferences.getxAge()) * attributesWeights.get("Age")
-                + Math.abs(profile.vectProfile.getxHairColor() - this.profile.vectPreferences.getxHairColor())  * attributesWeights.get("HairColor")
+                + Math.abs(profile.vectProfile.getxHairColor() - this.profile.vectPreferences.getxHairColor()) * attributesWeights.get("HairColor")
                 + Math.abs(profile.vectProfile.getxHairLenght() - this.profile.vectPreferences.getxHairLenght()) * attributesWeights.get("HairLength")
                 + Math.abs(profile.vectProfile.getxHairType() - this.profile.vectPreferences.getxHairType()) * attributesWeights.get("HairType")
                 + Math.abs(profile.vectProfile.getxSmoker() - this.profile.vectPreferences.getxSmoker()) * attributesWeights.get("Smoker")
@@ -36,7 +37,8 @@ public class DistanceCalculator {
                 + Math.abs(profile.vectProfile.getxFeed() - this.profile.vectPreferences.getxFeed()) * attributesWeights.get("Feed")
                 + Math.abs(profile.vectProfile.getxBodyBuild() - this.profile.vectPreferences.getxBodyBuild()) * attributesWeights.get("BodyBuild")
                 + Math.abs(profile.vectProfile.getxEthnicity() - this.profile.vectPreferences.getxEthnicity()) * attributesWeights.get("Ethnicity")
-                + Math.abs(profile.vectProfile.getxSex() - this.profile.vectPreferences.getxSex()) * attributesWeights.get("Sex");
+                + Math.abs(profile.vectProfile.getxSex() - this.profile.vectPreferences.getxSex()) * attributesWeights.get("Sex")
+                + Math.abs(profile.vectProfile.getxAlcohol() - this.profile.vectPreferences.getxAlcohol()) * attributesWeights.get("Alcohol");
 
         if (profile.getLifeStyle().getLSreligion() != this.profile.getPreferences().getLifestyle().getLSreligion()) {
             distance += attributesWeights.get("Religion");
