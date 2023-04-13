@@ -13,13 +13,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"  prefHeight="699.0" prefWidth="1426.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="1426.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.HelloController">
    <children>
       <Pane prefHeight="699.0" prefWidth="228.0" style="-fx-background-color: linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%);" stylesheets="@style.css">
          <children>
             <VBox layoutY="169.0" prefHeight="516.0" prefWidth="228.0">
                <children>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="228.0">
+                  <Pane fx:id="dashboard_page1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_dashboard" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -29,7 +29,7 @@
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" />
                      </children>
                   </Pane>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="228.0">
+                  <Pane fx:id="profile_page" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_profile" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -76,7 +76,8 @@
                   <Image url="@logo.png" />
                </image>
             </ImageView>
-         </children></Pane>
+         </children>
+      </Pane>
       <HBox layoutX="241.0" layoutY="54.0" prefHeight="100.0" prefWidth="837.0">
          <children>
             <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to right, #ffd89b, #19547b);">
@@ -158,8 +159,9 @@
             </Pane>
          </children>
       </HBox>
-      <TableView id="tablecell" layoutX="241.0" layoutY="225.0" prefHeight="460.0" prefWidth="843.0">
+      <TableView id="tablecell" layoutX="241.0" layoutY="225.0" onMouseClicked="#change_scene_to_page_profile" prefHeight="460.0" prefWidth="843.0">
         <columns>
+            <TableColumn prefWidth="100.0" text="Priority" />
           <TableColumn prefWidth="100.0" text="Avatar" />
           <TableColumn prefWidth="100.0" text="First Name" />
             <TableColumn prefWidth="100.0" text="Last Name" />
@@ -171,5 +173,10 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
+      <ImageView layoutX="1365.0" onMouseClicked="#exit_script">
+         <image>
+            <Image url="@icons8-cross-50.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
