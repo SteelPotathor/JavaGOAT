@@ -38,18 +38,18 @@ public class ModelMatch implements Serializable {
     }
 
     public void addProfile(Profile p) {
-        // Add in every TreeSets the new distance between the profile 'p' and every other profiles contained in this TreeMap
+        // Add in every TreeSets the new distance between the profile 'p' and every other profiles contained in this HashMap
         for (int idProfile : this.stockDistance.keySet()) {
             TreeSet<Tuple> treeSetProfile = this.stockDistance.get(idProfile);
             Profile profile = this.modelP.profileHashMap.get(idProfile);
             treeSetProfile.add(new Tuple(p.identity.getNoId(), profile, p));
         }
 
-        // Create a TreeMap for the profile 'p'
+        // Create a TreeSet for the profile 'p'
         this.stockDistance.put(p.identity.getNoId(), new TreeSet<>());
         TreeSet<Tuple> treeSetP = this.stockDistance.get(p.identity.getNoId());
 
-        // Add in the new TreeMap every distance with other profiles
+        // Add in the new TreeSet every distance with other profiles
         for (int idProfile : this.modelP.profileHashMap.keySet()) {
             Profile profile = this.modelP.profileHashMap.get(idProfile);
             treeSetP.add(new Tuple(idProfile, p, profile));
@@ -57,6 +57,31 @@ public class ModelMatch implements Serializable {
 
         // Add the profile 'p' in the hashMap
         this.modelP.profileHashMap.put(p.identity.getNoId(), p);
+    }
+
+    public void editProfile(Profile p) {
+        // Get the old profile before updating it
+        Profile oldProfile = this.modelP.profileHashMap.get(p.getIdentity().getNoId());
+
+        // Set in every TreeSets the new distance between the profile 'p' and every other profiles contained in this HashMap
+        for (int idProfile : this.stockDistance.keySet()) {
+            TreeSet<Tuple> treeSetProfile = this.stockDistance.get(idProfile);
+            Profile profile = this.modelP.profileHashMap.get(idProfile);
+            treeSetProfile.remove(new Tuple(p.identity.getNoId(), profile, oldProfile));
+            treeSetProfile.add(new Tuple(p.identity.getNoId(), profile, p));
+        }
+
+        // Clear the TreeSet for the profile 'p'
+        this.stockDistance.get(p.identity.getNoId()).clear();
+        TreeSet<Tuple> treeSetP = this.stockDistance.get(p.identity.getNoId());
+
+        // Add in the new TreeSet every distance with other profiles
+        for (int idProfile : this.modelP.profileHashMap.keySet()) {
+            Profile profile = this.modelP.profileHashMap.get(idProfile);
+            treeSetP.add(new Tuple(idProfile, p, profile));
+        }
+
+        this.modelP.profileHashMap.replace(p.getIdentity().getNoId(), p);
     }
 
     public ArrayList<Profile> getKNN(int noProfile, int howMany) {
@@ -69,7 +94,7 @@ public class ModelMatch implements Serializable {
         ArrayList<Profile> KNNProfiles = new ArrayList<>();
         Iterator<Tuple> itr = treeSetD.iterator();
 
-        while (i < 5 && itr.hasNext()) {
+        while (i < howMany && itr.hasNext()) {
             KNNProfiles.add(this.modelP.profileHashMap.get(itr.next().id));
             i++;
         }

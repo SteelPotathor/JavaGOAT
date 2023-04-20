@@ -1,6 +1,8 @@
 package com.example.javagoat.back;
 
-public class Tuple implements Comparable {
+import java.io.Serializable;
+
+public class Tuple implements Comparable, Serializable {
 
     public int id;
     public float distance;
@@ -8,6 +10,10 @@ public class Tuple implements Comparable {
     public Tuple(int id, Profile p1, Profile p2) {
         this.id = id;
         this.distance = p1.getDistance(p2);
+    }
+
+    public Tuple() {
+
     }
 
 
@@ -25,4 +31,19 @@ public class Tuple implements Comparable {
         return (int) (this.distance - tuple.distance);
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public float getDistance() {
+        return distance;
+    }
+
+    public void setDistance(float distance) {
+        this.distance = distance;
+    }
 }
