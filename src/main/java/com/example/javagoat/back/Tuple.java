@@ -19,12 +19,10 @@ public class Tuple implements Comparable, Serializable {
 
     @Override
     public String toString() {
-        return "{id=" + id +
-                ", distance='" + distance + '\'' +
-                '}';
+        return "id=" + id + ", distance=" + distance;
     }
 
-    // necessaire pour faire en sorte que le treeset soit ok
+    // Useful for the TreeSet where this class will be used
     @Override
     public int compareTo(Object o) {
         Tuple tuple = (Tuple) o;
