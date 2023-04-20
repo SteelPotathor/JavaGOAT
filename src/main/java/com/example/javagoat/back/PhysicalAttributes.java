@@ -51,7 +51,7 @@ public class PhysicalAttributes implements Serializable {
 
     }
 
-    // Customised PhysicalAttributes
+    // Customised PhysicalAttributes -> Add Profile
     public PhysicalAttributes(int size, hairColor hColor, hairType hType, hairLength hLength) {
         this.size = size;
         this.PAhairColor = hColor;

@@ -15,7 +15,7 @@ public class Profile implements Serializable {
     public Vecteur vectPreferences;
 
 
-    // Customised Profile
+    // Customised Profile -> Add Profile
     public Profile(Identity identity, PhysicalAttributes physicalAttributes, LifeStyle lifeStyle, Preferences preferences, Passion passion) {
         this.identity = identity;
         this.physicalAttributes = physicalAttributes;

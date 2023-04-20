@@ -108,7 +108,7 @@ public class LifeStyle implements Serializable {
         }
     }
 
-    // Customised LifeStyle
+    // Customised LifeStyle -> Add Profile
     public LifeStyle(smoker LSsmoker, athlete LSathlete, feed LSfeed, bodyBuild LSbodyBuild, religion LSreligion, alcohol LSalcohol) {
         this.LSsmoker = LSsmoker;
         this.LSathlete = LSathlete;

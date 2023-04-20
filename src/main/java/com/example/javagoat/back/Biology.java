@@ -41,7 +41,7 @@ public class Biology implements Serializable {
 
     }
 
-    // Customised Biology
+    // Customised Biology -> Add Profile
     public Biology(int age, sex Bsex, ethnicity Bethnicity, int qi) {
         this.age = age;
         this.Bsex = Bsex;
@@ -64,9 +64,7 @@ public class Biology implements Serializable {
         double randomNumber = random.nextFloat(0, 1);
         double randomNumber2 = random.nextFloat(0, 1);
 
-        int numberSimulated = (int) (Math.sqrt(-2 * Math.log(randomNumber)) * Math.cos(2 * Math.PI * randomNumber2));
-
-        return numberSimulated;
+        return (int) (Math.sqrt(-2 * Math.log(randomNumber)) * Math.cos(2 * Math.PI * randomNumber2));
     }
 
     public int gauss_law_simulation(int average, int standard_deviation) {

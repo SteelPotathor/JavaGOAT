@@ -110,7 +110,7 @@ public class Passion {
         }
     }
 
-    // Customised Passion
+    // Customised Passion -> Add Profile
     public Passion(HashSet<video_games> pVG, HashSet<miscellaneous> pM) {
         this.passionVG = pVG;
         this.passionM = pM;
