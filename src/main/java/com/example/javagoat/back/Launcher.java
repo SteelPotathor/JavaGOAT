@@ -14,6 +14,7 @@ public class Launcher {
         Launcher launcher = new Launcher(new ModelMatch());
 
         for (int i = 0; i < 5000; i++) {
+            System.out.println(i);
             Profile p = new Profile();
             p.setRandomProfile();
             launcher.modelM.addProfile(p);

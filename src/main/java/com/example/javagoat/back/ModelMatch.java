@@ -7,7 +7,7 @@ import java.util.*;
 
 public class ModelMatch implements Serializable {
 
-    public HashMap<Integer /*id*/, TreeMap<Float /*distance*/, Integer /*id*/>> stockDistance;
+    public HashMap<Integer /*id*/, TreeSet<Tuple>> stockDistance;
     public ModelProfile modelP;
 
     String DistancePath = "src\\main\\java\\com\\example\\javagoat\\back\\Distances.xml";
@@ -27,7 +27,7 @@ public class ModelMatch implements Serializable {
             fis = new FileInputStream(this.DistancePath);
             ois = new BufferedInputStream(fis);
             decoder = new XMLDecoder(ois);
-            this.stockDistance = (HashMap<Integer, TreeMap<Float, Integer>>) decoder.readObject();
+            this.stockDistance = (HashMap<Integer, TreeSet<Tuple>>) decoder.readObject();
 
         } catch (Exception e) {
             this.modelP = new ModelProfile();
@@ -38,23 +38,21 @@ public class ModelMatch implements Serializable {
     }
 
     public void addProfile(Profile p) {
-        // Add in every TreeMaps the new distance between the profile 'p' and every other profiles contained in this TreeMap
+        // Add in every TreeSets the new distance between the profile 'p' and every other profiles contained in this TreeMap
         for (int idProfile : this.stockDistance.keySet()) {
-            TreeMap<Float, Integer> treeMapProfile = this.stockDistance.get(idProfile);
+            TreeSet<Tuple> treeSetProfile = this.stockDistance.get(idProfile);
             Profile profile = this.modelP.profileHashMap.get(idProfile);
-            float distanceP = profile.getDistance(p);
-            treeMapProfile.put(distanceP, p.identity.getNoId());
+            treeSetProfile.add(new Tuple(p.identity.getNoId(), profile, p));
         }
 
         // Create a TreeMap for the profile 'p'
-        this.stockDistance.put(p.identity.getNoId(), new TreeMap<>());
-        TreeMap<Float, Integer> treeMapP = this.stockDistance.get(p.identity.getNoId());
+        this.stockDistance.put(p.identity.getNoId(), new TreeSet<>());
+        TreeSet<Tuple> treeSetP = this.stockDistance.get(p.identity.getNoId());
 
         // Add in the new TreeMap every distance with other profiles
         for (int idProfile : this.modelP.profileHashMap.keySet()) {
             Profile profile = this.modelP.profileHashMap.get(idProfile);
-            float distanceP = profile.getDistance(p);
-            treeMapP.put(distanceP, p.identity.getNoId());
+            treeSetP.add(new Tuple(idProfile, p, profile));
         }
 
         // Add the profile 'p' in the hashMap
@@ -63,19 +61,17 @@ public class ModelMatch implements Serializable {
 
     public ArrayList<Profile> getKNN(int noProfile, int howMany) {
         // Get the treemap of the profile 'noProfile'
-        TreeMap<Float, Integer> treeMapD = this.stockDistance.get(noProfile);
+        TreeSet<Tuple> treeSetD = this.stockDistance.get(noProfile);
 
         // Set an iterator to get 'howMany' first elements in the treemap (and an Arraylist to stock the results)
-        int n = 0;
-        ArrayList<Profile> KNNProfiles = new ArrayList<>();
-        Set<Map.Entry<Float, Integer>> entries = treeMapD.entrySet();
-        Iterator<Map.Entry<Float, Integer>> iterator = entries.iterator();
-
         // Obtains the nearest profiles in the ArrayList
-        while (n < howMany && iterator.hasNext()) {
-            int noId = iterator.next().getValue();
-            KNNProfiles.add(this.modelP.profileHashMap.get(noId));
-            n++;
+        int i = 0;
+        ArrayList<Profile> KNNProfiles = new ArrayList<>();
+        Iterator<Tuple> itr = treeSetD.iterator();
+
+        while (i < 5 && itr.hasNext()) {
+            KNNProfiles.add(this.modelP.profileHashMap.get(itr.next().id));
+            i++;
         }
 
         return KNNProfiles;
@@ -116,11 +112,11 @@ public class ModelMatch implements Serializable {
     }
 
 
-    public HashMap<Integer, TreeMap<Float, Integer>> getStockDistance() {
+    public HashMap<Integer, TreeSet<Tuple>> getStockDistance() {
         return stockDistance;
     }
 
-    public void setStockDistance(HashMap<Integer, TreeMap<Float, Integer>> stockDistance) {
+    public void setStockDistance(HashMap<Integer, TreeSet<Tuple>> stockDistance) {
         this.stockDistance = stockDistance;
     }
 
@@ -131,8 +127,6 @@ public class ModelMatch implements Serializable {
     public void setModelP(ModelProfile modelP) {
         this.modelP = modelP;
     }
-
-
 
 
 }
