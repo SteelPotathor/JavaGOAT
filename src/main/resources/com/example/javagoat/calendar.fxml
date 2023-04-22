@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.calendarfx.view.CalendarView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,9 +17,9 @@
                   <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_dashboard" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
+                           
                               <Image url="@lanalyse-des-donnees.png" />
-                           </image>
+                           
                         </ImageView>
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" />
                      </children>
@@ -26,9 +27,9 @@
                   <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_new_profile" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
+                           
                               <Image url="@profil.png" />
-                           </image>
+                           
                         </ImageView>
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New profile" />
                      </children>
@@ -36,9 +37,9 @@
                   <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_search" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
+                           
                               <Image url="@profil.png" />
-                           </image>
+                           
                         </ImageView>
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" />
                      </children>
@@ -46,9 +47,9 @@
                   <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_historic_match" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="38.0" fitWidth="39.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
+                           
                               <Image url="@menu.png" />
-                           </image>
+                           
                         </ImageView>
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Historic of match" />
                      </children>
@@ -56,9 +57,9 @@
                   <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_calendar" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
+                           
                               <Image url="@calendrier.png" />
-                           </image>
+                           
                         </ImageView>
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calendar" />
                      </children>
@@ -66,9 +67,9 @@
                   <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_events" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
+                           
                               <Image url="@retour-dinformation.png" />
-                           </image>
+                           
                         </ImageView>
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Events" />
                      </children>
@@ -76,16 +77,20 @@
                </children>
             </VBox>
             <ImageView fitHeight="176.0" fitWidth="192.0" layoutX="18.0" layoutY="14.0">
-               <image>
+               
                   <Image url="@logo.png" />
-               </image>
+               
             </ImageView>
          </children>
       </Pane>
       <ImageView layoutX="1365.0" onMouseClicked="#exit_script">
-         <image>
+         
             <Image url="@icons8-cross-50.png" />
-         </image>
+         
       </ImageView>
+      <CalendarView layoutX="234.0" layoutY="50.0" prefHeight="616.0" prefWidth="1178.0" />
    </children>
+   <!-- make a calendar -->
+
+
 </AnchorPane>
