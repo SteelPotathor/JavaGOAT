@@ -65,10 +65,12 @@ public class ModelMatch implements Serializable {
 
         // Set in every TreeSets the new distance between the profile 'p' and every other profiles contained in this HashMap
         for (int idProfile : this.stockDistance.keySet()) {
-            TreeSet<Tuple> treeSetProfile = this.stockDistance.get(idProfile);
-            Profile profile = this.modelP.profileHashMap.get(idProfile);
-            treeSetProfile.remove(new Tuple(p.identity.getNoId(), profile, oldProfile));
-            treeSetProfile.add(new Tuple(p.identity.getNoId(), profile, p));
+            if (idProfile != p.getIdentity().getNoId()) {
+                TreeSet<Tuple> treeSetProfile = this.stockDistance.get(idProfile);
+                Profile profile = this.modelP.profileHashMap.get(idProfile);
+                treeSetProfile.remove(new Tuple(p.identity.getNoId(), profile, oldProfile));
+                treeSetProfile.add(new Tuple(p.identity.getNoId(), profile, p));
+            }
         }
 
         // Clear the TreeSet for the profile 'p'
