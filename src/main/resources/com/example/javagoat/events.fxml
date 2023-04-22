@@ -7,13 +7,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="1426.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="1426.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.Events_Controller">
    <children>
       <Pane prefHeight="699.0" prefWidth="228.0" style="-fx-background-color: linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%);" stylesheets="@style.css">
          <children>
             <VBox layoutY="169.0" prefHeight="516.0" prefWidth="228.0">
                <children>
-                  <Pane fx:id="dashboard_page1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_dashboard" prefHeight="69.0" prefWidth="228.0">
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_dashboard" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -23,7 +23,7 @@
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" />
                      </children>
                   </Pane>
-                  <Pane fx:id="profile_page1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_profile" prefHeight="69.0" prefWidth="228.0">
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_new_profile" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -33,7 +33,7 @@
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New profile" />
                      </children>
                   </Pane>
-                  <Pane fx:id="profile_page" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_profile" prefHeight="69.0" prefWidth="228.0">
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_search" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -43,7 +43,7 @@
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" />
                      </children>
                   </Pane>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="228.0">
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_historic_match" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="38.0" fitWidth="39.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -53,7 +53,7 @@
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Historic of match" />
                      </children>
                   </Pane>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="228.0">
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_calendar" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -63,7 +63,7 @@
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calendar" />
                      </children>
                   </Pane>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="228.0">
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_events" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
