@@ -29,6 +29,16 @@
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" />
                      </children>
                   </Pane>
+                  <Pane fx:id="profile_page1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_profile" prefHeight="69.0" prefWidth="228.0">
+                     <children>
+                        <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@profil.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New profile" />
+                     </children>
+                  </Pane>
                   <Pane fx:id="profile_page" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_profile" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
@@ -36,7 +46,17 @@
                               <Image url="@profil.png" />
                            </image>
                         </ImageView>
-                        <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" />
+                        <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" />
+                     </children>
+                  </Pane>
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="228.0">
+                     <children>
+                        <ImageView fitHeight="38.0" fitWidth="39.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@menu.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Historic of match" />
                      </children>
                   </Pane>
                   <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="228.0">
@@ -56,17 +76,7 @@
                               <Image url="@retour-dinformation.png" />
                            </image>
                         </ImageView>
-                        <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Meeting" />
-                     </children>
-                  </Pane>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="69.0" prefWidth="228.0">
-                     <children>
-                        <ImageView fitHeight="38.0" fitWidth="39.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@menu.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Other" />
+                        <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Events" />
                      </children>
                   </Pane>
                </children>
@@ -80,7 +90,7 @@
       </Pane>
       <HBox layoutX="241.0" layoutY="54.0" prefHeight="100.0" prefWidth="837.0">
          <children>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to right, #ffd89b, #19547b);">
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to right, #654ea3, #eaafc8); -fx-background-radius: 15;">
                <children>
                   <ImageView fitHeight="87.0" fitWidth="98.0" layoutX="167.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
                   <Text fill="WHITE" layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of people">
@@ -99,7 +109,7 @@
                   <Insets right="20.0" />
                </HBox.margin>
             </Pane>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to right, #ffd89b, #19547b);">
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to right, #ffd89b, #19547b); -fx-background-radius: 15;">
                <children>
                   <ImageView fitHeight="87.0" fitWidth="98.0" layoutX="167.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
                   <Text fill="WHITE" layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum">
@@ -122,7 +132,7 @@
                   <Insets right="20.0" />
                </HBox.margin>
             </Pane>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to right, #ffd89b, #19547b);">
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to right, #ffd89b, #19547b); -fx-background-radius: 15;">
                <children>
                   <ImageView fitHeight="87.0" fitWidth="98.0" layoutX="167.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
                   <Text fill="WHITE" layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of people">
@@ -141,7 +151,7 @@
                   <Insets right="20.0" />
                </HBox.margin>
             </Pane>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to right, #ffd89b, #19547b);">
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to right, #ffd89b, #19547b); -fx-background-radius: 15;">
                <children>
                   <ImageView fitHeight="87.0" fitWidth="98.0" layoutX="167.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
                   <Text fill="WHITE" layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of people">
@@ -159,7 +169,7 @@
             </Pane>
          </children>
       </HBox>
-      <TableView id="tablecell" layoutX="241.0" layoutY="225.0" onMouseClicked="#change_scene_to_page_profile" prefHeight="460.0" prefWidth="843.0">
+      <TableView id="tablecell" layoutX="241.0" layoutY="225.0" prefHeight="460.0" prefWidth="843.0">
         <columns>
             <TableColumn prefWidth="100.0" text="Priority" />
           <TableColumn prefWidth="100.0" text="Avatar" />
