@@ -1,6 +1,8 @@
 package com.example.javagoat.back;
 
 
+import java.util.ArrayList;
+
 public class Launcher {
 
     public ModelMatch modelM;
@@ -13,15 +15,19 @@ public class Launcher {
     public static void main(String[] args) {
         Launcher launcher = new Launcher(new ModelMatch());
 
-        for (int i = 0; i < 5000; i++) {
-            System.out.println(i);
+        for (int i = 0; i < 500; i++) {
             Profile p = new Profile();
             p.setRandomProfile();
             launcher.modelM.addProfile(p);
         }
 
-        System.out.println(launcher.modelM.getModelP().getProfileHashMap().get(1).getPreferences());
-        System.out.println(launcher.modelM.getKNN(1,10));
+        System.out.println(launcher.modelM.getModelP().getProfileHashMap().get(5).getPreferences());
+        ArrayList<Profile> res = (launcher.modelM.getKNN(5,5));
+
+        for (Profile i : res) {
+            System.out.println(i);
+        }
+
 
     }
 

@@ -8,7 +8,7 @@ public class DistanceCalculator {
 
     public HashMap<String, Integer> attributesWeights = new HashMap<>() {{
         put("Size", 6);
-        put("Age", 10);
+        put("Age", 20);
         put("HairColor", 5);
         put("HairLength", 5);
         put("HairType", 5);
@@ -17,7 +17,7 @@ public class DistanceCalculator {
         put("Feed", 7);
         put("BodyBuild", 10);
         put("Ethnicity", 8);
-        put("Sex", 200);
+        put("Sex", 1000);
         put("Religion", 1);
         put("Alcohol", 10);
         put("IQ", 10);
