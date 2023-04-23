@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -87,5 +88,10 @@
             <Image url="@icons8-cross-50.png" />
          </image>
       </ImageView>
+      <Pane layoutX="275.0" layoutY="85.0" prefHeight="50.0" prefWidth="315.0" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50;">
+         <children>
+            <TextField layoutX="47.0" layoutY="12.0" promptText="Search..." style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235);" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
