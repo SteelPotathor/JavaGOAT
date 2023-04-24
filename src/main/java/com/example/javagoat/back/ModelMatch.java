@@ -3,7 +3,10 @@ package com.example.javagoat.back;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.TreeSet;
 
 public class ModelMatch implements Serializable {
 
@@ -169,7 +172,6 @@ public class ModelMatch implements Serializable {
         }
 
     }
-
 
 
     public HashMap<Integer, TreeSet<Tuple>> getStockDistance() {

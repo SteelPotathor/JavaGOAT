@@ -50,7 +50,7 @@ public class Passion {
         private static final List<video_games> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
         private static final int SIZE = VALUES.size();
 
-        public static video_games randomVideoGame()  {
+        public static video_games randomVideoGame() {
             return VALUES.get(random.nextInt(SIZE));
         }
 
@@ -105,7 +105,7 @@ public class Passion {
         private static final List<miscellaneous> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
         private static final int SIZE = VALUES.size();
 
-        public static miscellaneous randomMiscellaneous()  {
+        public static miscellaneous randomMiscellaneous() {
             return VALUES.get(random.nextInt(SIZE));
         }
     }
@@ -117,7 +117,8 @@ public class Passion {
     }
 
     // Random Passion
-    public Passion() {}
+    public Passion() {
+    }
 
     public void setRandomPassion() {
         while (this.passionVG.size() < random.nextInt(6)) {

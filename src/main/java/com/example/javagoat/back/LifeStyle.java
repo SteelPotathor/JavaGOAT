@@ -8,12 +8,12 @@ import java.util.Random;
 
 public class LifeStyle implements Serializable {
 
-    private smoker LSsmoker;
-    private athlete LSathlete;
-    private feed LSfeed;
-    private bodyBuild LSbodyBuild;
-    private religion LSreligion;
-    private alcohol LSalcohol;
+    public smoker LSsmoker;
+    public athlete LSathlete;
+    public feed LSfeed;
+    public bodyBuild LSbodyBuild;
+    public religion LSreligion;
+    public alcohol LSalcohol;
 
     private static final Random random = new Random();
 

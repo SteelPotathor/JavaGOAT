@@ -16,7 +16,10 @@ public class PhysicalAttributes implements Serializable {
     private static final Random random = new Random();
 
     public enum hairColor {
-        BLONDE, RED, BRUNETTE, BLACK;
+        BLONDE,
+        RED,
+        BRUNETTE,
+        BLACK;
 
         private static final List<hairColor> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
         private static final int SIZE = VALUES.size();
@@ -28,7 +31,9 @@ public class PhysicalAttributes implements Serializable {
     }
 
     public enum hairType {
-        STRAIGHT, WAVY, CURLY ;
+        STRAIGHT,
+        WAVY,
+        CURLY ;
 
         private static final List<hairType> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
         private static final int SIZE = VALUES.size();
@@ -40,7 +45,9 @@ public class PhysicalAttributes implements Serializable {
     }
 
     public enum hairLength {
-        LONG, HALF_LONG, SHORT;
+        LONG,
+        HALF_LONG,
+        SHORT;
 
         private static final List<hairLength> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
         private static final int SIZE = VALUES.size();
