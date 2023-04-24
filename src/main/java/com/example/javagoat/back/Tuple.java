@@ -2,7 +2,7 @@ package com.example.javagoat.back;
 
 import java.io.Serializable;
 
-public class Tuple implements Comparable, Serializable {
+public class Tuple implements Comparable<Tuple>, Serializable {
 
     public int id;
     public float distance;
@@ -19,14 +19,13 @@ public class Tuple implements Comparable, Serializable {
 
     @Override
     public String toString() {
-        return "id=" + id + ", distance=" + distance;
+        return "(id=" + id + ", distance=" + distance + ")";
     }
 
     // Useful for the TreeSet where this class will be used
     @Override
-    public int compareTo(Object o) {
-        Tuple tuple = (Tuple) o;
-        return (int) (this.distance - tuple.distance);
+    public int compareTo(Tuple o) {
+        return (int) (this.distance - o.distance);
     }
 
     public int getId() {

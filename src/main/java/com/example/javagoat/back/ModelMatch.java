@@ -9,9 +9,11 @@ public class ModelMatch implements Serializable {
 
     public HashMap<Integer /*id*/, TreeSet<Tuple>> stockDistance;
     public ModelProfile modelP;
+    public ModelHistoMatch modelHistoMatch;
 
     String DistancePath = "src\\main\\java\\com\\example\\javagoat\\back\\Distances.xml";
     String ProfilePath = "src\\main\\java\\com\\example\\javagoat\\back\\Profiles.xml";
+    String HistoPath = "src\\main\\java\\com\\example\\javagoat\\back\\Histo.xml";
 
 
     public ModelMatch() {
@@ -29,9 +31,17 @@ public class ModelMatch implements Serializable {
             decoder = new XMLDecoder(ois);
             this.stockDistance = (HashMap<Integer, TreeSet<Tuple>>) decoder.readObject();
 
+            fis = new FileInputStream(this.HistoPath);
+            ois = new BufferedInputStream(fis);
+            decoder = new XMLDecoder(ois);
+
+            this.modelHistoMatch = new ModelHistoMatch();
+            this.modelHistoMatch.stockHisto = (HashMap<Integer, HashMap<Integer, String>>) decoder.readObject();
+
         } catch (Exception e) {
             this.modelP = new ModelProfile();
             this.stockDistance = new HashMap<>();
+            this.modelHistoMatch = new ModelHistoMatch();
         } finally {
             if (decoder != null) decoder.close();
         }
@@ -89,6 +99,7 @@ public class ModelMatch implements Serializable {
     public ArrayList<Profile> getKNN(int noProfile, int howMany) {
         // Get the treemap of the profile 'noProfile'
         TreeSet<Tuple> treeSetD = this.stockDistance.get(noProfile);
+        HashMap<Integer, String> hashMapH = this.modelHistoMatch.stockHisto.get(noProfile);
 
         // Set an iterator to get 'howMany' first elements in the treemap (and an Arraylist to stock the results)
         // Obtains the nearest profiles in the ArrayList
@@ -97,8 +108,12 @@ public class ModelMatch implements Serializable {
         Iterator<Tuple> itr = treeSetD.iterator();
 
         while (i < howMany && itr.hasNext()) {
-            KNNProfiles.add(this.modelP.profileHashMap.get(itr.next().id));
-            i++;
+            Tuple t = itr.next();
+            if (hashMapH == null || !hashMapH.containsKey(t.id)) {
+                KNNProfiles.add(this.modelP.profileHashMap.get(t.id));
+                i++;
+            }
+
         }
 
         return KNNProfiles;
@@ -138,6 +153,24 @@ public class ModelMatch implements Serializable {
 
     }
 
+    public void saveHisto() {
+        XMLEncoder encoder = null;
+        try {
+            FileOutputStream fos = new FileOutputStream(HistoPath);
+            BufferedOutputStream oos = new BufferedOutputStream(fos);
+            encoder = new XMLEncoder(oos);
+            encoder.writeObject(this.getModelHistoMatch().getStockHisto());
+            encoder.flush();
+
+        } catch (final IOException e) {
+            throw new RuntimeException();
+        } finally {
+            if (encoder != null) encoder.close();
+        }
+
+    }
+
+
 
     public HashMap<Integer, TreeSet<Tuple>> getStockDistance() {
         return stockDistance;
@@ -155,5 +188,12 @@ public class ModelMatch implements Serializable {
         this.modelP = modelP;
     }
 
+    public ModelHistoMatch getModelHistoMatch() {
+        return modelHistoMatch;
+    }
+
+    public void setModelHistoMatch(ModelHistoMatch modelHistoMatch) {
+        this.modelHistoMatch = modelHistoMatch;
+    }
 
 }
