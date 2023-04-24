@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="1426.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.Search_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="1426.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.Search_Controller">
    <children>
       <Pane prefHeight="699.0" prefWidth="228.0" style="-fx-background-color: linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%);" stylesheets="@style.css">
          <children>
@@ -88,10 +95,63 @@
             <Image url="@icons8-cross-50.png" />
          </image>
       </ImageView>
-      <Pane layoutX="275.0" layoutY="85.0" prefHeight="50.0" prefWidth="315.0" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50;">
+      <Pane layoutX="634.0" layoutY="25.0">
          <children>
-            <TextField layoutX="47.0" layoutY="12.0" promptText="Search..." style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235);" />
+            <TextField alignment="CENTER" prefHeight="38.0" prefWidth="397.0" promptText="Name" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextField>
+            <ImageView layoutX="20.0" layoutY="10.0">
+               <image>
+                  <Image url="@icons8-search.gif" />
+               </image>
+            </ImageView>
+            <ImageView layoutX="367.0" layoutY="13.0" opacity="0.65">
+               <image>
+                  <Image url="@icons8-multiplier-24.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
+      <Pane fx:id="advanced_research_panel" layoutX="523.0" layoutY="91.0" visible="false">
+         <children>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ChoiceBox fx:id="sexe_choice_box" prefHeight="34.0" prefWidth="155.0" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);" />
+                  <ChoiceBox fx:id="age_choice_box" prefHeight="34.0" prefWidth="155.0" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);" GridPane.columnIndex="1" />
+                  <ChoiceBox fx:id="ethnicity_choice_box" prefHeight="34.0" prefWidth="155.0" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);" GridPane.columnIndex="2" />
+                  <ChoiceBox fx:id="size_choice_box" prefHeight="34.0" prefWidth="155.0" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);" GridPane.columnIndex="3" />
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+      <ImageView fitHeight="40.0" fitWidth="46.0" layoutX="1049.0" layoutY="25.0" onMouseClicked="#show_advanced_research">
+         <image>
+            <Image url="@ajouter.png" />
+         </image>
+      </ImageView>
+      <TableView id="tablecell" layoutX="253.0" layoutY="164.0" prefHeight="513.0" prefWidth="1159.0">
+         <columns>
+            <TableColumn prefWidth="100.0" text="Avatar" />
+            <TableColumn prefWidth="100.0" text="First Name" />
+            <TableColumn prefWidth="100.0" text="Last Name" />
+            <TableColumn prefWidth="100.0" text="Age" />
+            <TableColumn prefWidth="100.0" text="Gender" />
+            <TableColumn prefWidth="100.0" text="Action" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
    </children>
 </AnchorPane>
