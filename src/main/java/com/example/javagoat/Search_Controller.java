@@ -8,11 +8,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Search_Controller {
 
@@ -33,6 +36,8 @@ public class Search_Controller {
 
     @FXML
     private Pane advanced_research_panel;
+    @FXML
+    private ImageView icon_to_show_or_hide_advanced_research_panel;
     @FXML
 
     ObservableList<String> size = FXCollections.observableArrayList("1m60", "1m61", "1m62", "1m63", "1m64", "1m65", "1m66", "1m67", "1m68", "1m69", "1m70", "1m71", "1m72", "1m73", "1m74", "1m75", "1m76", "1m77", "1m78", "1m79", "1m80", "1m81", "1m82", "1m83", "1m84", "1m85", "1m86", "1m87", "1m88", "1m89", "1m90", "1m91", "1m92", "1m93", "1m94", "1m95", "1m96", "1m97", "1m98", "1m99", "2m00");
@@ -63,7 +68,7 @@ public class Search_Controller {
 
     @FXML
     void change_scene_to_page_dashboard(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("home.fxml"));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -71,7 +76,7 @@ public class Search_Controller {
     }
     @FXML
     void change_scene_to_new_profile(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("new_profile.fxml"));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("new_profile.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -79,7 +84,7 @@ public class Search_Controller {
     }
     @FXML
     void change_scene_to_page_search(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("search.fxml"));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("search.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -87,7 +92,7 @@ public class Search_Controller {
     }
     @FXML
     void change_scene_to_page_historic_match(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("historic_match.fxml"));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("historic_match.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -95,7 +100,7 @@ public class Search_Controller {
     }
     @FXML
     void change_scene_to_page_calendar(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("calendar.fxml"));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("calendar.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -103,7 +108,7 @@ public class Search_Controller {
     }
     @FXML
     void change_scene_to_page_events(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("events.fxml"));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("events.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -112,6 +117,15 @@ public class Search_Controller {
     @FXML
     void show_advanced_research(MouseEvent event) throws IOException {
         advanced_research_panel_is_open = !advanced_research_panel_is_open;
+        if (advanced_research_panel_is_open) {
+            icon_to_show_or_hide_advanced_research_panel.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("minus.png"))));
+
+
+        } else {
+            icon_to_show_or_hide_advanced_research_panel.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("plus.png"))));
+            //add the evenement when clickec on the icon
+
+        }
 
         advanced_research_panel.setVisible(advanced_research_panel_is_open);
 
