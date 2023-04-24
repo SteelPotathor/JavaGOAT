@@ -104,7 +104,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="advanced_research_panel" layoutX="260.0" layoutY="35.0" visible="false">
+      <Pane fx:id="advanced_research_panel" layoutX="260.0" layoutY="35.0">
          <children>
             <Pane layoutX="235.0" layoutY="53.0" prefWidth="347.0">
                <children>
@@ -140,34 +140,39 @@
                   </TextField>
                </children>
             </Pane>
-            <HBox prefWidth="336.0">
+            <Pane layoutY="-13.0">
                <children>
-                  <CheckComboBox fx:id="sexe_choice_box" prefHeight="34.0" prefWidth="155.0" title="Sex">
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                  </CheckComboBox>
-                  <CheckComboBox fx:id="ethnicity_choice_box" prefHeight="34.0" prefWidth="155.0" title="Ethnicity">
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                  </CheckComboBox>
+                  <HBox prefWidth="336.0">
+                     <children>
+                        <CheckComboBox fx:id="sexe_choice_box" prefHeight="34.0" prefWidth="155.0" title="Sex">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </CheckComboBox>
+                        <CheckComboBox fx:id="ethnicity_choice_box" prefHeight="34.0" prefWidth="155.0" title="Ethnicity">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </CheckComboBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutY="53.0" prefWidth="336.0">
+                     <children>
+                        <CheckComboBox fx:id="color_of_hair_choice_box" prefHeight="34.0" prefWidth="155.0" title="Color of hair">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </CheckComboBox>
+                        <CheckComboBox fx:id="type_of_hair_choice_box" prefHeight="34.0" prefWidth="155.0" title="Type of hair">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </CheckComboBox>
+                     </children>
+                  </HBox>
+                  <CheckComboBox fx:id="weight_choice_box" layoutX="80.0" layoutY="99.0" prefHeight="34.0" prefWidth="155.0" title="Weight" />
                </children>
-            </HBox>
-            <HBox layoutY="53.0" prefWidth="336.0">
-               <children>
-                  <CheckComboBox fx:id="color_of_hair_choice_box" prefHeight="34.0" prefWidth="155.0" title="Color of hair">
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                  </CheckComboBox>
-                  <CheckComboBox fx:id="type_of_hair_choice_box" prefHeight="34.0" prefWidth="155.0" title="Type of hair">
-                     <HBox.margin>
-                        <Insets right="20.0" />
-                     </HBox.margin>
-                  </CheckComboBox>
-               </children>
-            </HBox>
+            </Pane>
          </children>
       </Pane>
       <Pane layoutX="1047.0" layoutY="33.0" onMouseClicked="#show_advanced_research">

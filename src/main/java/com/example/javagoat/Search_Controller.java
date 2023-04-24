@@ -46,11 +46,16 @@ public class Search_Controller {
     ObservableList<String> type_of_hair = FXCollections.observableArrayList("Straight", "Wavy", "Curly");
 
     @FXML
+    ObservableList<String> weight = FXCollections.observableArrayList("Skinny", "Medium", "Overweight");
+
+    @FXML
     public CheckComboBox<String> sexe_choice_box ;
     @FXML
     public CheckComboBox<String> color_of_hair_choice_box ;
     @FXML
     public CheckComboBox<String> type_of_hair_choice_box ;
+    @FXML
+    public CheckComboBox<String> weight_choice_box ;
 
     @FXML
     public CheckComboBox<String> ethnicity_choice_box;
@@ -66,6 +71,7 @@ public class Search_Controller {
         ethnicity_choice_box.getItems().addAll(ethnicity);
         color_of_hair_choice_box.getItems().addAll(color_of_hair);
         type_of_hair_choice_box.getItems().addAll(type_of_hair);
+        weight_choice_box.getItems().addAll(weight);
 
 
 
