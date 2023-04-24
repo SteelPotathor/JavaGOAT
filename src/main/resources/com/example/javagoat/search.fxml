@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.CheckComboBox?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="1426.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.Search_Controller">
    <children>
@@ -48,16 +49,6 @@
                            </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" />
-                     </children>
-                  </Pane>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_historic_match" prefHeight="69.0" prefWidth="228.0">
-                     <children>
-                        <ImageView fitHeight="38.0" fitWidth="39.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@menu.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Historic of match" />
                      </children>
                   </Pane>
                   <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_calendar" prefHeight="69.0" prefWidth="228.0">
@@ -113,26 +104,68 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="advanced_research_panel" layoutX="493.0" layoutY="100.0" visible="false">
+      <Pane fx:id="advanced_research_panel" layoutX="260.0" layoutY="35.0" visible="false">
          <children>
-            <HBox>
+            <Pane layoutX="235.0" layoutY="53.0" prefWidth="347.0">
                <children>
-                  <ChoiceBox fx:id="sexe_choice_box" prefHeight="34.0" prefWidth="155.0" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+                  <CheckBox layoutX="225.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="69.0" text="Age">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </CheckBox>
+                  <TextField alignment="CENTER" layoutX="170.0" layoutY="32.0" prefHeight="30.0" prefWidth="80.0" promptText="Min" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </TextField>
+                  <TextField alignment="CENTER" layoutX="267.0" layoutY="32.0" prefHeight="30.0" prefWidth="80.0" promptText="Max" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </TextField>
+                  <CheckBox layoutX="419.0" layoutY="1.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="137.0" text="Size (cm)">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </CheckBox>
+                  <TextField alignment="CENTER" layoutX="364.0" layoutY="33.0" prefHeight="30.0" prefWidth="80.0" promptText="Min" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </TextField>
+                  <TextField alignment="CENTER" layoutX="461.0" layoutY="33.0" prefHeight="30.0" prefWidth="80.0" promptText="Max" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </Pane>
+            <HBox prefWidth="336.0">
+               <children>
+                  <CheckComboBox fx:id="sexe_choice_box" prefHeight="34.0" prefWidth="155.0" title="Sex">
                      <HBox.margin>
                         <Insets right="20.0" />
                      </HBox.margin>
-                  </ChoiceBox>
-                  <ChoiceBox fx:id="age_choice_box" prefHeight="34.0" prefWidth="155.0" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+                  </CheckComboBox>
+                  <CheckComboBox fx:id="ethnicity_choice_box" prefHeight="34.0" prefWidth="155.0" title="Ethnicity">
                      <HBox.margin>
                         <Insets right="20.0" />
                      </HBox.margin>
-                  </ChoiceBox>
-                  <ChoiceBox fx:id="ethnicity_choice_box" prefHeight="34.0" prefWidth="155.0" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+                  </CheckComboBox>
+               </children>
+            </HBox>
+            <HBox layoutY="53.0" prefWidth="336.0">
+               <children>
+                  <CheckComboBox fx:id="color_of_hair_choice_box" prefHeight="34.0" prefWidth="155.0" title="Color of hair">
                      <HBox.margin>
                         <Insets right="20.0" />
                      </HBox.margin>
-                  </ChoiceBox>
-                  <ChoiceBox fx:id="size_choice_box" prefHeight="34.0" prefWidth="155.0" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);" />
+                  </CheckComboBox>
+                  <CheckComboBox fx:id="type_of_hair_choice_box" prefHeight="34.0" prefWidth="155.0" title="Type of hair">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </CheckComboBox>
                </children>
             </HBox>
          </children>

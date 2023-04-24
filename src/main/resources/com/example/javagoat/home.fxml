@@ -10,6 +10,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -47,16 +50,6 @@
                            </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" />
-                     </children>
-                  </Pane>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_historic_match" prefHeight="69.0" prefWidth="228.0">
-                     <children>
-                        <ImageView fitHeight="38.0" fitWidth="39.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@menu.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Historic of match" />
                      </children>
                   </Pane>
                   <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_calendar" prefHeight="69.0" prefWidth="228.0">
@@ -111,22 +104,32 @@
             </Pane>
             <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="266.0" style="-fx-background-color: linear-gradient(to right, #ffd89b, #19547b); -fx-background-radius: 15;">
                <children>
-                  <ImageView fitHeight="87.0" fitWidth="98.0" layoutX="167.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
-                  <Text fill="WHITE" layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem Ipsum">
+                  <Text fill="#220000" fontSmoothingType="LCD" layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: black;" text="Lorem Ipsum">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="63.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5,120">
+                  <Text layoutX="53.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5,120">
                      <font>
-                        <Font name="Arial Bold" size="22.0" />
+                        <Font name="Arial Bold" size="45.0" />
                      </font>
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0" startY="0.8246445497630331">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.6100000143051147" green="0.2134999930858612" blue="0.2134999930858612" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.8999999761581421" green="0.14399999380111694" blue="0.8999999761581421" opacity="0.9389312863349915" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
                   </Text>
-                  <ProgressBar layoutX="14.0" layoutY="111.0" prefHeight="20.0" prefWidth="153.0" progress="0.46">
-                     <padding>
-                        <Insets right="20.0" />
-                     </padding>
-                  </ProgressBar>
                </children>
                <HBox.margin>
                   <Insets right="20.0" />

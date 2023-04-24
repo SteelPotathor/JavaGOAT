@@ -43,14 +43,7 @@ public class Calendar_Controller {
         stage.setScene(scene);
         stage.show();
     }
-    @FXML
-    void change_scene_to_page_historic_match(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("historic_match.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
+
     @FXML
     void change_scene_to_page_calendar(MouseEvent event) throws IOException {
         parent = FXMLLoader.load(getClass().getResource("calendar.fxml"));
