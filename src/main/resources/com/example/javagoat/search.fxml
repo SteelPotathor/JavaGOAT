@@ -104,7 +104,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="advanced_research_panel" layoutX="260.0" layoutY="35.0">
+      <Pane fx:id="advanced_research_panel" layoutX="260.0" layoutY="35.0" visible="false">
          <children>
             <Pane layoutX="235.0" layoutY="53.0" prefWidth="347.0">
                <children>
