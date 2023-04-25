@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.CheckComboBox?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="1426.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.New_Profile_Controller">
    <children>
@@ -77,5 +83,188 @@
             <Image url="@icons8-cross-50.png" />
          </image>
       </ImageView>
+      <Pane layoutX="253.0" layoutY="49.0" prefHeight="516.0" prefWidth="265.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
+         <children>
+            <ImageView fitHeight="92.0" fitWidth="150.0" layoutX="72.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
+            <VBox layoutY="171.0" prefHeight="220.0" prefWidth="265.0">
+               <children>
+                  <TextField alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="First name" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </TextField>
+                  <TextField alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="Last name" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </TextField>
+                  <TextField alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="Age" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </TextField>
+                  <TextField alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="Size" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </TextField>
+                  <TextField alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="QI" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </TextField>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane layoutX="551.0" layoutY="49.0" prefHeight="516.0" prefWidth="779.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
+         <children>
+            <ImageView fitHeight="92.0" fitWidth="150.0" layoutX="72.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
+            <Pane layoutX="26.0" layoutY="29.0">
+               <children>
+                  <ChoiceBox fx:id="choicebox_ethnicity" layoutY="28.0" prefHeight="37.0" prefWidth="164.0" />
+                  <Label text="Ethnicity">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="238.0" layoutY="29.0">
+               <children>
+                  <ChoiceBox fx:id="Smoker_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="164.0" />
+                  <Label text="Smoker">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="465.0" layoutY="29.0">
+               <children>
+                  <ChoiceBox fx:id="alcohol_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="164.0" />
+                  <Label text="Alcohol">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="14.0" layoutY="94.0">
+               <children>
+                  <ChoiceBox fx:id="Athlete_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="164.0" />
+                  <Label text="Athlete">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="216.0" layoutY="94.0">
+               <children>
+                  <ChoiceBox fx:id="feed_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="164.0" />
+                  <Label text="Feed">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="441.0" layoutY="89.0">
+               <children>
+                  <ChoiceBox fx:id="bodybuild_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="164.0" />
+                  <Label text="Body build">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="14.0" layoutY="193.0">
+               <children>
+                  <ChoiceBox fx:id="religion_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="164.0" />
+                  <Label text="Religion">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="298.0" layoutY="193.0">
+               <children>
+                  <ChoiceBox fx:id="color_of_hair_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="164.0" />
+                  <Label text="Color of hair">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="14.0" layoutY="343.0">
+               <children>
+                  <ChoiceBox fx:id="hair_type_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="164.0" />
+                  <Label text="Hair type">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="226.0" layoutY="337.0">
+               <children>
+                  <ChoiceBox fx:id="hair_length_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="164.0" />
+                  <Label text="Hair length">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="380.0" layoutY="280.0">
+               <children>
+                  <CheckComboBox fx:id="video_games_checkcombobox" layoutY="39.0" prefHeight="37.0" prefWidth="164.0" />
+                  <Label text="Video games">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="580.0" layoutY="226.0">
+               <children>
+                  <CheckComboBox fx:id="miscellanious_checkcombobox" layoutY="39.0" prefHeight="37.0" prefWidth="164.0" />
+                  <Label text="miscellaneous">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
