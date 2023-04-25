@@ -48,42 +48,43 @@ public class New_Profile_Controller {
     @FXML
     private CheckComboBox<String> miscellanious_checkcombobox;
     @FXML
-    ObservableList<String> element_miscellanious = FXCollections.observableArrayList("Gamer", "Musician", "Artist", "Writer", "Other");
+    ObservableList<String> element_miscellanious = FXCollections.observableArrayList("BIKE","MOVIES","ANIME","MANGA","NETFLIX","COOKING","RUNNING","DANCING","YOGA","TRAVELING","MODE","GYM","BASKET","TENNIS","SOCCER","MARTIAL_ARTS","LITTERATURE","DIVING","WRITING","PROGRAMMATION","PHOTOGRAPHY","GARDENING","HISTORY","GEOGRAPHY","VACATIONS","MUSIC","PAINTING","PORN","SLEEP","ANIMALS","SPIRITUALITY","GRINDING","PLAYING_WITH_KIDS","CHESS","COSPLAY","FURRIES","PSYCHOLOGY","PHILOSOPHY","SCIENCES","THEATHER","VLOGGING","CLIMBING","NUDISM","DECORATIONS");
     @FXML
-    ObservableList<String> element_video_games = FXCollections.observableArrayList("Action", "Adventure", "Arcade", "Board", "Card", "Casino", "Educational", "Family", "Music", "Puzzle", "Racing", "Role-playing", "Shooter", "Simulation", "Sports", "Strategy", "Trivia", "Other");
+    ObservableList<String> element_video_games = FXCollections.observableArrayList("LEAGUE_OF_LEGENDS","VALORANT","MINECRAFT","TERRARIA","CALL_OF_DUTY","DESTINY_2","DIABLO_3","WORLD_OF_WARCRAFT","HEARTHSTONE","BATTLEFIELD","APEX_LEGENDS","DOTA_2","CS_GO","SUPER_SMASH_BROS","FORTNITE","JACKBOX_PARTY","DIVINE_KNOCKOUT","AMOGUS","STREET_FIGHTER","ARK","CRAB_GAME","BRAWLHALLA","MONSTER_HUNTER","DRAGON_QUEST","GTA","GENSHIN_IMPACT"
+            ,"SEA_OF_THIEVES","DEAD_BY_DAYLIGHT","THE_DOORS","FALL_GUYS","ROCKET_LEAGUE","WARFRAME","PUBG","VALHEIM","RUST");
 
 
     @FXML
-    ObservableList<String> element_hair_length = FXCollections.observableArrayList("Short", "Medium", "Long", "Other");
+    ObservableList<String> element_hair_length = FXCollections.observableArrayList("LONG","HALF_LONG","SHORT");
 
     @FXML
-    ObservableList<String> element_hair_type = FXCollections.observableArrayList("Straight", "Wavy", "Curly", "Afro", "Other");
+    ObservableList<String> element_hair_type = FXCollections.observableArrayList("STRAIGHT","WAVY","CURLY");
 
     @FXML
-    ObservableList<String> element_hair_color = FXCollections.observableArrayList("Black", "Brown", "Blonde", "Red", "Gray", "White", "Other");
+    ObservableList<String> element_hair_color = FXCollections.observableArrayList("BLONDE","RED","BRUNETTE","BLACK");
 
     @FXML
-    ObservableList<String> element_religion = FXCollections.observableArrayList("Christian", "Muslim", "Hindu", "Buddhist", "Jewish", "Other");
+    ObservableList<String> element_religion = FXCollections.observableArrayList("MUSLIM","CHRISTIAN","JEWISH","BUDDHIST","HINDUIST","OTHER","ATHEIST");
     @FXML
-    ObservableList<String> element_bodybuild = FXCollections.observableArrayList("Yes", "No");
+    ObservableList<String> element_bodybuild = FXCollections.observableArrayList("SKINNY","MEDIUM","OVERWEIGHT");
     @FXML
-    ObservableList<String> element_feed = FXCollections.observableArrayList("Yes", "No");
+    ObservableList<String> element_feed = FXCollections.observableArrayList("VEGAN","VEGETARIAN","OMNIVORE","FLEXIVORE");
 
     @FXML
-    ObservableList<String> element_athlete = FXCollections.observableArrayList("Yes", "No");
+    ObservableList<String> element_athlete = FXCollections.observableArrayList("SPORTY","SEDENTARY","LAZY");
     @FXML
-    ObservableList<String> element_alcohol = FXCollections.observableArrayList("Yes", "No");
+    ObservableList<String> element_alcohol = FXCollections.observableArrayList("NEVER","OCCASIONNALY","REGULARLY","DAILY");
 
     @FXML
-    ObservableList<String> element_smoker = FXCollections.observableArrayList("Yes", "No");
+    ObservableList<String> element_smoker = FXCollections.observableArrayList("NEVER","OCCASIONNALY","REGULARLY","DAILY");
 
     @FXML
-    ObservableList<String> element_ethnicity = FXCollections.observableArrayList("White", "Black", "Asian", "Hispanic", "Other");
+    ObservableList<String> element_ethnicity = FXCollections.observableArrayList("WHITE","BLACK","ASIAN","LATINO");
 
     @FXML
     void initialize() {
-        choicebox_ethnicity.setValue("Select");
         choicebox_ethnicity.setItems(element_ethnicity);
+        choicebox_ethnicity.setValue("Select");
         Smoker_choicebox.setValue("Select");
         Smoker_choicebox.setItems(element_smoker);
         alcohol_choicebox.setValue("Select");
