@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -47,6 +48,9 @@ public class New_Profile_Controller {
     private CheckComboBox<String> video_games_checkcombobox;
     @FXML
     private CheckComboBox<String> miscellanious_checkcombobox;
+
+    @FXML
+    private Button button_create_profile;
     @FXML
     ObservableList<String> element_miscellanious = FXCollections.observableArrayList("BIKE","MOVIES","ANIME","MANGA","NETFLIX","COOKING","RUNNING","DANCING","YOGA","TRAVELING","MODE","GYM","BASKET","TENNIS","SOCCER","MARTIAL_ARTS","LITTERATURE","DIVING","WRITING","PROGRAMMATION","PHOTOGRAPHY","GARDENING","HISTORY","GEOGRAPHY","VACATIONS","MUSIC","PAINTING","PORN","SLEEP","ANIMALS","SPIRITUALITY","GRINDING","PLAYING_WITH_KIDS","CHESS","COSPLAY","FURRIES","PSYCHOLOGY","PHILOSOPHY","SCIENCES","THEATHER","VLOGGING","CLIMBING","NUDISM","DECORATIONS");
     @FXML
@@ -158,6 +162,13 @@ public class New_Profile_Controller {
     @FXML
     void exit_script() {
         System.exit(0);
+    }
+
+
+
+    @FXML
+    void validate_profil() {
+        System.out.println("validate_profil");
     }
 
 

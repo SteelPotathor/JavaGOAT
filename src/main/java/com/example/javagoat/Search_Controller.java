@@ -33,20 +33,22 @@ public class Search_Controller {
     @FXML
     private Pane advanced_research_panel;
     @FXML
+    private Pane advanced_research_panel1;
+    @FXML
     private ImageView icon_to_show_or_hide_advanced_research_panel;
 
 
     @FXML
     ObservableList<String> sexe = FXCollections.observableArrayList("Male", "Female");
     @FXML
-    ObservableList<String> ethnicity = FXCollections.observableArrayList("White", "Black", "Asian", "Indian", "Arab");
+    ObservableList<String> ethnicity = FXCollections.observableArrayList("WHITE","BLACK","ASIAN","LATINO");
     @FXML
-    ObservableList<String> color_of_hair = FXCollections.observableArrayList("Blond", "Brown", "Black", "Red", "White", "Gray");
+    ObservableList<String> color_of_hair = FXCollections.observableArrayList("BLONDE","RED","BRUNETTE","BLACK");
     @FXML
-    ObservableList<String> type_of_hair = FXCollections.observableArrayList("Straight", "Wavy", "Curly");
+    ObservableList<String> type_of_hair = FXCollections.observableArrayList("STRAIGHT","WAVY","CURLY");
 
     @FXML
-    ObservableList<String> weight = FXCollections.observableArrayList("Skinny", "Medium", "Overweight");
+    ObservableList<String> weight = FXCollections.observableArrayList("SKINNY","MEDIUM","OVERWEIGHT");
 
     @FXML
     public CheckComboBox<String> sexe_choice_box ;
@@ -72,8 +74,6 @@ public class Search_Controller {
         color_of_hair_choice_box.getItems().addAll(color_of_hair);
         type_of_hair_choice_box.getItems().addAll(type_of_hair);
         weight_choice_box.getItems().addAll(weight);
-
-
 
 
     }
@@ -133,6 +133,7 @@ public class Search_Controller {
         }
 
         advanced_research_panel.setVisible(advanced_research_panel_is_open);
+        advanced_research_panel1.setVisible(advanced_research_panel_is_open);
 
 
     }
