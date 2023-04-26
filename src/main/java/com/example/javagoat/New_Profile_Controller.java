@@ -1,12 +1,15 @@
 package com.example.javagoat;
 
+import com.example.javagoat.back.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
@@ -50,6 +53,9 @@ public class New_Profile_Controller {
     private CheckComboBox<String> video_games_checkcombobox;
     @FXML
     private CheckComboBox<String> miscellanious_checkcombobox;
+    @FXML
+    private ChoiceBox<String> sex_choicebox;
+
 
     //ALL THE BUTTONS
     @FXML
@@ -64,6 +70,8 @@ public class New_Profile_Controller {
 
 
     //ALL THE OBSERVABLELISTS
+    @FXML
+    ObservableList<String> element_sex = FXCollections.observableArrayList("MALE", "FEMALE");
     @FXML
     ObservableList<String> element_miscellanious = FXCollections.observableArrayList("BIKE","MOVIES","ANIME","MANGA","NETFLIX","COOKING","RUNNING","DANCING","YOGA","TRAVELING","MODE","GYM","BASKET","TENNIS","SOCCER","MARTIAL_ARTS","LITTERATURE","DIVING","WRITING","PROGRAMMATION","PHOTOGRAPHY","GARDENING","HISTORY","GEOGRAPHY","VACATIONS","MUSIC","PAINTING","PORN","SLEEP","ANIMALS","SPIRITUALITY","GRINDING","PLAYING_WITH_KIDS","CHESS","COSPLAY","FURRIES","PSYCHOLOGY","PHILOSOPHY","SCIENCES","THEATHER","VLOGGING","CLIMBING","NUDISM","DECORATIONS");
     @FXML
@@ -114,6 +122,8 @@ public class New_Profile_Controller {
         hair_length_choicebox.setItems(element_hair_length);
         video_games_checkcombobox.getItems().addAll(element_video_games);
         miscellanious_checkcombobox.getItems().addAll(element_miscellanious);
+        sex_choicebox.setValue("MALE/FEMALE");
+        sex_choicebox.setItems(element_sex);
 
     }
     @FXML
@@ -179,13 +189,36 @@ public class New_Profile_Controller {
         || Objects.equals(color_of_hair_choicebox.getValue(), "Select")
         || Objects.equals(hair_type_choicebox.getValue(), "Select")
         || Objects.equals(hair_length_choicebox.getValue(), "Select")
+        || Objects.equals(sex_choicebox.getValue(), "MALE/FEMALE")
         || Objects.equals(video_games_checkcombobox.getCheckModel().getCheckedItems().size(), 0)
-        || Objects.equals(miscellanious_checkcombobox.getCheckModel().getCheckedItems().size(), 0)) {
+        || Objects.equals(miscellanious_checkcombobox.getCheckModel().getCheckedItems().size(), 0)
+        || Objects.equals(textfield_first_name.getText().replace(" ", ""), "")
+        || Objects.equals(textfield_last_name.getText().replace(" ", ""), "")
+        || Objects.equals(textfield_age.getText().replace(" ", ""), "")
+        || Objects.equals(textfield_size.getText().replace(" ", ""), "")
+        || Objects.equals(textfield_qi.getText().replace(" ", ""), "")
+        ) {
             System.out.println("Error");
         }
         else {
-            System.out.println("Success");
+            Identity id = new Identity(Integer.parseInt(textfield_age.getText()), Biology.sex.valueOf(sex_choicebox.getValue()), Biology.ethnicity.valueOf(choicebox_ethnicity.getValue()), Integer.parseInt(textfield_qi.getText()), textfield_last_name.getText(), textfield_first_name.getText());
+            PhysicalAttributes pa = new PhysicalAttributes(Integer.parseInt(textfield_size.getText()), PhysicalAttributes.hairColor.valueOf(color_of_hair_choicebox.getValue()), PhysicalAttributes.hairType.valueOf(hair_type_choicebox.getValue()), PhysicalAttributes.hairLength.valueOf(hair_length_choicebox.getValue()));
+            LifeStyle ls = new LifeStyle(LifeStyle.smoker.valueOf(Smoker_choicebox.getValue()), LifeStyle.athlete.valueOf(Athlete_choicebox.getValue()), LifeStyle.feed.valueOf(feed_choicebox.getValue()), LifeStyle.bodyBuild.valueOf(bodybuild_choicebox.getValue()), LifeStyle.religion.valueOf(religion_choicebox.getValue()), LifeStyle.alcohol.valueOf(alcohol_choicebox.getValue()));
+            Preferences pref = new Preferences();
+            pref.setRandomPreferences();
+            Passion p = new Passion();
+            ObservableList<String> video_games_checked = video_games_checkcombobox.getCheckModel().getCheckedItems();
+            ObservableList<String> miscellaneous_checked = miscellanious_checkcombobox.getCheckModel().getCheckedItems();
+            for (String video_games : video_games_checked)
+                p.passionVG.add(Passion.video_games.valueOf(video_games));
+            for (String miscellaneous : miscellaneous_checked)
+                p.passionM.add(Passion.miscellaneous.valueOf(miscellaneous));
+
+            Profile profile = new Profile(id, pa, ls, pref, p);
+
+
         }
+
     }
 
 
