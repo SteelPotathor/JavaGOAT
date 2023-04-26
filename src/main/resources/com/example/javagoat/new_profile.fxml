@@ -122,7 +122,7 @@
                         <Insets bottom="10.0" top="10.0" />
                      </padding>
                   </TextField>
-                  <TextField fx:id="textfield_age" alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="Age" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                  <TextField fx:id="textfield_age" alignment="CENTER" onKeyReleased="#write_number_only_age" prefHeight="46.0" prefWidth="192.0" promptText="Age" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -133,7 +133,7 @@
                         <Insets bottom="10.0" top="10.0" />
                      </padding>
                   </TextField>
-                  <TextField fx:id="textfield_size" alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="Size" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                  <TextField fx:id="textfield_size" alignment="CENTER" onKeyReleased="#write_number_only_size" prefHeight="46.0" prefWidth="192.0" promptText="Size" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -144,7 +144,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="textfield_qi" alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="QI" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                  <TextField fx:id="textfield_qi" alignment="CENTER" onKeyReleased="#write_number_only_qi" prefHeight="46.0" prefWidth="192.0" promptText="QI" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
                      <font>
                         <Font size="16.0" />
                      </font>

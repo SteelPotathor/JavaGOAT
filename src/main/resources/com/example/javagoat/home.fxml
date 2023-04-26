@@ -173,7 +173,7 @@
             </Pane>
          </children>
       </HBox>
-      <TableView id="tablecell" layoutX="241.0" layoutY="225.0" prefHeight="460.0" prefWidth="843.0">
+      <TableView id="tablecell" fx:id="tableView" layoutX="241.0" layoutY="225.0" prefHeight="460.0" prefWidth="843.0">
         <columns>
             <TableColumn prefWidth="100.0" text="Priority" />
           <TableColumn prefWidth="100.0" text="Avatar" />

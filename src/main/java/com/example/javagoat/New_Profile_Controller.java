@@ -13,6 +13,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.controlsfx.control.CheckComboBox;
@@ -198,7 +199,11 @@ public class New_Profile_Controller {
         || Objects.equals(textfield_size.getText().replace(" ", ""), "")
         || Objects.equals(textfield_qi.getText().replace(" ", ""), "")
         ) {
-            System.out.println("Error");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText("Profile not created");
+            alert.setContentText("Your profile has not been created, please fill all the fields");
+            alert.showAndWait();
         }
         else {
             Identity id = new Identity(Integer.parseInt(textfield_age.getText()), Biology.sex.valueOf(sex_choicebox.getValue()), Biology.ethnicity.valueOf(choicebox_ethnicity.getValue()), Integer.parseInt(textfield_qi.getText()), textfield_last_name.getText(), textfield_first_name.getText());
@@ -215,11 +220,40 @@ public class New_Profile_Controller {
                 p.passionM.add(Passion.miscellaneous.valueOf(miscellaneous));
 
             Profile profile = new Profile(id, pa, ls, pref, p);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText("Profile created");
+            alert.setContentText("Your profile has been created");
+            alert.showAndWait();
+            System.out.println(profile);
 
 
         }
 
     }
+
+    @FXML
+    void write_number_only_age(KeyEvent event) {
+        var key = event.getCode();
+        if (!key.isDigitKey()) {
+            textfield_age.setText("");
+        }
+    }
+    @FXML
+    void write_number_only_size(KeyEvent event) {
+        var key = event.getCode();
+        if (!key.isDigitKey()) {
+            textfield_size.setText("");
+        }
+    }
+    @FXML
+    void write_number_only_qi(KeyEvent event) {
+        var key = event.getCode();
+        if (!key.isDigitKey()) {
+            textfield_qi.setText("");
+        }
+    }
+
 
 
 }

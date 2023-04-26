@@ -1,5 +1,6 @@
 package com.example.javagoat;
 
+import com.example.javagoat.back.Profile;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -8,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import javax.swing.text.TableView;
+import javax.swing.text.html.ListView;
 import java.io.IOException;
 
 public class Dashboard_Controller {
@@ -18,6 +21,10 @@ public class Dashboard_Controller {
     private Scene scene;
     @FXML
     private Parent parent;
+
+
+
+
 
     @FXML
     void change_scene_to_page_dashboard(MouseEvent event) throws IOException {
@@ -60,7 +67,7 @@ public class Dashboard_Controller {
         stage.setScene(scene);
         stage.show();
     }
-
+    //add element in listview
 
 
     @FXML
