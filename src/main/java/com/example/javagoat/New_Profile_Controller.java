@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
@@ -172,7 +173,6 @@ public class New_Profile_Controller {
 
     @FXML
     void validate_profil() {
-        System.out.println("validate_profil");
         System.out.println("Firstname : " + this.textfield_first_name.getText());
         System.out.println("Lastname : " + textfield_last_name.getText());
         System.out.println("Age : " + textfield_age.getText());
@@ -189,6 +189,15 @@ public class New_Profile_Controller {
         System.out.println("Hair length : " + hair_length_choicebox.getValue());
         System.out.println("Video games : " + video_games_checkcombobox.getCheckModel().getCheckedItems());
         System.out.println("Miscellanious : " + miscellanious_checkcombobox.getCheckModel().getCheckedItems());
+
+        // pop an alert
+
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText("Profile not created");
+        alert.setContentText("Your profile has not been created, please fill all the fields");
+        alert.showAndWait();
+
 
     }
 
