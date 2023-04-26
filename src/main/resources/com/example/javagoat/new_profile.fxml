@@ -100,7 +100,7 @@
             <ImageView fitHeight="92.0" fitWidth="150.0" layoutX="72.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
             <VBox layoutY="178.0" prefHeight="220.0" prefWidth="265.0">
                <children>
-                  <TextField alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="First name" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                  <TextField fx:id="textfield_first_name" alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="First name" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -111,7 +111,7 @@
                         <Insets bottom="10.0" top="10.0" />
                      </padding>
                   </TextField>
-                  <TextField alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="Last name" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                  <TextField fx:id="textfield_last_name" alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="Last name" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -122,7 +122,7 @@
                         <Insets bottom="10.0" top="10.0" />
                      </padding>
                   </TextField>
-                  <TextField alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="Age" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                  <TextField fx:id="textfield_age" alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="Age" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -133,7 +133,7 @@
                         <Insets bottom="10.0" top="10.0" />
                      </padding>
                   </TextField>
-                  <TextField alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="Size" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                  <TextField fx:id="textfield_size" alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="Size" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -144,7 +144,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="QI" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                  <TextField fx:id="textfield_qi" alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="QI" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
                      <font>
                         <Font size="16.0" />
                      </font>
