@@ -50,6 +50,9 @@ public class New_Profile_Controller {
     private CheckComboBox<String> video_games_checkcombobox;
     @FXML
     private CheckComboBox<String> miscellanious_checkcombobox;
+    @FXML
+    private ChoiceBox<String> sex_choicebox;
+
 
     //ALL THE BUTTONS
     @FXML
@@ -64,6 +67,8 @@ public class New_Profile_Controller {
 
 
     //ALL THE OBSERVABLELISTS
+    @FXML
+    ObservableList<String> element_sex = FXCollections.observableArrayList("MALE", "FEMALE");
     @FXML
     ObservableList<String> element_miscellanious = FXCollections.observableArrayList("BIKE","MOVIES","ANIME","MANGA","NETFLIX","COOKING","RUNNING","DANCING","YOGA","TRAVELING","MODE","GYM","BASKET","TENNIS","SOCCER","MARTIAL_ARTS","LITTERATURE","DIVING","WRITING","PROGRAMMATION","PHOTOGRAPHY","GARDENING","HISTORY","GEOGRAPHY","VACATIONS","MUSIC","PAINTING","PORN","SLEEP","ANIMALS","SPIRITUALITY","GRINDING","PLAYING_WITH_KIDS","CHESS","COSPLAY","FURRIES","PSYCHOLOGY","PHILOSOPHY","SCIENCES","THEATHER","VLOGGING","CLIMBING","NUDISM","DECORATIONS");
     @FXML
@@ -114,6 +119,9 @@ public class New_Profile_Controller {
         hair_length_choicebox.setItems(element_hair_length);
         video_games_checkcombobox.getItems().addAll(element_video_games);
         miscellanious_checkcombobox.getItems().addAll(element_miscellanious);
+        sex_choicebox.setValue("MALE/FEMALE");
+        sex_choicebox.setItems(element_sex);
+
 
 
 
@@ -173,30 +181,7 @@ public class New_Profile_Controller {
 
     @FXML
     void validate_profil() {
-        System.out.println("Firstname : " + this.textfield_first_name.getText());
-        System.out.println("Lastname : " + textfield_last_name.getText());
-        System.out.println("Age : " + textfield_age.getText());
-        System.out.println("QI  : " + textfield_qi.getText());
-        System.out.println("Ethnicity : " + choicebox_ethnicity.getValue());
-        System.out.println("Smoker : " + Smoker_choicebox.getValue());
-        System.out.println("Alcohol : " + alcohol_choicebox.getValue());
-        System.out.println("Athlete : " + Athlete_choicebox.getValue());
-        System.out.println("Feed : " + feed_choicebox.getValue());
-        System.out.println("Bodybuild : " + bodybuild_choicebox.getValue());
-        System.out.println("Religion : " + religion_choicebox.getValue());
-        System.out.println("Color of hair : " + color_of_hair_choicebox.getValue());
-        System.out.println("Hair type : " + hair_type_choicebox.getValue());
-        System.out.println("Hair length : " + hair_length_choicebox.getValue());
-        System.out.println("Video games : " + video_games_checkcombobox.getCheckModel().getCheckedItems());
-        System.out.println("Miscellanious : " + miscellanious_checkcombobox.getCheckModel().getCheckedItems());
 
-        // pop an alert
-
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Information Dialog");
-        alert.setHeaderText("Profile not created");
-        alert.setContentText("Your profile has not been created, please fill all the fields");
-        alert.showAndWait();
 
 
     }
