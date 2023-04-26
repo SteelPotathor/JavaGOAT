@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import org.controlsfx.control.CheckComboBox;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class New_Profile_Controller {
 
@@ -110,10 +111,6 @@ public class New_Profile_Controller {
         video_games_checkcombobox.getItems().addAll(element_video_games);
         miscellanious_checkcombobox.getItems().addAll(element_miscellanious);
 
-
-
-
-
     }
     @FXML
     void change_scene_to_page_dashboard(MouseEvent event) throws IOException {
@@ -168,7 +165,23 @@ public class New_Profile_Controller {
 
     @FXML
     void validate_profil() {
-        System.out.println("validate_profil");
+        if (Objects.equals(choicebox_ethnicity.getValue(), "Select")
+        || Objects.equals(Smoker_choicebox.getValue(), "Select")
+        || Objects.equals(alcohol_choicebox.getValue(), "Select")
+        || Objects.equals(Athlete_choicebox.getValue(), "Select")
+        || Objects.equals(feed_choicebox.getValue(), "Select")
+        || Objects.equals(bodybuild_choicebox.getValue(), "Select")
+        || Objects.equals(religion_choicebox.getValue(), "Select")
+        || Objects.equals(color_of_hair_choicebox.getValue(), "Select")
+        || Objects.equals(hair_type_choicebox.getValue(), "Select")
+        || Objects.equals(hair_length_choicebox.getValue(), "Select")
+        || Objects.equals(video_games_checkcombobox.getCheckModel().getCheckedItems().size(), 0)
+        || Objects.equals(miscellanious_checkcombobox.getCheckModel().getCheckedItems().size(), 0)) {
+            System.out.println("Error");
+        }
+        else {
+            System.out.println("Success");
+        }
     }
 
 
