@@ -99,11 +99,10 @@ public class ModelMatch implements Serializable {
 
         while (i < howMany && itr.hasNext()) {
             Tuple t = itr.next();
-            int counter = 0;
             if (hashMapH == null || !hashMapH.containsKey(t.id)) {
                 HashSet<Passion.miscellaneous> PMprofile = this.modelP.profileHashMap.get(noProfile).getPassion().getPassionM();
                 HashSet<Passion.video_games> PVGprofile = this.modelP.profileHashMap.get(noProfile).getPassion().getPassionVG();
-                counter = this.modelP.profileHashMap.get(t.id).getPassion().getPassionM().stream().filter(PMprofile::contains).toArray().length;
+                int counter = this.modelP.profileHashMap.get(t.id).getPassion().getPassionM().stream().filter(PMprofile::contains).toArray().length;
                 counter += this.modelP.profileHashMap.get(t.id).getPassion().getPassionVG().stream().filter(PVGprofile::contains).toArray().length;
                 KNNProfiles.put(this.modelP.profileHashMap.get(t.id), counter);
                 i++;
