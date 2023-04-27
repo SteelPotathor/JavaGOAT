@@ -2,6 +2,7 @@ package com.example.javagoat.back;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Launcher {
 
@@ -21,11 +22,13 @@ public class Launcher {
             launcher.modelM.addProfile(p);
         }
 
-        System.out.println(launcher.modelM.getModelP().getProfileHashMap().get(5).getPreferences());
-        ArrayList<Profile> res = (launcher.modelM.getKNN(5,5));
+        System.out.println(launcher.modelM.getModelP().getProfileHashMap().get(5).getPassion());
+        HashMap<Profile, Integer> res = (launcher.modelM.getKNN(5,5));
 
-        for (Profile i : res) {
-            System.out.println(i);
+
+        // Get key and value from HashMap
+        for (Profile profile : res.keySet()) {
+            System.out.println("Key: " + profile.getPassion() + " Value: " + res.get(profile));
         }
 
 
