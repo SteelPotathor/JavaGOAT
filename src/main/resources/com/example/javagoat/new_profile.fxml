@@ -100,7 +100,7 @@
             <ImageView fitHeight="92.0" fitWidth="150.0" layoutX="72.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
             <VBox layoutY="178.0" prefHeight="321.0" prefWidth="265.0">
                <children>
-                  <TextField fx:id="textfield_first_name" alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="First name" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                  <TextField fx:id="textfield_first_name" alignment="CENTER" onKeyReleased="#write_string_only_firstname" prefHeight="46.0" prefWidth="192.0" promptText="First name" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -111,7 +111,7 @@
                         <Insets bottom="10.0" top="10.0" />
                      </padding>
                   </TextField>
-                  <TextField fx:id="textfield_last_name" alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="Last name" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                  <TextField fx:id="textfield_last_name" alignment="CENTER" onKeyReleased="#write_string_only_lastname" prefHeight="46.0" prefWidth="192.0" promptText="Last name" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -133,7 +133,7 @@
                         <Insets bottom="10.0" top="10.0" />
                      </padding>
                   </TextField>
-                  <TextField fx:id="textfield_size" alignment="CENTER" onKeyReleased="#write_number_only_size" prefHeight="46.0" prefWidth="192.0" promptText="Size" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                  <TextField fx:id="textfield_size" alignment="CENTER" onKeyReleased="#write_number_only_size" prefHeight="46.0" prefWidth="192.0" promptText="Size (cm)" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
                      <font>
                         <Font size="16.0" />
                      </font>
