@@ -14,6 +14,8 @@ public class Profile implements Serializable {
     public Vecteur vectProfile;
     public Vecteur vectPreferences;
 
+    public ModelHistoMatch modelHisto;
+
 
     // Customised Profile -> Add Profile
     public Profile(Identity identity, PhysicalAttributes physicalAttributes, LifeStyle lifeStyle, Preferences preferences, Passion passion) {
@@ -31,6 +33,7 @@ public class Profile implements Serializable {
         this.vectPreferences = new Vecteur();
         this.vectProfile.setProfileVecteur(this);
         this.vectPreferences.setPrefVecteur(this.getPreferences());
+        this.modelHisto = new ModelHistoMatch();
     }
 
     // Random Profile
@@ -60,6 +63,8 @@ public class Profile implements Serializable {
         this.vectPreferences = new Vecteur();
         this.vectProfile.setProfileVecteur(this);
         this.vectPreferences.setPrefVecteur(this.getPreferences());
+
+        this.modelHisto = new ModelHistoMatch();
     }
 
     public float getDistance(Profile profile) {
@@ -113,6 +118,22 @@ public class Profile implements Serializable {
 
     public void setVectPreferences(Vecteur vectPreferences) {
         this.vectPreferences = vectPreferences;
+    }
+
+    public Passion getPassion() {
+        return passion;
+    }
+
+    public void setPassion(Passion passion) {
+        this.passion = passion;
+    }
+
+    public ModelHistoMatch getModelHisto() {
+        return modelHisto;
+    }
+
+    public void setModelHisto(ModelHistoMatch modelHisto) {
+        this.modelHisto = modelHisto;
     }
 
     public String toString() {
