@@ -121,10 +121,10 @@ public class Passion {
     }
 
     public void setRandomPassion() {
-        while (this.passionVG.size() < random.nextInt(6)) {
+        while (this.passionVG.size() < random.nextInt(2,6)) {
             this.passionVG.add(video_games.randomVideoGame());
         }
-        while (this.passionM.size() < random.nextInt(6)) {
+        while (this.passionM.size() < random.nextInt(2,6)) {
             this.passionM.add(miscellaneous.randomMiscellaneous());
         }
     }
