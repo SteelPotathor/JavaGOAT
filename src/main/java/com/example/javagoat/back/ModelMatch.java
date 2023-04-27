@@ -3,10 +3,7 @@ package com.example.javagoat.back;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.TreeSet;
+import java.util.*;
 
 public class ModelMatch implements Serializable {
 
@@ -89,7 +86,7 @@ public class ModelMatch implements Serializable {
         this.modelP.profileHashMap.replace(p.getIdentity().getNoId(), p);
     }
 
-    public ArrayList<Profile> getKNN(int noProfile, int howMany) {
+    public HashMap<Profile, Integer> getKNN(int noProfile, int howMany) {
         // Get the treemap of the profile 'noProfile'
         TreeSet<Tuple> treeSetD = this.stockDistance.get(noProfile);
         HashMap<Integer, String> hashMapH = this.modelP.profileHashMap.get(noProfile).getModelHisto().getStockHisto();
@@ -97,13 +94,18 @@ public class ModelMatch implements Serializable {
         // Set an iterator to get 'howMany' first elements in the treemap (and an Arraylist to stock the results)
         // Obtains the nearest profiles in the ArrayList
         int i = 0;
-        ArrayList<Profile> KNNProfiles = new ArrayList<>();
+        HashMap<Profile, Integer> KNNProfiles = new HashMap<>();
         Iterator<Tuple> itr = treeSetD.iterator();
 
         while (i < howMany && itr.hasNext()) {
             Tuple t = itr.next();
+            int counter = 0;
             if (hashMapH == null || !hashMapH.containsKey(t.id)) {
-                KNNProfiles.add(this.modelP.profileHashMap.get(t.id));
+                HashSet<Passion.miscellaneous> PMprofile = this.modelP.profileHashMap.get(noProfile).getPassion().getPassionM();
+                HashSet<Passion.video_games> PVGprofile = this.modelP.profileHashMap.get(noProfile).getPassion().getPassionVG();
+                counter = this.modelP.profileHashMap.get(t.id).getPassion().getPassionM().stream().filter(PMprofile::contains).toArray().length;
+                counter += this.modelP.profileHashMap.get(t.id).getPassion().getPassionVG().stream().filter(PVGprofile::contains).toArray().length;
+                KNNProfiles.put(this.modelP.profileHashMap.get(t.id), counter);
                 i++;
             }
 
