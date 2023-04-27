@@ -1,5 +1,6 @@
 package com.example.javagoat.back;
 
+import java.io.File;
 import java.io.Serializable;
 
 
@@ -16,9 +17,11 @@ public class Profile implements Serializable {
 
     public ModelHistoMatch modelHisto;
 
+    File image = new File("src\\main\\java\\com\\example\\javagoat\\back\\images\\DefaultImage.png");
+
 
     // Customised Profile -> Add Profile
-    public Profile(Identity identity, PhysicalAttributes physicalAttributes, LifeStyle lifeStyle, Preferences preferences, Passion passion) {
+    public Profile(Identity identity, PhysicalAttributes physicalAttributes, LifeStyle lifeStyle, Preferences preferences, Passion passion, File file) {
         this.identity = identity;
         this.physicalAttributes = physicalAttributes;
         this.lifeStyle = lifeStyle;
@@ -34,10 +37,12 @@ public class Profile implements Serializable {
         this.vectProfile.setProfileVecteur(this);
         this.vectPreferences.setPrefVecteur(this.getPreferences());
         this.modelHisto = new ModelHistoMatch();
+        this.image = file;
     }
 
     // Random Profile
-    public Profile() {}
+    public Profile() {
+    }
 
     public void setRandomProfile() {
         this.physicalAttributes = new PhysicalAttributes();
@@ -102,7 +107,6 @@ public class Profile implements Serializable {
     public void setPreferences(Preferences preferences) {
         this.preferences = preferences;
     }
-
 
     public Vecteur getVectProfile() {
         return vectProfile;
