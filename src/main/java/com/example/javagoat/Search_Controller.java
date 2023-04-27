@@ -9,8 +9,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -36,6 +38,14 @@ public class Search_Controller {
     private Pane advanced_research_panel1;
     @FXML
     private ImageView icon_to_show_or_hide_advanced_research_panel;
+    @FXML
+    private TextField age_min;
+    @FXML
+    private TextField age_max;
+    @FXML
+    private TextField height_min;
+    @FXML
+    private TextField height_max;
 
 
     @FXML
@@ -136,6 +146,35 @@ public class Search_Controller {
         advanced_research_panel1.setVisible(advanced_research_panel_is_open);
 
 
+    }
+    @FXML
+    void write_string_only_age_min(KeyEvent event) {
+        var key = event.getCode();
+        if (!key.isDigitKey()) {
+            age_min.setText("");
+        }
+    }
+    @FXML
+    void write_string_only_age_max(KeyEvent event) {
+        var key = event.getCode();
+        if (!key.isDigitKey()) {
+            age_max.setText("");
+        }
+    }
+
+    @FXML
+    void write_string_only_height_min(KeyEvent event) {
+        var key = event.getCode();
+        if (!key.isDigitKey()) {
+            height_min.setText("");
+        }
+    }
+    @FXML
+    void write_string_only_height_max(KeyEvent event) {
+        var key = event.getCode();
+        if (!key.isDigitKey()) {
+            height_max.setText("");
+        }
     }
 
 

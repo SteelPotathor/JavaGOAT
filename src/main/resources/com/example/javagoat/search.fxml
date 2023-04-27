@@ -145,12 +145,12 @@
                   <Font size="13.0" />
                </font>
             </CheckBox>
-            <TextField alignment="CENTER" layoutY="32.0" prefHeight="30.0" prefWidth="80.0" promptText="Min" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+            <TextField fx:id="age_min" alignment="CENTER" layoutY="32.0" onKeyReleased="#write_string_only_age_min" prefHeight="30.0" prefWidth="80.0" promptText="Min" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
-            <TextField alignment="CENTER" layoutX="97.0" layoutY="32.0" prefHeight="30.0" prefWidth="80.0" promptText="Max" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+            <TextField fx:id="age_max" alignment="CENTER" layoutX="97.0" layoutY="32.0" onKeyReleased="#write_string_only_age_max" prefHeight="30.0" prefWidth="80.0" promptText="Max" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
                <font>
                   <Font size="13.0" />
                </font>
@@ -160,12 +160,12 @@
                   <Font size="13.0" />
                </font>
             </CheckBox>
-            <TextField alignment="CENTER" layoutX="194.0" layoutY="33.0" prefHeight="30.0" prefWidth="80.0" promptText="Min" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+            <TextField fx:id="height_min" alignment="CENTER" layoutX="194.0" layoutY="33.0" onKeyReleased="#write_string_only_height_min" prefHeight="30.0" prefWidth="80.0" promptText="Min" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
-            <TextField alignment="CENTER" layoutX="291.0" layoutY="33.0" prefHeight="30.0" prefWidth="80.0" promptText="Max" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+            <TextField fx:id="height_max" alignment="CENTER" layoutX="291.0" layoutY="33.0" onKeyReleased="#write_string_only_height_max" prefHeight="30.0" prefWidth="80.0" promptText="Max" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
                <font>
                   <Font size="13.0" />
                </font>

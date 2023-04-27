@@ -233,6 +233,21 @@ public class New_Profile_Controller {
     }
 
     @FXML
+    void write_string_only_firstname(KeyEvent event) {
+        var key = event.getCode();
+        if (!key.isLetterKey()) {
+            textfield_first_name.setText("");
+        }
+    }
+    @FXML
+    void write_string_only_lastname(KeyEvent event) {
+        var key = event.getCode();
+        if (!key.isLetterKey()) {
+            textfield_last_name.setText("");
+        }
+    }
+
+    @FXML
     void write_number_only_age(KeyEvent event) {
         var key = event.getCode();
         if (!key.isDigitKey()) {
