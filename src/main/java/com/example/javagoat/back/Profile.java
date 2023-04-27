@@ -140,6 +140,14 @@ public class Profile implements Serializable {
         this.modelHisto = modelHisto;
     }
 
+    public File getImage() {
+        return image;
+    }
+
+    public void setImage(File image) {
+        this.image = image;
+    }
+
     public String toString() {
         return " (" + this.getIdentity() + " | " + this.getPhysicalAttributes() + " | " + this.getLifeStyle() + ") ";
     }
