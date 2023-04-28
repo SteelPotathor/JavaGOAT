@@ -27,7 +27,7 @@ public class Profile implements Serializable {
         this.lifeStyle = lifeStyle;
         this.preferences = preferences;
         this.passion = passion;
-        // DONT REPEAT YOURSELF (DRY)
+
         if (this.identity.getBsex() == Biology.sex.MALE) {
             this.physicalAttributes.setSize(this.physicalAttributes.getSize() + 15);
         }

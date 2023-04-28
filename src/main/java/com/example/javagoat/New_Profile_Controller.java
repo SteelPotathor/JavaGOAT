@@ -229,7 +229,9 @@ public class New_Profile_Controller {
             alert.showAndWait();
             System.out.println(profile);
 
+            ModelMatch.addProfile(profile);
 
+            System.out.println(ModelMatch.modelP.profileHashMap.size());
         }
 
     }
