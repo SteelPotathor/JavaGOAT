@@ -18,6 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.controlsfx.control.CheckComboBox;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -219,7 +220,8 @@ public class New_Profile_Controller {
             for (String miscellaneous : miscellaneous_checked)
                 p.passionM.add(Passion.miscellaneous.valueOf(miscellaneous));
 
-            Profile profile = new Profile(id, pa, ls, pref, p);
+            File file = new File("src\\main\\java\\com\\example\\javagoat\\back\\images\\DefaultImage.png");
+            Profile profile = new Profile(id, pa, ls, pref, p, file);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText("Profile created");
