@@ -1,25 +1,34 @@
 package com.example.javagoat;
 
+import com.example.javagoat.back.ModelProfile;
+import com.example.javagoat.back.Profile;
+import com.example.javagoat.back.ProfileTableView;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.controlsfx.control.CheckComboBox;
 
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.io.IOException;
 import java.util.Objects;
+import java.util.Observable;
 
 public class Search_Controller {
 
@@ -75,17 +84,60 @@ public class Search_Controller {
     @FXML
     private boolean advanced_research_panel_is_open = false;
 
+    @FXML
+    private TableView<ProfileTableView> tableView;
+    @FXML
+    private TableColumn<ProfileTableView, Integer> avatar;
+    @FXML
+    private TableColumn<ProfileTableView, String> firstname;
+    @FXML
+    private TableColumn<ProfileTableView, String> lastname;
+    @FXML
+    private TableColumn<ProfileTableView, Integer> age;
+    @FXML
+    private TableColumn<ProfileTableView, String> gender;
+    @FXML
+    private TableColumn<ProfileTableView, HBox> action;
+
 
     @FXML
     void initialize() {
         //add element in choice box
+        age_min.setOnKeyReleased(this::change);
         sexe_choice_box.getItems().addAll(sexe);
+        
+        sexe_choice_box.setOnMouseEntered(this::t);
+        sexe_choice_box.getItems().addListener((ListChangeListener<String>) change -> System.out.println(change));
         ethnicity_choice_box.getItems().addAll(ethnicity);
         color_of_hair_choice_box.getItems().addAll(color_of_hair);
         type_of_hair_choice_box.getItems().addAll(type_of_hair);
         weight_choice_box.getItems().addAll(weight);
 
+        avatar.setCellValueFactory(new PropertyValueFactory<>("imageView"));
+        firstname.setCellValueFactory(new PropertyValueFactory<>("firstname"));
+        lastname.setCellValueFactory(new PropertyValueFactory<>("lastname"));
+        age.setCellValueFactory(new PropertyValueFactory<>("age"));
+        gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        action.setCellValueFactory(new PropertyValueFactory<>("actions"));
+        ObservableList<ProfileTableView> profiles = tableView.getItems();
 
+        ModelProfile modelProfile = new ModelProfile();
+        System.out.println(modelProfile.getProfileHashMap());
+
+        for (int i = 1; i < 501; i++) {
+            Profile profile = modelProfile.getProfileHashMap().get(i);
+            // The object in the tableview must match the columns attributes
+            ProfileTableView profileTableView = profile.toProfileTableView();
+            profiles.add(profileTableView);
+        }
+    }
+
+    private void t(MouseEvent mouseEvent) {
+        System.out.println("oui");
+    }
+
+    private void change(KeyEvent keyEvent) {
+        System.out.println(keyEvent);
     }
 
     @FXML
@@ -176,8 +228,6 @@ public class Search_Controller {
             height_max.setText("");
         }
     }
-
-
 
     @FXML
     void exit_script() {

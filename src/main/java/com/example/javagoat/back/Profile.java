@@ -1,6 +1,8 @@
 package com.example.javagoat.back;
 
-import java.io.File;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 import java.io.Serializable;
 
 
@@ -17,11 +19,11 @@ public class Profile implements Serializable {
 
     public ModelHistoMatch modelHisto;
 
-    File image = new File("src\\main\\java\\com\\example\\javagoat\\back\\images\\DefaultImage.png");
+    public ImageView imageView;
 
 
     // Customised Profile -> Add Profile
-    public Profile(Identity identity, PhysicalAttributes physicalAttributes, LifeStyle lifeStyle, Preferences preferences, Passion passion, File file) {
+    public Profile(Identity identity, PhysicalAttributes physicalAttributes, LifeStyle lifeStyle, Preferences preferences, Passion passion, ImageView imageView) {
         this.identity = identity;
         this.physicalAttributes = physicalAttributes;
         this.lifeStyle = lifeStyle;
@@ -37,7 +39,7 @@ public class Profile implements Serializable {
         this.vectProfile.setProfileVecteur(this);
         this.vectPreferences.setPrefVecteur(this.getPreferences());
         this.modelHisto = new ModelHistoMatch();
-        this.image = file;
+        this.imageView = imageView;
     }
 
     // Random Profile
@@ -70,6 +72,16 @@ public class Profile implements Serializable {
         this.vectPreferences.setPrefVecteur(this.getPreferences());
 
         this.modelHisto = new ModelHistoMatch();
+
+        this.imageView = new ImageView(new Image("file:src/main/java/com/example/javagoat/back/images/kumalala.jpg"));
+    }
+
+    public ProfileTableView toProfileTableView() {
+        ImageView img = this.imageView;
+        img.setPreserveRatio(true);
+        img.setFitHeight(40);
+        img.setFitWidth(40);
+        return new ProfileTableView(this.identity.noId, img, this.identity.firstname, this.identity.lastname, this.identity.age, this.identity.Bsex.toString());
     }
 
     public float getDistance(Profile profile) {
@@ -140,12 +152,12 @@ public class Profile implements Serializable {
         this.modelHisto = modelHisto;
     }
 
-    public File getImage() {
-        return image;
+    public ImageView getImageView() {
+        return imageView;
     }
 
-    public void setImage(File image) {
-        this.image = image;
+    public void setImageView(ImageView imageView) {
+        this.imageView = imageView;
     }
 
     public String toString() {

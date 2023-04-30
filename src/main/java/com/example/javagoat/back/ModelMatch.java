@@ -3,31 +3,40 @@ package com.example.javagoat.back;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.TreeSet;
 
 public class ModelMatch implements Serializable {
 
-    public static HashMap<Integer /*id*/, TreeSet<Tuple>> stockDistance;
-    public static ModelProfile modelP;
+    public static HashMap<Integer /*id*/, TreeSet<Tuple>> stockDistance = new HashMap<>();
+    public ModelProfile modelP = new ModelProfile();
 
-    String DistancePath = "src\\main\\java\\com\\example\\javagoat\\back\\Distances.xml";
-    String ProfilePath = "src\\main\\java\\com\\example\\javagoat\\back\\Profiles.xml";
+    public String DistancePath = "src\\main\\java\\com\\example\\javagoat\\back\\Distances.xml";
+    public String ProfilePath = "src\\main\\java\\com\\example\\javagoat\\back\\Profiles.xml";
 
 
     public ModelMatch() {
         XMLDecoder decoder = null;
         try {
-            FileInputStream fis = new FileInputStream(this.ProfilePath);
-            BufferedInputStream ois = new BufferedInputStream(fis);
-            decoder = new XMLDecoder(ois);
-
             modelP = new ModelProfile();
-            modelP.profileHashMap = ((HashMap<Integer, Profile>) decoder.readObject());
+            // check if the hashmap is not null because of static (we don't want to reset it)
+            if (modelP.getProfileHashMap() == null) {
+                FileInputStream fileInputStream = new FileInputStream(this.ProfilePath);
+                BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
+                decoder = new XMLDecoder(bufferedInputStream);
+                modelP.profileHashMap = ((HashMap<Integer, Profile>) decoder.readObject());
+            }
 
-            fis = new FileInputStream(this.DistancePath);
-            ois = new BufferedInputStream(fis);
-            decoder = new XMLDecoder(ois);
-            stockDistance = (HashMap<Integer, TreeSet<Tuple>>) decoder.readObject();
+            // check if the DS is not null because of static (we don't want to reset it)
+            if (stockDistance == null) {
+                FileInputStream fileInputStream = new FileInputStream(this.DistancePath);
+                BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
+                decoder = new XMLDecoder(bufferedInputStream);
+                stockDistance = (HashMap<Integer, TreeSet<Tuple>>) decoder.readObject();
+            }
+
 
         } catch (Exception e) {
             modelP = new ModelProfile();
@@ -37,11 +46,11 @@ public class ModelMatch implements Serializable {
         }
     }
 
-    public static void addProfile(Profile p) {
+    public void addProfile(Profile p) {
         // Add in every TreeSets the new distance between the profile 'p' and every other profiles contained in this HashMap
         for (int idProfile : stockDistance.keySet()) {
             TreeSet<Tuple> treeSetProfile = stockDistance.get(idProfile);
-            Profile profile = modelP.profileHashMap.get(idProfile);
+            Profile profile = this.modelP.profileHashMap.get(idProfile);
             treeSetProfile.add(new Tuple(p.identity.getNoId(), profile, p));
         }
 
@@ -50,13 +59,13 @@ public class ModelMatch implements Serializable {
         TreeSet<Tuple> treeSetP = stockDistance.get(p.identity.getNoId());
 
         // Add in the new TreeSet every distance with other profiles
-        for (int idProfile : modelP.profileHashMap.keySet()) {
-            Profile profile = modelP.profileHashMap.get(idProfile);
+        for (int idProfile : this.modelP.profileHashMap.keySet()) {
+            Profile profile = this.modelP.profileHashMap.get(idProfile);
             treeSetP.add(new Tuple(idProfile, p, profile));
         }
 
         // Add the profile 'p' in the hashMap
-        modelP.profileHashMap.put(p.identity.getNoId(), p);
+        this.modelP.profileHashMap.put(p.identity.getNoId(), p);
     }
 
     public void editProfile(Profile p) {

@@ -6,10 +6,9 @@ import java.util.stream.Collectors;
 
 public class ModelProfile {
 
-    public HashMap<Integer /*id*/, Profile> profileHashMap;
+    public static HashMap<Integer /*id*/, Profile> profileHashMap = new HashMap<>();
 
     public ModelProfile() {
-        this.profileHashMap = new HashMap<>();
     }
 
     public Set searchProfile(String firstname, String lastname, int minSize, int maxSize, int minAge, int maxAge, PhysicalAttributes.hairType hairType, PhysicalAttributes.hairColor hairColor, Biology.ethnicity ethnicity, LifeStyle.bodyBuild bodybuild) {
