@@ -26,7 +26,7 @@
          <children>
             <VBox layoutY="169.0" prefHeight="516.0" prefWidth="228.0">
                <children>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_dashboard" prefHeight="69.0" prefWidth="228.0">
+                  <Pane fx:id="dashboard_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_dashboard" onMouseMoved="#test" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -36,7 +36,7 @@
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" />
                      </children>
                   </Pane>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_new_profile" prefHeight="69.0" prefWidth="228.0">
+                  <Pane fx:id="profile_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_new_profile" onMouseMoved="#test" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -46,7 +46,7 @@
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New profile" />
                      </children>
                   </Pane>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_search" prefHeight="69.0" prefWidth="228.0">
+                  <Pane fx:id="search_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_search" onMouseMoved="#test" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -56,7 +56,7 @@
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" />
                      </children>
                   </Pane>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_calendar" prefHeight="69.0" prefWidth="228.0">
+                  <Pane fx:id="calendar_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_calendar" onMouseMoved="#test" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -66,7 +66,7 @@
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calendar" />
                      </children>
                   </Pane>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_events" prefHeight="69.0" prefWidth="228.0">
+                  <Pane fx:id="events_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_events" onMouseMoved="#test" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -90,13 +90,8 @@
             <Image url="@icons8-cross-50.png" />
          </image>
       </ImageView>
-      <Pane layoutX="253.0" layoutY="49.0" prefHeight="516.0" prefWidth="265.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
+      <Pane layoutX="261.0" layoutY="76.0" prefHeight="516.0" prefWidth="265.0" style="-fx-background-color: rgba(255, 255,255, 0.5); -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
          <children>
-            <ImageView fitHeight="516.0" fitWidth="265.0">
-               <image>
-                  <Image url="@background_element_new_profile.png" />
-               </image>
-            </ImageView>
             <ImageView fitHeight="92.0" fitWidth="150.0" layoutX="72.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
             <VBox layoutY="178.0" prefHeight="321.0" prefWidth="265.0">
                <children>
@@ -160,13 +155,8 @@
             </VBox>
          </children>
       </Pane>
-      <Pane layoutX="551.0" layoutY="49.0" prefHeight="516.0" prefWidth="779.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
+      <Pane layoutX="550.0" layoutY="76.0" prefHeight="516.0" prefWidth="779.0" style="-fx-background-color: rgba(255, 255,255, 0.3); -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
          <children>
-            <ImageView fitHeight="516.0" fitWidth="779.0">
-               <image>
-                  <Image url="@background_element_new_profile.png" />
-               </image>
-            </ImageView>
             <VBox layoutX="87.0" layoutY="72.0" prefHeight="373.0" prefWidth="678.0">
                <children>
                   <HBox>

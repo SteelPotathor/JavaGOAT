@@ -1,6 +1,7 @@
 package com.example.javagoat;
 
 import com.example.javagoat.back.*;
+import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,7 +16,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.controlsfx.control.CheckComboBox;
 
 import java.io.File;
@@ -30,6 +33,17 @@ public class New_Profile_Controller {
     private Scene scene;
     @FXML
     private Parent parent;
+    @FXML
+    private Pane dashboard_pane;
+    @FXML
+    private Pane profile_pane;
+    @FXML
+    private Pane search_pane;
+    @FXML
+    private Pane calendar_pane;
+    @FXML
+    private Pane events_pane;
+
     //ALL THE CHOICEBOXES
     @FXML
     private ChoiceBox<String> choicebox_ethnicity;
@@ -127,7 +141,14 @@ public class New_Profile_Controller {
         sex_choicebox.setValue("MALE/FEMALE");
         sex_choicebox.setItems(element_sex);
 
+        //mouse over
+
+
+
     }
+
+
+
     @FXML
     void change_scene_to_page_dashboard(MouseEvent event) throws IOException {
         parent = FXMLLoader.load(getClass().getResource("home.fxml"));
@@ -136,6 +157,36 @@ public class New_Profile_Controller {
         stage.setScene(scene);
         stage.show();
     }
+   @FXML
+   void change_background_color(MouseEvent event) throws InterruptedException {
+
+       dashboard_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
+       profile_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
+       search_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
+       calendar_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
+       events_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
+        if (event.getSource() == dashboard_pane) {
+
+            dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
+        }
+        else if (event.getSource() == profile_pane) {
+            profile_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
+        }
+       else if (event.getSource() == search_pane) {
+            search_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
+        }
+       else if (event.getSource() == calendar_pane) {
+            calendar_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
+        }
+       else if (event.getSource() == events_pane) {
+            events_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
+        }
+
+
+
+        //modify the color of the panel from event
+
+       }
     @FXML
     void change_scene_to_new_profile(MouseEvent event) throws IOException {
         parent = FXMLLoader.load(getClass().getResource("new_profile.fxml"));
@@ -270,6 +321,9 @@ public class New_Profile_Controller {
             textfield_qi.setText("");
         }
     }
+
+
+
 
 
 
