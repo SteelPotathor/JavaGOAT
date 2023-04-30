@@ -20,6 +20,7 @@ public class Profile implements Serializable {
     public ModelHistoMatch modelHisto;
 
     public ImageView imageView;
+    public int priority = 1; // Base priority value
 
 
     // Customised Profile -> Add Profile
@@ -81,7 +82,7 @@ public class Profile implements Serializable {
         img.setPreserveRatio(true);
         img.setFitHeight(40);
         img.setFitWidth(40);
-        return new ProfileTableView(this.identity.noId, img, this.identity.firstname, this.identity.lastname, this.identity.age, this.identity.Bsex.toString());
+        return new ProfileTableView(this.priority, img, this.identity.firstname, this.identity.lastname, this.identity.age, this.identity.Bsex.toString());
     }
 
     public float getDistance(Profile profile) {
@@ -158,6 +159,14 @@ public class Profile implements Serializable {
 
     public void setImageView(ImageView imageView) {
         this.imageView = imageView;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 
     public String toString() {

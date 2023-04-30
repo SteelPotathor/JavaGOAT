@@ -3,10 +3,7 @@ package com.example.javagoat.back;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.TreeSet;
+import java.util.*;
 
 public class ModelMatch implements Serializable {
 
@@ -98,7 +95,7 @@ public class ModelMatch implements Serializable {
     public HashMap<Profile, Integer> getKNN(int noProfile, int howMany) {
         // Get the treemap of the profile 'noProfile'
         TreeSet<Tuple> treeSetD = stockDistance.get(noProfile);
-        HashMap<Integer, String> hashMapH = modelP.profileHashMap.get(noProfile).getModelHisto().getStockHisto();
+        HashMap<Integer, Date> hashMapH = modelP.profileHashMap.get(noProfile).getModelHisto().getStockHisto();
 
         // Set an iterator to get 'howMany' first elements in the treemap (and an Arraylist to stock the results)
         // Obtains the nearest profiles in the ArrayList

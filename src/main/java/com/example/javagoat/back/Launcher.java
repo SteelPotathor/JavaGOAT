@@ -1,7 +1,6 @@
 package com.example.javagoat.back;
 
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Launcher {
@@ -23,7 +22,7 @@ public class Launcher {
         }
 
         System.out.println(launcher.modelM.getModelP().getProfileHashMap().get(5).getPassion());
-        HashMap<Profile, Integer> res = (launcher.modelM.getKNN(5,5));
+        HashMap<Profile, Integer> res = (launcher.modelM.getKNN(5, 5));
 
 
         // Get key and value from HashMap

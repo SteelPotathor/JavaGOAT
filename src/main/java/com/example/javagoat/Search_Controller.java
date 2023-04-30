@@ -105,7 +105,6 @@ public class Search_Controller {
         //add element in choice box
         age_min.setOnKeyReleased(this::change);
         sexe_choice_box.getItems().addAll(sexe);
-        
         sexe_choice_box.setOnMouseEntered(this::t);
         sexe_choice_box.getItems().addListener((ListChangeListener<String>) change -> System.out.println(change));
         ethnicity_choice_box.getItems().addAll(ethnicity);
