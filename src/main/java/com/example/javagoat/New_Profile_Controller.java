@@ -101,6 +101,13 @@ public class New_Profile_Controller {
     public TextField textfield_size;
     public TextField textfield_qi;
 
+    //ALL GRIDS
+    @FXML
+    private Pane grid_life_style;
+    @FXML
+    private Pane grid_physical_information;
+    @FXML
+    private Pane grid_passions;
 
     //ALL THE OBSERVABLELISTS
     @FXML
@@ -338,6 +345,10 @@ public class New_Profile_Controller {
             button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
             button_physical_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_passions_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
+            grid_life_style.setVisible(true);
+            grid_physical_information.setVisible(false);
+            grid_passions.setVisible(false);
+
 
         }
         else if (event.getSource() == button_physical_information)
@@ -345,12 +356,18 @@ public class New_Profile_Controller {
             button_physical_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
             button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_passions_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
+            grid_life_style.setVisible(false);
+            grid_physical_information.setVisible(true);
+            grid_passions.setVisible(false);
         }
         else
         {
             button_passions_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
             button_physical_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
+            grid_life_style.setVisible(false);
+            grid_physical_information.setVisible(false);
+            grid_passions.setVisible(true);
 
         }
     }

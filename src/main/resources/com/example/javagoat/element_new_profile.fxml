@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.CheckComboBox?>
+
+<VBox prefHeight="142.0" prefWidth="624.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox>
+         <children>
+            <Pane prefHeight="65.0" prefWidth="203.0">
+               <children>
+                  <ChoiceBox fx:id="choicebox_ethnicity" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                  <Label text="Ethnicity">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane>
+               <children>
+                  <ChoiceBox fx:id="Smoker_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                  <Label text="Smoker">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane>
+               <children>
+                  <ChoiceBox fx:id="alcohol_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                  <Label text="Alcohol">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Pane>
+         </children>
+         <VBox.margin>
+            <Insets bottom="30.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox>
+         <children>
+            <Pane>
+               <children>
+                  <ChoiceBox fx:id="Athlete_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                  <Label text="Athlete">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane>
+               <children>
+                  <ChoiceBox fx:id="feed_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                  <Label text="Feed">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane>
+               <children>
+                  <ChoiceBox fx:id="bodybuild_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                  <Label text="Body build">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Pane>
+         </children>
+         <VBox.margin>
+            <Insets bottom="30.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox>
+         <children>
+            <Pane>
+               <children>
+                  <ChoiceBox fx:id="hair_type_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                  <Label text="Hair type">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane>
+               <children>
+                  <ChoiceBox fx:id="hair_length_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                  <Label text="Hair length">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane>
+               <children>
+                  <ChoiceBox fx:id="color_of_hair_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                  <Label text="Color of hair">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Pane>
+         </children>
+         <VBox.margin>
+            <Insets bottom="30.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox>
+         <children>
+            <Pane>
+               <children>
+                  <ChoiceBox fx:id="religion_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                  <Label text="Religion">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane>
+               <children>
+                  <CheckComboBox fx:id="video_games_checkcombobox" layoutY="27.0" prefHeight="37.0" prefWidth="203.0" />
+                  <Label text="Video games">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane>
+               <children>
+                  <CheckComboBox fx:id="miscellanious_checkcombobox" layoutY="27.0" prefHeight="37.0" prefWidth="203.0" />
+                  <Label text="Miscellaneous">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Pane>
+         </children>
+         <VBox.margin>
+            <Insets bottom="30.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>
