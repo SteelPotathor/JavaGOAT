@@ -166,8 +166,10 @@ public class New_Profile_Controller {
        calendar_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
        events_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
         if (event.getSource() == dashboard_pane) {
-
+            TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(0.5), dashboard_pane);
             dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
+
+            translateTransition.play();
         }
         else if (event.getSource() == profile_pane) {
             profile_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");

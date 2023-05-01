@@ -41,6 +41,7 @@ public class Search_Controller {
     private Pane events_pane;
 
 
+
     @FXML
     private Pane advanced_research_panel;
     @FXML
@@ -55,6 +56,11 @@ public class Search_Controller {
     private TextField height_min;
     @FXML
     private TextField height_max;
+
+    @FXML
+    private TextField first_name_text_field;
+    @FXML
+    private TextField last_name_text_field;
 
 
     @FXML

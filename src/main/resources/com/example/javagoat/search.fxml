@@ -84,32 +84,22 @@
             <Image url="@icons8-cross-50.png" />
          </image>
       </ImageView>
-      <Pane layoutX="634.0" layoutY="25.0">
+      <Pane layoutX="320.0" layoutY="25.0">
          <children>
-            <TextField alignment="CENTER" prefHeight="38.0" prefWidth="397.0" promptText="Name" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+            <TextField fx:id="first_name_text_field" alignment="CENTER" layoutX="-76.0" layoutY="-1.0" prefHeight="53.0" prefWidth="208.0" promptText="First name" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
                <font>
                   <Font size="24.0" />
                </font>
             </TextField>
-            <ImageView layoutX="20.0" layoutY="10.0">
-               <image>
-                  <Image url="@icons8-search.gif" />
-               </image>
-            </ImageView>
-            <ImageView layoutX="359.0" layoutY="15.0" opacity="0.65">
-               <image>
-                  <Image url="@icons8-multiplier-24.png" />
-               </image>
-            </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="235.0" layoutY="101.0" prefWidth="347.0" />
+      <Pane layoutX="626.0" layoutY="114.0" prefWidth="347.0" />
       <Pane layoutX="235.0" layoutY="101.0" />
-      <HBox layoutX="235.0" layoutY="101.0" prefWidth="336.0" />
-      <HBox layoutX="235.0" layoutY="101.0" prefWidth="336.0" />
-      <Pane layoutX="1047.0" layoutY="33.0" onMouseClicked="#show_advanced_research">
+      <HBox layoutX="626.0" layoutY="114.0" prefWidth="336.0" />
+      <HBox layoutX="626.0" layoutY="114.0" prefWidth="336.0" />
+      <Pane layoutX="683.0" layoutY="23.0" onMouseClicked="#show_advanced_research">
          <children>
-            <ImageView fx:id="icon_to_show_or_hide_advanced_research_panel" fitHeight="55.0" fitWidth="60.0" layoutY="-8.0">
+            <ImageView fx:id="icon_to_show_or_hide_advanced_research_panel" fitHeight="55.0" fitWidth="60.0">
                <image>
                   <Image url="@plus.png" />
                </image>
@@ -129,7 +119,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Pane fx:id="advanced_research_panel" layoutX="248.0" layoutY="16.0" visible="false">
+      <Pane fx:id="advanced_research_panel" layoutX="994.0" layoutY="25.0" visible="false">
          <children>
             <CheckComboBox fx:id="type_of_hair_choice_box" layoutX="180.0" prefHeight="34.0" prefWidth="155.0" title="Type of hair" />
             <CheckComboBox fx:id="weight_choice_box" prefHeight="34.0" prefWidth="155.0" title="Weight" />
@@ -138,39 +128,45 @@
             <CheckComboBox fx:id="ethnicity_choice_box" layoutX="180.0" layoutY="45.0" prefHeight="34.0" prefWidth="155.0" title="Ethnicity" />
          </children>
       </Pane>
-      <Pane fx:id="advanced_research_panel1" layoutX="645.0" layoutY="90.0" visible="false">
+      <Pane fx:id="advanced_research_panel1" layoutX="769.0" layoutY="18.0" prefHeight="143.0" prefWidth="192.0" visible="false">
          <children>
             <CheckBox layoutX="55.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="69.0" text="Age">
                <font>
                   <Font size="13.0" />
                </font>
             </CheckBox>
-            <TextField fx:id="age_min" alignment="CENTER" layoutY="32.0" onKeyReleased="#write_string_only_age_min" prefHeight="30.0" prefWidth="80.0" promptText="Min" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+            <TextField fx:id="age_min" alignment="CENTER" layoutY="32.0" onKeyReleased="#write_string_only_age_min" prefHeight="30.0" prefWidth="80.0" promptText="Min" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);" text="15">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
-            <TextField fx:id="age_max" alignment="CENTER" layoutX="97.0" layoutY="32.0" onKeyReleased="#write_string_only_age_max" prefHeight="30.0" prefWidth="80.0" promptText="Max" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+            <TextField fx:id="age_max" alignment="CENTER" layoutX="97.0" layoutY="32.0" onKeyReleased="#write_string_only_age_max" prefHeight="30.0" prefWidth="80.0" promptText="Max" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);" text="40">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
-            <CheckBox layoutX="249.0" layoutY="1.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="137.0" text="Size (cm)">
+            <CheckBox layoutX="49.0" layoutY="72.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="137.0" text="Size (cm)">
                <font>
                   <Font size="13.0" />
                </font>
             </CheckBox>
-            <TextField fx:id="height_min" alignment="CENTER" layoutX="194.0" layoutY="33.0" onKeyReleased="#write_string_only_height_min" prefHeight="30.0" prefWidth="80.0" promptText="Min" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+            <TextField fx:id="height_min" alignment="CENTER" layoutX="1.0" layoutY="99.0" onKeyReleased="#write_string_only_height_min" prefHeight="30.0" prefWidth="80.0" promptText="Min" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);" text="120">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
-            <TextField fx:id="height_max" alignment="CENTER" layoutX="291.0" layoutY="33.0" onKeyReleased="#write_string_only_height_max" prefHeight="30.0" prefWidth="80.0" promptText="Max" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+            <TextField fx:id="height_max" alignment="CENTER" layoutX="98.0" layoutY="99.0" onKeyReleased="#write_string_only_height_max" prefHeight="30.0" prefWidth="80.0" promptText="Max" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);" text="180">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
+            <Pane layoutX="100.0" layoutY="41.0" />
          </children>
       </Pane>
+      <TextField fx:id="last_name_text_field" alignment="CENTER" layoutX="463.0" layoutY="24.0" prefHeight="53.0" prefWidth="208.0" promptText="Last name" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>
