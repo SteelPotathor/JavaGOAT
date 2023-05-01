@@ -14,9 +14,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.CheckComboBox;
@@ -33,6 +36,7 @@ public class New_Profile_Controller {
     private Scene scene;
     @FXML
     private Parent parent;
+    //ALL THE PANES
     @FXML
     private Pane dashboard_pane;
     @FXML
@@ -44,6 +48,9 @@ public class New_Profile_Controller {
     @FXML
     private Pane events_pane;
 
+    //Image to put in circle
+    @FXML
+    private Circle circle_profile_picture;
     //ALL THE CHOICEBOXES
     @FXML
     private ChoiceBox<String> choicebox_ethnicity;
@@ -76,6 +83,17 @@ public class New_Profile_Controller {
     //ALL THE BUTTONS
     @FXML
     private Button button_create_profile;
+    @FXML
+    private Button button_personnal_information;
+    @FXML
+    private Button button_preferences_information;
+    @FXML
+    private Button button_physical_information;
+    @FXML
+    private Button button_lifestyle_information;
+    @FXML
+    private Button button_passions_information;
+
 
     //ALL THE TEXTFIELDS
     public TextField textfield_first_name;
@@ -140,6 +158,11 @@ public class New_Profile_Controller {
         miscellanious_checkcombobox.getItems().addAll(element_miscellanious);
         sex_choicebox.setValue("MALE/FEMALE");
         sex_choicebox.setItems(element_sex);
+
+
+        Image image = new Image(getClass().getResource("profile_image.jpeg").toExternalForm(), false);
+        circle_profile_picture.setFill(new ImagePattern(image));
+
 
         //mouse over
 
@@ -322,6 +345,50 @@ public class New_Profile_Controller {
         if (!key.isDigitKey()) {
             textfield_qi.setText("");
         }
+    }
+    @FXML
+    void change_button(MouseEvent event) {
+        if (event.getSource() == button_preferences_information) {
+            button_preferences_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
+            button_preferences_information.setUnderline(true);
+            button_personnal_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
+        }
+
+        else
+        {
+            button_personnal_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
+            button_preferences_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
+        }
+    }
+    @FXML
+    void change_style(MouseEvent event) {
+        if (event.getSource() == button_lifestyle_information) {
+            button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
+            button_physical_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
+            button_passions_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
+
+        }
+        else if (event.getSource() == button_physical_information)
+        {
+            button_physical_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
+            button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
+            button_passions_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
+        }
+        else
+        {
+            button_passions_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
+            button_physical_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
+            button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
+
+        }
+    }
+    @FXML
+    void add_profile_mouse_over(MouseEvent event) {
+        button_create_profile.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
+    }
+    @FXML
+    void add_profile_mouse_exit(MouseEvent event) {
+        button_create_profile.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50");
     }
 
 

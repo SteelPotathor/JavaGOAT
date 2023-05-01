@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import org.controlsfx.control.CheckComboBox?>
@@ -26,7 +27,7 @@
          <children>
             <VBox layoutY="169.0" prefHeight="516.0" prefWidth="228.0">
                <children>
-                  <Pane fx:id="dashboard_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_dashboard" onMouseMoved="#test" prefHeight="69.0" prefWidth="228.0">
+                  <Pane fx:id="dashboard_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_dashboard" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -36,7 +37,7 @@
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" />
                      </children>
                   </Pane>
-                  <Pane fx:id="profile_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_new_profile" onMouseMoved="#test" prefHeight="69.0" prefWidth="228.0">
+                  <Pane fx:id="profile_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_new_profile" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -46,7 +47,7 @@
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New profile" />
                      </children>
                   </Pane>
-                  <Pane fx:id="search_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_search" onMouseMoved="#test" prefHeight="69.0" prefWidth="228.0">
+                  <Pane fx:id="search_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_search" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -56,7 +57,7 @@
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" />
                      </children>
                   </Pane>
-                  <Pane fx:id="calendar_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_calendar" onMouseMoved="#test" prefHeight="69.0" prefWidth="228.0">
+                  <Pane fx:id="calendar_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_calendar" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -66,7 +67,7 @@
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calendar" />
                      </children>
                   </Pane>
-                  <Pane fx:id="events_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_events" onMouseMoved="#test" prefHeight="69.0" prefWidth="228.0">
+                  <Pane fx:id="events_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_events" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -92,10 +93,9 @@
       </ImageView>
       <Pane layoutX="261.0" layoutY="76.0" prefHeight="516.0" prefWidth="265.0" style="-fx-background-color: rgba(255, 255,255, 0.5); -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
          <children>
-            <ImageView fitHeight="92.0" fitWidth="150.0" layoutX="72.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
             <VBox layoutY="178.0" prefHeight="321.0" prefWidth="265.0">
                <children>
-                  <TextField fx:id="textfield_first_name" alignment="CENTER" onKeyReleased="#write_string_only_firstname" prefHeight="46.0" prefWidth="192.0" promptText="First name" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                  <TextField fx:id="textfield_first_name" alignment="CENTER" onKeyReleased="#write_string_only_firstname" prefHeight="46.0" prefWidth="192.0" promptText="First name" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7);">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -106,7 +106,7 @@
                         <Insets bottom="10.0" top="10.0" />
                      </padding>
                   </TextField>
-                  <TextField fx:id="textfield_last_name" alignment="CENTER" onKeyReleased="#write_string_only_lastname" prefHeight="46.0" prefWidth="192.0" promptText="Last name" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                  <TextField fx:id="textfield_last_name" alignment="CENTER" onKeyReleased="#write_string_only_lastname" prefHeight="46.0" prefWidth="192.0" promptText="Last name" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7);">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -117,7 +117,7 @@
                         <Insets bottom="10.0" top="10.0" />
                      </padding>
                   </TextField>
-                  <TextField fx:id="textfield_age" alignment="CENTER" onKeyReleased="#write_number_only_age" prefHeight="46.0" prefWidth="192.0" promptText="Age" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                  <TextField fx:id="textfield_age" alignment="CENTER" onKeyReleased="#write_number_only_age" prefHeight="46.0" prefWidth="192.0" promptText="Age" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7);">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -128,7 +128,7 @@
                         <Insets bottom="10.0" top="10.0" />
                      </padding>
                   </TextField>
-                  <TextField fx:id="textfield_size" alignment="CENTER" onKeyReleased="#write_number_only_size" prefHeight="46.0" prefWidth="192.0" promptText="Size (cm)" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                  <TextField fx:id="textfield_size" alignment="CENTER" onKeyReleased="#write_number_only_size" prefHeight="46.0" prefWidth="192.0" promptText="Size (cm)" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7);">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -139,7 +139,7 @@
                         <Insets bottom="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="textfield_qi" alignment="CENTER" onKeyReleased="#write_number_only_qi" prefHeight="46.0" prefWidth="192.0" promptText="QI" style="-fx-border-color: gray; -fx-background-color: #fcfdfe;">
+                  <TextField fx:id="textfield_qi" alignment="CENTER" onKeyReleased="#write_number_only_qi" prefHeight="46.0" prefWidth="192.0" promptText="QI" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7);">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -153,11 +153,16 @@
                   <ChoiceBox fx:id="sex_choicebox" prefHeight="39.0" prefWidth="265.0" />
                </children>
             </VBox>
+            <AnchorPane layoutX="62.0" layoutY="14.0" prefHeight="140.0" prefWidth="140.0">
+               <children>
+                  <Circle fx:id="circle_profile_picture" fill="DODGERBLUE" layoutX="70.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
+               </children>
+            </AnchorPane>
          </children>
       </Pane>
       <Pane layoutX="550.0" layoutY="76.0" prefHeight="516.0" prefWidth="779.0" style="-fx-background-color: rgba(255, 255,255, 0.3); -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
          <children>
-            <VBox layoutX="87.0" layoutY="72.0" prefHeight="373.0" prefWidth="678.0">
+            <VBox layoutX="30.0" layoutY="83.0" prefHeight="373.0" prefWidth="678.0">
                <children>
                   <HBox>
                      <children>
@@ -345,11 +350,40 @@
                   </HBox>
                </children>
             </VBox>
-            <Button fx:id="button_create_profile" layoutX="630.0" layoutY="445.0" mnemonicParsing="false" onMouseClicked="#validate_profil" text="Button" wrapText="true">
+            <Button fx:id="button_create_profile" alignment="CENTER" layoutX="477.0" layoutY="431.0" mnemonicParsing="false" onMouseClicked="#validate_profil" onMouseMoved="#add_profile_mouse_over" onMouseReleased="#add_profile_mouse_exit" style="-fx-background-color: rgba(255,255,255,0.3)rgba(255,255,255,0.5); -fx-background-radius: 30; -fx-border-radius: 30;" text="Add new profile" wrapText="true">
                <font>
                   <Font size="35.0" />
                </font>
             </Button>
+            <HBox layoutX="30.0" layoutY="8.0" prefHeight="24.0" prefWidth="624.0">
+               <children>
+                  <Button fx:id="button_personnal_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_button" prefHeight="24.0" prefWidth="105.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: rgba(255,255,255,0.7);" text="Personnal" textAlignment="CENTER" underline="true">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="button_preferences_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_button" prefHeight="24.0" prefWidth="105.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: rgba(255,255,255,0.3);;" text="Preferences" textAlignment="CENTER" />
+               </children>
+            </HBox>
+            <HBox layoutX="30.0" layoutY="48.0" prefHeight="24.0" prefWidth="624.0">
+               <children>
+                  <Button fx:id="button_lifestyle_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_style" prefHeight="24.0" prefWidth="105.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: rgba(255,255,255,0.7);" text="Lifestyle" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="button_physical_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_style" prefHeight="24.0" prefWidth="105.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: rgba(255,255,255,0.3);;" text="Physical" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="button_passions_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_style" prefHeight="24.0" prefWidth="105.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: rgba(255,255,255,0.3);;" text="Passion" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
          </children>
       </Pane>
    </children>
