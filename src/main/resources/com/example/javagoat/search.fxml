@@ -86,7 +86,7 @@
       </ImageView>
       <Pane layoutX="320.0" layoutY="25.0">
          <children>
-            <TextField fx:id="first_name_text_field" alignment="CENTER" layoutX="-76.0" layoutY="-1.0" prefHeight="53.0" prefWidth="208.0" promptText="First name" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+            <TextField fx:id="first_name_text_field" onKeyReleased="#searching_text" alignment="CENTER" layoutX="-76.0" layoutY="-1.0" prefHeight="53.0" prefWidth="208.0" promptText="First name" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
                <font>
                   <Font size="24.0" />
                </font>
@@ -163,7 +163,7 @@
             <Pane layoutX="100.0" layoutY="41.0" />
          </children>
       </Pane>
-      <TextField fx:id="last_name_text_field" alignment="CENTER" layoutX="463.0" layoutY="24.0" prefHeight="53.0" prefWidth="208.0" promptText="Last name" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+      <TextField fx:id="last_name_text_field" onKeyReleased="#searching_text" alignment="CENTER" layoutX="463.0" layoutY="24.0" prefHeight="53.0" prefWidth="208.0" promptText="Last name" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
          <font>
             <Font size="24.0" />
          </font>

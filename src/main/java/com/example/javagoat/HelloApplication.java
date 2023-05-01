@@ -31,13 +31,13 @@ public class HelloApplication extends Application {
             Scene scene = new Scene(fxmlLoader.load());
 
             stage.setTitle("Application");
-            stage.initStyle(StageStyle.UNDECORATED);
+            stage.initStyle(StageStyle.DECORATED);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error : the application can't be launched");
-            System.exit(1);
+            System.exit(0);
         }
 
 

@@ -65,9 +65,6 @@ public class Search_Controller {
     @FXML
     private TextField height_max;
     @FXML
-    private TextField search_bar;
-
-    @FXML
     private TextField first_name_text_field;
     @FXML
     private TextField last_name_text_field;
@@ -118,7 +115,6 @@ public class Search_Controller {
     @FXML
     void initialize() {
         // add element in choice boxes
-        age_min.setOnKeyReleased(this::change);
         sexe_choice_box.getItems().addAll(sexe);
         sexe_choice_box.setOnMouseEntered(this::t);
         sexe_choice_box.getItems().addListener((ListChangeListener<String>) change -> System.out.println(change)); // still testing
@@ -151,9 +147,8 @@ public class Search_Controller {
     }
 
     public void searching_text(KeyEvent keyEvent) {
-        String fullName = search_bar.getText(); //split the data into 2 search bars
-        String lastname = "";
-        String firstname = "";
+        String lastname = last_name_text_field.getText();
+        String firstname = first_name_text_field.getText();
         ModelProfile modelProfile = new ModelProfile();
         tableView.getItems().clear();
         ObservableList<ProfileTableView> profiles = tableView.getItems();
@@ -161,12 +156,12 @@ public class Search_Controller {
         System.out.println("taille max=" + height_max.getText());
         System.out.println("age min=" + age_min.getText());
         System.out.println("age max=" + age_max.getText());
-        Set<Profile> set = modelProfile.searchProfile(fullName, fullName, Integer.parseInt(height_min.getText()), Integer.parseInt(height_max.getText()), Integer.parseInt(age_min.getText()), Integer.parseInt(age_max.getText()), null, null, null, null);
+        Set<Profile> set = modelProfile.searchProfile(firstname, lastname, Integer.parseInt(height_min.getText()), Integer.parseInt(height_max.getText()), Integer.parseInt(age_min.getText()), Integer.parseInt(age_max.getText()), null, null, null, null);
         for (Profile profile : set) {
             ProfileTableView profileTableView = profile.toProfileTableView();
             profiles.add(profileTableView);
         }
-        System.out.println(modelProfile.suggestion(fullName, "a"));
+        System.out.println(modelProfile.suggestion(firstname, lastname));
     }
 
 
@@ -232,20 +227,19 @@ public class Search_Controller {
 
         } else {
             icon_to_show_or_hide_advanced_research_panel.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("plus.png"))));
-            //add the evenement when clickec on the icon
+            //add the evenement when clicked on the icon
 
         }
 
         advanced_research_panel.setVisible(advanced_research_panel_is_open);
         advanced_research_panel1.setVisible(advanced_research_panel_is_open);
-
-
     }
 
     @FXML
     void write_string_only_age_min(KeyEvent event) {
         var key = event.getCode();
         if (!key.isDigitKey()) {
+            //age_min.setText(age_min.getText().replaceAll("[a-z]", ""));
             age_min.setText("");
         }
     }
@@ -290,20 +284,15 @@ public class Search_Controller {
         if (event.getSource() == dashboard_pane) {
 
             dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
-        }
-        else if (event.getSource() == profile_pane) {
+        } else if (event.getSource() == profile_pane) {
             profile_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
-        }
-        else if (event.getSource() == search_pane) {
+        } else if (event.getSource() == search_pane) {
             search_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
-        }
-        else if (event.getSource() == calendar_pane) {
+        } else if (event.getSource() == calendar_pane) {
             calendar_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
-        }
-        else if (event.getSource() == events_pane) {
+        } else if (event.getSource() == events_pane) {
             events_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
         }
-
 
 
         //modify the color of the panel from event
