@@ -19,8 +19,7 @@ public class HelloApplication extends Application {
 
         ModelMatch modelM = new ModelMatch();
 
-
-        for (int i = 0; i < 500; i++) {
+        for (int i = 0; i < 500; i++) { // 4000 profiles crash the view (because search has no limits)
             Profile profile = new Profile();
             profile.setRandomProfile();
             modelM.addProfile(profile);
@@ -38,6 +37,7 @@ public class HelloApplication extends Application {
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error : the application can't be launched");
+            System.exit(1);
         }
 
 
@@ -46,6 +46,7 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
         //ModelProfile modelProfile = new ModelProfile(); Useful to create this object?
+        //We can create an other class to handle this algorithm
         Date actualDate = new Date();
         for (Integer key : ModelProfile.profileHashMap.keySet()) {
             Profile profile = ModelProfile.profileHashMap.get(key);

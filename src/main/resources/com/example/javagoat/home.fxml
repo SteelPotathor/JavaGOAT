@@ -227,7 +227,7 @@
         <Pane layoutX="1099.0" layoutY="225.0" prefHeight="460.0" prefWidth="266.0"
               style="-fx-border-radius: 10; -fx-border-color: gray; -fx-background-radius: 10;">
             <children>
-                <VBox alignment="TOP_CENTER" prefHeight="37.0" prefWidth="266.0">
+                <VBox fx:id="notif" alignment="TOP_CENTER" prefHeight="37.0" prefWidth="266.0">
                     <children>
                         <Label alignment="CENTER" prefHeight="34.0" prefWidth="266.0"
                                style="-fx-border-color: gray; -fx-background-radius: 10; -fx-border-radius: 10;"

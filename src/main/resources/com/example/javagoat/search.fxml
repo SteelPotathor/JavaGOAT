@@ -86,7 +86,7 @@
       </ImageView>
       <Pane layoutX="634.0" layoutY="25.0">
          <children>
-            <TextField alignment="CENTER" prefHeight="38.0" prefWidth="397.0" promptText="Name" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
+            <TextField fx:id="search_bar" onKeyReleased="#searching_text" alignment="CENTER" prefHeight="38.0" prefWidth="397.0" promptText="Name" style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);">
                <font>
                   <Font size="24.0" />
                </font>

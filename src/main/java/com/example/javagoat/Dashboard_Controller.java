@@ -13,6 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -43,6 +44,8 @@ public class Dashboard_Controller {
     private TableColumn<ProfileTableView, String> gender;
     @FXML
     private TableColumn<ProfileTableView, String> actions;
+    @FXML
+    private VBox notif;
 
     @FXML
     void change_scene_to_page_dashboard(MouseEvent event) throws IOException {
@@ -110,10 +113,6 @@ public class Dashboard_Controller {
             profiles.add(profileTableView);
         }
         tableView.setItems(profiles);
-    }
-
-    void add() {
-
     }
 
 

@@ -8,7 +8,7 @@ import java.util.*;
 public class ModelMatch implements Serializable {
 
     public static HashMap<Integer /*id*/, TreeSet<Tuple>> stockDistance = new HashMap<>();
-    public ModelProfile modelP = new ModelProfile();
+    public ModelProfile modelP;
 
     public String DistancePath = "src\\main\\java\\com\\example\\javagoat\\back\\Distances.xml";
     public String ProfilePath = "src\\main\\java\\com\\example\\javagoat\\back\\Profiles.xml";
