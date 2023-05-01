@@ -106,14 +106,14 @@
             </ImageView>
          </children>
       </Pane>
-      <TableView id="tablecell" layoutX="253.0" layoutY="164.0" prefHeight="513.0" prefWidth="1159.0">
+      <TableView id="tablecell" fx:id="tableView" layoutX="253.0" layoutY="164.0" prefHeight="513.0" prefWidth="1159.0">
          <columns>
-            <TableColumn prefWidth="100.0" text="Avatar" />
-            <TableColumn prefWidth="100.0" text="First Name" />
-            <TableColumn prefWidth="100.0" text="Last Name" />
-            <TableColumn prefWidth="100.0" text="Age" />
-            <TableColumn prefWidth="100.0" text="Gender" />
-            <TableColumn prefWidth="100.0" text="Action" />
+            <TableColumn fx:id="avatar" prefWidth="100.0" text="Avatar" />
+            <TableColumn fx:id="firstname" prefWidth="100.0" text="First Name" />
+            <TableColumn fx:id="lastname" prefWidth="100.0" text="Last Name" />
+            <TableColumn fx:id="age" prefWidth="100.0" text="Age" />
+            <TableColumn fx:id="gender" prefWidth="100.0" text="Gender" />
+            <TableColumn fx:id="action" prefWidth="100.0" text="Action" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

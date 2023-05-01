@@ -6,7 +6,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -24,7 +24,6 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.controlsfx.control.CheckComboBox;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -57,7 +56,7 @@ public class New_Profile_Controller {
     @FXML
     private ChoiceBox<String> Smoker_choicebox;
     @FXML
-    private ChoiceBox<String>  alcohol_choicebox;
+    private ChoiceBox<String> alcohol_choicebox;
     @FXML
     private ChoiceBox<String> Athlete_choicebox;
     @FXML
@@ -107,30 +106,30 @@ public class New_Profile_Controller {
     @FXML
     ObservableList<String> element_sex = FXCollections.observableArrayList("MALE", "FEMALE");
     @FXML
-    ObservableList<String> element_miscellanious = FXCollections.observableArrayList("BIKE","MOVIES","ANIME","MANGA","NETFLIX","COOKING","RUNNING","DANCING","YOGA","TRAVELING","MODE","GYM","BASKET","TENNIS","SOCCER","MARTIAL_ARTS","LITTERATURE","DIVING","WRITING","PROGRAMMATION","PHOTOGRAPHY","GARDENING","HISTORY","GEOGRAPHY","VACATIONS","MUSIC","PAINTING","PORN","SLEEP","ANIMALS","SPIRITUALITY","GRINDING","PLAYING_WITH_KIDS","CHESS","COSPLAY","FURRIES","PSYCHOLOGY","PHILOSOPHY","SCIENCES","THEATHER","VLOGGING","CLIMBING","NUDISM","DECORATIONS");
+    ObservableList<String> element_miscellanious = FXCollections.observableArrayList("BIKE", "MOVIES", "ANIME", "MANGA", "NETFLIX", "COOKING", "RUNNING", "DANCING", "YOGA", "TRAVELING", "MODE", "GYM", "BASKET", "TENNIS", "SOCCER", "MARTIAL_ARTS", "LITTERATURE", "DIVING", "WRITING", "PROGRAMMATION", "PHOTOGRAPHY", "GARDENING", "HISTORY", "GEOGRAPHY", "VACATIONS", "MUSIC", "PAINTING", "PORN", "SLEEP", "ANIMALS", "SPIRITUALITY", "GRINDING", "PLAYING_WITH_KIDS", "CHESS", "COSPLAY", "FURRIES", "PSYCHOLOGY", "PHILOSOPHY", "SCIENCES", "THEATHER", "VLOGGING", "CLIMBING", "NUDISM", "DECORATIONS");
     @FXML
-    ObservableList<String> element_video_games = FXCollections.observableArrayList("LEAGUE_OF_LEGENDS","VALORANT","MINECRAFT","TERRARIA","CALL_OF_DUTY","DESTINY_2","DIABLO_3","WORLD_OF_WARCRAFT","HEARTHSTONE","BATTLEFIELD","APEX_LEGENDS","DOTA_2","CS_GO","SUPER_SMASH_BROS","FORTNITE","JACKBOX_PARTY","DIVINE_KNOCKOUT","AMOGUS","STREET_FIGHTER","ARK","CRAB_GAME","BRAWLHALLA","MONSTER_HUNTER","DRAGON_QUEST","GTA","GENSHIN_IMPACT"
-            ,"SEA_OF_THIEVES","DEAD_BY_DAYLIGHT","THE_DOORS","FALL_GUYS","ROCKET_LEAGUE","WARFRAME","PUBG","VALHEIM","RUST");
+    ObservableList<String> element_video_games = FXCollections.observableArrayList("LEAGUE_OF_LEGENDS", "VALORANT", "MINECRAFT", "TERRARIA", "CALL_OF_DUTY", "DESTINY_2", "DIABLO_3", "WORLD_OF_WARCRAFT", "HEARTHSTONE", "BATTLEFIELD", "APEX_LEGENDS", "DOTA_2", "CS_GO", "SUPER_SMASH_BROS", "FORTNITE", "JACKBOX_PARTY", "DIVINE_KNOCKOUT", "AMOGUS", "STREET_FIGHTER", "ARK", "CRAB_GAME", "BRAWLHALLA", "MONSTER_HUNTER", "DRAGON_QUEST", "GTA", "GENSHIN_IMPACT"
+            , "SEA_OF_THIEVES", "DEAD_BY_DAYLIGHT", "THE_DOORS", "FALL_GUYS", "ROCKET_LEAGUE", "WARFRAME", "PUBG", "VALHEIM", "RUST");
     @FXML
-    ObservableList<String> element_hair_length = FXCollections.observableArrayList("LONG","HALF_LONG","SHORT");
+    ObservableList<String> element_hair_length = FXCollections.observableArrayList("LONG", "HALF_LONG", "SHORT");
     @FXML
-    ObservableList<String> element_hair_type = FXCollections.observableArrayList("STRAIGHT","WAVY","CURLY");
+    ObservableList<String> element_hair_type = FXCollections.observableArrayList("STRAIGHT", "WAVY", "CURLY");
     @FXML
-    ObservableList<String> element_hair_color = FXCollections.observableArrayList("BLONDE","RED","BRUNETTE","BLACK");
+    ObservableList<String> element_hair_color = FXCollections.observableArrayList("BLONDE", "RED", "BRUNETTE", "BLACK");
     @FXML
-    ObservableList<String> element_religion = FXCollections.observableArrayList("MUSLIM","CHRISTIAN","JEWISH","BUDDHIST","HINDUIST","OTHER","ATHEIST");
+    ObservableList<String> element_religion = FXCollections.observableArrayList("MUSLIM", "CHRISTIAN", "JEWISH", "BUDDHIST", "HINDUIST", "OTHER", "ATHEIST");
     @FXML
-    ObservableList<String> element_bodybuild = FXCollections.observableArrayList("SKINNY","MEDIUM","OVERWEIGHT");
+    ObservableList<String> element_bodybuild = FXCollections.observableArrayList("SKINNY", "MEDIUM", "OVERWEIGHT");
     @FXML
-    ObservableList<String> element_feed = FXCollections.observableArrayList("VEGAN","VEGETARIAN","OMNIVORE","FLEXIVORE");
+    ObservableList<String> element_feed = FXCollections.observableArrayList("VEGAN", "VEGETARIAN", "OMNIVORE", "FLEXIVORE");
     @FXML
-    ObservableList<String> element_athlete = FXCollections.observableArrayList("SPORTY","SEDENTARY","LAZY");
+    ObservableList<String> element_athlete = FXCollections.observableArrayList("SPORTY", "SEDENTARY", "LAZY");
     @FXML
-    ObservableList<String> element_alcohol = FXCollections.observableArrayList("NEVER","OCCASIONNALY","REGULARLY","DAILY");
+    ObservableList<String> element_alcohol = FXCollections.observableArrayList("NEVER", "OCCASIONNALY", "REGULARLY", "DAILY");
     @FXML
-    ObservableList<String> element_smoker = FXCollections.observableArrayList("NEVER","OCCASIONNALY","REGULARLY","DAILY");
+    ObservableList<String> element_smoker = FXCollections.observableArrayList("NEVER", "OCCASIONNALY", "REGULARLY", "DAILY");
     @FXML
-    ObservableList<String> element_ethnicity = FXCollections.observableArrayList("WHITE","BLACK","ASIAN","LATINO");
+    ObservableList<String> element_ethnicity = FXCollections.observableArrayList("WHITE", "BLACK", "ASIAN", "LATINO");
 
     @FXML
     void initialize() {
@@ -170,8 +169,6 @@ public class New_Profile_Controller {
 
     }
 
-
-
     @FXML
     void change_scene_to_page_dashboard(MouseEvent event) throws IOException {
         parent = FXMLLoader.load(getClass().getResource("home.fxml"));
@@ -180,38 +177,7 @@ public class New_Profile_Controller {
         stage.setScene(scene);
         stage.show();
     }
-   @FXML
-   void change_background_color(MouseEvent event) throws InterruptedException {
 
-       dashboard_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
-       profile_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
-       search_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
-       calendar_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
-       events_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
-        if (event.getSource() == dashboard_pane) {
-            TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(0.5), dashboard_pane);
-            dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
-
-            translateTransition.play();
-        }
-        else if (event.getSource() == profile_pane) {
-            profile_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
-        }
-       else if (event.getSource() == search_pane) {
-            search_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
-        }
-       else if (event.getSource() == calendar_pane) {
-            calendar_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
-        }
-       else if (event.getSource() == events_pane) {
-            events_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
-        }
-
-
-
-        //modify the color of the panel from event
-
-       }
     @FXML
     void change_scene_to_new_profile(MouseEvent event) throws IOException {
         parent = FXMLLoader.load(getClass().getResource("new_profile.fxml"));
@@ -220,6 +186,7 @@ public class New_Profile_Controller {
         stage.setScene(scene);
         stage.show();
     }
+
     @FXML
     void change_scene_to_page_search(MouseEvent event) throws IOException {
         parent = FXMLLoader.load(getClass().getResource("search.fxml"));
@@ -237,6 +204,7 @@ public class New_Profile_Controller {
         stage.setScene(scene);
         stage.show();
     }
+
     @FXML
     void change_scene_to_page_events(MouseEvent event) throws IOException {
         parent = FXMLLoader.load(getClass().getResource("events.fxml"));
@@ -247,65 +215,66 @@ public class New_Profile_Controller {
     }
 
 
-
     @FXML
     void exit_script() {
         System.exit(0);
     }
 
 
-
     @FXML
     void validate_profil() {
         if (Objects.equals(choicebox_ethnicity.getValue(), "Select")
-        || Objects.equals(Smoker_choicebox.getValue(), "Select")
-        || Objects.equals(alcohol_choicebox.getValue(), "Select")
-        || Objects.equals(Athlete_choicebox.getValue(), "Select")
-        || Objects.equals(feed_choicebox.getValue(), "Select")
-        || Objects.equals(bodybuild_choicebox.getValue(), "Select")
-        || Objects.equals(religion_choicebox.getValue(), "Select")
-        || Objects.equals(color_of_hair_choicebox.getValue(), "Select")
-        || Objects.equals(hair_type_choicebox.getValue(), "Select")
-        || Objects.equals(hair_length_choicebox.getValue(), "Select")
-        || Objects.equals(sex_choicebox.getValue(), "MALE/FEMALE")
-        || Objects.equals(video_games_checkcombobox.getCheckModel().getCheckedItems().size(), 0)
-        || Objects.equals(miscellanious_checkcombobox.getCheckModel().getCheckedItems().size(), 0)
-        || Objects.equals(textfield_first_name.getText().replace(" ", ""), "")
-        || Objects.equals(textfield_last_name.getText().replace(" ", ""), "")
-        || Objects.equals(textfield_age.getText().replace(" ", ""), "")
-        || Objects.equals(textfield_size.getText().replace(" ", ""), "")
-        || Objects.equals(textfield_qi.getText().replace(" ", ""), "")
+                || Objects.equals(Smoker_choicebox.getValue(), "Select")
+                || Objects.equals(alcohol_choicebox.getValue(), "Select")
+                || Objects.equals(Athlete_choicebox.getValue(), "Select")
+                || Objects.equals(feed_choicebox.getValue(), "Select")
+                || Objects.equals(bodybuild_choicebox.getValue(), "Select")
+                || Objects.equals(religion_choicebox.getValue(), "Select")
+                || Objects.equals(color_of_hair_choicebox.getValue(), "Select")
+                || Objects.equals(hair_type_choicebox.getValue(), "Select")
+                || Objects.equals(hair_length_choicebox.getValue(), "Select")
+                || Objects.equals(sex_choicebox.getValue(), "MALE/FEMALE")
+                || Objects.equals(video_games_checkcombobox.getCheckModel().getCheckedItems().size(), 0)
+                || Objects.equals(miscellanious_checkcombobox.getCheckModel().getCheckedItems().size(), 0)
+                || Objects.equals(textfield_first_name.getText().replace(" ", ""), "")
+                || Objects.equals(textfield_last_name.getText().replace(" ", ""), "")
+                || Objects.equals(textfield_age.getText().replace(" ", ""), "")
+                || Objects.equals(textfield_size.getText().replace(" ", ""), "")
+                || Objects.equals(textfield_qi.getText().replace(" ", ""), "")
         ) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Information Dialog");
             alert.setHeaderText("Profile not created");
             alert.setContentText("Your profile has not been created, please fill all the fields");
             alert.showAndWait();
-        }
-        else {
-            Identity id = new Identity(Integer.parseInt(textfield_age.getText()), Biology.sex.valueOf(sex_choicebox.getValue()), Biology.ethnicity.valueOf(choicebox_ethnicity.getValue()), Integer.parseInt(textfield_qi.getText()), textfield_last_name.getText(), textfield_first_name.getText());
-            PhysicalAttributes pa = new PhysicalAttributes(Integer.parseInt(textfield_size.getText()), PhysicalAttributes.hairColor.valueOf(color_of_hair_choicebox.getValue()), PhysicalAttributes.hairType.valueOf(hair_type_choicebox.getValue()), PhysicalAttributes.hairLength.valueOf(hair_length_choicebox.getValue()));
-            LifeStyle ls = new LifeStyle(LifeStyle.smoker.valueOf(Smoker_choicebox.getValue()), LifeStyle.athlete.valueOf(Athlete_choicebox.getValue()), LifeStyle.feed.valueOf(feed_choicebox.getValue()), LifeStyle.bodyBuild.valueOf(bodybuild_choicebox.getValue()), LifeStyle.religion.valueOf(religion_choicebox.getValue()), LifeStyle.alcohol.valueOf(alcohol_choicebox.getValue()));
-            Preferences pref = new Preferences();
-            pref.setRandomPreferences();
-            Passion p = new Passion();
+        } else {
+            Identity identity = new Identity(Integer.parseInt(textfield_age.getText()), Biology.sex.valueOf(sex_choicebox.getValue()), Biology.ethnicity.valueOf(choicebox_ethnicity.getValue()), Integer.parseInt(textfield_qi.getText()), textfield_last_name.getText(), textfield_first_name.getText());
+            PhysicalAttributes physicalAttributes = new PhysicalAttributes(Integer.parseInt(textfield_size.getText()), PhysicalAttributes.hairColor.valueOf(color_of_hair_choicebox.getValue()), PhysicalAttributes.hairType.valueOf(hair_type_choicebox.getValue()), PhysicalAttributes.hairLength.valueOf(hair_length_choicebox.getValue()));
+            LifeStyle lifeStyle = new LifeStyle(LifeStyle.smoker.valueOf(Smoker_choicebox.getValue()), LifeStyle.athlete.valueOf(Athlete_choicebox.getValue()), LifeStyle.feed.valueOf(feed_choicebox.getValue()), LifeStyle.bodyBuild.valueOf(bodybuild_choicebox.getValue()), LifeStyle.religion.valueOf(religion_choicebox.getValue()), LifeStyle.alcohol.valueOf(alcohol_choicebox.getValue()));
+            Preferences preferences = new Preferences();
+            preferences.setRandomPreferences();
+            Passion passion = new Passion();
             ObservableList<String> video_games_checked = video_games_checkcombobox.getCheckModel().getCheckedItems();
             ObservableList<String> miscellaneous_checked = miscellanious_checkcombobox.getCheckModel().getCheckedItems();
             for (String video_games : video_games_checked)
-                p.passionVG.add(Passion.video_games.valueOf(video_games));
+                passion.passionVG.add(Passion.video_games.valueOf(video_games));
             for (String miscellaneous : miscellaneous_checked)
-                p.passionM.add(Passion.miscellaneous.valueOf(miscellaneous));
+                passion.passionM.add(Passion.miscellaneous.valueOf(miscellaneous));
 
-            File file = new File("src\\main\\java\\com\\example\\javagoat\\back\\images\\DefaultImage.png");
-            Profile profile = new Profile(id, pa, ls, pref, p, file);
+            ImageView imageView = new ImageView(new Image("file:src/main/java/com/example/javagoat/back/images/kumalala.jpg"));
+            Profile profile = new Profile(identity, physicalAttributes, lifeStyle, preferences, passion, imageView);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText("Profile created");
             alert.setContentText("Your profile has been created");
             alert.showAndWait();
+
+            ModelMatch modelMatch = new ModelMatch();
             System.out.println(profile);
 
+            modelMatch.addProfile(profile);
 
+            System.out.println(modelMatch.modelP.profileHashMap.size());
         }
 
     }
@@ -317,6 +286,7 @@ public class New_Profile_Controller {
             textfield_first_name.setText("");
         }
     }
+
     @FXML
     void write_string_only_lastname(KeyEvent event) {
         var key = event.getCode();
@@ -332,6 +302,7 @@ public class New_Profile_Controller {
             textfield_age.setText("");
         }
     }
+
     @FXML
     void write_number_only_size(KeyEvent event) {
         var key = event.getCode();
@@ -339,6 +310,7 @@ public class New_Profile_Controller {
             textfield_size.setText("");
         }
     }
+
     @FXML
     void write_number_only_qi(KeyEvent event) {
         var key = event.getCode();

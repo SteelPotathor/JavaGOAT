@@ -78,7 +78,7 @@
             <Image url="@icons8-cross-50.png" />
          
       </ImageView>
-      <CalendarView layoutX="234.0" layoutY="50.0" prefHeight="616.0" prefWidth="1178.0" />
+      <CalendarView fx:id="calendrier" layoutX="234.0" layoutY="50.0" prefHeight="616.0" prefWidth="1178.0" />
    </children>
    <!-- make a calendar -->
 

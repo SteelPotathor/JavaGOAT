@@ -1,5 +1,7 @@
 package com.example.javagoat;
 
+import com.calendarfx.model.Entry;
+import com.calendarfx.view.CalendarView;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -29,6 +31,9 @@ public class Calendar_Controller {
     private Pane calendar_pane;
     @FXML
     private Pane events_pane;
+
+    @FXML
+    private CalendarView calendar;
 
     @FXML
     void change_scene_to_page_dashboard(MouseEvent event) throws IOException {
@@ -72,6 +77,10 @@ public class Calendar_Controller {
         stage.show();
     }
 
+    @FXML
+    public void initialize() {
+        //calendar.addEntry(new Entry<>("Dentist")); // reglage à faire
+    }
 
     @FXML
     void change_background_color(MouseEvent event) throws InterruptedException {

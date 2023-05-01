@@ -7,31 +7,37 @@ import java.util.*;
 
 public class ModelMatch implements Serializable {
 
-    public HashMap<Integer /*id*/, TreeSet<Tuple>> stockDistance;
+    public static HashMap<Integer /*id*/, TreeSet<Tuple>> stockDistance = new HashMap<>();
     public ModelProfile modelP;
 
-    String DistancePath = "src\\main\\java\\com\\example\\javagoat\\back\\Distances.xml";
-    String ProfilePath = "src\\main\\java\\com\\example\\javagoat\\back\\Profiles.xml";
+    public String DistancePath = "src\\main\\java\\com\\example\\javagoat\\back\\Distances.xml";
+    public String ProfilePath = "src\\main\\java\\com\\example\\javagoat\\back\\Profiles.xml";
 
 
     public ModelMatch() {
         XMLDecoder decoder = null;
         try {
-            FileInputStream fis = new FileInputStream(this.ProfilePath);
-            BufferedInputStream ois = new BufferedInputStream(fis);
-            decoder = new XMLDecoder(ois);
+            modelP = new ModelProfile();
+            // check if the hashmap is not null because of static (we don't want to reset it)
+            if (modelP.getProfileHashMap() == null) {
+                FileInputStream fileInputStream = new FileInputStream(this.ProfilePath);
+                BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
+                decoder = new XMLDecoder(bufferedInputStream);
+                modelP.profileHashMap = ((HashMap<Integer, Profile>) decoder.readObject());
+            }
 
-            this.modelP = new ModelProfile();
-            this.modelP.profileHashMap = ((HashMap<Integer, Profile>) decoder.readObject());
+            // check if the DS is not null because of static (we don't want to reset it)
+            if (stockDistance == null) {
+                FileInputStream fileInputStream = new FileInputStream(this.DistancePath);
+                BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
+                decoder = new XMLDecoder(bufferedInputStream);
+                stockDistance = (HashMap<Integer, TreeSet<Tuple>>) decoder.readObject();
+            }
 
-            fis = new FileInputStream(this.DistancePath);
-            ois = new BufferedInputStream(fis);
-            decoder = new XMLDecoder(ois);
-            this.stockDistance = (HashMap<Integer, TreeSet<Tuple>>) decoder.readObject();
 
         } catch (Exception e) {
-            this.modelP = new ModelProfile();
-            this.stockDistance = new HashMap<>();
+            modelP = new ModelProfile();
+            stockDistance = new HashMap<>();
         } finally {
             if (decoder != null) decoder.close();
         }
@@ -39,15 +45,15 @@ public class ModelMatch implements Serializable {
 
     public void addProfile(Profile p) {
         // Add in every TreeSets the new distance between the profile 'p' and every other profiles contained in this HashMap
-        for (int idProfile : this.stockDistance.keySet()) {
-            TreeSet<Tuple> treeSetProfile = this.stockDistance.get(idProfile);
+        for (int idProfile : stockDistance.keySet()) {
+            TreeSet<Tuple> treeSetProfile = stockDistance.get(idProfile);
             Profile profile = this.modelP.profileHashMap.get(idProfile);
             treeSetProfile.add(new Tuple(p.identity.getNoId(), profile, p));
         }
 
         // Create a TreeSet for the profile 'p'
-        this.stockDistance.put(p.identity.getNoId(), new TreeSet<>());
-        TreeSet<Tuple> treeSetP = this.stockDistance.get(p.identity.getNoId());
+        stockDistance.put(p.identity.getNoId(), new TreeSet<>());
+        TreeSet<Tuple> treeSetP = stockDistance.get(p.identity.getNoId());
 
         // Add in the new TreeSet every distance with other profiles
         for (int idProfile : this.modelP.profileHashMap.keySet()) {
@@ -61,35 +67,35 @@ public class ModelMatch implements Serializable {
 
     public void editProfile(Profile p) {
         // Get the old profile before updating it
-        Profile oldProfile = this.modelP.profileHashMap.get(p.getIdentity().getNoId());
+        Profile oldProfile = modelP.profileHashMap.get(p.getIdentity().getNoId());
 
         // Set in every TreeSets the new distance between the profile 'p' and every other profiles contained in this HashMap
-        for (int idProfile : this.stockDistance.keySet()) {
+        for (int idProfile : stockDistance.keySet()) {
             if (idProfile != p.getIdentity().getNoId()) {
-                TreeSet<Tuple> treeSetProfile = this.stockDistance.get(idProfile);
-                Profile profile = this.modelP.profileHashMap.get(idProfile);
+                TreeSet<Tuple> treeSetProfile = stockDistance.get(idProfile);
+                Profile profile = modelP.profileHashMap.get(idProfile);
                 treeSetProfile.remove(new Tuple(p.identity.getNoId(), profile, oldProfile));
                 treeSetProfile.add(new Tuple(p.identity.getNoId(), profile, p));
             }
         }
 
         // Clear the TreeSet for the profile 'p'
-        this.stockDistance.get(p.identity.getNoId()).clear();
-        TreeSet<Tuple> treeSetP = this.stockDistance.get(p.identity.getNoId());
+        stockDistance.get(p.identity.getNoId()).clear();
+        TreeSet<Tuple> treeSetP = stockDistance.get(p.identity.getNoId());
 
         // Add in the new TreeSet every distance with other profiles
-        for (int idProfile : this.modelP.profileHashMap.keySet()) {
-            Profile profile = this.modelP.profileHashMap.get(idProfile);
+        for (int idProfile : modelP.profileHashMap.keySet()) {
+            Profile profile = modelP.profileHashMap.get(idProfile);
             treeSetP.add(new Tuple(idProfile, p, profile));
         }
 
-        this.modelP.profileHashMap.replace(p.getIdentity().getNoId(), p);
+        modelP.profileHashMap.replace(p.getIdentity().getNoId(), p);
     }
 
     public HashMap<Profile, Integer> getKNN(int noProfile, int howMany) {
         // Get the treemap of the profile 'noProfile'
-        TreeSet<Tuple> treeSetD = this.stockDistance.get(noProfile);
-        HashMap<Integer, String> hashMapH = this.modelP.profileHashMap.get(noProfile).getModelHisto().getStockHisto();
+        TreeSet<Tuple> treeSetD = stockDistance.get(noProfile);
+        HashMap<Integer, Date> hashMapH = modelP.profileHashMap.get(noProfile).getModelHisto().getStockHisto();
 
         // Set an iterator to get 'howMany' first elements in the treemap (and an Arraylist to stock the results)
         // Obtains the nearest profiles in the ArrayList
@@ -100,11 +106,11 @@ public class ModelMatch implements Serializable {
         while (i < howMany && itr.hasNext()) {
             Tuple t = itr.next();
             if (hashMapH == null || !hashMapH.containsKey(t.id)) {
-                HashSet<Passion.miscellaneous> PMprofile = this.modelP.profileHashMap.get(noProfile).getPassion().getPassionM();
-                HashSet<Passion.video_games> PVGprofile = this.modelP.profileHashMap.get(noProfile).getPassion().getPassionVG();
-                int counter = this.modelP.profileHashMap.get(t.id).getPassion().getPassionM().stream().filter(PMprofile::contains).toArray().length;
-                counter += this.modelP.profileHashMap.get(t.id).getPassion().getPassionVG().stream().filter(PVGprofile::contains).toArray().length;
-                KNNProfiles.put(this.modelP.profileHashMap.get(t.id), counter);
+                HashSet<Passion.miscellaneous> PMprofile = modelP.profileHashMap.get(noProfile).getPassion().getPassionM();
+                HashSet<Passion.video_games> PVGprofile = modelP.profileHashMap.get(noProfile).getPassion().getPassionVG();
+                int counter = modelP.profileHashMap.get(t.id).getPassion().getPassionM().stream().filter(PMprofile::contains).toArray().length;
+                counter += modelP.profileHashMap.get(t.id).getPassion().getPassionVG().stream().filter(PVGprofile::contains).toArray().length;
+                KNNProfiles.put(modelP.profileHashMap.get(t.id), counter);
                 i++;
             }
 
@@ -151,16 +157,16 @@ public class ModelMatch implements Serializable {
         return stockDistance;
     }
 
-    public void setStockDistance(HashMap<Integer, TreeSet<Tuple>> stockDistance) {
-        this.stockDistance = stockDistance;
+    public void setStockDistance(HashMap<Integer, TreeSet<Tuple>> stockD) {
+        stockDistance = stockD;
     }
 
     public ModelProfile getModelP() {
         return modelP;
     }
 
-    public void setModelP(ModelProfile modelP) {
-        this.modelP = modelP;
+    public void setModelP(ModelProfile modelProfile) {
+        modelP = modelProfile;
     }
 
 }

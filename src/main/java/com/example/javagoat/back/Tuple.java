@@ -13,7 +13,6 @@ public class Tuple implements Comparable<Tuple>, Serializable {
     }
 
     public Tuple() {
-
     }
 
 
