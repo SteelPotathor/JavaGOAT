@@ -172,7 +172,7 @@
             </Button>
             <HBox layoutX="30.0" layoutY="8.0" prefHeight="24.0" prefWidth="624.0">
                <children>
-                  <Button fx:id="button_personnal_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_button" prefHeight="24.0" prefWidth="105.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: rgba(255,255,255,0.7);" text="Personnal" textAlignment="CENTER" underline="true">
+                  <Button fx:id="button_personnal_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_button" prefHeight="24.0" prefWidth="105.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: rgba(255,255,255,0.7);" text="Personnal" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets right="20.0" />
                      </HBox.margin>
@@ -463,16 +463,6 @@
                      <children>
                         <ChoiceBox fx:id="color_of_hair_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
                         <Label text="Color of hair">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane>
-                     <children>
-                        <ChoiceBox fx:id="bodybuild_choicebox_preferences1" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
-                        <Label text="Body build">
                            <font>
                               <Font size="18.0" />
                            </font>
