@@ -363,6 +363,37 @@ public class New_Profile_Controller {
         button_create_profile.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50");
     }
 
+    @FXML
+    void change_background_color(MouseEvent event) throws InterruptedException {
+
+        dashboard_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
+        profile_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
+        search_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
+        calendar_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
+        events_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
+        if (event.getSource() == dashboard_pane) {
+
+            dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
+        }
+        else if (event.getSource() == profile_pane) {
+            profile_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
+        }
+        else if (event.getSource() == search_pane) {
+            search_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
+        }
+        else if (event.getSource() == calendar_pane) {
+            calendar_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
+        }
+        else if (event.getSource() == events_pane) {
+            events_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
+        }
+
+
+
+        //modify the color of the panel from event
+
+    }
+
 
 
 
