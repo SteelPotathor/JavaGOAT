@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -27,6 +28,8 @@ import org.controlsfx.control.CheckComboBox;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.UnaryOperator;
+import java.util.regex.Pattern;
 
 import static com.example.javagoat.back.ModelProfile.profileHashMap;
 
@@ -123,11 +126,44 @@ public class Search_Controller {
         type_of_hair_choice_box.getItems().addAll(type_of_hair);
         weight_choice_box.getItems().addAll(weight);
 
+        // Textfields for search bar accept only alphabetical characters
+        Pattern patternLetters = Pattern.compile("[a-zA-Z]*");
+        UnaryOperator<TextFormatter.Change> filterLetters = change -> {
+            if (patternLetters.matcher(change.getControlNewText()).matches()) {
+                return change;
+            } else {
+                return null;
+            }
+        };
+        TextFormatter<String> formatterLetters = new TextFormatter<>(filterLetters);
+        TextFormatter<String> formatterLetters2 = new TextFormatter<>(filterLetters);
+        last_name_text_field.setTextFormatter(formatterLetters);
+        first_name_text_field.setTextFormatter(formatterLetters2);
+
+
         // add initial values into text fields
         height_min.setText("100");
         height_max.setText("200");
         age_min.setText("20");
         age_max.setText("59");
+
+        // Textfields for age and height accept only numbers
+        Pattern patternNumbers = Pattern.compile("[0-9]*");
+        UnaryOperator<TextFormatter.Change> filterNumbers = change -> {
+            if (patternNumbers.matcher(change.getControlNewText()).matches()) {
+                return change;
+            } else {
+                return null;
+            }
+        };
+        TextFormatter<String> formatterNumbers = new TextFormatter<>(filterNumbers);
+        TextFormatter<String> formatterNumbers2 = new TextFormatter<>(filterNumbers);
+        TextFormatter<String> formatterNumbers3 = new TextFormatter<>(filterNumbers);
+        TextFormatter<String> formatterNumbers4 = new TextFormatter<>(filterNumbers);
+        age_min.setTextFormatter(formatterNumbers);
+        age_max.setTextFormatter(formatterNumbers2);
+        height_min.setTextFormatter(formatterNumbers3);
+        height_max.setTextFormatter(formatterNumbers4);
 
         // fill the tableview
         avatar.setCellValueFactory(new PropertyValueFactory<>("imageView"));
@@ -237,35 +273,22 @@ public class Search_Controller {
 
     @FXML
     void write_string_only_age_min(KeyEvent event) {
-        var key = event.getCode();
-        if (!key.isDigitKey()) {
-            //age_min.setText(age_min.getText().replaceAll("[a-z]", ""));
-            age_min.setText("");
-        }
+        System.out.println(event.getCharacter());
     }
 
     @FXML
     void write_string_only_age_max(KeyEvent event) {
-        var key = event.getCode();
-        if (!key.isDigitKey()) {
-            age_max.setText("");
-        }
+        System.out.println(event.getCharacter());
     }
 
     @FXML
     void write_string_only_height_min(KeyEvent event) {
-        var key = event.getCode();
-        if (!key.isDigitKey()) {
-            height_min.setText("");
-        }
+        System.out.println(event.getCharacter());
     }
 
     @FXML
     void write_string_only_height_max(KeyEvent event) {
-        var key = event.getCode();
-        if (!key.isDigitKey()) {
-            height_max.setText("");
-        }
+        System.out.println(event.getCharacter());
     }
 
     @FXML
