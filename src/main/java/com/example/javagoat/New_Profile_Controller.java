@@ -50,7 +50,7 @@ public class New_Profile_Controller {
     //Image to put in circle
     @FXML
     private Circle circle_profile_picture;
-    //ALL THE CHOICEBOXES
+    //ALL THE CHOICEBOXES PERSONNAL INFORMATION
     @FXML
     private ChoiceBox<String> choicebox_ethnicity;
     @FXML
@@ -78,6 +78,35 @@ public class New_Profile_Controller {
     @FXML
     private ChoiceBox<String> sex_choicebox;
 
+    //ALL THE CHOICEBOXES PREFERENCES INFORMATION
+
+    @FXML
+    private ChoiceBox<String> choicebox_ethnicity_preferences;
+    @FXML
+    private ChoiceBox<String> Smoker_choicebox_preferences;
+    @FXML
+    private ChoiceBox<String> alcohol_choicebox_preferences;
+    @FXML
+    private ChoiceBox<String> Athlete_choicebox_preferences;
+    @FXML
+    private ChoiceBox<String> feed_choicebox_preferences;
+    @FXML
+    private ChoiceBox<String> bodybuild_choicebox_preferences;
+    @FXML
+    private ChoiceBox<String> religion_choicebox_preferences;
+    @FXML
+    private ChoiceBox<String> color_of_hair_choicebox_preferences;
+    @FXML
+    private ChoiceBox<String> hair_type_choicebox_preferences;
+    @FXML
+    private ChoiceBox<String> hair_length_choicebox_preferences;
+    @FXML
+    private CheckComboBox<String> video_games_checkcombobox_preferences;
+    @FXML
+    private CheckComboBox<String> miscellanious_checkcombobox_preferences;
+    @FXML
+    private ChoiceBox<String> sex_choicebox_preferences;
+
 
     //ALL THE BUTTONS
     @FXML
@@ -101,13 +130,21 @@ public class New_Profile_Controller {
     public TextField textfield_size;
     public TextField textfield_qi;
 
-    //ALL GRIDS
+    //ALL GRIDS Personnal Information
     @FXML
     private Pane grid_life_style;
     @FXML
     private Pane grid_physical_information;
     @FXML
     private Pane grid_passions;
+
+    //ALL GRIDS Preferences Information
+    @FXML
+    private Pane grid_life_style_preferences;
+    @FXML
+    private Pane grid_physical_information_preferences;
+    @FXML
+    private Pane grid_passions_preferences;
 
     //ALL THE OBSERVABLELISTS
     @FXML
@@ -142,6 +179,35 @@ public class New_Profile_Controller {
     void initialize() {
         choicebox_ethnicity.setItems(element_ethnicity);
         choicebox_ethnicity.setValue("Select");
+        Smoker_choicebox_preferences.setValue("Select");
+        Smoker_choicebox_preferences.setItems(element_smoker);
+        alcohol_choicebox_preferences.setValue("Select");
+        alcohol_choicebox_preferences.setItems(element_alcohol);
+        Athlete_choicebox_preferences.setValue("Select");
+        Athlete_choicebox_preferences.setItems(element_athlete);
+        feed_choicebox_preferences.setValue("Select");
+        feed_choicebox_preferences.setItems(element_feed);
+        bodybuild_choicebox_preferences.setValue("Select");
+        bodybuild_choicebox_preferences.setItems(element_bodybuild);
+        religion_choicebox_preferences.setValue("Select");
+        religion_choicebox_preferences.setItems(element_religion);
+        color_of_hair_choicebox_preferences.setValue("Select");
+        color_of_hair_choicebox_preferences.setItems(element_hair_color);
+        hair_type_choicebox_preferences.setValue("Select");
+        hair_type_choicebox_preferences.setItems(element_hair_type);
+        hair_length_choicebox_preferences.setValue("Select");
+        hair_length_choicebox_preferences.setItems(element_hair_length);
+        video_games_checkcombobox_preferences.getItems().addAll(element_video_games);
+        video_games_checkcombobox_preferences.getItems().addAll(element_miscellanious);
+        sex_choicebox_preferences.setValue("MALE/FEMALE");
+        sex_choicebox_preferences.setItems(element_sex);
+
+
+        Image image = new Image(getClass().getResource("profile_image.jpeg").toExternalForm(), false);
+        circle_profile_picture.setFill(new ImagePattern(image));
+
+        choicebox_ethnicity_preferences.setItems(element_ethnicity);
+        choicebox_ethnicity_preferences.setValue("Select");
         Smoker_choicebox.setValue("Select");
         Smoker_choicebox.setItems(element_smoker);
         alcohol_choicebox.setValue("Select");
@@ -165,9 +231,6 @@ public class New_Profile_Controller {
         sex_choicebox.setValue("MALE/FEMALE");
         sex_choicebox.setItems(element_sex);
 
-
-        Image image = new Image(getClass().getResource("profile_image.jpeg").toExternalForm(), false);
-        circle_profile_picture.setFill(new ImagePattern(image));
 
 
         //mouse over
@@ -330,7 +393,25 @@ public class New_Profile_Controller {
         if (event.getSource() == button_preferences_information) {
             button_preferences_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
             button_preferences_information.setUnderline(true);
+
             button_personnal_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
+            button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
+            button_lifestyle_information.setUnderline(true);
+
+
+            button_physical_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
+            button_passions_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
+
+            grid_life_style_preferences.setVisible(true);
+            grid_physical_information_preferences.setVisible(false);
+            grid_passions_preferences.setVisible(false);
+
+
+            grid_passions.setVisible(false);
+            grid_physical_information.setVisible(false);
+            grid_life_style.setVisible(false);
+
+
         }
 
         else
