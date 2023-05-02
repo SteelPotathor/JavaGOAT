@@ -1,6 +1,8 @@
 package com.example.javagoat.back;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -9,6 +11,28 @@ public class ModelProfile {
     public static HashMap<Integer /*id*/, Profile> profileHashMap = new HashMap<>(); // This DS must be accessible and be the same for everyone
 
     public ModelProfile() {
+    }
+
+    public Set<String> getAllLastName() {
+        Set<String> set = new HashSet<>();
+        set.addAll(this.profileHashMap.values().stream()
+                .map(profile -> profile.getIdentity().getLastname()).toList());
+        return set;
+    }
+
+    public Set<String> getAllFirstName() {
+        Set<String> set = new HashSet<>();
+        set.addAll(this.profileHashMap.values().stream()
+                .map(profile -> profile.getIdentity().getFirstname()).toList());
+        return set;
+    }
+
+
+    public static boolean correspondingName(String lastname, String firstname) {
+        List<Profile> list = profileHashMap.values().stream().
+                filter(profile -> profile.identity.lastname.toUpperCase().startsWith(lastname.toUpperCase())
+                        && profile.identity.firstname.toUpperCase().startsWith(firstname.toUpperCase())).toList();
+        return list.size() >= 1;
     }
 
     public Set<Profile> suggestion(String firstname, String lastname) {
@@ -31,13 +55,13 @@ public class ModelProfile {
         if (hairType != null) {
             set.retainAll(searchHairType(hairType));
         }
-        if (hairColor!=null) {
+        if (hairColor != null) {
             set.retainAll(searchHairColor(hairColor));
         }
-        if (ethnicity!=null) {
+        if (ethnicity != null) {
             set.retainAll(searchEthnicity(ethnicity));
         }
-        if (bodybuild!=null) {
+        if (bodybuild != null) {
             set.retainAll(searchBodyBuild(bodybuild));
         }
         return set;
@@ -78,19 +102,10 @@ public class ModelProfile {
 
     public static void main(String[] args) {
         ModelMatch modelMatch = new ModelMatch();
-        for (int i = 0; i < 500; i++) {
-            Profile profile = new Profile();
-            profile.setRandomProfile();
-            modelMatch.addProfile(profile);
-        }
-        Profile p = new Profile(new Identity(15, Biology.sex.MALE, Biology.ethnicity.BLACK, 120, "Bob", "bILL"), new PhysicalAttributes(150, PhysicalAttributes.hairColor.RED, PhysicalAttributes.hairType.WAVY, PhysicalAttributes.hairLength.LONG), new LifeStyle(LifeStyle.smoker.NEVER, LifeStyle.athlete.SPORTY, LifeStyle.feed.VEGETARIAN, LifeStyle.bodyBuild.SKINNY, LifeStyle.religion.HINDUIST, LifeStyle.alcohol.REGULARLY), new Preferences(new PhysicalAttributes(150, PhysicalAttributes.hairColor.RED, PhysicalAttributes.hairType.WAVY, PhysicalAttributes.hairLength.LONG), new Biology(15, Biology.sex.MALE, Biology.ethnicity.BLACK, 120), new LifeStyle(LifeStyle.smoker.NEVER, LifeStyle.athlete.SPORTY, LifeStyle.feed.VEGETARIAN, LifeStyle.bodyBuild.SKINNY, LifeStyle.religion.HINDUIST, LifeStyle.alcohol.REGULARLY)), new Passion(), null);
+        Profile p = new Profile();
+        p.setRandomProfileExceptName("Alma", "Katherine");
         modelMatch.addProfile(p);
-        System.out.println(profileHashMap);
-        String lastName = "bob";
-        String firstName = "";
-        System.out.println(profileHashMap.get(501));
-        Set<Profile> set = modelMatch.modelP.searchProfile(firstName, lastName, 10, 200, 0, 100, null, null, null, null);
-        System.out.printf(set.toString());
+        System.out.println(correspondingName("Alm", "Katherine"));
     }
 
 }

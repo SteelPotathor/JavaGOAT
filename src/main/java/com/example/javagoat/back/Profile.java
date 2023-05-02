@@ -77,6 +77,38 @@ public class Profile implements Serializable {
         this.imageView = new ImageView(new Image("file:src/main/java/com/example/javagoat/back/images/kumalala.jpg"));
     }
 
+    public void setRandomProfileExceptName(String lastname, String firstname) {
+        this.physicalAttributes = new PhysicalAttributes();
+        this.physicalAttributes.setRandomPhysicalAttributes();
+
+        this.identity = new Identity();
+        this.identity.setRandomIdentity();
+        this.identity.firstname = firstname;
+        this.identity.lastname = lastname;
+
+        this.lifeStyle = new LifeStyle();
+        this.lifeStyle.setRandomLifeStyle();
+
+        this.preferences = new Preferences();
+        this.preferences.setRandomPreferences();
+
+        if (this.identity.getBsex() == Biology.sex.MALE) {
+            this.physicalAttributes.setSize(this.physicalAttributes.getSize() + 15);
+        }
+
+        this.passion = new Passion();
+        this.passion.setRandomPassion();
+
+        this.vectProfile = new Vecteur();
+        this.vectPreferences = new Vecteur();
+        this.vectProfile.setProfileVecteur(this);
+        this.vectPreferences.setPrefVecteur(this.getPreferences());
+
+        this.modelHisto = new ModelHistoMatch();
+
+        this.imageView = new ImageView(new Image("file:src/main/java/com/example/javagoat/back/images/kumalala.jpg"));
+    }
+
     public ProfileTableView toProfileTableView() {
         ImageView img = this.imageView;
         img.setPreserveRatio(true);

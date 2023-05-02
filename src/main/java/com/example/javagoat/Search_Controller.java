@@ -25,12 +25,15 @@ import org.controlsfx.control.textfield.AutoCompletionBinding;
 import org.controlsfx.control.textfield.TextFields;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import static com.example.javagoat.back.ModelProfile.correspondingName;
 import static com.example.javagoat.back.ModelProfile.profileHashMap;
 
 public class Search_Controller {
@@ -188,7 +191,39 @@ public class Search_Controller {
             match.setOnMouseClicked(this::match);
             profiles.add(profileTableView);
         }
+
+        ModelProfile modelProfile = new ModelProfile();
+        Set<String> lastnameList = modelProfile.getAllLastName();
+        last_name_search_bar = TextFields.bindAutoCompletion(last_name_text_field, suggestionRequest -> matchingLastName(lastnameList, suggestionRequest.getUserText()));
+        last_name_search_bar.setDelay(0);
+        last_name_search_bar.setVisibleRowCount(5);
+
+        Set<String> firstnameList = modelProfile.getAllFirstName();
+        first_name_search_bar = TextFields.bindAutoCompletion(first_name_text_field, suggestionRequest -> matchingFirstName(firstnameList, suggestionRequest.getUserText()));
+        first_name_search_bar.setDelay(0);
+        first_name_search_bar.setVisibleRowCount(5);
     }
+
+    private List<String> matchingLastName(Set<String> lastnameList, String userText) {
+        List<String> matches = new ArrayList<>();
+        for (String s : lastnameList) {
+            if (s.toUpperCase().startsWith(userText.toUpperCase()) && correspondingName(s, first_name_text_field.getText())) {
+                matches.add(s);
+            }
+        }
+        return matches.stream().sorted().collect(Collectors.toList());
+    }
+
+    private List<String> matchingFirstName(Set<String> firstnameList, String userText) {
+        List<String> matches = new ArrayList<>();
+        for (String s : firstnameList) {
+            if (s.toUpperCase().startsWith(userText.toUpperCase()) && correspondingName(last_name_text_field.getText(), s)) {
+                matches.add(s);
+            }
+        }
+        return matches.stream().sorted().collect(Collectors.toList());
+    }
+
 
     public void searching_text(KeyEvent keyEvent) {
         ModelProfile modelProfile = new ModelProfile();
@@ -196,23 +231,6 @@ public class Search_Controller {
         String firstname = first_name_text_field.getText();
         tableView.getItems().clear();
         ObservableList<ProfileTableView> profiles = tableView.getItems();
-        Set<Profile> suggestioned = modelProfile.suggestion(firstname, lastname);
-        Set<String> lastnameList = suggestioned.stream().map(profile -> profile.getIdentity().getLastname()).collect(Collectors.toSet());
-        Set<String> firstnameList = suggestioned.stream().map(profile -> profile.getIdentity().getFirstname()).collect(Collectors.toSet());
-        if (last_name_search_bar != null) {
-            last_name_search_bar.dispose();
-        }
-        last_name_search_bar = TextFields.bindAutoCompletion(last_name_text_field, lastnameList);
-        last_name_search_bar.setDelay(0);
-        last_name_search_bar.setVisibleRowCount(5);
-
-
-        if (first_name_search_bar != null) {
-            first_name_search_bar.dispose();
-        }
-        first_name_search_bar = TextFields.bindAutoCompletion(first_name_text_field, firstnameList);
-        first_name_search_bar.setDelay(0);
-        first_name_search_bar.setVisibleRowCount(5);
 
         int min_size;
         int max_size;
@@ -243,9 +261,6 @@ public class Search_Controller {
             ProfileTableView profileTableView = profile.toProfileTableView();
             profiles.add(profileTableView);
         }
-        System.out.println(profiles);
-        System.out.println(profiles);
-        System.out.println(max_age);
     }
 
 
@@ -272,11 +287,6 @@ public class Search_Controller {
             ioException.printStackTrace();
         }
     }
-
-    /*
-            2e sol: selectionner la bonne ligne et cliquer sur un bouton (pb => n'importe quel bouton fonctionne)
-            ProfileTableView profileTableView = tableView.getSelectionModel().getSelectedItem();
-            System.out.println(profileTableView);         */
 
     @FXML
     public void edit(MouseEvent mouseEvent) {
