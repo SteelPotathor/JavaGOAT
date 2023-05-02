@@ -4,6 +4,8 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
+import static com.example.javagoat.back.ModelProfile.profileHashMap;
+
 public class ProfileTableView {
 
     public int id;
@@ -29,6 +31,11 @@ public class ProfileTableView {
         this.modify = new Button("Modify");
         this.match = new Button("Match");
         this.actions = new HBox(this.modify, this.match);
+    }
+
+
+    public Profile toProfile() {
+        return profileHashMap.get(this.id);
     }
 
     public int getId() {
