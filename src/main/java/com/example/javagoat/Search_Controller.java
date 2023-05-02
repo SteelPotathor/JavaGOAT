@@ -24,12 +24,15 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.controlsfx.control.CheckComboBox;
+import org.controlsfx.control.textfield.AutoCompletionBinding;
+import org.controlsfx.control.textfield.TextFields;
 
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Set;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import static com.example.javagoat.back.ModelProfile.profileHashMap;
 
@@ -57,6 +60,10 @@ public class Search_Controller {
     private Pane advanced_research_panel;
     @FXML
     private Pane advanced_research_panel1;
+    @FXML
+    private AutoCompletionBinding<String> last_name_search_bar;
+    @FXML
+    private AutoCompletionBinding<String> first_name_search_bar;
     @FXML
     private ImageView icon_to_show_or_hide_advanced_research_panel;
     @FXML
@@ -183,11 +190,28 @@ public class Search_Controller {
     }
 
     public void searching_text(KeyEvent keyEvent) {
+        ModelProfile modelProfile = new ModelProfile();
         String lastname = last_name_text_field.getText();
         String firstname = first_name_text_field.getText();
-        ModelProfile modelProfile = new ModelProfile();
         tableView.getItems().clear();
         ObservableList<ProfileTableView> profiles = tableView.getItems();
+        Set<Profile> suggestioned = modelProfile.suggestion(firstname, lastname);
+        Set<String> lastnameList = suggestioned.stream().map(profile -> profile.getIdentity().getLastname()).collect(Collectors.toSet());
+        Set<String> firstnameList = suggestioned.stream().map(profile -> profile.getIdentity().getFirstname()).collect(Collectors.toSet());
+        if (last_name_search_bar != null) {
+            last_name_search_bar.dispose();
+        }
+        last_name_search_bar = TextFields.bindAutoCompletion(last_name_text_field, lastnameList);
+        last_name_search_bar.setDelay(0);
+        last_name_search_bar.setVisibleRowCount(5);
+
+
+        if (first_name_search_bar != null) {
+            first_name_search_bar.dispose();
+        }
+        first_name_search_bar = TextFields.bindAutoCompletion(first_name_text_field, firstnameList);
+        first_name_search_bar.setDelay(0);
+        first_name_search_bar.setVisibleRowCount(5);
 
         int min_size;
         int max_size;
@@ -213,20 +237,14 @@ public class Search_Controller {
         } else {
             max_age = Integer.parseInt(age_max.getText());
         }
-
-        System.out.println("taille min=" + min_size);
-        System.out.println("taille max=" + max_size);
-        System.out.println("age min=" + min_age);
-        System.out.println("age max=" + max_age);
-        System.out.println("weight=" + weight_choice_box.getAccessibleText());
-        System.out.println("weight=" + weight_choice_box.getItems());
-        System.out.println("weight=" + weight_choice_box.getTitle());
         Set<Profile> set = modelProfile.searchProfile(firstname, lastname, min_size, max_size, min_age, max_age, null, null, null, null);
         for (Profile profile : set) {
             ProfileTableView profileTableView = profile.toProfileTableView();
             profiles.add(profileTableView);
         }
-        System.out.println(modelProfile.suggestion(firstname, lastname));
+        System.out.println(profiles);
+        System.out.println(profiles);
+        System.out.println(max_age);
     }
 
 

@@ -11,5 +11,4 @@ module com.example.javagoat {
     exports com.example.javagoat.back;
     exports com.example.javagoat;
     exports com.example.javagoat.back.names;
-
 }

@@ -1,12 +1,9 @@
 package com.example.javagoat;
 
-import animatefx.animation.FadeInDown;
-import animatefx.animation.FadeInLeft;
 import com.example.javagoat.back.ModelProfile;
 import com.example.javagoat.back.Profile;
 import com.example.javagoat.back.ProfileTableView;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -98,6 +95,24 @@ public class Dashboard_Controller {
     }
 
     @FXML
+    void change_scene_to_page_edit(MouseEvent event) throws IOException {
+        parent = FXMLLoader.load(getClass().getResource("edit_profile.xml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void change_scene_to_page_matching(MouseEvent event) throws IOException {
+        parent = FXMLLoader.load(getClass().getResource("matching_profiles.xml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
     void change_scene_to_page_calendar(MouseEvent event) throws IOException {
         parent = FXMLLoader.load(getClass().getResource("calendar.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -116,13 +131,15 @@ public class Dashboard_Controller {
     }
 
     @FXML
-    void initialize() {
+    void initialize() throws IOException {
         // test animations
+        /*
         new FadeInLeft(dashboard_pane).play();
         new FadeInDown(first_stat_box).play();
         new FadeInDown(second_stat_box).play();
         new FadeInDown(third_stat_box).play();
         new FadeInDown(fourth_stat_box).play();
+         */
 
         priority.setCellValueFactory(new PropertyValueFactory<>("priority"));
         image.setCellValueFactory(new PropertyValueFactory<>("imageView"));
@@ -142,35 +159,52 @@ public class Dashboard_Controller {
             ProfileTableView profileTableView = profile.toProfileTableView();
             Button modify = (Button) profileTableView.actions.getChildren().get(0);
             Button match = (Button) profileTableView.actions.getChildren().get(1);
-            modify.setOnAction(this::edit);
-            match.setOnMouseClicked(this::match);
+            modify.setOnMouseClicked(this::edit);
+            try {
+                match.setOnMouseClicked(this::match);
+            } catch (Exception exception) {
+                throw new IOException();
+            }
             profiles.add(profileTableView);
         }
         tableView.setItems(profiles);
     }
 
-    private void match(MouseEvent mouseEvent) {
-        // J'ai trouvé 2 solutions pour récupérer le clic
-        // 1ere sol: parcourir le tableview jusqu'à trouver l'id du bon bouton
-        int i = 0;
-        ProfileTableView profileTableView = tableView.getItems().get(i);
-        while (i < 20 && !(profileTableView.actions.getChildren().get(1).equals(mouseEvent.getSource()))) {
-            i++;
-            profileTableView = tableView.getItems().get(i);
+    @FXML
+    public void match(MouseEvent mouseEvent) {
+        try {
+            int i = 0;
+            ProfileTableView profileTableView = tableView.getItems().get(i);
+            while (i < 20 && !(profileTableView.actions.getChildren().get(1).equals(mouseEvent.getSource()))) {
+                i++;
+                profileTableView = tableView.getItems().get(i);
+            }
+            System.out.println(profileTableView);
+            change_scene_to_page_edit(mouseEvent);
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
         }
-        System.out.println(profileTableView);
-        /*
-        2e sol: selectionner la bonne ligne et cliquer sur un bouton (pb => n'importe quel bouton fonctionne)
-        ProfileTableView profileTableView = tableView.getSelectionModel().getSelectedItem();
-        System.out.println(profileTableView);         */
     }
 
-    private void edit(ActionEvent actionEvent) {
-        System.out.println(actionEvent.getTarget());
-        System.out.println(actionEvent.getSource());
-        System.out.println(actionEvent.getEventType());
-        System.out.println(actionEvent.getClass());
-        System.out.println(actionEvent.getTarget());
+    /*
+            2e sol: selectionner la bonne ligne et cliquer sur un bouton (pb => n'importe quel bouton fonctionne)
+            ProfileTableView profileTableView = tableView.getSelectionModel().getSelectedItem();
+            System.out.println(profileTableView);         */
+
+    @FXML
+    public void edit(MouseEvent mouseEvent) {
+        try {
+            int i = 0;
+            ProfileTableView profileTableView = tableView.getItems().get(i);
+            while (i < 20 && !(profileTableView.actions.getChildren().get(0).equals(mouseEvent.getSource()))) {
+                i++;
+                profileTableView = tableView.getItems().get(i);
+            }
+            System.out.println(profileTableView);
+            change_scene_to_page_matching(mouseEvent);
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
     }
 
 
@@ -182,7 +216,6 @@ public class Dashboard_Controller {
         calendar_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
         events_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
         if (event.getSource() == dashboard_pane) {
-
             dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
         } else if (event.getSource() == profile_pane) {
             profile_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
