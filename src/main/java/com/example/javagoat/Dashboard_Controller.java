@@ -96,7 +96,7 @@ public class Dashboard_Controller {
 
     @FXML
     void change_scene_to_page_edit(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("edit_profile.xml"));
+        parent = FXMLLoader.load(getClass().getResource("edit_profile.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -105,7 +105,7 @@ public class Dashboard_Controller {
 
     @FXML
     void change_scene_to_page_matching(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("matching_profiles.xml"));
+        parent = FXMLLoader.load(getClass().getResource("matching_profiles.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -160,11 +160,7 @@ public class Dashboard_Controller {
             Button modify = (Button) profileTableView.actions.getChildren().get(0);
             Button match = (Button) profileTableView.actions.getChildren().get(1);
             modify.setOnMouseClicked(this::edit);
-            try {
-                match.setOnMouseClicked(this::match);
-            } catch (Exception exception) {
-                throw new IOException();
-            }
+            match.setOnMouseClicked(this::match);
             profiles.add(profileTableView);
         }
         tableView.setItems(profiles);
@@ -180,7 +176,7 @@ public class Dashboard_Controller {
                 profileTableView = tableView.getItems().get(i);
             }
             System.out.println(profileTableView);
-            change_scene_to_page_edit(mouseEvent);
+            change_scene_to_page_matching(mouseEvent);
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
@@ -201,7 +197,7 @@ public class Dashboard_Controller {
                 profileTableView = tableView.getItems().get(i);
             }
             System.out.println(profileTableView);
-            change_scene_to_page_matching(mouseEvent);
+            change_scene_to_page_edit(mouseEvent);
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }

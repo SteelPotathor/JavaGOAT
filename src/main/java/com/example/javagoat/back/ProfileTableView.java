@@ -6,6 +6,7 @@ import javafx.scene.layout.HBox;
 
 public class ProfileTableView {
 
+    public int id;
     public int priority;
     public ImageView imageView;
     public String firstname;
@@ -17,7 +18,8 @@ public class ProfileTableView {
     public Button match;
 
 
-    public ProfileTableView(int significance, ImageView imageView, String firstname, String lastname, int age, String gender) {
+    public ProfileTableView(int id, int significance, ImageView imageView, String firstname, String lastname, int age, String gender) {
+        this.id = id;
         this.priority = significance;
         this.imageView = imageView;
         this.firstname = firstname;
@@ -27,6 +29,14 @@ public class ProfileTableView {
         this.modify = new Button("Modify");
         this.match = new Button("Match");
         this.actions = new HBox(this.modify, this.match);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getPriority() {
@@ -105,7 +115,8 @@ public class ProfileTableView {
     @Override
     public String toString() {
         return "ProfileTableView{" +
-                "priority=" + priority +
+                "id=" + id +
+                ", priority=" + priority +
                 ", imageView=" + imageView +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +

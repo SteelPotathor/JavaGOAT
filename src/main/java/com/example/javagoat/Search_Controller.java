@@ -11,10 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -185,6 +182,10 @@ public class Search_Controller {
             Profile profile = profileHashMap.get(i);
             // The object in the tableview must match the columns attributes
             ProfileTableView profileTableView = profile.toProfileTableView();
+            Button modify = (Button) profileTableView.actions.getChildren().get(0);
+            Button match = (Button) profileTableView.actions.getChildren().get(1);
+            modify.setOnMouseClicked(this::edit);
+            match.setOnMouseClicked(this::match);
             profiles.add(profileTableView);
         }
     }
@@ -254,6 +255,43 @@ public class Search_Controller {
 
     private void change(KeyEvent keyEvent) {
         System.out.println(keyEvent);
+    }
+
+    @FXML
+    public void match(MouseEvent mouseEvent) {
+        try {
+            int i = 0;
+            ProfileTableView profileTableView = tableView.getItems().get(i);
+            while (i < 20 && !(profileTableView.actions.getChildren().get(1).equals(mouseEvent.getSource()))) {
+                i++;
+                profileTableView = tableView.getItems().get(i);
+            }
+            System.out.println(profileTableView);
+            change_scene_to_page_matching(mouseEvent);
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+    }
+
+    /*
+            2e sol: selectionner la bonne ligne et cliquer sur un bouton (pb => n'importe quel bouton fonctionne)
+            ProfileTableView profileTableView = tableView.getSelectionModel().getSelectedItem();
+            System.out.println(profileTableView);         */
+
+    @FXML
+    public void edit(MouseEvent mouseEvent) {
+        try {
+            int i = 0;
+            ProfileTableView profileTableView = tableView.getItems().get(i);
+            while (i < 20 && !(profileTableView.actions.getChildren().get(0).equals(mouseEvent.getSource()))) {
+                i++;
+                profileTableView = tableView.getItems().get(i);
+            }
+            System.out.println(profileTableView);
+            change_scene_to_page_edit(mouseEvent);
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
     }
 
     @FXML
@@ -367,6 +405,24 @@ public class Search_Controller {
 
         //modify the color of the panel from event
 
+    }
+
+    @FXML
+    void change_scene_to_page_edit(MouseEvent event) throws IOException {
+        parent = FXMLLoader.load(getClass().getResource("edit_profile.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void change_scene_to_page_matching(MouseEvent event) throws IOException {
+        parent = FXMLLoader.load(getClass().getResource("matching_profiles.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
     }
 
 
