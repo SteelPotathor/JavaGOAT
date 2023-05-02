@@ -188,11 +188,40 @@ public class Search_Controller {
         ModelProfile modelProfile = new ModelProfile();
         tableView.getItems().clear();
         ObservableList<ProfileTableView> profiles = tableView.getItems();
-        System.out.println("taille min=" + height_min.getText());
-        System.out.println("taille max=" + height_max.getText());
-        System.out.println("age min=" + age_min.getText());
-        System.out.println("age max=" + age_max.getText());
-        Set<Profile> set = modelProfile.searchProfile(firstname, lastname, Integer.parseInt(height_min.getText()), Integer.parseInt(height_max.getText()), Integer.parseInt(age_min.getText()), Integer.parseInt(age_max.getText()), null, null, null, null);
+
+        int min_size;
+        int max_size;
+        int min_age;
+        int max_age;
+        if (height_min.getText().equals("")) {
+            min_size = 0;
+        } else {
+            min_size = Integer.parseInt(height_min.getText());
+        }
+        if (height_max.getText().equals("")) {
+            max_size = 200;
+        } else {
+            max_size = Integer.parseInt(height_max.getText());
+        }
+        if (age_min.getText().equals("")) {
+            min_age = 0;
+        } else {
+            min_age = Integer.parseInt(age_min.getText());
+        }
+        if (age_max.getText().equals("")) {
+            max_age = 100;
+        } else {
+            max_age = Integer.parseInt(age_max.getText());
+        }
+
+        System.out.println("taille min=" + min_size);
+        System.out.println("taille max=" + max_size);
+        System.out.println("age min=" + min_age);
+        System.out.println("age max=" + max_age);
+        System.out.println("weight=" + weight_choice_box.getAccessibleText());
+        System.out.println("weight=" + weight_choice_box.getItems());
+        System.out.println("weight=" + weight_choice_box.getTitle());
+        Set<Profile> set = modelProfile.searchProfile(firstname, lastname, min_size, max_size, min_age, max_age, null, null, null, null);
         for (Profile profile : set) {
             ProfileTableView profileTableView = profile.toProfileTableView();
             profiles.add(profileTableView);

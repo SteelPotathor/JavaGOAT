@@ -1,20 +1,24 @@
 package com.example.javagoat;
 
+import animatefx.animation.FadeInDown;
+import animatefx.animation.FadeInLeft;
 import com.example.javagoat.back.ModelProfile;
 import com.example.javagoat.back.Profile;
 import com.example.javagoat.back.ProfileTableView;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -57,6 +61,14 @@ public class Dashboard_Controller {
     private Pane calendar_pane;
     @FXML
     private Pane events_pane;
+    @FXML
+    public Pane first_stat_box;
+    @FXML
+    public Pane second_stat_box;
+    @FXML
+    public Pane third_stat_box;
+    @FXML
+    public Pane fourth_stat_box;
 
     @FXML
     void change_scene_to_page_dashboard(MouseEvent event) throws IOException {
@@ -105,6 +117,13 @@ public class Dashboard_Controller {
 
     @FXML
     void initialize() {
+        // test animations
+        new FadeInLeft(dashboard_pane).play();
+        new FadeInDown(first_stat_box).play();
+        new FadeInDown(second_stat_box).play();
+        new FadeInDown(third_stat_box).play();
+        new FadeInDown(fourth_stat_box).play();
+
         priority.setCellValueFactory(new PropertyValueFactory<>("priority"));
         image.setCellValueFactory(new PropertyValueFactory<>("imageView"));
         firstname.setCellValueFactory(new PropertyValueFactory<>("firstname"));
@@ -116,14 +135,44 @@ public class Dashboard_Controller {
         ModelProfile modelProfile = new ModelProfile();
         System.out.println(modelProfile.getProfileHashMap());
 
+        // Putting some profiles in the tableView
         for (int i = 1; i < 21; i++) {
             Profile profile = modelProfile.getProfileHashMap().get(i);
             // The object in the tableview must match the columns attributes
             ProfileTableView profileTableView = profile.toProfileTableView();
+            Button modify = (Button) profileTableView.actions.getChildren().get(0);
+            Button match = (Button) profileTableView.actions.getChildren().get(1);
+            modify.setOnAction(this::edit);
+            match.setOnMouseClicked(this::match);
             profiles.add(profileTableView);
         }
         tableView.setItems(profiles);
     }
+
+    private void match(MouseEvent mouseEvent) {
+        // J'ai trouvé 2 solutions pour récupérer le clic
+        // 1ere sol: parcourir le tableview jusqu'à trouver l'id du bon bouton
+        int i = 0;
+        ProfileTableView profileTableView = tableView.getItems().get(i);
+        while (i < 20 && !(profileTableView.actions.getChildren().get(1).equals(mouseEvent.getSource()))) {
+            i++;
+            profileTableView = tableView.getItems().get(i);
+        }
+        System.out.println(profileTableView);
+        /*
+        2e sol: selectionner la bonne ligne et cliquer sur un bouton (pb => n'importe quel bouton fonctionne)
+        ProfileTableView profileTableView = tableView.getSelectionModel().getSelectedItem();
+        System.out.println(profileTableView);         */
+    }
+
+    private void edit(ActionEvent actionEvent) {
+        System.out.println(actionEvent.getTarget());
+        System.out.println(actionEvent.getSource());
+        System.out.println(actionEvent.getEventType());
+        System.out.println(actionEvent.getClass());
+        System.out.println(actionEvent.getTarget());
+    }
+
 
     @FXML
     void change_background_color(MouseEvent event) throws InterruptedException {
@@ -135,17 +184,13 @@ public class Dashboard_Controller {
         if (event.getSource() == dashboard_pane) {
 
             dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
-        }
-        else if (event.getSource() == profile_pane) {
+        } else if (event.getSource() == profile_pane) {
             profile_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
-        }
-        else if (event.getSource() == search_pane) {
+        } else if (event.getSource() == search_pane) {
             search_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
-        }
-        else if (event.getSource() == calendar_pane) {
+        } else if (event.getSource() == calendar_pane) {
             calendar_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
-        }
-        else if (event.getSource() == events_pane) {
+        } else if (event.getSource() == events_pane) {
             events_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
         }
         //modify the color of the panel from event

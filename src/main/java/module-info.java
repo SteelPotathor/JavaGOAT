@@ -4,6 +4,7 @@ module com.example.javagoat {
     requires java.desktop;
     requires org.controlsfx.controls;
     requires com.calendarfx.view;
+    requires AnimateFX;
 
 
     opens com.example.javagoat to javafx.fxml;

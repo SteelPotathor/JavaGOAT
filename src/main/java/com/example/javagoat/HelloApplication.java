@@ -39,8 +39,6 @@ public class HelloApplication extends Application {
             System.out.println("Error : the application can't be launched");
             System.exit(0);
         }
-
-
     }
 
 

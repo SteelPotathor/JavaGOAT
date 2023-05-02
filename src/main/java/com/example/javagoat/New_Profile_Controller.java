@@ -1,7 +1,6 @@
 package com.example.javagoat;
 
 import com.example.javagoat.back.*;
-import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -21,7 +20,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import org.controlsfx.control.CheckComboBox;
 
 import java.io.IOException;
@@ -244,8 +242,6 @@ public class New_Profile_Controller {
 
         //mouse over
 
-
-
     }
 
     @FXML
@@ -445,6 +441,7 @@ public class New_Profile_Controller {
             personnal_preferences = true;
         }
     }
+
     @FXML
     void change_style(MouseEvent event) {
         if (event.getSource() == button_lifestyle_information) {
@@ -502,10 +499,12 @@ public class New_Profile_Controller {
 
         }
     }
+
     @FXML
     void add_profile_mouse_over(MouseEvent event) {
         button_create_profile.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
     }
+
     @FXML
     void add_profile_mouse_exit(MouseEvent event) {
         button_create_profile.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50");
@@ -522,29 +521,20 @@ public class New_Profile_Controller {
         if (event.getSource() == dashboard_pane) {
 
             dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
-        }
-        else if (event.getSource() == profile_pane) {
+        } else if (event.getSource() == profile_pane) {
             profile_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
-        }
-        else if (event.getSource() == search_pane) {
+        } else if (event.getSource() == search_pane) {
             search_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
-        }
-        else if (event.getSource() == calendar_pane) {
+        } else if (event.getSource() == calendar_pane) {
             calendar_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
-        }
-        else if (event.getSource() == events_pane) {
+        } else if (event.getSource() == events_pane) {
             events_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
         }
-
 
 
         //modify the color of the panel from event
 
     }
-
-
-
-
 
 
 }
