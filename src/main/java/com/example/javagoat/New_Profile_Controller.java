@@ -234,13 +234,6 @@ public class New_Profile_Controller {
         sex_choicebox_preferences.setValue("MALE/FEMALE");
         sex_choicebox_preferences.setItems(element_sex);
 
-
-
-
-
-
-
-
         //mouse over
 
     }
@@ -317,6 +310,19 @@ public class New_Profile_Controller {
                 || Objects.equals(textfield_age.getText().replace(" ", ""), "")
                 || Objects.equals(textfield_size.getText().replace(" ", ""), "")
                 || Objects.equals(textfield_qi.getText().replace(" ", ""), "")
+                || Objects.equals(Smoker_choicebox_preferences.getValue(), "Select")
+                || Objects.equals(alcohol_choicebox_preferences.getValue(), "Select")
+                || Objects.equals(Athlete_choicebox_preferences.getValue(), "Select")
+                || Objects.equals(feed_choicebox_preferences.getValue(), "Select")
+                || Objects.equals(bodybuild_choicebox_preferences.getValue(), "Select")
+                || Objects.equals(religion_choicebox_preferences.getValue(), "Select")
+                || Objects.equals(color_of_hair_choicebox_preferences.getValue(), "Select")
+                || Objects.equals(hair_type_choicebox_preferences.getValue(), "Select")
+                || Objects.equals(hair_length_choicebox_preferences.getValue(), "Select")
+                || Objects.equals(sex_choicebox_preferences.getValue(), "MALE/FEMALE")
+                || Objects.equals(choicebox_ethnicity_preferences.getValue(), "Select")
+                || Objects.equals(textfield_age_preferences.getText().replace(" ", ""), "")
+                || Objects.equals(textfield_size_preferences.getText().replace(" ", ""), "")
         ) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Information Dialog");
@@ -327,8 +333,7 @@ public class New_Profile_Controller {
             Identity identity = new Identity(Integer.parseInt(textfield_age.getText()), Biology.sex.valueOf(sex_choicebox.getValue()), Biology.ethnicity.valueOf(choicebox_ethnicity.getValue()), Integer.parseInt(textfield_qi.getText()), textfield_last_name.getText(), textfield_first_name.getText());
             PhysicalAttributes physicalAttributes = new PhysicalAttributes(Integer.parseInt(textfield_size.getText()), PhysicalAttributes.hairColor.valueOf(color_of_hair_choicebox.getValue()), PhysicalAttributes.hairType.valueOf(hair_type_choicebox.getValue()), PhysicalAttributes.hairLength.valueOf(hair_length_choicebox.getValue()));
             LifeStyle lifeStyle = new LifeStyle(LifeStyle.smoker.valueOf(Smoker_choicebox.getValue()), LifeStyle.athlete.valueOf(Athlete_choicebox.getValue()), LifeStyle.feed.valueOf(feed_choicebox.getValue()), LifeStyle.bodyBuild.valueOf(bodybuild_choicebox.getValue()), LifeStyle.religion.valueOf(religion_choicebox.getValue()), LifeStyle.alcohol.valueOf(alcohol_choicebox.getValue()));
-            Preferences preferences = new Preferences();
-            preferences.setRandomPreferences();
+            Preferences preferences = new Preferences(new PhysicalAttributes(Integer.parseInt(textfield_size.getText()), PhysicalAttributes.hairColor.valueOf(color_of_hair_choicebox_preferences.getValue()), PhysicalAttributes.hairType.valueOf(hair_type_choicebox_preferences.getValue()), PhysicalAttributes.hairLength.valueOf(hair_length_choicebox_preferences.getValue())), new Biology(Integer.parseInt(textfield_age_preferences.getText()), Biology.sex.valueOf(sex_choicebox_preferences.getValue()), Biology.ethnicity.valueOf(choicebox_ethnicity_preferences.getValue()), Integer.parseInt(textfield_qi.getText())), new LifeStyle(LifeStyle.smoker.valueOf(Smoker_choicebox_preferences.getValue()), LifeStyle.athlete.valueOf(Athlete_choicebox_preferences.getValue()), LifeStyle.feed.valueOf(feed_choicebox_preferences.getValue()), LifeStyle.bodyBuild.valueOf(bodybuild_choicebox_preferences.getValue()), LifeStyle.religion.valueOf(religion_choicebox_preferences.getValue()), LifeStyle.alcohol.valueOf(alcohol_choicebox_preferences.getValue())));
             Passion passion = new Passion();
             ObservableList<String> video_games_checked = video_games_checkcombobox.getCheckModel().getCheckedItems();
             ObservableList<String> miscellaneous_checked = miscellanious_checkcombobox.getCheckModel().getCheckedItems();
