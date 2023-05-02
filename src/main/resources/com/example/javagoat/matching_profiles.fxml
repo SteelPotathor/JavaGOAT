@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<<<<<<< Updated upstream
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -18,7 +16,7 @@
         <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="463.0" layoutY="55.0" nodeOrientation="RIGHT_TO_LEFT"
                    style="-fx-rotate: 160;">
             <image>
-                <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(3).png"/>
+                <Image url=""/>
             </image>
         </ImageView>
         <AnchorPane layoutX="663.0" layoutY="73.0" prefHeight="140.0" prefWidth="140.0">
@@ -30,12 +28,12 @@
         <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="506.0" layoutY="159.0" nodeOrientation="RIGHT_TO_LEFT"
                    style="-fx-rotate: -20;">
             <image>
-                <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(3).png"/>
+                <Image url=""/>
             </image>
         </ImageView>
         <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="475.0" layoutY="267.0" style="-fx-rotate: 220;">
             <image>
-                <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(3).png"/>
+                <Image url=""/>
             </image>
         </ImageView>
         <AnchorPane layoutX="548.0" layoutY="458.0" prefHeight="140.0" prefWidth="140.0">
@@ -46,13 +44,13 @@
         </AnchorPane>
         <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="378.0" layoutY="340.0" style="-fx-rotate: 50;">
             <image>
-                <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(3).png"/>
+                <Image url=""/>
             </image>
         </ImageView>
         <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="237.0" layoutY="44.0" nodeOrientation="RIGHT_TO_LEFT"
                    style="-fx-rotate: 210;">
             <image>
-                <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(3).png"/>
+                <Image url=""/>
             </image>
         </ImageView>
         <AnchorPane layoutX="101.0" layoutY="31.0" prefHeight="140.0" prefWidth="140.0">
@@ -64,17 +62,17 @@
         <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="166.0" layoutY="141.0" nodeOrientation="RIGHT_TO_LEFT"
                    style="-fx-rotate: 30;">
             <image>
-                <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(3).png"/>
+                <Image url=""/>
             </image>
         </ImageView>
         <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="166.0" layoutY="228.0" style="-fx-rotate: 150;">
             <image>
-                <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(3).png"/>
+                <Image url=""/>
             </image>
         </ImageView>
         <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="256.0" layoutY="321.0" style="-fx-rotate: -40;">
             <image>
-                <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(3).png"/>
+                <Image url=""/>
             </image>
         </ImageView>
         <AnchorPane layoutX="114.0" layoutY="394.0" prefHeight="140.0" prefWidth="140.0">
@@ -92,103 +90,4 @@
         <Label layoutX="352.0" layoutY="449.0" text="81%"/>
         <Label layoutX="266.0" layoutY="332.0" text="81%"/>
     </children>
-=======
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.New_Profile_Controller">
-   <children>
-      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="463.0" layoutY="55.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-rotate: 160;">
-         <image>
-            <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(3).png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="506.0" layoutY="159.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-rotate: -20;">
-         <image>
-            <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(3).png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="200.0" fitWidth="256.0" layoutX="484.0" layoutY="259.0" style="-fx-rotate: 220;">
-         <image>
-            <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(3).png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="200.0" fitWidth="237.0" layoutX="445.0" layoutY="310.0" style="-fx-rotate: 30;">
-         <image>
-            <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(3).png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="237.0" layoutY="44.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-rotate: 210;">
-         <image>
-            <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(3).png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="166.0" layoutY="141.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-rotate: 30;">
-         <image>
-            <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(3).png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="200.0" fitWidth="256.0" layoutX="169.0" layoutY="310.0" style="-fx-rotate: -30;">
-         <image>
-            <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(3).png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="200.0" fitWidth="256.0" layoutX="127.0" layoutY="232.0" style="-fx-rotate: 150;">
-         <image>
-            <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(3).png" />
-         </image>
-      </ImageView>
-      <Label layoutX="331.0" layoutY="86.0" text="81%" />
-      <Label layoutX="284.0" layoutY="217.0" text="81%" />
-      <Label layoutX="536.0" layoutY="113.0" text="81%" />
-      <Label layoutX="606.0" layoutY="226.0" text="81%" />
-      <Label layoutX="631.0" layoutY="323.0" text="81%" />
-      <Label layoutX="594.0" layoutY="458.0" text="81%" />
-      <Label layoutX="285.0" layoutY="440.0" text="81%" />
-      <Label layoutX="266.0" layoutY="332.0" text="81%" />
-      <AnchorPane layoutX="663.0" layoutY="73.0" prefHeight="140.0" prefWidth="140.0">
-         <children>
-            <Circle fx:id="circle_profile_picture1" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="671.0" layoutY="396.0" prefHeight="140.0" prefWidth="140.0">
-         <children>
-            <Circle fx:id="circle_profile_picture11" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="101.0" layoutY="31.0" prefHeight="140.0" prefWidth="140.0">
-         <children>
-            <Circle fx:id="circle_profile_picture12" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="50.0" layoutY="396.0" prefHeight="140.0" prefWidth="140.0">
-         <children>
-            <Circle fx:id="circle_profile_picture111" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="364.0" layoutY="203.0" prefHeight="140.0" prefWidth="140.0">
-         <children>
-            <Circle fx:id="circle_profile_picture" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
-         </children>
-      </AnchorPane>
-      <ImageView fitHeight="200.0" fitWidth="222.0" layoutX="268.0" layoutY="349.0" style="-fx-rotate: 90;">
-         <image>
-            <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(3).png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="200.0" fitWidth="222.0" layoutX="363.0" layoutY="349.0" style="-fx-rotate: -90;">
-         <image>
-            <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(3).png" />
-         </image>
-      </ImageView>
-      <AnchorPane layoutX="345.0" layoutY="549.0" prefHeight="140.0" prefWidth="140.0">
-         <children>
-            <Circle fx:id="circle_profile_picture1111" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
-         </children>
-      </AnchorPane>
-   </children>
->>>>>>> Stashed changes
 </AnchorPane>
