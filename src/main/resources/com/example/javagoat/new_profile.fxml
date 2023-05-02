@@ -192,14 +192,14 @@
                         <Insets right="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="button_passions_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_style" prefHeight="24.0" prefWidth="105.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: rgba(255,255,255,0.3);;" text="Passion" textAlignment="CENTER">
+                  <Button fx:id="button_passions_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_style" prefHeight="24.0" prefWidth="105.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: rgba(255,255,255,0.3);;" text="Other" textAlignment="CENTER">
                      <HBox.margin>
                         <Insets right="20.0" />
                      </HBox.margin>
                   </Button>
                </children>
             </HBox>
-            <GridPane fx:id="grid_life_style" layoutX="36.0" layoutY="123.0" prefHeight="258.0" prefWidth="550.0" visible="false">
+            <GridPane fx:id="grid_life_style" layoutX="36.0" layoutY="123.0" prefHeight="258.0" prefWidth="550.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -408,7 +408,7 @@
                   </Pane>
                </children>
             </GridPane>
-            <GridPane fx:id="grid_physical_information_preferences" layoutX="56.0" layoutY="143.0" prefHeight="258.0" prefWidth="550.0">
+            <GridPane fx:id="grid_physical_information_preferences" layoutX="56.0" layoutY="143.0" prefHeight="258.0" prefWidth="550.0" visible="false">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -503,22 +503,36 @@
                   </Pane>
                   <Pane GridPane.columnIndex="1">
                      <children>
-                        <CheckComboBox fx:id="video_games_checkcombobox_preferences" layoutY="27.0" prefHeight="37.0" prefWidth="203.0" />
-                        <Label text="Video games">
+                        <Label layoutY="-9.0" text="Age">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
+                        <TextField fx:id="textfield_age_preferences" alignment="CENTER" layoutY="24.0" onKeyReleased="#write_number_only_age" prefHeight="46.0" prefWidth="192.0" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7);">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </TextField>
                      </children>
                   </Pane>
                   <Pane GridPane.rowIndex="1">
                      <children>
-                        <CheckComboBox fx:id="miscellanious_checkcombobox_preferences" layoutY="27.0" prefHeight="37.0" prefWidth="203.0" />
-                        <Label text="Miscellaneous">
+                        <Label text="Size">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
+                        <TextField fx:id="textfield_size_preferences" alignment="CENTER" layoutY="33.0" onKeyReleased="#write_number_only_age" prefHeight="46.0" prefWidth="192.0" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7);">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </TextField>
                      </children>
                   </Pane>
                </children>

@@ -105,7 +105,9 @@ public class New_Profile_Controller {
     @FXML
     private ChoiceBox<String> sex_choicebox_preferences;
 
-
+    //ALL BUTTONS PREFERENCES INFORMATION
+    public TextField textfield_age_preferences;
+    public TextField textfield_size_preferences;
     //ALL THE BUTTONS
     @FXML
     private Button button_create_profile;
@@ -196,10 +198,11 @@ public class New_Profile_Controller {
         hair_type_choicebox.setItems(element_hair_type);
         hair_length_choicebox.setValue("Select");
         hair_length_choicebox.setItems(element_hair_length);
-        video_games_checkcombobox.getItems().addAll(element_video_games);
         sex_choicebox.setValue("MALE/FEMALE");
         sex_choicebox.setItems(element_sex);
+        video_games_checkcombobox.getItems().addAll(element_video_games);
         miscellanious_checkcombobox.getItems().addAll(element_miscellanious);
+
 
 
         //Adding image to circle
@@ -228,10 +231,8 @@ public class New_Profile_Controller {
         hair_type_choicebox_preferences.setItems(element_hair_type);
         hair_length_choicebox_preferences.setValue("Select");
         hair_length_choicebox_preferences.setItems(element_hair_length);
-        video_games_checkcombobox_preferences.getItems().addAll(element_video_games);
         sex_choicebox_preferences.setValue("MALE/FEMALE");
         sex_choicebox_preferences.setItems(element_sex);
-        miscellanious_checkcombobox_preferences.getItems().addAll(element_miscellanious);
 
 
 
