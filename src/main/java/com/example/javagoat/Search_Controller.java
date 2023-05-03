@@ -370,9 +370,9 @@ public class Search_Controller {
             i++;
             profileTableView = tableView.getItems().get(i);
         }
-        System.out.println(profileTableView);
+        Profile profile = profileTableView.toProfile();
         try {
-            change_scene_to_page_edit(mouseEvent);
+            change_scene_to_page_edit(profile);
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
@@ -429,12 +429,10 @@ public class Search_Controller {
         if (advanced_research_panel_is_open) {
             icon_to_show_or_hide_advanced_research_panel.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("minus.png"))));
             animateAdvancedOptionsOpening();
-            System.out.println("ouvre");
 
         } else {
             icon_to_show_or_hide_advanced_research_panel.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("plus.png"))));
             //add the evenement when clicked on the icon
-            System.out.println("ferme");
             animateAdvancedOptionsClosing();
 
         }
@@ -487,11 +485,16 @@ public class Search_Controller {
     }
 
     @FXML
-    void change_scene_to_page_edit(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("edit_profile.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
+    void change_scene_to_page_edit(Profile event) throws IOException {
+        // open new window
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("edit_profile.fxml"));
+        Parent root = loader.load();
+        // load the controller
+
+        Edit_Profile_Controller edit_profile_controller = loader.getController();
+        edit_profile_controller.set_profile(event);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
         stage.show();
     }
 
