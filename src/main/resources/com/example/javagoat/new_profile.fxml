@@ -98,61 +98,80 @@
          <children>
             <VBox layoutY="178.0" prefHeight="321.0" prefWidth="265.0">
                <children>
-                  <TextField fx:id="textfield_first_name" alignment="CENTER" onKeyReleased="#write_string_only_firstname" prefHeight="46.0" prefWidth="192.0" promptText="First name" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7);">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets bottom="10.0" top="10.0" />
-                     </padding>
-                  </TextField>
-                  <TextField fx:id="textfield_last_name" alignment="CENTER" onKeyReleased="#write_string_only_lastname" prefHeight="46.0" prefWidth="192.0" promptText="Last name" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7);">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets bottom="10.0" top="10.0" />
-                     </padding>
-                  </TextField>
-                  <TextField fx:id="textfield_age" alignment="CENTER" onKeyReleased="#write_number_only_age" prefHeight="46.0" prefWidth="192.0" promptText="Age" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7);">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets bottom="10.0" top="10.0" />
-                     </padding>
-                  </TextField>
-                  <TextField fx:id="textfield_size" alignment="CENTER" onKeyReleased="#write_number_only_size" prefHeight="46.0" prefWidth="192.0" promptText="Size (cm)" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7);">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" top="10.0" />
-                     </padding>
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <TextField fx:id="textfield_qi" alignment="CENTER" onKeyReleased="#write_number_only_qi" prefHeight="46.0" prefWidth="192.0" promptText="QI" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7);">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" top="10.0" />
-                     </padding>
-                     <VBox.margin>
-                        <Insets bottom="10.0" />
-                     </VBox.margin>
-                  </TextField>
+                  <HBox alignment="CENTER" prefWidth="240.0">
+                     <children>
+                        <TextField fx:id="textfield_first_name" alignment="CENTER" onKeyReleased="#write_string_only_firstname" prefHeight="46.0" prefWidth="192.0" promptText="First name" style="-fx-background-color: transparent; -fx-prompt-text-fill: black;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </TextField>
+                        <TextField fx:id="textfield_last_name" alignment="CENTER" onKeyReleased="#write_string_only_lastname" prefHeight="46.0" prefWidth="192.0" promptText="Last name" style="-fx-background-color: transparent; -fx-prompt-text-fill: black;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <Pane style="-fx-background-color: rgba(0,0,0,0);">
+                     <children>
+                        <TextField fx:id="textfield_age" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" onKeyReleased="#write_number_only_age" prefHeight="46.0" prefWidth="265.0" promptText="20" style="-fx-background-color: transparent; -fx-prompt-text-fill: black;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </TextField>
+                        <Label layoutX="32.0" layoutY="12.0" text="Age">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane style="-fx-background-color: rgba(0,0,0,0);">
+                     <children>
+                        <TextField fx:id="textfield_size" alignment="CENTER_RIGHT" onKeyReleased="#write_number_only_size" prefHeight="46.0" prefWidth="265.0" promptText="180" style="-fx-prompt-text-fill: black; -fx-background-color: transparent;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </TextField>
+                        <Label layoutX="32.0" layoutY="15.0" text="Size">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane style="-fx-background-color: rgba(0, 100, 100, 0.0);">
+                     <children>
+                        <TextField fx:id="textfield_qi" alignment="CENTER_RIGHT" onKeyReleased="#write_number_only_qi" prefHeight="46.0" prefWidth="265.0" promptText="100" style="-fx-prompt-text-fill: black; -fx-background-color: transparent;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </TextField>
+                        <Label layoutX="35.0" layoutY="15.0" text="QI">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
                   <ChoiceBox fx:id="sex_choicebox" prefHeight="39.0" prefWidth="265.0" />
                </children>
             </VBox>
