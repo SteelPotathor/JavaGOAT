@@ -1,9 +1,6 @@
 package com.example.javagoat.back;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ModelProfile {
@@ -28,6 +25,7 @@ public class ModelProfile {
     }
 
 
+    // Check if this combination of String exists in the DS
     public static boolean correspondingName(String lastname, String firstname) {
         List<Profile> list = profileHashMap.values().stream().
                 filter(profile -> profile.identity.lastname.toUpperCase().startsWith(lastname.toUpperCase())
@@ -43,7 +41,7 @@ public class ModelProfile {
         return set;
     }
 
-    public Set<Profile> searchProfile(String firstname, String lastname, int minSize, int maxSize, int minAge, int maxAge, PhysicalAttributes.hairType hairType, PhysicalAttributes.hairColor hairColor, Biology.ethnicity ethnicity, LifeStyle.bodyBuild bodybuild) {
+    public Set<Profile> searchProfile(String firstname, String lastname, int minSize, int maxSize, int minAge, int maxAge, List<String> hairType, List<String> hairColor, List<String> ethnicity, List<String> bodybuild, List<String> sex) {
         Set<Profile> set = this.profileHashMap.values().stream()
                 .filter(profile -> profile.identity.firstname.toUpperCase().startsWith(firstname.toUpperCase())
                         && profile.identity.lastname.toUpperCase().startsWith(lastname.toUpperCase())
@@ -52,42 +50,61 @@ public class ModelProfile {
                         && profile.identity.age >= minAge
                         && profile.identity.age <= maxAge)
                 .collect(Collectors.toSet());
-        if (hairType != null) {
+
+        if (!hairType.isEmpty()) {
             set.retainAll(searchHairType(hairType));
         }
-        if (hairColor != null) {
+
+        if (!hairColor.isEmpty()) {
             set.retainAll(searchHairColor(hairColor));
         }
-        if (ethnicity != null) {
+
+        if (!ethnicity.isEmpty()) {
             set.retainAll(searchEthnicity(ethnicity));
         }
-        if (bodybuild != null) {
+        if (!bodybuild.isEmpty()) {
             set.retainAll(searchBodyBuild(bodybuild));
+        }
+        if (!sex.isEmpty()) {
+            set.retainAll(searchSex(sex));
         }
         return set;
     }
 
-    public Set<Profile> searchHairType(PhysicalAttributes.hairType hairType) {
-        return this.profileHashMap.values().stream()
-                .filter(profile -> profile.physicalAttributes.PAhairType.equals(hairType))
+
+    public Set<Profile> searchHairType(List<String> hairType) {
+        List<String> hairTypeMAJ = hairType.stream().map(String::toUpperCase).collect(Collectors.toList());
+        return profileHashMap.values().stream()
+                .filter(profile -> hairTypeMAJ.contains(String.valueOf(profile.physicalAttributes.PAhairType).toUpperCase()))
                 .collect(Collectors.toSet());
     }
 
-    public Set<Profile> searchHairColor(PhysicalAttributes.hairColor hairColor) {
-        return this.profileHashMap.values().stream()
-                .filter(profile -> profile.physicalAttributes.PAhairColor.equals(hairColor))
+
+    public Set<Profile> searchHairColor(List<String> hairColor) {
+        List<String> hairColorMAJ = hairColor.stream().map(String::toUpperCase).collect(Collectors.toList());
+        return profileHashMap.values().stream()
+                .filter(profile -> hairColorMAJ.contains(String.valueOf(profile.physicalAttributes.PAhairColor).toUpperCase()))
                 .collect(Collectors.toSet());
     }
 
-    public Set<Profile> searchEthnicity(Biology.ethnicity ethnicity) {
-        return this.profileHashMap.values().stream()
-                .filter(profile -> profile.identity.getBethnicity().equals(ethnicity))
+    public Set<Profile> searchEthnicity(List<String> ethnicity) {
+        List<String> ethnicityMAJ = ethnicity.stream().map(String::toUpperCase).collect(Collectors.toList());
+        return profileHashMap.values().stream()
+                .filter(profile -> ethnicityMAJ.contains(String.valueOf(profile.identity.getBethnicity()).toUpperCase()))
                 .collect(Collectors.toSet());
     }
 
-    public Set<Profile> searchBodyBuild(LifeStyle.bodyBuild bodyBuild) {
-        return this.profileHashMap.values().stream()
-                .filter(profile -> profile.lifeStyle.getLSbodyBuild().equals(bodyBuild))
+    public Set<Profile> searchBodyBuild(List<String> bodyBuild) {
+        List<String> bodyBuildMAJ = bodyBuild.stream().map(String::toUpperCase).collect(Collectors.toList());
+        return profileHashMap.values().stream()
+                .filter(profile -> bodyBuildMAJ.contains(String.valueOf(profile.lifeStyle.getLSbodyBuild()).toUpperCase()))
+                .collect(Collectors.toSet());
+    }
+
+    public Set<Profile> searchSex(List<String> sex) {
+        List<String> sexMAJ = sex.stream().map(String::toUpperCase).collect(Collectors.toList());
+        return profileHashMap.values().stream()
+                .filter(profile -> sexMAJ.contains(String.valueOf(profile.identity.getBsex()).toUpperCase()))
                 .collect(Collectors.toSet());
     }
 
@@ -102,10 +119,17 @@ public class ModelProfile {
 
     public static void main(String[] args) {
         ModelMatch modelMatch = new ModelMatch();
-        Profile p = new Profile();
-        p.setRandomProfileExceptName("Alma", "Katherine");
-        modelMatch.addProfile(p);
+        for (int i = 0; i < 100; i++) {
+            Profile p = new Profile();
+            p.setRandomProfileExceptName("Alma", "Katherine");
+            modelMatch.addProfile(p);
+        }
         System.out.println(correspondingName("Alm", "Katherine"));
+        List<String> list = new ArrayList<>();
+        list.add("straight");
+        list.add("curly");
+        System.out.println(list);
+        System.out.println(modelMatch.modelP.searchHairType(list));
     }
 
 }

@@ -4,8 +4,9 @@ import com.example.javagoat.back.ModelMatch;
 import com.example.javagoat.back.ModelProfile;
 import com.example.javagoat.back.Profile;
 import com.example.javagoat.back.ProfileTableView;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -128,27 +129,8 @@ public class Search_Controller {
     @FXML
     void initialize() {
         // add element in choice boxes
-        sexe_choice_box.getItems().addAll(sexe);
-        sexe_choice_box.setOnMouseEntered(this::t);
-        sexe_choice_box.getItems().addListener((ListChangeListener<String>) change -> System.out.println(change)); // still testing
-        ethnicity_choice_box.getItems().addAll(ethnicity);
-        color_of_hair_choice_box.getItems().addAll(color_of_hair);
-        type_of_hair_choice_box.getItems().addAll(type_of_hair);
-        weight_choice_box.getItems().addAll(weight);
-
-        // Textfields for search bar accept only alphabetical characters
-        Pattern patternLetters = Pattern.compile("[a-zA-Z]*");
-        UnaryOperator<TextFormatter.Change> filterLetters = change -> {
-            if (patternLetters.matcher(change.getControlNewText()).matches()) {
-                return change;
-            } else {
-                return null;
-            }
-        };
-        TextFormatter<String> formatterLetters = new TextFormatter<>(filterLetters);
-        TextFormatter<String> formatterLetters2 = new TextFormatter<>(filterLetters);
-        last_name_text_field.setTextFormatter(formatterLetters);
-        first_name_text_field.setTextFormatter(formatterLetters2);
+        init_all_check_combo_box();
+        textfields_limitations();
 
 
         // add initial values into text fields
@@ -157,23 +139,6 @@ public class Search_Controller {
         age_min.setText("20");
         age_max.setText("59");
 
-        // Textfields for age and height accept only numbers
-        Pattern patternNumbers = Pattern.compile("[0-9]*");
-        UnaryOperator<TextFormatter.Change> filterNumbers = change -> {
-            if (patternNumbers.matcher(change.getControlNewText()).matches()) {
-                return change;
-            } else {
-                return null;
-            }
-        };
-        TextFormatter<String> formatterNumbers = new TextFormatter<>(filterNumbers);
-        TextFormatter<String> formatterNumbers2 = new TextFormatter<>(filterNumbers);
-        TextFormatter<String> formatterNumbers3 = new TextFormatter<>(filterNumbers);
-        TextFormatter<String> formatterNumbers4 = new TextFormatter<>(filterNumbers);
-        age_min.setTextFormatter(formatterNumbers);
-        age_max.setTextFormatter(formatterNumbers2);
-        height_min.setTextFormatter(formatterNumbers3);
-        height_max.setTextFormatter(formatterNumbers4);
 
         // fill the tableview
         avatar.setCellValueFactory(new PropertyValueFactory<>("imageView"));
@@ -207,6 +172,87 @@ public class Search_Controller {
         first_name_search_bar.setVisibleRowCount(5);
     }
 
+    private void textfields_limitations() {
+        // Textfields for search bar accept only alphabetical characters
+        Pattern patternLetters = Pattern.compile("[a-zA-Z]*");
+        UnaryOperator<TextFormatter.Change> filterLetters = change -> {
+            if (patternLetters.matcher(change.getControlNewText()).matches()) {
+                return change;
+            } else {
+                return null;
+            }
+        };
+        TextFormatter<String> formatterLetters = new TextFormatter<>(filterLetters);
+        TextFormatter<String> formatterLetters2 = new TextFormatter<>(filterLetters);
+        last_name_text_field.setTextFormatter(formatterLetters);
+        first_name_text_field.setTextFormatter(formatterLetters2);
+
+        // Textfields for age and height accept only numbers
+        Pattern patternNumbers = Pattern.compile("[0-9]*");
+        UnaryOperator<TextFormatter.Change> filterNumbers = change -> {
+            if (patternNumbers.matcher(change.getControlNewText()).matches()) {
+                return change;
+            } else {
+                return null;
+            }
+        };
+        TextFormatter<String> formatterNumbers = new TextFormatter<>(filterNumbers);
+        TextFormatter<String> formatterNumbers2 = new TextFormatter<>(filterNumbers);
+        TextFormatter<String> formatterNumbers3 = new TextFormatter<>(filterNumbers);
+        TextFormatter<String> formatterNumbers4 = new TextFormatter<>(filterNumbers);
+        age_min.setTextFormatter(formatterNumbers);
+        age_max.setTextFormatter(formatterNumbers2);
+        height_min.setTextFormatter(formatterNumbers3);
+        height_max.setTextFormatter(formatterNumbers4);
+    }
+
+    private void init_all_check_combo_box() {
+        sexe_choice_box.getItems().addAll(sexe);
+        sexe_choice_box.getCheckModel().getCheckedItems().addListener(new InvalidationListener() {
+            @Override
+            public void invalidated(Observable observable) {
+                System.out.println("Selected items: " + getSelectedItems(sexe_choice_box));
+                update();
+            }
+        });
+        ethnicity_choice_box.getItems().addAll(ethnicity);
+        ethnicity_choice_box.getCheckModel().getCheckedItems().addListener(new InvalidationListener() {
+            @Override
+            public void invalidated(Observable observable) {
+                System.out.println("Selected items: " + getSelectedItems(ethnicity_choice_box));
+                update();
+            }
+        });
+        color_of_hair_choice_box.getItems().addAll(color_of_hair);
+        color_of_hair_choice_box.getCheckModel().getCheckedItems().addListener(new InvalidationListener() {
+            @Override
+            public void invalidated(Observable observable) {
+                System.out.println("Selected items: " + getSelectedItems(color_of_hair_choice_box));
+                update();
+            }
+        });
+        type_of_hair_choice_box.getItems().addAll(type_of_hair);
+        type_of_hair_choice_box.getCheckModel().getCheckedItems().addListener(new InvalidationListener() {
+            @Override
+            public void invalidated(Observable observable) {
+                System.out.println("Selected items: " + getSelectedItems(type_of_hair_choice_box));
+                update();
+            }
+        });
+        weight_choice_box.getItems().addAll(weight);
+        weight_choice_box.getCheckModel().getCheckedItems().addListener(new InvalidationListener() {
+            @Override
+            public void invalidated(Observable observable) {
+                System.out.println("Selected items: " + getSelectedItems(weight_choice_box));
+                update();
+            }
+        });
+    }
+
+    private List<String> getSelectedItems(CheckComboBox<String> checkComboBox) {
+        return checkComboBox.getCheckModel().getCheckedItems();
+    }
+
     private List<String> matchingLastName(Set<String> lastnameList, String userText) {
         List<String> matches = new ArrayList<>();
         for (String s : lastnameList) {
@@ -228,12 +274,15 @@ public class Search_Controller {
     }
 
 
-    public void searching_text(KeyEvent keyEvent) {
+    public void getSearch(KeyEvent keyEvent) {
+        update();
+    }
+
+    void update() {
         ModelProfile modelProfile = new ModelProfile();
         String lastname = last_name_text_field.getText();
         String firstname = first_name_text_field.getText();
         tableView.getItems().clear();
-        ObservableList<ProfileTableView> profiles = tableView.getItems();
 
         int min_size;
         int max_size;
@@ -259,20 +308,22 @@ public class Search_Controller {
         } else {
             max_age = Integer.parseInt(age_max.getText());
         }
-        Set<Profile> set = modelProfile.searchProfile(firstname, lastname, min_size, max_size, min_age, max_age, null, null, null, null);
+        List<String> hairColor = color_of_hair_choice_box.getCheckModel().getCheckedItems();
+        List<String> hairType = type_of_hair_choice_box.getCheckModel().getCheckedItems();
+        List<String> ethnicity = ethnicity_choice_box.getCheckModel().getCheckedItems();
+        List<String> bodybuild = weight_choice_box.getCheckModel().getCheckedItems();
+        List<String> sex = sexe_choice_box.getCheckModel().getCheckedItems();
+        Set<Profile> set = modelProfile.searchProfile(firstname, lastname, min_size, max_size, min_age, max_age, hairType, hairColor, ethnicity, bodybuild, sex);
+        ObservableList<ProfileTableView> profiles = tableView.getItems();
         for (Profile profile : set) {
             ProfileTableView profileTableView = profile.toProfileTableView();
             profiles.add(profileTableView);
         }
-    }
-
-
-    private void t(MouseEvent mouseEvent) {
-        System.out.println("oui");
-    }
-
-    private void change(KeyEvent keyEvent) {
-        System.out.println(keyEvent);
+        if (profiles.isEmpty()) {
+            tableView.setPlaceholder(new Label("No profile corresponding to your search!"));
+        }
+        // After each search, reset the sort view
+        tableView.getSortOrder().clear();
     }
 
     @FXML
@@ -438,6 +489,5 @@ public class Search_Controller {
         stage.setScene(scene);
         stage.show();
     }
-
 
 }
