@@ -95,12 +95,15 @@ public class Dashboard_Controller {
     }
 
     @FXML
-    void change_scene_to_page_edit(MouseEvent event) throws IOException {
+    void change_scene_to_page_edit(ProfileTableView event) throws IOException {
 
         // open new window
         FXMLLoader loader = new FXMLLoader(getClass().getResource("edit_profile.fxml"));
         Parent root = loader.load();
+        // load the controller
 
+        Edit_Profile_Controller edit_profile_controller = loader.getController();
+        edit_profile_controller.set_profile(event);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
@@ -202,7 +205,10 @@ public class Dashboard_Controller {
                 profileTableView = tableView.getItems().get(i);
             }
             System.out.println(profileTableView);
-            change_scene_to_page_edit(mouseEvent);
+            // get name
+            String name = profileTableView.firstname;
+            System.out.println(name);
+            change_scene_to_page_edit(profileTableView);
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }

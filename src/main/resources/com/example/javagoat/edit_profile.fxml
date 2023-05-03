@@ -21,7 +21,7 @@
 <?import javafx.scene.text.Text?>
 <?import org.controlsfx.control.CheckComboBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="1426.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.New_Profile_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="1426.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.Edit_Profile_Controller">
    <children>
       <ImageView fitHeight="699.0" fitWidth="1266.0" layoutX="188.0">
          <image>
@@ -163,6 +163,11 @@
                   <Circle fx:id="circle_profile_picture" fill="DODGERBLUE" layoutX="70.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
                </children>
             </AnchorPane>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="194.0" layoutY="119.0" onMouseClicked="#import_new_image">
+               <image>
+                  <Image url="@appareil-photo-numerique.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Pane layoutX="550.0" layoutY="76.0" prefHeight="516.0" prefWidth="779.0" style="-fx-background-color: rgba(255, 255,255, 0.3); -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
