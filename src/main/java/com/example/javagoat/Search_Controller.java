@@ -167,6 +167,7 @@ public class Search_Controller {
             match.setOnMouseClicked(this::match);
             profiles.add(profileTableView);
         }
+        tableView.setItems(profiles);
     }
 
 

@@ -1,5 +1,7 @@
 package com.example.javagoat;
 
+import animatefx.animation.BounceInUp;
+import animatefx.animation.RotateInDownLeft;
 import com.example.javagoat.back.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -181,10 +183,14 @@ public class New_Profile_Controller {
 
     @FXML
     void initialize() {
+        earlyAnimations();
         setTextFieldsLimitations();
         initAllPersonnalInfo();
         initAllPreferencesInfo();
         initImage();
+    }
+
+    private void earlyAnimations() {
     }
 
     private void setTextFieldsLimitations() {
@@ -535,7 +541,7 @@ public class New_Profile_Controller {
     void import_new_image(MouseEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
-        //type  of file jpg png
+        //type of file jpg png
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.jpeg"));
         file = fileChooser.showOpenDialog(null);

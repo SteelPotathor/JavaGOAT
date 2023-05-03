@@ -9,10 +9,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -23,6 +25,8 @@ import org.controlsfx.control.CheckComboBox;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Objects;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
@@ -119,7 +123,7 @@ public class Edit_Profile_Controller {
     @FXML
     private Button button_personnal_information;
     @FXML
-    Button button_historic_of_matches;
+    private Button button_historic_of_matches;
     @FXML
     private Button button_preferences_information;
     @FXML
@@ -130,7 +134,7 @@ public class Edit_Profile_Controller {
     private Button button_passions_information;
 
     @FXML
-    private TableView<Profile> tableview_profile;
+    private TableView<ProfileTableViewHistoric> tableview_profile;
     //ALL THE TEXTFIELDS
     public TextField textfield_first_name;
     public TextField textfield_last_name;
@@ -184,11 +188,46 @@ public class Edit_Profile_Controller {
     ObservableList<String> element_ethnicity = FXCollections.observableArrayList("WHITE", "BLACK", "ASIAN", "LATINO");
 
     @FXML
+    private TableColumn<ProfileTableViewHistoric, Integer> avatar;
+    @FXML
+    private TableColumn<ProfileTableViewHistoric, String> firstname;
+    @FXML
+    private TableColumn<ProfileTableViewHistoric, String> lastname;
+    @FXML
+    private TableColumn<ProfileTableViewHistoric, Integer> age;
+    @FXML
+    private TableColumn<ProfileTableViewHistoric, String> gender;
+    @FXML
+    private TableColumn<ProfileTableViewHistoric, HBox> feedback;
+
+
+    @FXML
     void initialize() {
+        earlyAnimations();
         setTextFieldsLimitations();
         initAllPersonnalInfo();
         initAllPreferencesInfo();
         initImage();
+        initTableView();
+    }
+
+    private void positif(MouseEvent mouseEvent) {
+        // remove the thumbs down, thumbs up is not anymore clickable
+    }
+
+    private void negatif(MouseEvent mouseEvent) {
+    }
+
+    private void initTableView() {
+        avatar.setCellValueFactory(new PropertyValueFactory<>("imageView"));
+        firstname.setCellValueFactory(new PropertyValueFactory<>("firstname"));
+        lastname.setCellValueFactory(new PropertyValueFactory<>("lastname"));
+        age.setCellValueFactory(new PropertyValueFactory<>("age"));
+        gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        feedback.setCellValueFactory(new PropertyValueFactory<>("actions"));
+    }
+
+    private void earlyAnimations() {
     }
 
     private void initImage() {
@@ -404,49 +443,8 @@ public class Edit_Profile_Controller {
             modelMatch.modelP.getProfileHashMap().get(idProfile).setPreferences(preferences);
             modelMatch.modelP.getProfileHashMap().get(idProfile).setPassion(passion);
             modelMatch.modelP.getProfileHashMap().get(idProfile).setImageView(imageView);
-
         }
 
-    }
-
-    @FXML
-    void write_string_only_firstname(KeyEvent event) {
-        var key = event.getCode();
-        if (!key.isLetterKey()) {
-            textfield_first_name.setText("");
-        }
-    }
-
-    @FXML
-    void write_string_only_lastname(KeyEvent event) {
-        var key = event.getCode();
-        if (!key.isLetterKey()) {
-            textfield_last_name.setText("");
-        }
-    }
-
-    @FXML
-    void write_number_only_age(KeyEvent event) {
-        var key = event.getCode();
-        if (!key.isDigitKey()) {
-            textfield_age.setText("");
-        }
-    }
-
-    @FXML
-    void write_number_only_size(KeyEvent event) {
-        var key = event.getCode();
-        if (!key.isDigitKey()) {
-            textfield_size.setText("");
-        }
-    }
-
-    @FXML
-    void write_number_only_qi(KeyEvent event) {
-        var key = event.getCode();
-        if (!key.isDigitKey()) {
-            textfield_qi.setText("");
-        }
     }
 
     private boolean personnal_preferences = true;
@@ -600,17 +598,13 @@ public class Edit_Profile_Controller {
         } else if (event.getSource() == events_pane) {
             events_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
         }
-
-
-        //modify the color of the panel from event
-
     }
 
     @FXML
     void import_new_image(MouseEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
-        //type  of file jpg png
+        //type of file jpg png
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.jpeg"));
         File file = fileChooser.showOpenDialog(null);
@@ -676,8 +670,25 @@ public class Edit_Profile_Controller {
 
             element_miscellanious.indexOf(s);
             miscellanious_checkcombobox.getCheckModel().checkIndices(element_miscellanious.indexOf(s));
-
         }
+
+        ObservableList<ProfileTableViewHistoric> profiles = tableview_profile.getItems();
+        HashMap<Integer, Date> hashMap = profile.modelHisto.stockHisto;
+        for (Integer key : hashMap.keySet()) {
+            Profile profileHash = modelMatch.modelP.getProfileHashMap().get(key);
+            ProfileTableViewHistoric profileTableViewHistoric = profileHash.toProfileTableViewHistoric();
+            Pane thumbsUp = (Pane) profileTableViewHistoric.actions.getChildren().get(0);
+            Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(1);
+            thumbsUp.setStyle("-fx-cursor: HAND");
+            thumbsUp.setOnMouseClicked(this::positif);
+            thumbsDown.setStyle("-fx-cursor: HAND");
+            thumbsDown.setOnMouseClicked(this::negatif);
+            profiles.add(profileTableViewHistoric);
+        }
+        if (profiles.isEmpty()) {
+            tableview_profile.setPlaceholder(new Label("No matches!"));
+        }
+        tableview_profile.setItems(profiles);
 
 
     }

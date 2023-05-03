@@ -118,6 +118,14 @@ public class Profile implements Serializable {
         return new ProfileTableView(this.identity.noId, this.priority, img, this.identity.firstname, this.identity.lastname, this.identity.age, this.identity.Bsex.toString());
     }
 
+    public ProfileTableViewHistoric toProfileTableViewHistoric() {
+        ImageView img = this.imageView;
+        img.setPreserveRatio(true);
+        img.setFitHeight(40);
+        img.setFitWidth(40);
+        return new ProfileTableViewHistoric(this.identity.noId, this.priority, img, this.identity.firstname, this.identity.lastname, this.identity.age, this.identity.Bsex.toString());
+    }
+
     public float getDistance(Profile profile) {
         return new DistanceCalculator(this).getDistance(profile);
     }

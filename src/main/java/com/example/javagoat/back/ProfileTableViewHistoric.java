@@ -1,6 +1,5 @@
 package com.example.javagoat.back;
 
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -8,7 +7,7 @@ import javafx.scene.layout.Pane;
 
 import static com.example.javagoat.back.ModelProfile.profileHashMap;
 
-public class ProfileTableView {
+public class ProfileTableViewHistoric {
 
     public int id;
     public int priority;
@@ -20,12 +19,11 @@ public class ProfileTableView {
     public HBox actions;
     public Pane modify;
     public Pane match;
-    public final ImageView logoModif = new ImageView(new Image("file:src/main/resources/com/example/javagoat/modification-du-stylo.png"));
-    public final ImageView logoMatch = new ImageView(new Image("file:src/main/resources/com/example/javagoat/aimer.png"));
 
+    public final ImageView thumbsUp = new ImageView(new Image("file:src/main/resources/com/example/javagoat/pouce-vers-le-haut.png"));
+    public final ImageView thumbsDown = new ImageView(new Image("file:src/main/resources/com/example/javagoat/pouce-vers-le-bas.png"));
 
-
-    public ProfileTableView(int id, int significance, ImageView imageView, String firstname, String lastname, int age, String gender) {
+    public ProfileTableViewHistoric(int id, int significance, ImageView imageView, String firstname, String lastname, int age, String gender) {
         this.id = id;
         this.priority = significance;
         this.imageView = imageView;
@@ -33,15 +31,14 @@ public class ProfileTableView {
         this.lastname = lastname;
         this.age = age;
         this.gender = gender;
-        logoModif.setPreserveRatio(true);
-        logoModif.setFitHeight(40);
-        logoMatch.setPreserveRatio(true);
-        logoMatch.setFitHeight(40);
-        this.modify = new Pane(logoModif);
-        this.match = new Pane(logoMatch);
+        thumbsUp.setPreserveRatio(true);
+        thumbsUp.setFitHeight(40);
+        thumbsDown.setPreserveRatio(true);
+        thumbsDown.setFitHeight(40);
+        this.modify = new Pane(thumbsUp);
+        this.match = new Pane(thumbsDown);
         this.actions = new HBox(this.modify, this.match);
     }
-
 
     public Profile toProfile() {
         return profileHashMap.get(this.id);
@@ -70,7 +67,6 @@ public class ProfileTableView {
     public void setImageView(ImageView imageView) {
         this.imageView = imageView;
     }
-
 
     public String getFirstname() {
         return firstname;
@@ -128,27 +124,11 @@ public class ProfileTableView {
         this.match = match;
     }
 
-    public ImageView getLogoModif() {
-        return logoModif;
+    public ImageView getThumbsUp() {
+        return thumbsUp;
     }
 
-    public ImageView getLogoMatch() {
-        return logoMatch;
-    }
-
-    @Override
-    public String toString() {
-        return "ProfileTableView{" +
-                "id=" + id +
-                ", priority=" + priority +
-                ", imageView=" + imageView +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", age=" + age +
-                ", gender='" + gender + '\'' +
-                ", hBox=" + actions +
-                ", modify=" + modify +
-                ", match=" + match +
-                '}';
+    public ImageView getThumbsDown() {
+        return thumbsDown;
     }
 }

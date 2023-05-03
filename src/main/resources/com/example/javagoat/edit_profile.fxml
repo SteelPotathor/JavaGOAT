@@ -361,6 +361,7 @@
                   <TableColumn fx:id="lastname" prefWidth="100.0" text="Last Name" />
                   <TableColumn fx:id="age" prefWidth="100.0" text="Age" />
                   <TableColumn fx:id="gender" prefWidth="100.0" text="Gender" />
+                  <TableColumn fx:id="feedback" prefWidth="100.0" text="Feedback" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -393,7 +394,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="textfield_age_preferences" alignment="CENTER" layoutY="24.0" onKeyReleased="#write_number_only_age" prefHeight="46.0" prefWidth="192.0" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7);">
+                        <TextField fx:id="textfield_age_preferences" alignment="CENTER" layoutY="24.0" prefHeight="46.0" prefWidth="192.0" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7);">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -410,7 +411,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="textfield_size_preferences" alignment="CENTER" layoutY="50.0" onKeyReleased="#write_number_only_age" prefHeight="46.0" prefWidth="192.0" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7);">
+                        <TextField fx:id="textfield_size_preferences" alignment="CENTER" layoutY="50.0" prefHeight="46.0" prefWidth="192.0" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7);">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -430,7 +431,7 @@
                <children>
                   <HBox alignment="CENTER" prefWidth="240.0">
                      <children>
-                        <TextField fx:id="textfield_first_name" alignment="CENTER" onKeyReleased="#write_string_only_firstname" prefHeight="46.0" prefWidth="192.0" promptText="First name" style="-fx-background-color: transparent; -fx-prompt-text-fill: grey;">
+                        <TextField fx:id="textfield_first_name" alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="First name" style="-fx-background-color: transparent; -fx-prompt-text-fill: grey;">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -438,7 +439,7 @@
                               <Insets bottom="10.0" top="10.0" />
                            </padding>
                         </TextField>
-                        <TextField fx:id="textfield_last_name" alignment="CENTER" onKeyReleased="#write_string_only_lastname" prefHeight="46.0" prefWidth="192.0" promptText="Last name" style="-fx-background-color: transparent; -fx-prompt-text-fill: grey;">
+                        <TextField fx:id="textfield_last_name" alignment="CENTER" prefHeight="46.0" prefWidth="192.0" promptText="Last name" style="-fx-background-color: transparent; -fx-prompt-text-fill: grey;">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -455,7 +456,7 @@
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="textfield_age" alignment="CENTER_RIGHT" layoutY="1.0" onKeyReleased="#write_number_only_age" prefHeight="46.0" prefWidth="265.0" promptText="20" style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;">
+                        <TextField fx:id="textfield_age" alignment="CENTER_RIGHT" layoutY="1.0" prefHeight="46.0" prefWidth="265.0" promptText="20" style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -467,7 +468,7 @@
                   </Pane>
                   <Pane style="-fx-background-color: rgba(0,0,0,0);">
                      <children>
-                        <TextField fx:id="textfield_size" alignment="CENTER_RIGHT" onKeyReleased="#write_number_only_size" prefHeight="46.0" prefWidth="265.0" style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;" text="180">
+                        <TextField fx:id="textfield_size" alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="265.0" style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;" text="180">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -484,7 +485,7 @@
                   </Pane>
                   <Pane style="-fx-background-color: rgba(0, 100, 100, 0.0);">
                      <children>
-                        <TextField fx:id="textfield_qi" alignment="CENTER_RIGHT" onKeyReleased="#write_number_only_qi" prefHeight="46.0" prefWidth="265.0" style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;" text="100">
+                        <TextField fx:id="textfield_qi" alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="265.0" style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;" text="100">
                            <font>
                               <Font size="16.0" />
                            </font>
