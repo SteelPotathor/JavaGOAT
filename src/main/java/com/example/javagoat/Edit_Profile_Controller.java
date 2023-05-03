@@ -20,12 +20,17 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.controlsfx.control.CheckComboBox;
 
+import javax.imageio.ImageReadParam;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class Edit_Profile_Controller {
+
+    ModelMatch modelMatch = new ModelMatch();
+    int idProfile;
+
     @FXML
     private Stage stage;
     @FXML
@@ -327,8 +332,8 @@ public class Edit_Profile_Controller {
         ) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Information Dialog");
-            alert.setHeaderText("Profile not created");
-            alert.setContentText("Your profile has not been created, please fill all the fields");
+            alert.setHeaderText("Profile not edited");
+            alert.setContentText("Your profile has not been edited, please fill all the fields");
             alert.showAndWait();
         } else {
             Identity identity = new Identity(Integer.parseInt(textfield_age.getText()), Biology.sex.valueOf(sex_choicebox.getValue()), Biology.ethnicity.valueOf(choicebox_ethnicity.getValue()), Integer.parseInt(textfield_qi.getText()), textfield_last_name.getText(), textfield_first_name.getText());
@@ -343,20 +348,23 @@ public class Edit_Profile_Controller {
             for (String miscellaneous : miscellaneous_checked)
                 passion.passionM.add(Passion.miscellaneous.valueOf(miscellaneous));
 
-            ImageView imageView = new ImageView(new Image("file:src/main/java/com/example/javagoat/back/images/kumalala.jpg"));
-            Profile profile = new Profile(identity, physicalAttributes, lifeStyle, preferences, passion, imageView);
+            ImagePattern imagePattern = (ImagePattern) circle_profile_picture.getFill();
+            Image image = imagePattern.getImage();
+            ImageView imageView = new ImageView(image);
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
-            alert.setHeaderText("Profile created");
-            alert.setContentText("Your profile has been created");
+            alert.setHeaderText("Profile edited");
+            alert.setContentText("Your profile has been successfully edited");
             alert.showAndWait();
 
-            ModelMatch modelMatch = new ModelMatch();
-            System.out.println(profile);
+            modelMatch.modelP.getProfileHashMap().get(idProfile).setIdentity(identity);
+            modelMatch.modelP.getProfileHashMap().get(idProfile).setPhysicalAttributes(physicalAttributes);
+            modelMatch.modelP.getProfileHashMap().get(idProfile).setLifeStyle(lifeStyle);
+            modelMatch.modelP.getProfileHashMap().get(idProfile).setPreferences(preferences);
+            modelMatch.modelP.getProfileHashMap().get(idProfile).setPassion(passion);
+            modelMatch.modelP.getProfileHashMap().get(idProfile).setImageView(imageView);
 
-            modelMatch.addProfile(profile);
-
-            System.out.println(ModelProfile.profileHashMap.size());
         }
 
     }
@@ -576,14 +584,17 @@ public class Edit_Profile_Controller {
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.jpeg"));
         File file = fileChooser.showOpenDialog(null);
+
         if (file != null) {
             circle_profile_picture.setFill(new ImagePattern(new Image(file.toURI().toString())));
             System.out.println(file.getAbsolutePath());
         }
+
     }
 
     @FXML
     public void set_profile(Profile profile) {
+        idProfile = profile.getIdentity().getNoId();
         textfield_first_name.setText(profile.getIdentity().firstname);
         textfield_last_name.setText(profile.getIdentity().lastname);
         textfield_age.setText(String.valueOf(profile.getIdentity().age));
@@ -614,11 +625,12 @@ public class Edit_Profile_Controller {
         hair_length_choicebox_preferences.setValue(profile.getPreferences().getPhysicalAttributes().getHairLength().toString());
         religion_choicebox_preferences.setValue(profile.getPreferences().getLifestyle().getLSreligion().toString());
         sex_choicebox_preferences.setValue(profile.getPreferences().getBiology().getBsex().toString());
+        textfield_age_preferences.setText(String.valueOf(profile.getPreferences().getBiology().getAge()));
+        textfield_size_preferences.setText(String.valueOf(profile.getPreferences().getPhysicalAttributes().getSize()));
         // convert the arraylist in indexedCheckModel
 
         ArrayList<String> video_games_list = new ArrayList<>();
         profile.getPassion().passionVG.forEach(passion -> video_games_list.add(passion.toString()));
-
 
         for (String value : video_games_list) {
 
@@ -628,9 +640,8 @@ public class Edit_Profile_Controller {
         }
 
         ArrayList<String> miscellanous_list = new ArrayList<>();
-
         profile.getPassion().passionM.forEach(passion -> miscellanous_list.add(passion.toString()));
-        System.out.println(miscellanous_list);
+
         for (String s : miscellanous_list) {
 
             element_miscellanious.indexOf(s);

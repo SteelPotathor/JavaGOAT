@@ -209,7 +209,6 @@ public class New_Profile_Controller {
         miscellanious_checkcombobox.getItems().addAll(element_miscellanious);
 
 
-
         //Adding image to circle
         Image image = new Image(getClass().getResource("DefaultImage.png").toExternalForm(), false);
         circle_profile_picture.setFill(new ImagePattern(image));
@@ -329,6 +328,7 @@ public class New_Profile_Controller {
                 || Objects.equals(choicebox_ethnicity_preferences.getValue(), "Select")
                 || Objects.equals(textfield_age_preferences.getText().replace(" ", ""), "")
                 || Objects.equals(textfield_size_preferences.getText().replace(" ", ""), "")
+                || Objects.equals(file, null)
         ) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Information Dialog");
@@ -404,6 +404,7 @@ public class New_Profile_Controller {
             textfield_qi.setText("");
         }
     }
+
     private boolean personnal_preferences = true;
 
     @FXML
@@ -429,10 +430,7 @@ public class New_Profile_Controller {
             personnal_preferences = false;
 
 
-        }
-
-        else
-        {
+        } else {
             button_personnal_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_preferences_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50");
             button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
@@ -459,50 +457,39 @@ public class New_Profile_Controller {
             button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
             button_physical_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_passions_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
-            if (this.personnal_preferences)
-            {
+            if (this.personnal_preferences) {
                 grid_life_style.setVisible(true);
                 grid_physical_information.setVisible(false);
                 grid_passions.setVisible(false);
-            }
-            else {
+            } else {
                 grid_life_style_preferences.setVisible(true);
                 grid_physical_information_preferences.setVisible(false);
                 grid_passions_preferences.setVisible(false);
             }
 
 
-
-        }
-        else if (event.getSource() == button_physical_information)
-        {
+        } else if (event.getSource() == button_physical_information) {
             button_physical_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
             button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_passions_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
-            if (this.personnal_preferences)
-            {
+            if (this.personnal_preferences) {
                 grid_life_style.setVisible(false);
                 grid_physical_information.setVisible(true);
                 grid_passions.setVisible(false);
-            }
-            else {
+            } else {
                 grid_life_style_preferences.setVisible(false);
                 grid_physical_information_preferences.setVisible(true);
                 grid_passions_preferences.setVisible(false);
             }
-        }
-        else
-        {
+        } else {
             button_passions_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
             button_physical_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
-            if (this.personnal_preferences)
-            {
+            if (this.personnal_preferences) {
                 grid_life_style.setVisible(false);
                 grid_physical_information.setVisible(false);
                 grid_passions.setVisible(true);
-            }
-            else {
+            } else {
                 grid_life_style_preferences.setVisible(false);
                 grid_physical_information_preferences.setVisible(false);
                 grid_passions_preferences.setVisible(true);
@@ -556,10 +543,10 @@ public class New_Profile_Controller {
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.jpeg"));
         file = fileChooser.showOpenDialog(null);
         if (file != null) {
-            circle_profile_picture.setFill(new ImagePattern(new Image(file.toURI().toString())));
-            System.out.println(file.getAbsolutePath());
+            ImagePattern imagePattern = new ImagePattern(new Image(file.toURI().toString()));
+            circle_profile_picture.setFill(imagePattern);
         }
     }
-    }
+}
 
 
