@@ -1,5 +1,6 @@
 package com.example.javagoat;
 
+import com.example.javagoat.back.ModelMatch;
 import com.example.javagoat.back.ModelProfile;
 import com.example.javagoat.back.Profile;
 import com.example.javagoat.back.ProfileTableView;
@@ -37,6 +38,8 @@ import static com.example.javagoat.back.ModelProfile.correspondingName;
 import static com.example.javagoat.back.ModelProfile.profileHashMap;
 
 public class Search_Controller {
+
+    ModelMatch modelMatch = new ModelMatch();
 
     @FXML
     private Stage stage;
@@ -281,7 +284,8 @@ public class Search_Controller {
                 i++;
                 profileTableView = tableView.getItems().get(i);
             }
-            System.out.println(profileTableView);
+            int idProfile = profileTableView.getId();
+            System.out.println(modelMatch.getKNN(idProfile, 5));
             change_scene_to_page_matching(mouseEvent);
         } catch (IOException ioException) {
             ioException.printStackTrace();
