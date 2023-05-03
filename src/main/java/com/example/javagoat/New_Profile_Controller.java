@@ -182,7 +182,6 @@ public class New_Profile_Controller {
     @FXML
     void initialize() {
         // Setup data for personnal info
-        /*
         choicebox_ethnicity.setItems(element_ethnicity);
         choicebox_ethnicity.setValue("Select");
         Smoker_choicebox.setValue("Select");
@@ -240,7 +239,7 @@ public class New_Profile_Controller {
         sex_choicebox_preferences.setItems(element_sex);
 
         //mouse over
-        */
+
 
     }
 

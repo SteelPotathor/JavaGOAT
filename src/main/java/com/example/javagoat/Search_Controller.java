@@ -336,6 +336,7 @@ public class Search_Controller {
                 profileTableView = tableView.getItems().get(i);
             }
             int idProfile = profileTableView.getId();
+            System.out.println(modelMatch.getModelP().getProfileHashMap().get(idProfile).getImageView());
             System.out.println(modelMatch.getKNN(idProfile, 5));
             change_scene_to_page_matching(mouseEvent);
         } catch (IOException ioException) {
