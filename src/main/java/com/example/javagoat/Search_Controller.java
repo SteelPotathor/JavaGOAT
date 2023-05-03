@@ -1,9 +1,11 @@
 package com.example.javagoat;
 
+import animatefx.animation.*;
 import com.example.javagoat.back.ModelMatch;
 import com.example.javagoat.back.ModelProfile;
 import com.example.javagoat.back.Profile;
 import com.example.javagoat.back.ProfileTableView;
+import javafx.animation.PauseTransition;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -22,6 +24,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.controlsfx.control.CheckComboBox;
 import org.controlsfx.control.textfield.AutoCompletionBinding;
 import org.controlsfx.control.textfield.TextFields;
@@ -128,27 +131,22 @@ public class Search_Controller {
 
     @FXML
     void initialize() {
-        // add element in choice boxes
-        init_all_check_combo_box();
-        textfields_limitations();
+        new RotateInDownLeft(first_name_text_field).play();
+        new RotateInDownLeft(last_name_text_field).play();
+        new RotateInDownLeft(icon_to_show_or_hide_advanced_research_panel).play();
+        new FadeInUpBig(tableView).play();
+        initAllCheckComboBox();
+        setAgeTextField(20, 59);
+        setHeightTextField(100, 200);
+        setTextFieldsLimitations();
+        setTextFieldsAutoCompletion();
+        initTableView();
+        firstFillTableView();
+    }
 
 
-        // add initial values into text fields
-        height_min.setText("100");
-        height_max.setText("200");
-        age_min.setText("20");
-        age_max.setText("59");
-
-
-        // fill the tableview
-        avatar.setCellValueFactory(new PropertyValueFactory<>("imageView"));
-        firstname.setCellValueFactory(new PropertyValueFactory<>("firstname"));
-        lastname.setCellValueFactory(new PropertyValueFactory<>("lastname"));
-        age.setCellValueFactory(new PropertyValueFactory<>("age"));
-        gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
-        action.setCellValueFactory(new PropertyValueFactory<>("actions"));
+    private void firstFillTableView() {
         ObservableList<ProfileTableView> profiles = tableView.getItems();
-
         for (int i = 1; i < profileHashMap.size() + 1; i++) {
             Profile profile = profileHashMap.get(i);
             // The object in the tableview must match the columns attributes
@@ -159,7 +157,9 @@ public class Search_Controller {
             match.setOnMouseClicked(this::match);
             profiles.add(profileTableView);
         }
+    }
 
+    private void setTextFieldsAutoCompletion() {
         ModelProfile modelProfile = new ModelProfile();
         Set<String> lastnameList = modelProfile.getAllLastName();
         last_name_search_bar = TextFields.bindAutoCompletion(last_name_text_field, suggestionRequest -> matchingLastName(lastnameList, suggestionRequest.getUserText()));
@@ -172,7 +172,26 @@ public class Search_Controller {
         first_name_search_bar.setVisibleRowCount(5);
     }
 
-    private void textfields_limitations() {
+    private void initTableView() {
+        avatar.setCellValueFactory(new PropertyValueFactory<>("imageView"));
+        firstname.setCellValueFactory(new PropertyValueFactory<>("firstname"));
+        lastname.setCellValueFactory(new PropertyValueFactory<>("lastname"));
+        age.setCellValueFactory(new PropertyValueFactory<>("age"));
+        gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        action.setCellValueFactory(new PropertyValueFactory<>("actions"));
+    }
+
+    private void setAgeTextField(int min, int max) {
+        age_min.setText(String.valueOf(min));
+        age_max.setText(String.valueOf(max));
+    }
+
+    private void setHeightTextField(int min, int max) {
+        height_min.setText(String.valueOf(min));
+        height_max.setText(String.valueOf(max));
+    }
+
+    private void setTextFieldsLimitations() {
         // Textfields for search bar accept only alphabetical characters
         Pattern patternLetters = Pattern.compile("[a-zA-Z]*");
         UnaryOperator<TextFormatter.Change> filterLetters = change -> {
@@ -206,12 +225,11 @@ public class Search_Controller {
         height_max.setTextFormatter(formatterNumbers4);
     }
 
-    private void init_all_check_combo_box() {
+    private void initAllCheckComboBox() {
         sexe_choice_box.getItems().addAll(sexe);
         sexe_choice_box.getCheckModel().getCheckedItems().addListener(new InvalidationListener() {
             @Override
             public void invalidated(Observable observable) {
-                System.out.println("Selected items: " + getSelectedItems(sexe_choice_box));
                 update();
             }
         });
@@ -219,7 +237,6 @@ public class Search_Controller {
         ethnicity_choice_box.getCheckModel().getCheckedItems().addListener(new InvalidationListener() {
             @Override
             public void invalidated(Observable observable) {
-                System.out.println("Selected items: " + getSelectedItems(ethnicity_choice_box));
                 update();
             }
         });
@@ -227,7 +244,6 @@ public class Search_Controller {
         color_of_hair_choice_box.getCheckModel().getCheckedItems().addListener(new InvalidationListener() {
             @Override
             public void invalidated(Observable observable) {
-                System.out.println("Selected items: " + getSelectedItems(color_of_hair_choice_box));
                 update();
             }
         });
@@ -235,7 +251,6 @@ public class Search_Controller {
         type_of_hair_choice_box.getCheckModel().getCheckedItems().addListener(new InvalidationListener() {
             @Override
             public void invalidated(Observable observable) {
-                System.out.println("Selected items: " + getSelectedItems(type_of_hair_choice_box));
                 update();
             }
         });
@@ -243,14 +258,9 @@ public class Search_Controller {
         weight_choice_box.getCheckModel().getCheckedItems().addListener(new InvalidationListener() {
             @Override
             public void invalidated(Observable observable) {
-                System.out.println("Selected items: " + getSelectedItems(weight_choice_box));
                 update();
             }
         });
-    }
-
-    private List<String> getSelectedItems(CheckComboBox<String> checkComboBox) {
-        return checkComboBox.getCheckModel().getCheckedItems();
     }
 
     private List<String> matchingLastName(Set<String> lastnameList, String userText) {
@@ -282,7 +292,6 @@ public class Search_Controller {
         ModelProfile modelProfile = new ModelProfile();
         String lastname = last_name_text_field.getText();
         String firstname = first_name_text_field.getText();
-        tableView.getItems().clear();
 
         int min_size;
         int max_size;
@@ -308,15 +317,25 @@ public class Search_Controller {
         } else {
             max_age = Integer.parseInt(age_max.getText());
         }
+
+        // Ajust the search with corresponding options
         List<String> hairColor = color_of_hair_choice_box.getCheckModel().getCheckedItems();
         List<String> hairType = type_of_hair_choice_box.getCheckModel().getCheckedItems();
         List<String> ethnicity = ethnicity_choice_box.getCheckModel().getCheckedItems();
         List<String> bodybuild = weight_choice_box.getCheckModel().getCheckedItems();
         List<String> sex = sexe_choice_box.getCheckModel().getCheckedItems();
         Set<Profile> set = modelProfile.searchProfile(firstname, lastname, min_size, max_size, min_age, max_age, hairType, hairColor, ethnicity, bodybuild, sex);
+
+        // Clear the tableView
+        tableView.getItems().clear();
+        // Fill the tableView
         ObservableList<ProfileTableView> profiles = tableView.getItems();
         for (Profile profile : set) {
             ProfileTableView profileTableView = profile.toProfileTableView();
+            Button modify = (Button) profileTableView.actions.getChildren().get(0);
+            Button match = (Button) profileTableView.actions.getChildren().get(1);
+            modify.setOnMouseClicked(this::edit);
+            match.setOnMouseClicked(this::match);
             profiles.add(profileTableView);
         }
         if (profiles.isEmpty()) {
@@ -328,16 +347,15 @@ public class Search_Controller {
 
     @FXML
     public void match(MouseEvent mouseEvent) {
+        int i = 0;
+        ProfileTableView profileTableView = tableView.getItems().get(i);
+        while (i < profileHashMap.size() && !(profileTableView.actions.getChildren().get(1).equals(mouseEvent.getSource()))) {
+            i++;
+            profileTableView = tableView.getItems().get(i);
+        }
+        int idProfile = profileTableView.getId();
+        System.out.println(modelMatch.getKNN(idProfile, 5));
         try {
-            int i = 0;
-            ProfileTableView profileTableView = tableView.getItems().get(i);
-            while (i < 20 && !(profileTableView.actions.getChildren().get(1).equals(mouseEvent.getSource()))) {
-                i++;
-                profileTableView = tableView.getItems().get(i);
-            }
-            int idProfile = profileTableView.getId();
-            System.out.println(modelMatch.getModelP().getProfileHashMap().get(idProfile).getImageView());
-            System.out.println(modelMatch.getKNN(idProfile, 5));
             change_scene_to_page_matching(mouseEvent);
         } catch (IOException ioException) {
             ioException.printStackTrace();
@@ -346,14 +364,14 @@ public class Search_Controller {
 
     @FXML
     public void edit(MouseEvent mouseEvent) {
+        int i = 0;
+        ProfileTableView profileTableView = tableView.getItems().get(i);
+        while (i < profileHashMap.size() && !(profileTableView.actions.getChildren().get(0).equals(mouseEvent.getSource()))) {
+            i++;
+            profileTableView = tableView.getItems().get(i);
+        }
+        System.out.println(profileTableView);
         try {
-            int i = 0;
-            ProfileTableView profileTableView = tableView.getItems().get(i);
-            while (i < 20 && !(profileTableView.actions.getChildren().get(0).equals(mouseEvent.getSource()))) {
-                i++;
-                profileTableView = tableView.getItems().get(i);
-            }
-            System.out.println(profileTableView);
             change_scene_to_page_edit(mouseEvent);
         } catch (IOException ioException) {
             ioException.printStackTrace();
@@ -410,36 +428,37 @@ public class Search_Controller {
         advanced_research_panel_is_open = !advanced_research_panel_is_open;
         if (advanced_research_panel_is_open) {
             icon_to_show_or_hide_advanced_research_panel.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("minus.png"))));
-
+            animateAdvancedOptionsOpening();
+            System.out.println("ouvre");
 
         } else {
             icon_to_show_or_hide_advanced_research_panel.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("plus.png"))));
             //add the evenement when clicked on the icon
+            System.out.println("ferme");
+            animateAdvancedOptionsClosing();
 
         }
-
-        advanced_research_panel.setVisible(advanced_research_panel_is_open);
-        advanced_research_panel1.setVisible(advanced_research_panel_is_open);
+        PauseTransition visiblePause = new PauseTransition(Duration.seconds(0.65));
+        PauseTransition visiblePause1 = new PauseTransition(Duration.seconds(0.65));
+        if (!advanced_research_panel_is_open) {
+            visiblePause.setOnFinished(e -> advanced_research_panel.setVisible(advanced_research_panel_is_open));
+            visiblePause1.setOnFinished(e -> advanced_research_panel1.setVisible(advanced_research_panel_is_open));
+            visiblePause.play();
+            visiblePause1.play();
+        } else {
+            advanced_research_panel.setVisible(advanced_research_panel_is_open);
+            advanced_research_panel1.setVisible(advanced_research_panel_is_open);
+        }
     }
 
-    @FXML
-    void write_string_only_age_min(KeyEvent event) {
-        System.out.println(event.getCharacter());
+    private void animateAdvancedOptionsClosing() {
+        new FadeOutRightBig(advanced_research_panel1).play();
+        new FadeOutRightBig(advanced_research_panel).play();
     }
 
-    @FXML
-    void write_string_only_age_max(KeyEvent event) {
-        System.out.println(event.getCharacter());
-    }
-
-    @FXML
-    void write_string_only_height_min(KeyEvent event) {
-        System.out.println(event.getCharacter());
-    }
-
-    @FXML
-    void write_string_only_height_max(KeyEvent event) {
-        System.out.println(event.getCharacter());
+    private void animateAdvancedOptionsOpening() {
+        new FadeInRightBig(advanced_research_panel1).play();
+        new FadeInRightBig(advanced_research_panel).play();
     }
 
     @FXML
@@ -449,14 +468,12 @@ public class Search_Controller {
 
     @FXML
     void change_background_color(MouseEvent event) throws InterruptedException {
-
         dashboard_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
         profile_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
         search_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
         calendar_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
         events_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
         if (event.getSource() == dashboard_pane) {
-
             dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
         } else if (event.getSource() == profile_pane) {
             profile_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
@@ -467,10 +484,6 @@ public class Search_Controller {
         } else if (event.getSource() == events_pane) {
             events_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
         }
-
-
-        //modify the color of the panel from event
-
     }
 
     @FXML
