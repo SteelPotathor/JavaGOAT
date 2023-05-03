@@ -6,7 +6,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import org.controlsfx.control.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
             prefHeight="699.0" prefWidth="1426.0" style="-fx-background-color: white;"
             xmlns="http://javafx.com/javafx/19" fx:controller="com.example.javagoat.Search_Controller">
     <children>
@@ -140,14 +141,11 @@
         </TableView>
         <Pane fx:id="advanced_research_panel" layoutX="994.0" layoutY="25.0" visible="false">
             <children>
-                <CheckComboBox fx:id="type_of_hair_choice_box" layoutX="180.0" prefHeight="34.0" prefWidth="155.0"
-                               title="Type of hair"/>
-                <CheckComboBox fx:id="weight_choice_box" prefHeight="34.0" prefWidth="155.0" title="Weight"/>
-                <CheckComboBox fx:id="sexe_choice_box" layoutY="45.0" prefHeight="34.0" prefWidth="155.0" title="Sex"/>
-                <CheckComboBox fx:id="color_of_hair_choice_box" layoutX="90.0" layoutY="94.0" prefHeight="34.0"
-                               prefWidth="155.0" title="Color of hair"/>
-                <CheckComboBox fx:id="ethnicity_choice_box" layoutX="180.0" layoutY="45.0" prefHeight="34.0"
-                               prefWidth="155.0" title="Ethnicity"/>
+                <CheckComboBox fx:id="type_of_hair_choice_box" layoutX="180.0" prefHeight="34.0" prefWidth="155.0"/>
+                <CheckComboBox fx:id="weight_choice_box" prefHeight="34.0" prefWidth="155.0"/>
+                <CheckComboBox fx:id="sexe_choice_box" layoutY="45.0" prefHeight="34.0" prefWidth="155.0"/>
+                <CheckComboBox fx:id="color_of_hair_choice_box" layoutX="90.0" layoutY="94.0" prefHeight="34.0" prefWidth="155.0"/>
+                <CheckComboBox fx:id="ethnicity_choice_box" layoutX="180.0" layoutY="45.0" prefHeight="34.0" prefWidth="155.0"/>
             </children>
         </Pane>
         <Pane fx:id="advanced_research_panel1" layoutX="769.0" layoutY="18.0" prefHeight="143.0" prefWidth="192.0"

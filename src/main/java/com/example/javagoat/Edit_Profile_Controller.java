@@ -19,12 +19,10 @@ import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.controlsfx.control.CheckComboBox;
-import org.controlsfx.control.IndexedCheckModel;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 
 public class Edit_Profile_Controller {
@@ -114,7 +112,8 @@ public class Edit_Profile_Controller {
     private Button button_create_profile;
     @FXML
     private Button button_personnal_information;
-    @FXML Button button_historic_of_matches;
+    @FXML
+    Button button_historic_of_matches;
     @FXML
     private Button button_preferences_information;
     @FXML
@@ -205,7 +204,6 @@ public class Edit_Profile_Controller {
         sex_choicebox.setItems(element_sex);
         video_games_checkcombobox.getItems().addAll(element_video_games);
         miscellanious_checkcombobox.getItems().addAll(element_miscellanious);
-
 
 
         //Adding image to circle
@@ -402,6 +400,7 @@ public class Edit_Profile_Controller {
             textfield_qi.setText("");
         }
     }
+
     private boolean personnal_preferences = true;
 
     @FXML
@@ -429,11 +428,7 @@ public class Edit_Profile_Controller {
             tableview_profile.setVisible(false);
 
 
-
-        }
-
-        else if (event.getSource() == button_personnal_information)
-        {
+        } else if (event.getSource() == button_personnal_information) {
             button_personnal_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_preferences_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50");
             button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
@@ -453,8 +448,7 @@ public class Edit_Profile_Controller {
             grid_life_style.setVisible(true);
             personnal_preferences = true;
             tableview_profile.setVisible(false);
-        }
-        else {
+        } else {
             button_historic_of_matches.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
             button_personnal_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_preferences_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50");
@@ -476,50 +470,39 @@ public class Edit_Profile_Controller {
             button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
             button_physical_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_passions_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
-            if (this.personnal_preferences)
-            {
+            if (this.personnal_preferences) {
                 grid_life_style.setVisible(true);
                 grid_physical_information.setVisible(false);
                 grid_passions.setVisible(false);
-            }
-            else {
+            } else {
                 grid_life_style_preferences.setVisible(true);
                 grid_physical_information_preferences.setVisible(false);
                 grid_passions_preferences.setVisible(false);
             }
 
 
-
-        }
-        else if (event.getSource() == button_physical_information)
-        {
+        } else if (event.getSource() == button_physical_information) {
             button_physical_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
             button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_passions_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
-            if (this.personnal_preferences)
-            {
+            if (this.personnal_preferences) {
                 grid_life_style.setVisible(false);
                 grid_physical_information.setVisible(true);
                 grid_passions.setVisible(false);
-            }
-            else {
+            } else {
                 grid_life_style_preferences.setVisible(false);
                 grid_physical_information_preferences.setVisible(true);
                 grid_passions_preferences.setVisible(false);
             }
-        }
-        else
-        {
+        } else {
             button_passions_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
             button_physical_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
-            if (this.personnal_preferences)
-            {
+            if (this.personnal_preferences) {
                 grid_life_style.setVisible(false);
                 grid_physical_information.setVisible(false);
                 grid_passions.setVisible(true);
-            }
-            else {
+            } else {
                 grid_life_style_preferences.setVisible(false);
                 grid_physical_information_preferences.setVisible(false);
                 grid_passions_preferences.setVisible(true);
@@ -633,20 +616,6 @@ public class Edit_Profile_Controller {
             miscellanious_checkcombobox.getCheckModel().checkIndices(element_miscellanious.indexOf(s));
 
         }
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
 
 
     }
