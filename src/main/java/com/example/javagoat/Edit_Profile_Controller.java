@@ -358,7 +358,7 @@ public class Edit_Profile_Controller {
 
             modelMatch.addProfile(profile);
 
-            System.out.println(modelMatch.modelP.profileHashMap.size());
+            System.out.println(ModelProfile.profileHashMap.size());
         }
 
     }
@@ -616,10 +616,10 @@ public class Edit_Profile_Controller {
         profile.getPassion().passionVG.forEach(passion -> video_games_list.add(passion.toString()));
 
 
-        for (int i =0; i< video_games_list.size();i++) {
+        for (String value : video_games_list) {
 
-            element_video_games.indexOf(video_games_list.get(i));
-            video_games_checkcombobox.getCheckModel().checkIndices(element_video_games.indexOf(video_games_list.get(i)));
+            element_video_games.indexOf(value);
+            video_games_checkcombobox.getCheckModel().checkIndices(element_video_games.indexOf(value));
 
         }
 
@@ -627,10 +627,10 @@ public class Edit_Profile_Controller {
 
         profile.getPassion().passionM.forEach(passion -> miscellanous_list.add(passion.toString()));
         System.out.println(miscellanous_list);
-        for (int i =0; i< miscellanous_list.size();i++) {
+        for (String s : miscellanous_list) {
 
-            element_miscellanious.indexOf(miscellanous_list.get(i));
-            miscellanious_checkcombobox.getCheckModel().checkIndices(element_miscellanious.indexOf(miscellanous_list.get(i)));
+            element_miscellanious.indexOf(s);
+            miscellanious_checkcombobox.getCheckModel().checkIndices(element_miscellanious.indexOf(s));
 
         }
 
