@@ -19,9 +19,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.controlsfx.control.CheckComboBox;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -542,5 +544,19 @@ public class New_Profile_Controller {
 
     }
 
+    @FXML
+    void import_new_image(MouseEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Resource File");
+        //type  of file jpg png
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.jpeg"));
+        File file = fileChooser.showOpenDialog(null);
+        if (file != null) {
+            circle_profile_picture.setFill(new ImagePattern(new Image(file.toURI().toString())));
+            System.out.println(file.getAbsolutePath());
+        }
+    }
+    }
 
-}
+

@@ -96,19 +96,25 @@ public class Dashboard_Controller {
 
     @FXML
     void change_scene_to_page_edit(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("edit_profile.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
+
+        // open new window
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("edit_profile.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
         stage.show();
+
     }
 
     @FXML
-    void change_scene_to_page_matching(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("matching_profiles.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
+    void change_scene_to_page_matching() throws IOException {
+        // open new window
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("matching_profiles.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
         stage.show();
     }
 
@@ -140,7 +146,6 @@ public class Dashboard_Controller {
         new FadeInDown(third_stat_box).play();
         new FadeInDown(fourth_stat_box).play();
          */
-
         priority.setCellValueFactory(new PropertyValueFactory<>("priority"));
         image.setCellValueFactory(new PropertyValueFactory<>("imageView"));
         firstname.setCellValueFactory(new PropertyValueFactory<>("firstname"));
@@ -176,7 +181,7 @@ public class Dashboard_Controller {
                 profileTableView = tableView.getItems().get(i);
             }
             System.out.println(profileTableView);
-            change_scene_to_page_matching(mouseEvent);
+            change_scene_to_page_matching();
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
