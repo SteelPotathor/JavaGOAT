@@ -1,5 +1,7 @@
 package com.example.javagoat;
 
+import animatefx.animation.FadeInDown;
+import animatefx.animation.FadeInLeft;
 import com.example.javagoat.back.ModelMatch;
 import com.example.javagoat.back.ModelProfile;
 import com.example.javagoat.back.Profile;
@@ -144,13 +146,12 @@ public class Dashboard_Controller {
     @FXML
     void initialize() throws IOException {
         // test animations
-        /*
         new FadeInLeft(dashboard_pane).play();
         new FadeInDown(first_stat_box).play();
         new FadeInDown(second_stat_box).play();
         new FadeInDown(third_stat_box).play();
         new FadeInDown(fourth_stat_box).play();
-         */
+
         priority.setCellValueFactory(new PropertyValueFactory<>("priority"));
         image.setCellValueFactory(new PropertyValueFactory<>("imageView"));
         firstname.setCellValueFactory(new PropertyValueFactory<>("firstname"));

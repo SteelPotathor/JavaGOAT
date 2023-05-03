@@ -77,6 +77,7 @@ public class Profile implements Serializable {
         this.imageView = new ImageView(new Image("file:src/main/java/com/example/javagoat/back/images/kumalala.jpg"));
     }
 
+    // Method used for multiple tests
     public void setRandomProfileExceptName(String lastname, String firstname) {
         this.physicalAttributes = new PhysicalAttributes();
         this.physicalAttributes.setRandomPhysicalAttributes();

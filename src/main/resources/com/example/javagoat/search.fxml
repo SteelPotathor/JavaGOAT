@@ -155,7 +155,7 @@
             <children>
                 <HBox alignment="CENTER" layoutX="1.0" layoutY="26.0" prefHeight="30.0" prefWidth="192.0">
                     <children>
-                        <TextField fx:id="age_min" onKeyTyped="#getSearch" alignment="CENTER" onKeyReleased="#write_string_only_age_min"
+                        <TextField fx:id="age_min" onKeyTyped="#getSearch" alignment="CENTER"
                                    prefHeight="30.0" prefWidth="80.0" promptText="Min"
                                    style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);"
                                    text="15">
@@ -166,7 +166,7 @@
                                 <Insets right="20.0"/>
                             </HBox.margin>
                         </TextField>
-                        <TextField fx:id="age_max" onKeyTyped="#getSearch" alignment="CENTER" onKeyReleased="#write_string_only_age_max"
+                        <TextField fx:id="age_max" onKeyTyped="#getSearch" alignment="CENTER"
                                    prefHeight="30.0" prefWidth="80.0" promptText="Max"
                                    style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);"
                                    text="40">
@@ -178,7 +178,7 @@
                 </HBox>
                 <HBox alignment="CENTER" layoutX="1.0" layoutY="97.0" prefHeight="30.0" prefWidth="192.0">
                     <children>
-                        <TextField fx:id="height_min" onKeyTyped="#getSearch" alignment="CENTER" onKeyReleased="#write_string_only_height_min"
+                        <TextField fx:id="height_min" onKeyTyped="#getSearch" alignment="CENTER"
                                    prefHeight="30.0" prefWidth="80.0" promptText="Min"
                                    style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);"
                                    text="120">
@@ -189,7 +189,7 @@
                                 <Insets right="20.0"/>
                             </HBox.margin>
                         </TextField>
-                        <TextField fx:id="height_max" onKeyTyped="#getSearch" alignment="CENTER" onKeyReleased="#write_string_only_height_max"
+                        <TextField fx:id="height_max" onKeyTyped="#getSearch" alignment="CENTER"
                                    prefHeight="30.0" prefWidth="80.0" promptText="Max"
                                    style="-fx-border-color: linear-gradient(to left, #30E8BF, #FF8235); -fx-border-radius: 50; -fx-background-color: white; -fx-text-fill: linear-gradient(to left, #30E8BF, #FF8235);"
                                    text="180">
