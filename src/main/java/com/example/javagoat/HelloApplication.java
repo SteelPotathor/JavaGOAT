@@ -24,7 +24,6 @@ public class HelloApplication extends Application {
             profile.setRandomProfile();
             modelM.addProfile(profile);
         }
-        System.out.println(modelM.modelP.getProfileHashMap());
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("home.fxml"));
@@ -44,7 +43,7 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
         //ModelProfile modelProfile = new ModelProfile(); Useful to create this object?
-        //We can create an other class to handle this algorithm
+        //We can create another class to handle this algorithm
         Date actualDate = new Date();
         for (Integer key : ModelProfile.profileHashMap.keySet()) {
             Profile profile = ModelProfile.profileHashMap.get(key);
