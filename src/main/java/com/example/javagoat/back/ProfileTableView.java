@@ -1,8 +1,10 @@
 package com.example.javagoat.back;
 
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 
 import static com.example.javagoat.back.ModelProfile.profileHashMap;
 
@@ -16,8 +18,10 @@ public class ProfileTableView {
     public int age;
     public String gender;
     public HBox actions;
-    public Button modify;
-    public Button match;
+    public Pane modify;
+    public Pane match;
+    public final ImageView logoModif = new ImageView(new Image("file:src/main/resources/com/example/javagoat/modification-du-stylo.png"));
+    public final ImageView logoMatch = new ImageView(new Image("file:src/main/resources/com/example/javagoat/aimer.png"));
 
 
     public ProfileTableView(int id, int significance, ImageView imageView, String firstname, String lastname, int age, String gender) {
@@ -28,8 +32,12 @@ public class ProfileTableView {
         this.lastname = lastname;
         this.age = age;
         this.gender = gender;
-        this.modify = new Button("Modify");
-        this.match = new Button("Match");
+        logoModif.setPreserveRatio(true);
+        logoModif.setFitHeight(40);
+        logoMatch.setPreserveRatio(true);
+        logoMatch.setFitHeight(40);
+        this.modify = new Pane(logoModif);
+        this.match = new Pane(logoMatch);
         this.actions = new HBox(this.modify, this.match);
     }
 
@@ -103,20 +111,28 @@ public class ProfileTableView {
         this.actions = actions;
     }
 
-    public Button getModify() {
+    public Pane getModify() {
         return modify;
     }
 
-    public void setModify(Button modify) {
+    public void setModify(Pane modify) {
         this.modify = modify;
     }
 
-    public Button getMatch() {
+    public Pane getMatch() {
         return match;
     }
 
-    public void setMatch(Button match) {
+    public void setMatch(Pane match) {
         this.match = match;
+    }
+
+    public ImageView getLogoModif() {
+        return logoModif;
+    }
+
+    public ImageView getLogoMatch() {
+        return logoMatch;
     }
 
     @Override

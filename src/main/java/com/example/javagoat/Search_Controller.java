@@ -155,8 +155,8 @@ public class Search_Controller {
             Profile profile = profileHashMap.get(i);
             // The object in the tableview must match the columns attributes
             ProfileTableView profileTableView = profile.toProfileTableView();
-            Button modify = (Button) profileTableView.actions.getChildren().get(0);
-            Button match = (Button) profileTableView.actions.getChildren().get(1);
+            Pane modify = (Pane) profileTableView.actions.getChildren().get(0);
+            Pane match = (Pane) profileTableView.actions.getChildren().get(1);
             modify.setOnMouseClicked(this::edit);
             match.setOnMouseClicked(this::match);
             profiles.add(profileTableView);

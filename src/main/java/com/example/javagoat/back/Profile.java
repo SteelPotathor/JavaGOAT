@@ -74,7 +74,7 @@ public class Profile implements Serializable {
 
         this.modelHisto = new ModelHistoMatch();
 
-        this.imageView = new ImageView(new Image("file:src/main/java/com/example/javagoat/back/images/kumalala.jpg"));
+        this.imageView = new ImageView(new Image("file:src/main/resources/com/example/javagoat/DefaultImage.png"));
     }
 
     // Method used for multiple tests
@@ -107,7 +107,7 @@ public class Profile implements Serializable {
 
         this.modelHisto = new ModelHistoMatch();
 
-        this.imageView = new ImageView(new Image("file:src/main/java/com/example/javagoat/back/images/kumalala.jpg"));
+        this.imageView = new ImageView(new Image("file:src/main/resources/com/example/javagoat/DefaultImage.png"));
     }
 
     public ProfileTableView toProfileTableView() {

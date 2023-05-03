@@ -19,6 +19,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -178,13 +180,17 @@ public class Dashboard_Controller {
             Profile profile = modelProfile.getProfileHashMap().get(i);
             // The object in the tableview must match the columns attributes
             ProfileTableView profileTableView = profile.toProfileTableView();
-            Button modify = (Button) profileTableView.actions.getChildren().get(0);
-            Button match = (Button) profileTableView.actions.getChildren().get(1);
+            Pane modify = (Pane) profileTableView.actions.getChildren().get(0);
+            Pane match = (Pane) profileTableView.actions.getChildren().get(1);
             modify.setOnMouseClicked(this::edit);
             match.setOnMouseClicked(this::match);
             profiles.add(profileTableView);
         }
-        tableView.setItems(profiles);
+        if (profiles.isEmpty()) {
+            tableView.setPlaceholder(new Label("No more profiles"));
+        } else {
+            tableView.setItems(profiles);
+        }
     }
 
     public void earlyAnimation(double delay) {
