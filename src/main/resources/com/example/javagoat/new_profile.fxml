@@ -54,7 +54,7 @@
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@profil.png" />
+                              <Image url="@seo.png" />
                            </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" />
@@ -70,7 +70,7 @@
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calendar" />
                      </children>
                   </Pane>
-                  <Pane fx:id="events_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_events" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0">
+                  <Pane fx:id="events_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_events" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0" visible="false">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -137,7 +137,7 @@
                   </Pane>
                   <Pane style="-fx-background-color: rgba(0,0,0,0);">
                      <children>
-                        <TextField fx:id="textfield_size" alignment="CENTER_RIGHT" onKeyReleased="#write_number_only_size" prefHeight="46.0" prefWidth="265.0" style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;" text="180">
+                        <TextField fx:id="textfield_size" alignment="CENTER_RIGHT" onKeyReleased="#write_number_only_size" prefHeight="46.0" prefWidth="265.0" promptText="180" style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -145,7 +145,7 @@
                               <Insets right="20.0" />
                            </padding>
                         </TextField>
-                        <Label layoutX="32.0" layoutY="15.0" text="Size">
+                        <Label layoutX="32.0" layoutY="15.0" text="Size (cm)">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -154,7 +154,7 @@
                   </Pane>
                   <Pane style="-fx-background-color: rgba(0, 100, 100, 0.0);">
                      <children>
-                        <TextField fx:id="textfield_qi" alignment="CENTER_RIGHT" onKeyReleased="#write_number_only_qi" prefHeight="46.0" prefWidth="265.0" style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;" text="100">
+                        <TextField fx:id="textfield_qi" alignment="CENTER_RIGHT" onKeyReleased="#write_number_only_qi" prefHeight="46.0" prefWidth="265.0" promptText="100" style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -236,7 +236,7 @@
                <children>
                   <Pane>
                      <children>
-                        <ChoiceBox fx:id="Smoker_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                        <ChoiceBox fx:id="Smoker_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" />
                         <Label text="Smoker">
                            <font>
                               <Font size="18.0" />

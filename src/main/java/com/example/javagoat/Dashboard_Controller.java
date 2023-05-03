@@ -15,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -24,6 +25,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class Dashboard_Controller {
@@ -73,6 +75,16 @@ public class Dashboard_Controller {
     public Pane third_stat_box;
     @FXML
     public Pane fourth_stat_box;
+    @FXML
+    private Label label_today_matches;
+    @FXML
+    private Label label_total_matches;
+    @FXML
+    private Label label_today_new_profiles;
+    @FXML
+    private Label label_total_events;
+
+
 
     @FXML
     void change_scene_to_page_dashboard(MouseEvent event) throws IOException {
@@ -145,9 +157,10 @@ public class Dashboard_Controller {
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     void initialize() throws IOException {
+
+
         earlyAnimation(0.1);
         priority.setCellValueFactory(new PropertyValueFactory<>("priority"));
         image.setCellValueFactory(new PropertyValueFactory<>("imageView"));

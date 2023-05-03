@@ -211,7 +211,7 @@ public class New_Profile_Controller {
 
 
         //Adding image to circle
-        Image image = new Image(getClass().getResource("profile_image.jpeg").toExternalForm(), false);
+        Image image = new Image(getClass().getResource("DefaultImage.png").toExternalForm(), false);
         circle_profile_picture.setFill(new ImagePattern(image));
 
         //Adding data to preferences
