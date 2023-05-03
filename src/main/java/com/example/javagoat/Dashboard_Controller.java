@@ -2,10 +2,12 @@ package com.example.javagoat;
 
 import animatefx.animation.FadeInDown;
 import animatefx.animation.FadeInLeft;
+import animatefx.animation.FadeInUpBig;
 import com.example.javagoat.back.ModelMatch;
 import com.example.javagoat.back.ModelProfile;
 import com.example.javagoat.back.Profile;
 import com.example.javagoat.back.ProfileTableView;
+import javafx.animation.PauseTransition;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +22,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -145,13 +148,7 @@ public class Dashboard_Controller {
 
     @FXML
     void initialize() throws IOException {
-        // test animations
-        new FadeInLeft(dashboard_pane).play();
-        new FadeInDown(first_stat_box).play();
-        new FadeInDown(second_stat_box).play();
-        new FadeInDown(third_stat_box).play();
-        new FadeInDown(fourth_stat_box).play();
-
+        earlyAnimation(0.1);
         priority.setCellValueFactory(new PropertyValueFactory<>("priority"));
         image.setCellValueFactory(new PropertyValueFactory<>("imageView"));
         firstname.setCellValueFactory(new PropertyValueFactory<>("firstname"));
@@ -177,6 +174,35 @@ public class Dashboard_Controller {
         tableView.setItems(profiles);
     }
 
+    public void earlyAnimation(double delay) {
+        new FadeInDown(first_stat_box).play();
+        second_stat_box.setVisible(false);
+        PauseTransition visiblePauseSecondVisible = new PauseTransition(Duration.seconds(delay));
+        visiblePauseSecondVisible.setOnFinished(e -> second_stat_box.setVisible(true));
+        visiblePauseSecondVisible.play();
+        PauseTransition visiblePauseSecondAnimation = new PauseTransition(Duration.seconds(delay-0.005));
+        visiblePauseSecondAnimation.setOnFinished(e -> new FadeInDown(second_stat_box).play());
+        visiblePauseSecondAnimation.play();
+        
+        third_stat_box.setVisible(false);
+        PauseTransition visiblePauseThirdVisible = new PauseTransition(Duration.seconds(delay*2));
+        visiblePauseThirdVisible.setOnFinished(e -> third_stat_box.setVisible(true));
+        visiblePauseThirdVisible.play();
+        PauseTransition visiblePauseThirdAnimation = new PauseTransition(Duration.seconds((delay-0.005)*2));
+        visiblePauseThirdAnimation.setOnFinished(e -> new FadeInDown(third_stat_box).play());
+        visiblePauseThirdAnimation.play();
+
+        fourth_stat_box.setVisible(false);
+        PauseTransition visiblePauseFourthVisible = new PauseTransition(Duration.seconds(delay*3));
+        visiblePauseFourthVisible.setOnFinished(e -> fourth_stat_box.setVisible(true));
+        visiblePauseFourthVisible.play();
+        PauseTransition visiblePauseFourthAnimation = new PauseTransition(Duration.seconds((delay-0.005)*3));
+        visiblePauseFourthAnimation.setOnFinished(e -> new FadeInDown(fourth_stat_box).play());
+        visiblePauseFourthAnimation.play();
+
+        new FadeInUpBig(tableView).play();
+    }
+
     @FXML
     public void match(MouseEvent mouseEvent) {
         try {
@@ -194,10 +220,6 @@ public class Dashboard_Controller {
         }
     }
 
-    /*
-            2e sol: selectionner la bonne ligne et cliquer sur un bouton (pb => n'importe quel bouton fonctionne)
-            ProfileTableView profileTableView = tableView.getSelectionModel().getSelectedItem();
-            System.out.println(profileTableView);         */
 
     @FXML
     public void edit(MouseEvent mouseEvent) {
@@ -209,7 +231,6 @@ public class Dashboard_Controller {
                 profileTableView = tableView.getItems().get(i);
             }
             Profile idProfile = profileTableView.toProfile();
-
             change_scene_to_page_edit(idProfile);
         } catch (IOException ioException) {
             ioException.printStackTrace();

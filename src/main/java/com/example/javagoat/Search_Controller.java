@@ -131,10 +131,7 @@ public class Search_Controller {
 
     @FXML
     void initialize() {
-        new RotateInDownLeft(first_name_text_field).play();
-        new RotateInDownLeft(last_name_text_field).play();
-        new RotateInDownLeft(icon_to_show_or_hide_advanced_research_panel).play();
-        new FadeInUpBig(tableView).play();
+        early_animations();
         initAllCheckComboBox();
         setAgeTextField(20, 59);
         setHeightTextField(100, 200);
@@ -142,6 +139,13 @@ public class Search_Controller {
         setTextFieldsAutoCompletion();
         initTableView();
         firstFillTableView();
+    }
+
+    private void early_animations() {
+        new RotateInDownLeft(first_name_text_field).play();
+        new RotateInDownLeft(last_name_text_field).play();
+        new RotateInDownLeft(icon_to_show_or_hide_advanced_research_panel).play();
+        new FadeInUpBig(tableView).play();
     }
 
 
