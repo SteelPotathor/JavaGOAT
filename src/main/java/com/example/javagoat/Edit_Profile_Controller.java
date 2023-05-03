@@ -407,6 +407,9 @@ public class Edit_Profile_Controller {
     @FXML
     void change_button(MouseEvent event) {
         if (event.getSource() == button_preferences_information) {
+            button_passions_information.setVisible(true);
+            button_lifestyle_information.setVisible(true);
+            button_physical_information.setVisible(true);
             button_preferences_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
             button_historic_of_matches.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50");
 
@@ -434,6 +437,9 @@ public class Edit_Profile_Controller {
 
         else if (event.getSource() == button_personnal_information)
         {
+            button_passions_information.setVisible(true);
+            button_lifestyle_information.setVisible(true);
+            button_physical_information.setVisible(true);
             button_personnal_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_preferences_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50");
             button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
@@ -455,6 +461,9 @@ public class Edit_Profile_Controller {
             tableview_profile.setVisible(false);
         }
         else {
+            button_passions_information.setVisible(false);
+            button_lifestyle_information.setVisible(false);
+            button_physical_information.setVisible(false);
             button_historic_of_matches.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
             button_personnal_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_preferences_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50");
@@ -493,6 +502,7 @@ public class Edit_Profile_Controller {
         }
         else if (event.getSource() == button_physical_information)
         {
+
             button_physical_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
             button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_passions_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
@@ -510,6 +520,7 @@ public class Edit_Profile_Controller {
         }
         else
         {
+
             button_passions_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
             button_physical_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");

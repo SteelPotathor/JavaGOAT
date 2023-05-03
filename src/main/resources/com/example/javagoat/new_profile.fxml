@@ -100,7 +100,7 @@
                <children>
                   <HBox alignment="CENTER" prefWidth="240.0">
                      <children>
-                        <TextField fx:id="textfield_first_name" alignment="CENTER" onKeyReleased="#write_string_only_firstname" prefHeight="46.0" prefWidth="192.0" promptText="First name" style="-fx-background-color: transparent; -fx-prompt-text-fill: black;">
+                        <TextField fx:id="textfield_first_name" alignment="CENTER" onKeyReleased="#write_string_only_firstname" prefHeight="46.0" prefWidth="192.0" promptText="First name" style="-fx-background-color: transparent; -fx-prompt-text-fill: grey;">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -108,7 +108,7 @@
                               <Insets bottom="10.0" top="10.0" />
                            </padding>
                         </TextField>
-                        <TextField fx:id="textfield_last_name" alignment="CENTER" onKeyReleased="#write_string_only_lastname" prefHeight="46.0" prefWidth="192.0" promptText="Last name" style="-fx-background-color: transparent; -fx-prompt-text-fill: black;">
+                        <TextField fx:id="textfield_last_name" alignment="CENTER" onKeyReleased="#write_string_only_lastname" prefHeight="46.0" prefWidth="192.0" promptText="Last name" style="-fx-background-color: transparent; -fx-prompt-text-fill: grey;">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -120,27 +120,24 @@
                   </HBox>
                   <Pane style="-fx-background-color: rgba(0,0,0,0);">
                      <children>
-                        <TextField fx:id="textfield_age" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" onKeyReleased="#write_number_only_age" prefHeight="46.0" prefWidth="265.0" promptText="20" style="-fx-background-color: transparent; -fx-prompt-text-fill: black;">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <padding>
-                              <Insets right="20.0" />
-                           </padding>
-                        </TextField>
                         <Label layoutX="32.0" layoutY="12.0" text="Age">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
+                        <TextField fx:id="textfield_age" alignment="CENTER_RIGHT" layoutY="1.0" onKeyReleased="#write_number_only_age" prefHeight="46.0" prefWidth="265.0" promptText="20" style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding>
+                        </TextField>
                      </children>
                   </Pane>
                   <Pane style="-fx-background-color: rgba(0,0,0,0);">
                      <children>
-                        <TextField fx:id="textfield_size" alignment="CENTER_RIGHT" onKeyReleased="#write_number_only_size" prefHeight="46.0" prefWidth="265.0" promptText="180" style="-fx-prompt-text-fill: black; -fx-background-color: transparent;">
+                        <TextField fx:id="textfield_size" alignment="CENTER_RIGHT" onKeyReleased="#write_number_only_size" prefHeight="46.0" prefWidth="265.0" style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;" text="180">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -157,7 +154,7 @@
                   </Pane>
                   <Pane style="-fx-background-color: rgba(0, 100, 100, 0.0);">
                      <children>
-                        <TextField fx:id="textfield_qi" alignment="CENTER_RIGHT" onKeyReleased="#write_number_only_qi" prefHeight="46.0" prefWidth="265.0" promptText="100" style="-fx-prompt-text-fill: black; -fx-background-color: transparent;">
+                        <TextField fx:id="textfield_qi" alignment="CENTER_RIGHT" onKeyReleased="#write_number_only_qi" prefHeight="46.0" prefWidth="265.0" style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;" text="100">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -180,11 +177,15 @@
                   <Circle fx:id="circle_profile_picture" fill="DODGERBLUE" layoutX="70.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
                </children>
             </AnchorPane>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="201.0" layoutY="118.0" onMouseClicked="#import_new_image">
-               <image>
-                  <Image url="@appareil-photo-numerique.png" />
-               </image>
-            </ImageView>
+            <Pane layoutX="201.0" layoutY="118.0" onMouseClicked="#import_new_image">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0">
+                     <image>
+                        <Image url="@appareil-photo-numerique.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
          </children>
       </Pane>
       <Pane layoutX="550.0" layoutY="76.0" prefHeight="516.0" prefWidth="779.0" style="-fx-background-color: rgba(255, 255,255, 0.3); -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
@@ -557,6 +558,48 @@
                               <Insets bottom="10.0" top="10.0" />
                            </padding>
                         </TextField>
+                     </children>
+                  </Pane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="grid_passions_preferences1" layoutX="36.0" layoutY="123.0" prefHeight="258.0" prefWidth="550.0" visible="false">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="152.0" minHeight="10.0" prefHeight="112.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="146.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Pane>
+                     <children>
+                        <ChoiceBox fx:id="religion_choicebox_preferences1" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                        <Label text="Religion">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane GridPane.columnIndex="1">
+                     <children>
+                        <CheckComboBox fx:id="video_games_checkcombobox_preferences" layoutY="27.0" prefHeight="37.0" prefWidth="203.0" />
+                        <Label text="Video games">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane GridPane.rowIndex="1">
+                     <children>
+                        <CheckComboBox fx:id="miscellanious_checkcombobox_preferences" layoutY="27.0" prefHeight="37.0" prefWidth="203.0" />
+                        <Label text="Miscellaneous">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
                      </children>
                   </Pane>
                </children>
