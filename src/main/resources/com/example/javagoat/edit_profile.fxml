@@ -20,7 +20,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.CheckComboBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="1268.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.Edit_Profile_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="1267.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.Edit_Profile_Controller">
    <children>
       <ImageView fitHeight="699.0" fitWidth="1266.0">
          <image>
@@ -124,7 +124,7 @@
                      <HBox.margin>
                         <Insets right="20.0" />
                      </HBox.margin></Button>
-                  <Button fx:id="button_preferences_information1" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_button" prefHeight="25.0" prefWidth="135.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: rgba(255,255,255,0.3);;" text="Historic of match" textAlignment="CENTER" />
+                  <Button fx:id="button_historic_of_matches" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_button" prefHeight="25.0" prefWidth="135.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: rgba(255,255,255,0.3);;" text="Historic of match" textAlignment="CENTER" />
                </children>
             </HBox>
             <HBox layoutX="30.0" layoutY="48.0" prefHeight="24.0" prefWidth="624.0">
@@ -146,7 +146,7 @@
                   </Button>
                </children>
             </HBox>
-            <GridPane fx:id="grid_life_style" layoutX="36.0" layoutY="123.0" prefHeight="258.0" prefWidth="550.0" visible="false">
+            <GridPane fx:id="grid_life_style" layoutX="36.0" layoutY="123.0" prefHeight="258.0" prefWidth="550.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -470,7 +470,7 @@
                   </Pane>
                </children>
             </GridPane>
-            <TableView id="tablecell" fx:id="tableView" layoutX="30.0" layoutY="103.0" prefHeight="292.0" prefWidth="715.0">
+            <TableView id="tablecell" fx:id="tableview_profile" layoutX="30.0" layoutY="103.0" prefHeight="292.0" prefWidth="715.0" visible="false">
                <columns>
                   <TableColumn fx:id="avatar" prefWidth="100.0" text="Avatar" />
                   <TableColumn fx:id="firstname" prefWidth="100.0" text="First Name" />

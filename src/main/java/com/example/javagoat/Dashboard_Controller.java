@@ -207,12 +207,9 @@ public class Dashboard_Controller {
                 i++;
                 profileTableView = tableView.getItems().get(i);
             }
+            Profile idProfile = profileTableView.toProfile();
 
-            // get full info
-
-            int idProfile = profileTableView.getId();
-            Profile profile = modelMatch.getModelP().getProfileHashMap().get(idProfile);
-            change_scene_to_page_edit(profile);
+            change_scene_to_page_edit(idProfile);
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
