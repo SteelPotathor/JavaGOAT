@@ -20,11 +20,12 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.controlsfx.control.CheckComboBox;
 
-import javax.imageio.ImageReadParam;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.function.UnaryOperator;
+import java.util.regex.Pattern;
 
 public class Edit_Profile_Controller {
 
@@ -184,7 +185,43 @@ public class Edit_Profile_Controller {
 
     @FXML
     void initialize() {
-        // Setup data for personnal info
+        setTextFieldsLimitations();
+        initAllPersonnalInfo();
+        initAllPreferencesInfo();
+        initImage();
+    }
+
+    private void initImage() {
+        Image image = new Image(getClass().getResource("profile_image.jpeg").toExternalForm(), false);
+        circle_profile_picture.setFill(new ImagePattern(image));
+    }
+
+    private void initAllPreferencesInfo() {
+        choicebox_ethnicity_preferences.setItems(element_ethnicity);
+        choicebox_ethnicity_preferences.setValue("Select");
+        Smoker_choicebox_preferences.setValue("Select");
+        Smoker_choicebox_preferences.setItems(element_smoker);
+        alcohol_choicebox_preferences.setValue("Select");
+        alcohol_choicebox_preferences.setItems(element_alcohol);
+        Athlete_choicebox_preferences.setValue("Select");
+        Athlete_choicebox_preferences.setItems(element_athlete);
+        feed_choicebox_preferences.setValue("Select");
+        feed_choicebox_preferences.setItems(element_feed);
+        bodybuild_choicebox_preferences.setValue("Select");
+        bodybuild_choicebox_preferences.setItems(element_bodybuild);
+        religion_choicebox_preferences.setValue("Select");
+        religion_choicebox_preferences.setItems(element_religion);
+        color_of_hair_choicebox_preferences.setValue("Select");
+        color_of_hair_choicebox_preferences.setItems(element_hair_color);
+        hair_type_choicebox_preferences.setValue("Select");
+        hair_type_choicebox_preferences.setItems(element_hair_type);
+        hair_length_choicebox_preferences.setValue("Select");
+        hair_length_choicebox_preferences.setItems(element_hair_length);
+        sex_choicebox_preferences.setValue("MALE/FEMALE");
+        sex_choicebox_preferences.setItems(element_sex);
+    }
+
+    private void initAllPersonnalInfo() {
         choicebox_ethnicity.setItems(element_ethnicity);
         choicebox_ethnicity.setValue("Select");
         Smoker_choicebox.setValue("Select");
@@ -209,39 +246,42 @@ public class Edit_Profile_Controller {
         sex_choicebox.setItems(element_sex);
         video_games_checkcombobox.getItems().addAll(element_video_games);
         miscellanious_checkcombobox.getItems().addAll(element_miscellanious);
+    }
 
+    private void setTextFieldsLimitations() {
+        // Textfields for search bar accept only alphabetical characters
+        Pattern patternLetters = Pattern.compile("[a-zA-Z]*");
+        UnaryOperator<TextFormatter.Change> filterLetters = change -> {
+            if (patternLetters.matcher(change.getControlNewText()).matches()) {
+                return change;
+            } else {
+                return null;
+            }
+        };
+        TextFormatter<String> formatterLetters = new TextFormatter<>(filterLetters);
+        TextFormatter<String> formatterLetters2 = new TextFormatter<>(filterLetters);
+        textfield_first_name.setTextFormatter(formatterLetters);
+        textfield_last_name.setTextFormatter(formatterLetters2);
 
-        //Adding image to circle
-        Image image = new Image(getClass().getResource("profile_image.jpeg").toExternalForm(), false);
-        circle_profile_picture.setFill(new ImagePattern(image));
-
-        //Adding data to preferences
-
-        choicebox_ethnicity_preferences.setItems(element_ethnicity);
-        choicebox_ethnicity_preferences.setValue("Select");
-        Smoker_choicebox_preferences.setValue("Select");
-        Smoker_choicebox_preferences.setItems(element_smoker);
-        alcohol_choicebox_preferences.setValue("Select");
-        alcohol_choicebox_preferences.setItems(element_alcohol);
-        Athlete_choicebox_preferences.setValue("Select");
-        Athlete_choicebox_preferences.setItems(element_athlete);
-        feed_choicebox_preferences.setValue("Select");
-        feed_choicebox_preferences.setItems(element_feed);
-        bodybuild_choicebox_preferences.setValue("Select");
-        bodybuild_choicebox_preferences.setItems(element_bodybuild);
-        religion_choicebox_preferences.setValue("Select");
-        religion_choicebox_preferences.setItems(element_religion);
-        color_of_hair_choicebox_preferences.setValue("Select");
-        color_of_hair_choicebox_preferences.setItems(element_hair_color);
-        hair_type_choicebox_preferences.setValue("Select");
-        hair_type_choicebox_preferences.setItems(element_hair_type);
-        hair_length_choicebox_preferences.setValue("Select");
-        hair_length_choicebox_preferences.setItems(element_hair_length);
-        sex_choicebox_preferences.setValue("MALE/FEMALE");
-        sex_choicebox_preferences.setItems(element_sex);
-
-        //mouse over
-
+        // Textfields for age and height accept only numbers
+        Pattern patternNumbers = Pattern.compile("[0-9]*");
+        UnaryOperator<TextFormatter.Change> filterNumbers = change -> {
+            if (patternNumbers.matcher(change.getControlNewText()).matches()) {
+                return change;
+            } else {
+                return null;
+            }
+        };
+        TextFormatter<String> formatterNumbers = new TextFormatter<>(filterNumbers);
+        TextFormatter<String> formatterNumbers2 = new TextFormatter<>(filterNumbers);
+        TextFormatter<String> formatterNumbers3 = new TextFormatter<>(filterNumbers);
+        TextFormatter<String> formatterNumbers4 = new TextFormatter<>(filterNumbers);
+        TextFormatter<String> formatterNumbers5 = new TextFormatter<>(filterNumbers);
+        textfield_age.setTextFormatter(formatterNumbers);
+        textfield_size.setTextFormatter(formatterNumbers2);
+        textfield_qi.setTextFormatter(formatterNumbers3);
+        textfield_age_preferences.setTextFormatter(formatterNumbers4);
+        textfield_size_preferences.setTextFormatter(formatterNumbers5);
     }
 
     @FXML
@@ -439,11 +479,7 @@ public class Edit_Profile_Controller {
             tableview_profile.setVisible(false);
 
 
-
-        }
-
-        else if (event.getSource() == button_personnal_information)
-        {
+        } else if (event.getSource() == button_personnal_information) {
             button_passions_information.setVisible(true);
             button_lifestyle_information.setVisible(true);
             button_physical_information.setVisible(true);
@@ -466,8 +502,7 @@ public class Edit_Profile_Controller {
             grid_life_style.setVisible(true);
             personnal_preferences = true;
             tableview_profile.setVisible(false);
-        }
-        else {
+        } else {
             button_passions_information.setVisible(false);
             button_lifestyle_information.setVisible(false);
             button_physical_information.setVisible(false);
@@ -503,10 +538,7 @@ public class Edit_Profile_Controller {
             }
 
 
-
-        }
-        else if (event.getSource() == button_physical_information)
-        {
+        } else if (event.getSource() == button_physical_information) {
 
             button_physical_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
             button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
@@ -520,9 +552,7 @@ public class Edit_Profile_Controller {
                 grid_physical_information_preferences.setVisible(true);
                 grid_passions_preferences.setVisible(false);
             }
-        }
-        else
-        {
+        } else {
 
             button_passions_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
             button_physical_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");

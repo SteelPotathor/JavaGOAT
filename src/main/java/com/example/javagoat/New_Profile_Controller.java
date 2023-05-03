@@ -8,10 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -26,6 +23,8 @@ import org.controlsfx.control.CheckComboBox;
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
+import java.util.function.UnaryOperator;
+import java.util.regex.Pattern;
 
 public class New_Profile_Controller {
 
@@ -182,7 +181,79 @@ public class New_Profile_Controller {
 
     @FXML
     void initialize() {
-        // Setup data for personnal info
+        setTextFieldsLimitations();
+        initAllPersonnalInfo();
+        initAllPreferencesInfo();
+        initImage();
+    }
+
+    private void setTextFieldsLimitations() {
+        // Textfields for search bar accept only alphabetical characters
+        Pattern patternLetters = Pattern.compile("[a-zA-Z]*");
+        UnaryOperator<TextFormatter.Change> filterLetters = change -> {
+            if (patternLetters.matcher(change.getControlNewText()).matches()) {
+                return change;
+            } else {
+                return null;
+            }
+        };
+        TextFormatter<String> formatterLetters = new TextFormatter<>(filterLetters);
+        TextFormatter<String> formatterLetters2 = new TextFormatter<>(filterLetters);
+        textfield_first_name.setTextFormatter(formatterLetters);
+        textfield_last_name.setTextFormatter(formatterLetters2);
+
+        // Textfields for age and height accept only numbers
+        Pattern patternNumbers = Pattern.compile("[0-9]*");
+        UnaryOperator<TextFormatter.Change> filterNumbers = change -> {
+            if (patternNumbers.matcher(change.getControlNewText()).matches()) {
+                return change;
+            } else {
+                return null;
+            }
+        };
+        TextFormatter<String> formatterNumbers = new TextFormatter<>(filterNumbers);
+        TextFormatter<String> formatterNumbers2 = new TextFormatter<>(filterNumbers);
+        TextFormatter<String> formatterNumbers3 = new TextFormatter<>(filterNumbers);
+        TextFormatter<String> formatterNumbers4 = new TextFormatter<>(filterNumbers);
+        TextFormatter<String> formatterNumbers5 = new TextFormatter<>(filterNumbers);
+        textfield_age.setTextFormatter(formatterNumbers);
+        textfield_size.setTextFormatter(formatterNumbers2);
+        textfield_qi.setTextFormatter(formatterNumbers3);
+        textfield_age_preferences.setTextFormatter(formatterNumbers4);
+        textfield_size_preferences.setTextFormatter(formatterNumbers5);
+    }
+
+    private void initImage() {
+        Image image = new Image(getClass().getResource("DefaultImage.png").toExternalForm(), false);
+        circle_profile_picture.setFill(new ImagePattern(image));
+    }
+
+    private void initAllPreferencesInfo() {
+        choicebox_ethnicity_preferences.setItems(element_ethnicity);
+        choicebox_ethnicity_preferences.setValue("Select");
+        Smoker_choicebox_preferences.setValue("Select");
+        Smoker_choicebox_preferences.setItems(element_smoker);
+        alcohol_choicebox_preferences.setValue("Select");
+        alcohol_choicebox_preferences.setItems(element_alcohol);
+        Athlete_choicebox_preferences.setValue("Select");
+        Athlete_choicebox_preferences.setItems(element_athlete);
+        feed_choicebox_preferences.setValue("Select");
+        feed_choicebox_preferences.setItems(element_feed);
+        bodybuild_choicebox_preferences.setValue("Select");
+        bodybuild_choicebox_preferences.setItems(element_bodybuild);
+        religion_choicebox_preferences.setValue("Select");
+        religion_choicebox_preferences.setItems(element_religion);
+        color_of_hair_choicebox_preferences.setValue("Select");
+        color_of_hair_choicebox_preferences.setItems(element_hair_color);
+        hair_type_choicebox_preferences.setValue("Select");
+        hair_type_choicebox_preferences.setItems(element_hair_type);
+        hair_length_choicebox_preferences.setValue("Select");
+        hair_length_choicebox_preferences.setItems(element_hair_length);
+        sex_choicebox_preferences.setValue("MALE/FEMALE");
+        sex_choicebox_preferences.setItems(element_sex);
+    }
+
+    private void initAllPersonnalInfo() {
         choicebox_ethnicity.setItems(element_ethnicity);
         choicebox_ethnicity.setValue("Select");
         Smoker_choicebox.setValue("Select");
@@ -207,40 +278,6 @@ public class New_Profile_Controller {
         sex_choicebox.setItems(element_sex);
         video_games_checkcombobox.getItems().addAll(element_video_games);
         miscellanious_checkcombobox.getItems().addAll(element_miscellanious);
-
-
-        //Adding image to circle
-        Image image = new Image(getClass().getResource("DefaultImage.png").toExternalForm(), false);
-        circle_profile_picture.setFill(new ImagePattern(image));
-
-        //Adding data to preferences
-
-        choicebox_ethnicity_preferences.setItems(element_ethnicity);
-        choicebox_ethnicity_preferences.setValue("Select");
-        Smoker_choicebox_preferences.setValue("Select");
-        Smoker_choicebox_preferences.setItems(element_smoker);
-        alcohol_choicebox_preferences.setValue("Select");
-        alcohol_choicebox_preferences.setItems(element_alcohol);
-        Athlete_choicebox_preferences.setValue("Select");
-        Athlete_choicebox_preferences.setItems(element_athlete);
-        feed_choicebox_preferences.setValue("Select");
-        feed_choicebox_preferences.setItems(element_feed);
-        bodybuild_choicebox_preferences.setValue("Select");
-        bodybuild_choicebox_preferences.setItems(element_bodybuild);
-        religion_choicebox_preferences.setValue("Select");
-        religion_choicebox_preferences.setItems(element_religion);
-        color_of_hair_choicebox_preferences.setValue("Select");
-        color_of_hair_choicebox_preferences.setItems(element_hair_color);
-        hair_type_choicebox_preferences.setValue("Select");
-        hair_type_choicebox_preferences.setItems(element_hair_type);
-        hair_length_choicebox_preferences.setValue("Select");
-        hair_length_choicebox_preferences.setItems(element_hair_length);
-        sex_choicebox_preferences.setValue("MALE/FEMALE");
-        sex_choicebox_preferences.setItems(element_sex);
-
-        //mouse over
-
-
     }
 
     @FXML
@@ -363,46 +400,6 @@ public class New_Profile_Controller {
             System.out.println(modelMatch.modelP.profileHashMap.size());
         }
 
-    }
-
-    @FXML
-    void write_string_only_firstname(KeyEvent event) {
-        var key = event.getCode();
-        if (!key.isLetterKey()) {
-            textfield_first_name.setText("");
-        }
-    }
-
-    @FXML
-    void write_string_only_lastname(KeyEvent event) {
-        var key = event.getCode();
-        if (!key.isLetterKey()) {
-            textfield_last_name.setText("");
-        }
-    }
-
-    @FXML
-    void write_number_only_age(KeyEvent event) {
-        var key = event.getCode();
-        if (!key.isDigitKey()) {
-            textfield_age.setText("");
-        }
-    }
-
-    @FXML
-    void write_number_only_size(KeyEvent event) {
-        var key = event.getCode();
-        if (!key.isDigitKey()) {
-            textfield_size.setText("");
-        }
-    }
-
-    @FXML
-    void write_number_only_qi(KeyEvent event) {
-        var key = event.getCode();
-        if (!key.isDigitKey()) {
-            textfield_qi.setText("");
-        }
     }
 
     private boolean personnal_preferences = true;

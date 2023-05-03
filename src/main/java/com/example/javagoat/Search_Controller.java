@@ -1,6 +1,9 @@
 package com.example.javagoat;
 
-import animatefx.animation.*;
+import animatefx.animation.FadeInRightBig;
+import animatefx.animation.FadeInUpBig;
+import animatefx.animation.FadeOutRightBig;
+import animatefx.animation.RotateInDownLeft;
 import com.example.javagoat.back.ModelMatch;
 import com.example.javagoat.back.ModelProfile;
 import com.example.javagoat.back.Profile;
@@ -12,6 +15,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -157,11 +161,14 @@ public class Search_Controller {
             ProfileTableView profileTableView = profile.toProfileTableView();
             Pane modify = (Pane) profileTableView.actions.getChildren().get(0);
             Pane match = (Pane) profileTableView.actions.getChildren().get(1);
+            modify.setStyle("-fx-cursor: HAND");
             modify.setOnMouseClicked(this::edit);
+            match.setStyle("-fx-cursor: HAND");
             match.setOnMouseClicked(this::match);
             profiles.add(profileTableView);
         }
     }
+
 
     private void setTextFieldsAutoCompletion() {
         ModelProfile modelProfile = new ModelProfile();

@@ -1,7 +1,6 @@
 package com.example.javagoat;
 
 import animatefx.animation.FadeInDown;
-import animatefx.animation.FadeInLeft;
 import animatefx.animation.FadeInUpBig;
 import com.example.javagoat.back.ModelMatch;
 import com.example.javagoat.back.ModelProfile;
@@ -11,23 +10,20 @@ import javafx.animation.PauseTransition;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.awt.*;
 import java.io.IOException;
 
 public class Dashboard_Controller {
@@ -85,7 +81,6 @@ public class Dashboard_Controller {
     private Label label_today_new_profiles;
     @FXML
     private Label label_total_events;
-
 
 
     @FXML
@@ -159,18 +154,15 @@ public class Dashboard_Controller {
         stage.setScene(scene);
         stage.show();
     }
+
     @FXML
     void initialize() throws IOException {
-
-
         earlyAnimation(0.1);
-        priority.setCellValueFactory(new PropertyValueFactory<>("priority"));
-        image.setCellValueFactory(new PropertyValueFactory<>("imageView"));
-        firstname.setCellValueFactory(new PropertyValueFactory<>("firstname"));
-        lastname.setCellValueFactory(new PropertyValueFactory<>("lastname"));
-        age.setCellValueFactory(new PropertyValueFactory<>("age"));
-        gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
-        actions.setCellValueFactory(new PropertyValueFactory<>("actions"));
+        initTableView();
+        firstFillTableView();
+    }
+
+    private void firstFillTableView() {
         ObservableList<ProfileTableView> profiles = tableView.getItems();
         ModelProfile modelProfile = new ModelProfile();
         System.out.println(modelProfile.getProfileHashMap());
@@ -182,16 +174,25 @@ public class Dashboard_Controller {
             ProfileTableView profileTableView = profile.toProfileTableView();
             Pane modify = (Pane) profileTableView.actions.getChildren().get(0);
             Pane match = (Pane) profileTableView.actions.getChildren().get(1);
+            modify.setStyle("-fx-cursor: HAND");
             modify.setOnMouseClicked(this::edit);
+            match.setStyle("-fx-cursor: HAND");
             match.setOnMouseClicked(this::match);
             profiles.add(profileTableView);
         }
-        if (profiles.isEmpty()) {
-            tableView.setPlaceholder(new Label("No more profiles"));
-        } else {
-            tableView.setItems(profiles);
-        }
+        tableView.setItems(profiles);
     }
+
+    private void initTableView() {
+        priority.setCellValueFactory(new PropertyValueFactory<>("priority"));
+        image.setCellValueFactory(new PropertyValueFactory<>("imageView"));
+        firstname.setCellValueFactory(new PropertyValueFactory<>("firstname"));
+        lastname.setCellValueFactory(new PropertyValueFactory<>("lastname"));
+        age.setCellValueFactory(new PropertyValueFactory<>("age"));
+        gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        actions.setCellValueFactory(new PropertyValueFactory<>("actions"));
+    }
+
 
     public void earlyAnimation(double delay) {
         new FadeInDown(first_stat_box).play();
@@ -199,23 +200,23 @@ public class Dashboard_Controller {
         PauseTransition visiblePauseSecondVisible = new PauseTransition(Duration.seconds(delay));
         visiblePauseSecondVisible.setOnFinished(e -> second_stat_box.setVisible(true));
         visiblePauseSecondVisible.play();
-        PauseTransition visiblePauseSecondAnimation = new PauseTransition(Duration.seconds(delay-0.005));
+        PauseTransition visiblePauseSecondAnimation = new PauseTransition(Duration.seconds(delay - 0.005));
         visiblePauseSecondAnimation.setOnFinished(e -> new FadeInDown(second_stat_box).play());
         visiblePauseSecondAnimation.play();
-        
+
         third_stat_box.setVisible(false);
-        PauseTransition visiblePauseThirdVisible = new PauseTransition(Duration.seconds(delay*2));
+        PauseTransition visiblePauseThirdVisible = new PauseTransition(Duration.seconds(delay * 2));
         visiblePauseThirdVisible.setOnFinished(e -> third_stat_box.setVisible(true));
         visiblePauseThirdVisible.play();
-        PauseTransition visiblePauseThirdAnimation = new PauseTransition(Duration.seconds((delay-0.005)*2));
+        PauseTransition visiblePauseThirdAnimation = new PauseTransition(Duration.seconds((delay - 0.005) * 2));
         visiblePauseThirdAnimation.setOnFinished(e -> new FadeInDown(third_stat_box).play());
         visiblePauseThirdAnimation.play();
 
         fourth_stat_box.setVisible(false);
-        PauseTransition visiblePauseFourthVisible = new PauseTransition(Duration.seconds(delay*3));
+        PauseTransition visiblePauseFourthVisible = new PauseTransition(Duration.seconds(delay * 3));
         visiblePauseFourthVisible.setOnFinished(e -> fourth_stat_box.setVisible(true));
         visiblePauseFourthVisible.play();
-        PauseTransition visiblePauseFourthAnimation = new PauseTransition(Duration.seconds((delay-0.005)*3));
+        PauseTransition visiblePauseFourthAnimation = new PauseTransition(Duration.seconds((delay - 0.005) * 3));
         visiblePauseFourthAnimation.setOnFinished(e -> new FadeInDown(fourth_stat_box).play());
         visiblePauseFourthAnimation.play();
 
