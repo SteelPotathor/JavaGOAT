@@ -29,6 +29,8 @@ import java.util.Objects;
 
 public class New_Profile_Controller {
 
+    ModelMatch modelMatch = new ModelMatch();
+
     @FXML
     private Stage stage;
     @FXML
@@ -180,6 +182,7 @@ public class New_Profile_Controller {
     @FXML
     void initialize() {
         // Setup data for personnal info
+        /*
         choicebox_ethnicity.setItems(element_ethnicity);
         choicebox_ethnicity.setValue("Select");
         Smoker_choicebox.setValue("Select");
@@ -237,6 +240,7 @@ public class New_Profile_Controller {
         sex_choicebox_preferences.setItems(element_sex);
 
         //mouse over
+        */
 
     }
 
@@ -352,7 +356,6 @@ public class New_Profile_Controller {
             alert.setContentText("Your profile has been created");
             alert.showAndWait();
 
-            ModelMatch modelMatch = new ModelMatch();
             System.out.println(profile);
 
             modelMatch.addProfile(profile);
