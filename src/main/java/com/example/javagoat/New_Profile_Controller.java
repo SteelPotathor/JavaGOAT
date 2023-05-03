@@ -30,6 +30,7 @@ import java.util.Objects;
 public class New_Profile_Controller {
 
     ModelMatch modelMatch = new ModelMatch();
+    File file;
 
     @FXML
     private Stage stage;
@@ -347,7 +348,7 @@ public class New_Profile_Controller {
             for (String miscellaneous : miscellaneous_checked)
                 passion.passionM.add(Passion.miscellaneous.valueOf(miscellaneous));
 
-            ImageView imageView = new ImageView(new Image("file:src/main/java/com/example/javagoat/back/images/kumalala.jpg"));
+            ImageView imageView = new ImageView(new Image(file.getAbsolutePath()));
             Profile profile = new Profile(identity, physicalAttributes, lifeStyle, preferences, passion, imageView);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
@@ -553,7 +554,7 @@ public class New_Profile_Controller {
         //type  of file jpg png
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.jpeg"));
-        File file = fileChooser.showOpenDialog(null);
+        file = fileChooser.showOpenDialog(null);
         if (file != null) {
             circle_profile_picture.setFill(new ImagePattern(new Image(file.toURI().toString())));
             System.out.println(file.getAbsolutePath());
