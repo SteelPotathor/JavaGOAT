@@ -558,15 +558,18 @@ public class Edit_Profile_Controller {
     }
 
     @FXML
-    public void set_profile(ProfileTableView profile) {
-        textfield_first_name.setText(profile.firstname);
-        textfield_last_name.setText(profile.lastname);
-        textfield_age.setText(String.valueOf(profile.age));
-        if (Objects.equals(profile.gender, "FEMALE")) {
+    public void set_profile(Profile profile) {
+        textfield_first_name.setText(profile.getIdentity().firstname);
+        textfield_last_name.setText(profile.getIdentity().lastname);
+        textfield_age.setText(String.valueOf(profile.getIdentity().age));
+        System.out.println(profile.getIdentity().getBsex());
+        if (Objects.equals(profile.getIdentity().getBsex().toString(), "FEMALE")) {
             sex_choicebox.getSelectionModel().select(1);
         }
         else {
             sex_choicebox.getSelectionModel().select(0);
         }
+        textfield_size.setText(String.valueOf(profile.getPhysicalAttributes().getSize()));
+
     }
 }

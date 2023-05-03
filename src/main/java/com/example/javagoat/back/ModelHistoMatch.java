@@ -14,7 +14,7 @@ public class ModelHistoMatch implements Serializable {
     }
 
 
-    private void addMatch(Profile p1, Profile p2) {
+    public void addMatch(Profile p1, Profile p2) {
         // Put the priority at the lowest for the two profiles
         p1.setPriority(3);
         p2.setPriority(3);
@@ -48,4 +48,6 @@ public class ModelHistoMatch implements Serializable {
         sb.append('}');
         return sb.toString();
     }
+
+
 }

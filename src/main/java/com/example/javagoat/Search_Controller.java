@@ -483,11 +483,14 @@ public class Search_Controller {
 
     @FXML
     void change_scene_to_page_matching(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("matching_profiles.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("matching_profiles.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
         stage.show();
     }
 
+
 }
+

@@ -18,85 +18,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 <?import org.controlsfx.control.CheckComboBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="1426.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.Edit_Profile_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="1268.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.Edit_Profile_Controller">
    <children>
-      <ImageView fitHeight="699.0" fitWidth="1266.0" layoutX="188.0">
+      <ImageView fitHeight="699.0" fitWidth="1266.0">
          <image>
             <Image url="@background_new_profile.png" />
          </image>
       </ImageView>
-      <Pane prefHeight="699.0" prefWidth="228.0" style="-fx-background-color: linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%);" stylesheets="@style.css">
-         <children>
-            <VBox layoutY="169.0" prefHeight="516.0" prefWidth="228.0">
-               <children>
-                  <Pane fx:id="dashboard_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_dashboard" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0">
-                     <children>
-                        <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@lanalyse-des-donnees.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="profile_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_new_profile" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0">
-                     <children>
-                        <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@profil.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New profile" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="search_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_search" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0">
-                     <children>
-                        <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@profil.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="calendar_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_calendar" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0">
-                     <children>
-                        <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@calendrier.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calendar" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="events_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_events" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0">
-                     <children>
-                        <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@retour-dinformation.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Events" />
-                     </children>
-                  </Pane>
-               </children>
-            </VBox>
-            <ImageView fitHeight="176.0" fitWidth="192.0" layoutX="18.0" layoutY="14.0">
-               <image>
-                  <Image url="@logo.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-      <ImageView layoutX="1365.0" onMouseClicked="#exit_script">
+      <ImageView layoutX="1177.0" onMouseClicked="#exit_script">
          <image>
             <Image url="@icons8-cross-50.png" />
          </image>
       </ImageView>
-      <Pane layoutX="261.0" layoutY="76.0" prefHeight="516.0" prefWidth="265.0" style="-fx-background-color: rgba(255, 255,255, 0.5); -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
+      <Pane layoutX="73.0" layoutY="76.0" prefHeight="516.0" prefWidth="265.0" style="-fx-background-color: rgba(255, 255,255, 0.5); -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
          <children>
             <VBox layoutY="178.0" prefHeight="321.0" prefWidth="265.0">
                <children>
@@ -170,7 +106,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane layoutX="550.0" layoutY="76.0" prefHeight="516.0" prefWidth="779.0" style="-fx-background-color: rgba(255, 255,255, 0.3); -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
+      <Pane layoutX="362.0" layoutY="76.0" prefHeight="516.0" prefWidth="779.0" style="-fx-background-color: rgba(255, 255,255, 0.3); -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
          <children>
             <Button fx:id="button_create_profile" alignment="CENTER" layoutX="477.0" layoutY="431.0" mnemonicParsing="false" onMouseClicked="#validate_profil" onMouseMoved="#add_profile_mouse_over" onMouseReleased="#add_profile_mouse_exit" style="-fx-background-color: rgba(255,255,255,0.3)rgba(255,255,255,0.5); -fx-background-radius: 30; -fx-border-radius: 30;" text="Edit the profile" wrapText="true">
                <font>

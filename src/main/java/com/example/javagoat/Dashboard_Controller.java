@@ -97,7 +97,7 @@ public class Dashboard_Controller {
     }
 
     @FXML
-    void change_scene_to_page_edit(ProfileTableView event) throws IOException {
+    void change_scene_to_page_edit(Profile event) throws IOException {
 
         // open new window
         FXMLLoader loader = new FXMLLoader(getClass().getResource("edit_profile.fxml"));
@@ -207,11 +207,12 @@ public class Dashboard_Controller {
                 i++;
                 profileTableView = tableView.getItems().get(i);
             }
-            System.out.println(profileTableView);
-            // get name
-            String name = profileTableView.firstname;
-            System.out.println(name);
-            change_scene_to_page_edit(profileTableView);
+
+            // get full info
+
+            int idProfile = profileTableView.getId();
+            Profile profile = modelMatch.getModelP().getProfileHashMap().get(idProfile);
+            change_scene_to_page_edit(profile);
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
