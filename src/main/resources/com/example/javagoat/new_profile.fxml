@@ -554,14 +554,14 @@
             </Pane>
          </children>
       </Pane>
-      <Pane prefHeight="699.0" prefWidth="228.0" style="-fx-background-color: linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%);" stylesheets="@style.css">
+      <Pane prefHeight="699.0" prefWidth="228.0" style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 0.0% 100.0%, #003eb2 0.0%, #8c00ff 100.0%);" stylesheets="@style.css">
          <children>
-            <ImageView fitHeight="199.0" fitWidth="199.0" layoutX="15.0" layoutY="14.0" preserveRatio="true">
+            <ImageView fitHeight="199.0" fitWidth="199.0" layoutY="44.0" preserveRatio="true">
                <image>
                   <Image url="@logo_image.png" />
                </image>
             </ImageView>
-            <VBox layoutY="214.0" prefHeight="471.0" prefWidth="228.0">
+            <VBox layoutY="278.0" prefHeight="407.0" prefWidth="228.0">
                <children>
                   <Pane fx:id="dashboard_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_dashboard" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0">
                      <children>
