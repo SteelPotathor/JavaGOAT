@@ -19,7 +19,8 @@ public class ProfileTableViewHistoric {
     public HBox actions;
     public Pane modify;
     public Pane match;
-
+    public boolean firstImage = true;
+    public boolean secondImage = true;
     public final ImageView thumbsUp = new ImageView(new Image("file:src/main/resources/com/example/javagoat/pouce-vers-le-haut.png"));
     public final ImageView thumbsDown = new ImageView(new Image("file:src/main/resources/com/example/javagoat/pouce-vers-le-bas.png"));
 
