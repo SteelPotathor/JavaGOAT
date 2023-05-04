@@ -21,6 +21,8 @@ public class Profile implements Serializable {
 
     public ImageView imageView;
     public int priority = 1; // Base priority value
+    public int positif=0;
+    public int total=0;
 
 
     // Customised Profile -> Add Profile
@@ -208,6 +210,10 @@ public class Profile implements Serializable {
 
     public void setPriority(int priority) {
         this.priority = priority;
+    }
+
+    public double getRatio() {
+        return (double)(this.positif/this.total);
     }
 
     public String toString() {
