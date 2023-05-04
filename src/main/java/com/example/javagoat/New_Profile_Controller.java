@@ -1,9 +1,6 @@
 package com.example.javagoat;
 
-import animatefx.animation.BounceInUp;
-import animatefx.animation.FadeInLeftBig;
-import animatefx.animation.FadeInRightBig;
-import animatefx.animation.RotateInDownLeft;
+import animatefx.animation.*;
 import com.example.javagoat.back.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -187,6 +184,10 @@ public class New_Profile_Controller {
     private Pane leftRectangle;
     @FXML
     private Pane rightRectangle;
+    @FXML
+    public Pane topRectangle;
+    @FXML
+    public Pane bottomRectangle;
 
     @FXML
     void initialize() {
@@ -199,7 +200,9 @@ public class New_Profile_Controller {
 
     private void earlyAnimations() {
         new FadeInLeftBig(leftRectangle).play();
-        new FadeInRightBig(rightRectangle).play();
+        new FadeInRightBig(bottomRectangle).play();
+        new FadeInDownBig(topRectangle).play();
+        new FadeInUpBig(button_create_profile).play();
     }
 
     private void setTextFieldsLimitations() {
@@ -507,15 +510,6 @@ public class New_Profile_Controller {
         }
     }
 
-    @FXML
-    void add_profile_mouse_over(MouseEvent event) {
-        button_create_profile.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
-    }
-
-    @FXML
-    void add_profile_mouse_exit(MouseEvent event) {
-        button_create_profile.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50");
-    }
 
     @FXML
     void change_background_color(MouseEvent event) throws InterruptedException {
@@ -536,10 +530,6 @@ public class New_Profile_Controller {
         } else if (event.getSource() == events_pane) {
             events_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
         }
-
-
-        //modify the color of the panel from event
-
     }
 
     @FXML

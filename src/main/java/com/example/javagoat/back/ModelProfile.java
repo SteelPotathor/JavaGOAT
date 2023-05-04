@@ -122,8 +122,7 @@ public class ModelProfile {
         for (int i = 0; i < 100; i++) {
             Profile p = new Profile();
             p.setRandomProfileExceptName("Alma", "Katherine");
-            modelMatch.addProfile(p);
-        }
+            modelMatch.addProfile(p);      }
         System.out.println(correspondingName("Alm", "Katherine"));
         List<String> list = new ArrayList<>();
         list.add("straight");

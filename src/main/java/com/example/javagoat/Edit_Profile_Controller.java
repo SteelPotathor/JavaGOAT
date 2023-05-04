@@ -1,7 +1,9 @@
 package com.example.javagoat;
 
+import animatefx.animation.FadeInDownBig;
 import animatefx.animation.FadeInLeftBig;
 import animatefx.animation.FadeInRightBig;
+import animatefx.animation.FadeInUpBig;
 import com.example.javagoat.back.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -202,6 +204,10 @@ public class Edit_Profile_Controller {
     public Pane leftRectangle;
     @FXML
     public Pane rightRectangle;
+    @FXML
+    public Pane bottomRectangle;
+    @FXML
+    public Pane topRectangle;
 
     @FXML
     void initialize() {
@@ -224,6 +230,7 @@ public class Edit_Profile_Controller {
             desactivateThumbsNeg(profileTableViewHistoric);
             profileTableViewHistoric.toProfile().positif++;
             profileTableViewHistoric.toProfile().total++;
+            notificationDashboard();
         }
         System.out.println(profileTableViewHistoric.toProfile().getRatio());
     }
@@ -285,7 +292,9 @@ public class Edit_Profile_Controller {
 
     private void earlyAnimations() {
         new FadeInLeftBig(leftRectangle).play();
-        new FadeInRightBig(rightRectangle).play();
+        new FadeInRightBig(bottomRectangle).play();
+        new FadeInDownBig(topRectangle).play();
+        new FadeInUpBig(button_create_profile).play();
     }
 
     private void initImage() {

@@ -34,7 +34,7 @@
                   <Font size="35.0" />
                </font>
             </Button>
-            <Pane layoutX="28.0" layoutY="8.0" prefHeight="81.0" prefWidth="423.0" style="-fx-border-color: white; -fx-background-color: rgba(255,255,255,0.6); -fx-background-radius: 20; -fx-border-radius: 20;">
+            <Pane fx:id="topRectangle" layoutX="28.0" layoutY="8.0" prefHeight="81.0" prefWidth="423.0" style="-fx-border-color: white; -fx-background-color: rgba(255,255,255,0.6); -fx-background-radius: 20; -fx-border-radius: 20;">
                <children>
                   <HBox layoutX="14.0" layoutY="8.0" prefHeight="24.0" prefWidth="624.0">
                      <children>
@@ -90,7 +90,7 @@
                   </HBox>
                </children>
             </Pane>
-            <Pane layoutX="24.0" layoutY="100.0" style="-fx-border-color: white; -fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 20; -fx-border-radius: 20;">
+            <Pane fx:id="bottomRectangle" layoutX="24.0" layoutY="100.0" style="-fx-border-color: white; -fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 20; -fx-border-radius: 20;">
                <children>
                   <GridPane fx:id="grid_life_style" layoutX="26.0" layoutY="21.0" prefHeight="258.0" prefWidth="550.0">
                      <columnConstraints>
