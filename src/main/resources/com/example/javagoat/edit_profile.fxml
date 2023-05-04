@@ -32,7 +32,7 @@
             <Image url="@icons8-cross-50.png" />
          </image>
       </ImageView>
-      <Pane layoutX="362.0" layoutY="76.0" prefHeight="516.0" prefWidth="779.0" style="-fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
+      <Pane fx:id="rightRectangle" layoutX="362.0" layoutY="76.0" prefHeight="516.0" prefWidth="779.0" style="-fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
          <children>
             <Button fx:id="button_create_profile" alignment="CENTER" layoutX="477.0" layoutY="431.0" mnemonicParsing="false" onMouseClicked="#validate_profil" onMouseMoved="#add_profile_mouse_over" onMouseReleased="#add_profile_mouse_exit" style="-fx-background-color: rgba(255,255,255,0.3)rgba(255,255,255,0.5); -fx-background-radius: 30; -fx-border-radius: 30;" text="Edit the profile" wrapText="true">
                <font>
@@ -425,7 +425,7 @@
             </GridPane>
          </children>
       </Pane>
-      <Pane layoutX="71.0" layoutY="76.0" prefHeight="516.0" prefWidth="265.0" style="-fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
+      <Pane fx:id="leftRectangle" layoutX="71.0" layoutY="76.0" prefHeight="516.0" prefWidth="265.0" style="-fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
          <children>
             <VBox layoutY="178.0" prefHeight="321.0" prefWidth="265.0">
                <children>

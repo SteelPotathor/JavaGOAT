@@ -68,32 +68,32 @@
       </ImageView>
         <AnchorPane layoutX="364.0" layoutY="203.0" prefHeight="140.0" prefWidth="140.0">
             <children>
-                <Circle fx:id="circle_profile_picture" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
+                <Circle fx:id="circleProfilePictureCenter" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
             </children>
         </AnchorPane>
         <AnchorPane layoutX="663.0" layoutY="73.0" prefHeight="140.0" prefWidth="140.0">
             <children>
-                <Circle fx:id="circle_profile_picture1" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
+                <Circle fx:id="circleProfilePictureNE" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
             </children>
         </AnchorPane>
         <AnchorPane layoutX="663.0" layoutY="421.0" prefHeight="140.0" prefWidth="140.0">
             <children>
-                <Circle fx:id="circle_profile_picture11" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
+                <Circle fx:id="circleProfilePictureSE" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
             </children>
         </AnchorPane>
         <AnchorPane layoutX="101.0" layoutY="31.0" prefHeight="140.0" prefWidth="140.0">
             <children>
-                <Circle fx:id="circle_profile_picture12" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
+                <Circle fx:id="circleProfilePictureNW" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
             </children>
         </AnchorPane>
         <AnchorPane layoutX="58.0" layoutY="421.0" prefHeight="140.0" prefWidth="140.0">
             <children>
-                <Circle fx:id="circle_profile_picture111" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
+                <Circle fx:id="circleProfilePictureSW" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
             </children>
         </AnchorPane>
       <AnchorPane layoutX="385.0" layoutY="563.0" prefHeight="140.0" prefWidth="140.0">
          <children>
-            <Circle fx:id="circle_profile_picture1111" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fx:id="circleProfilePictureS" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
          </children>
       </AnchorPane>
     </children>
