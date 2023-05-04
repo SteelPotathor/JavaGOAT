@@ -70,27 +70,27 @@
         </AnchorPane>
         <AnchorPane layoutX="808.0" layoutY="78.0" prefHeight="140.0" prefWidth="140.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;">
             <children>
-                <Circle fx:id="circleProfilePictureNE" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
+                <Circle fx:id="circleProfilePictureNE" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" onMouseClicked="#make_match" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
             </children>
         </AnchorPane>
         <AnchorPane layoutX="763.0" layoutY="439.0" prefHeight="140.0" prefWidth="140.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;">
             <children>
-                <Circle fx:id="circleProfilePictureSE" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
+                <Circle fx:id="circleProfilePictureSE" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" onMouseClicked="#make_match" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
             </children>
         </AnchorPane>
         <AnchorPane layoutX="115.0" layoutY="78.0" prefHeight="140.0" prefWidth="140.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;">
             <children>
-                <Circle fx:id="circleProfilePictureNW" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
+                <Circle fx:id="circleProfilePictureNW" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" onMouseClicked="#make_match" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
             </children>
         </AnchorPane>
         <AnchorPane layoutX="117.0" layoutY="368.0" prefHeight="140.0" prefWidth="140.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;">
             <children>
-                <Circle fx:id="circleProfilePictureSW" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
+                <Circle fx:id="circleProfilePictureSW" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" onMouseClicked="#make_match" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
             </children>
         </AnchorPane>
       <AnchorPane layoutX="443.0" layoutY="585.0" prefHeight="140.0" prefWidth="140.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;">
          <children>
-            <Circle fx:id="circleProfilePictureS" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fx:id="circleProfilePictureS" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" onMouseClicked="#make_match" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
          </children>
       </AnchorPane>
       <Label fx:id="lastNameNE" alignment="CENTER" layoutX="900.0" layoutY="13.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom" textAlignment="CENTER">
