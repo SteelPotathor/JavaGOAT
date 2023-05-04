@@ -188,16 +188,16 @@
             </Pane>
          </children>
       </Pane>
-      <Pane fx:id="rightRectangle" layoutX="550.0" layoutY="76.0" prefHeight="516.0" prefWidth="779.0" style="-fx-background-color: rgba(255, 255,255, 0.3); -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
+      <Pane fx:id="rightRectangle" layoutX="550.0" layoutY="76.0" prefHeight="516.0" prefWidth="779.0" style="-fx-background-color: rgba(255, 255,255, 0.0); -fx-background-radius: 10; -fx-border-width: 1;">
          <children>
             <Button fx:id="button_create_profile" alignment="CENTER" layoutX="477.0" layoutY="431.0" mnemonicParsing="false" onMouseClicked="#validate_profil" onMouseMoved="#add_profile_mouse_over" onMouseReleased="#add_profile_mouse_exit" style="-fx-background-color: rgba(255,255,255,0.3)rgba(255,255,255,0.5); -fx-background-radius: 30; -fx-border-radius: 30;" text="Add new profile" wrapText="true">
                <font>
                   <Font size="35.0" />
                </font>
             </Button>
-            <Pane layoutX="30.0" layoutY="8.0">
+            <Pane layoutX="36.0" layoutY="7.0" prefHeight="101.0" prefWidth="417.0" style="-fx-border-color: white; -fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 20; -fx-border-radius: 20;">
                <children>
-                  <HBox prefHeight="24.0" prefWidth="624.0">
+                  <HBox layoutX="14.0" layoutY="18.0" prefHeight="24.0" prefWidth="624.0">
                      <children>
                         <Button fx:id="button_personnal_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_button" prefHeight="24.0" prefWidth="105.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: rgba(255,255,255,0.7);" text="Personnal" textAlignment="CENTER">
                            <HBox.margin>
@@ -207,7 +207,7 @@
                         <Button fx:id="button_preferences_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_button" prefHeight="24.0" prefWidth="105.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: rgba(255,255,255,0.3);;" text="Preferences" textAlignment="CENTER" />
                      </children>
                   </HBox>
-                  <HBox layoutY="40.0" prefHeight="24.0" prefWidth="624.0">
+                  <HBox layoutX="14.0" layoutY="58.0" prefHeight="24.0" prefWidth="624.0">
                      <children>
                         <Button fx:id="button_lifestyle_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_style" prefHeight="24.0" prefWidth="105.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: rgba(255,255,255,0.7);" text="Lifestyle" textAlignment="CENTER">
                            <HBox.margin>
@@ -228,9 +228,9 @@
                   </HBox>
                </children>
             </Pane>
-            <Pane layoutX="36.0" layoutY="123.0">
+            <Pane layoutX="36.0" layoutY="123.0" prefHeight="280.0" prefWidth="671.0" style="-fx-border-color: white; -fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 20; -fx-border-radius: 20;">
                <children>
-                  <GridPane fx:id="grid_life_style" prefHeight="258.0" prefWidth="550.0">
+                  <GridPane fx:id="grid_life_style" layoutX="29.0" layoutY="10.0" prefHeight="258.0" prefWidth="550.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -252,7 +252,7 @@
                         </Pane>
                         <Pane GridPane.rowIndex="1">
                            <children>
-                              <ChoiceBox fx:id="Athlete_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="Athlete_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Athlete">
                                  <font>
                                     <Font size="18.0" />
@@ -262,7 +262,7 @@
                         </Pane>
                         <Pane GridPane.columnIndex="1">
                            <children>
-                              <ChoiceBox fx:id="feed_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="feed_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-border-radius: 50; -fx-background-radius: 50;" />
                               <Label text="Feed">
                                  <font>
                                     <Font size="18.0" />
@@ -272,7 +272,7 @@
                         </Pane>
                         <Pane GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
-                              <ChoiceBox fx:id="alcohol_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="alcohol_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Alcohol">
                                  <font>
                                     <Font size="18.0" />
@@ -295,7 +295,7 @@
                      <children>
                         <Pane>
                            <children>
-                              <ChoiceBox fx:id="bodybuild_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="bodybuild_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Body build">
                                  <font>
                                     <Font size="18.0" />
@@ -305,7 +305,7 @@
                         </Pane>
                         <Pane GridPane.columnIndex="1">
                            <children>
-                              <ChoiceBox fx:id="hair_type_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="hair_type_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Hair type">
                                  <font>
                                     <Font size="18.0" />
@@ -315,7 +315,7 @@
                         </Pane>
                         <Pane prefHeight="65.0" prefWidth="203.0" GridPane.rowIndex="1">
                            <children>
-                              <ChoiceBox fx:id="choicebox_ethnicity" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="choicebox_ethnicity" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Ethnicity">
                                  <font>
                                     <Font size="18.0" />
@@ -325,7 +325,7 @@
                         </Pane>
                         <Pane GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
-                              <ChoiceBox fx:id="hair_length_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="hair_length_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Hair length">
                                  <font>
                                     <Font size="18.0" />
@@ -335,7 +335,7 @@
                         </Pane>
                         <Pane GridPane.columnIndex="2">
                            <children>
-                              <ChoiceBox fx:id="color_of_hair_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="color_of_hair_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Color of hair">
                                  <font>
                                     <Font size="18.0" />
@@ -357,7 +357,7 @@
                      <children>
                         <Pane>
                            <children>
-                              <ChoiceBox fx:id="religion_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="religion_choicebox" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Religion">
                                  <font>
                                     <Font size="18.0" />
@@ -367,7 +367,7 @@
                         </Pane>
                         <Pane GridPane.columnIndex="1">
                            <children>
-                              <CheckComboBox fx:id="video_games_checkcombobox" layoutY="27.0" prefHeight="37.0" prefWidth="203.0" />
+                              <CheckComboBox fx:id="video_games_checkcombobox" layoutY="27.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Video games">
                                  <font>
                                     <Font size="18.0" />
@@ -377,7 +377,7 @@
                         </Pane>
                         <Pane GridPane.rowIndex="1">
                            <children>
-                              <CheckComboBox fx:id="miscellanious_checkcombobox" layoutY="27.0" prefHeight="37.0" prefWidth="203.0" />
+                              <CheckComboBox fx:id="miscellanious_checkcombobox" layoutY="27.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Miscellaneous">
                                  <font>
                                     <Font size="18.0" />
@@ -399,7 +399,7 @@
                      <children>
                         <Pane>
                            <children>
-                              <ChoiceBox fx:id="Smoker_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="Smoker_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Smoker">
                                  <font>
                                     <Font size="18.0" />
@@ -409,7 +409,7 @@
                         </Pane>
                         <Pane GridPane.rowIndex="1">
                            <children>
-                              <ChoiceBox fx:id="Athlete_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="Athlete_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Athlete">
                                  <font>
                                     <Font size="18.0" />
@@ -419,7 +419,7 @@
                         </Pane>
                         <Pane GridPane.columnIndex="1">
                            <children>
-                              <ChoiceBox fx:id="feed_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="feed_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Feed">
                                  <font>
                                     <Font size="18.0" />
@@ -429,7 +429,7 @@
                         </Pane>
                         <Pane GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
-                              <ChoiceBox fx:id="alcohol_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="alcohol_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Alcohol">
                                  <font>
                                     <Font size="18.0" />
@@ -452,7 +452,7 @@
                      <children>
                         <Pane>
                            <children>
-                              <ChoiceBox fx:id="bodybuild_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="bodybuild_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Body build">
                                  <font>
                                     <Font size="18.0" />
@@ -462,7 +462,7 @@
                         </Pane>
                         <Pane GridPane.columnIndex="1">
                            <children>
-                              <ChoiceBox fx:id="hair_type_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="hair_type_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Hair type">
                                  <font>
                                     <Font size="18.0" />
@@ -472,7 +472,7 @@
                         </Pane>
                         <Pane prefHeight="65.0" prefWidth="203.0" GridPane.rowIndex="1">
                            <children>
-                              <ChoiceBox fx:id="choicebox_ethnicity_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="choicebox_ethnicity_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Ethnicity">
                                  <font>
                                     <Font size="18.0" />
@@ -482,7 +482,7 @@
                         </Pane>
                         <Pane GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
-                              <ChoiceBox fx:id="hair_length_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="hair_length_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Hair length">
                                  <font>
                                     <Font size="18.0" />
@@ -492,7 +492,7 @@
                         </Pane>
                         <Pane GridPane.columnIndex="2">
                            <children>
-                              <ChoiceBox fx:id="color_of_hair_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="color_of_hair_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Color of hair">
                                  <font>
                                     <Font size="18.0" />
@@ -502,7 +502,7 @@
                         </Pane>
                         <Pane GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <children>
-                              <ChoiceBox fx:id="sex_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="sex_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label prefHeight="27.0" prefWidth="114.0" text="Sex">
                                  <font>
                                     <Font size="18.0" />
@@ -524,7 +524,7 @@
                      <children>
                         <Pane>
                            <children>
-                              <ChoiceBox fx:id="religion_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="religion_choicebox_preferences" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Religion">
                                  <font>
                                     <Font size="18.0" />
@@ -539,7 +539,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="textfield_age_preferences" alignment="CENTER" layoutY="24.0" prefHeight="46.0" prefWidth="192.0" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7);">
+                              <TextField fx:id="textfield_age_preferences" alignment="CENTER" layoutY="24.0" prefHeight="46.0" prefWidth="192.0" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50;">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -556,7 +556,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="textfield_size_preferences" alignment="CENTER" layoutY="33.0" prefHeight="46.0" prefWidth="192.0" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7);">
+                              <TextField fx:id="textfield_size_preferences" alignment="CENTER" layoutY="33.0" prefHeight="46.0" prefWidth="192.0" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50;">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -580,7 +580,7 @@
                      <children>
                         <Pane>
                            <children>
-                              <ChoiceBox fx:id="religion_choicebox_preferences1" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" />
+                              <ChoiceBox fx:id="religion_choicebox_preferences1" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Religion">
                                  <font>
                                     <Font size="18.0" />
@@ -600,7 +600,7 @@
                         </Pane>
                         <Pane GridPane.rowIndex="1">
                            <children>
-                              <CheckComboBox fx:id="miscellanious_checkcombobox_preferences" layoutY="27.0" prefHeight="37.0" prefWidth="203.0" />
+                              <CheckComboBox fx:id="miscellanious_checkcombobox_preferences" layoutY="27.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Miscellaneous">
                                  <font>
                                     <Font size="18.0" />
