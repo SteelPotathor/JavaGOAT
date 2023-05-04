@@ -5,6 +5,7 @@ import com.example.javagoat.back.Profile;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
@@ -13,6 +14,9 @@ import java.util.*;
 public class Matching_Profiles_Controller {
 
     public ModelMatch modelMatch = new ModelMatch();
+    public Profile profileSelected;
+    public HashMap<Profile, Integer> result_matching;
+    public List<Profile> profileList;
 
     @FXML
     private Circle circleProfilePictureSE;
@@ -77,8 +81,9 @@ public class Matching_Profiles_Controller {
     }
 
     public void set_match(Profile profile) {
-
-        HashMap<Profile, Integer> result_matching = modelMatch.getKNN(profile.getIdentity().getNoId(), 5);
+        profileSelected = profile;
+        result_matching = modelMatch.getKNN(profile.getIdentity().getNoId(), 5);
+        profileList = new ArrayList<>(result_matching.keySet());
         List<Circle> circleList = Arrays.asList(circleProfilePictureNE, circleProfilePictureSE, circleProfilePictureS, circleProfilePictureSW, circleProfilePictureNW);
         List<Label> lastNameList = Arrays.asList(lastNameNE, lastNameSE, lastNameS, lastNameSW, lastNameNW);
         List<Label> firstNameList = Arrays.asList(firstNameNE, firstNameSE, firstNameS, firstNameSW, firstNameNW);
@@ -102,4 +107,25 @@ public class Matching_Profiles_Controller {
         
     }
 
+    public void make_match(MouseEvent mouseEvent) {
+        switch (mouseEvent.getPickResult().getIntersectedNode().getId()) {
+            case "circleProfilePictureNE":
+                modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(0));
+                break;
+            case "circleProfilePictureSE":
+                modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(1));
+                break;
+            case "circleProfilePictureS":
+                modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(2));
+                break;
+            case "circleProfilePictureSW":
+                modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(3));
+                break;
+            case "circleProfilePictureNW":
+                modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(4));
+                break;
+        }
+
+        System.out.println("Match added");
+    }
 }
