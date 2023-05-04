@@ -20,7 +20,7 @@ public class ProfileTableView {
     public HBox actions;
     public Pane modify;
     public Pane match;
-    public final ImageView logoModif = new ImageView(new Image("file:src/main/resources/com/example/javagoat/modification-du-stylo.png"));
+    public final ImageView logoModif = new ImageView(new Image("file:src/main/resources/com/example/javagoat/reglage.png"));
     public final ImageView logoMatch = new ImageView(new Image("file:src/main/resources/com/example/javagoat/aimer.png"));
 
 
