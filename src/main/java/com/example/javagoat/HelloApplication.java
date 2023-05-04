@@ -32,7 +32,7 @@ public class HelloApplication extends Application {
             Scene scene = new Scene(fxmlLoader.load());
 
             stage.setTitle("Application");
-            stage.initStyle(StageStyle.DECORATED);
+            stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

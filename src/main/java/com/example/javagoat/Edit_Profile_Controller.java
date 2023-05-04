@@ -383,7 +383,9 @@ public class Edit_Profile_Controller {
 
     @FXML
     void exit_script() {
-        System.exit(0);
+
+        //exit the window
+
     }
 
 

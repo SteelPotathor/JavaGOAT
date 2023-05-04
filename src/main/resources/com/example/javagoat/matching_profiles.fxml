@@ -5,96 +5,243 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="737.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.Matching_Profiles_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="846.0" prefWidth="1049.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.Matching_Profiles_Controller">
     <children>
-        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="463.0" layoutY="55.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-rotate: 160;">
-            <image>
-                <Image url="@arrow.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="506.0" layoutY="159.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-rotate: -20;">
-            <image>
-                <Image url="@arrow.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="200.0" fitWidth="256.0" layoutX="478.0" layoutY="245.0" style="-fx-rotate: 210;">
-            <image>
-                <Image url="@arrow.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="200.0" fitWidth="296.0" layoutX="394.0" layoutY="302.0" style="-fx-rotate: 30;">
-            <image>
-                <Image url="@arrow.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="237.0" layoutY="44.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-rotate: 210;">
-            <image>
-                <Image url="@arrow.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="166.0" layoutY="141.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-rotate: 30;">
-            <image>
-                <Image url="@arrow.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="200.0" fitWidth="282.0" layoutX="109.0" layoutY="232.0" style="-fx-rotate: 150;">
-            <image>
-                <Image url="@arrow.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="200.0" fitWidth="273.0" layoutX="173.0" layoutY="321.0" style="-fx-rotate: -40;">
-            <image>
-                <Image url="@arrow.png" />
-            </image>
-        </ImageView>
-        <Label layoutX="331.0" layoutY="86.0" text="81%" />
-        <Label layoutX="284.0" layoutY="217.0" text="81%" />
-        <Label layoutX="536.0" layoutY="113.0" text="81%" />
-        <Label layoutX="606.0" layoutY="226.0" text="81%" />
-        <Label layoutX="606.0" layoutY="360.0" text="81%" />
-        <Label layoutX="549.0" layoutY="430.0" text="81%" />
-        <Label layoutX="319.0" layoutY="439.0" text="81%" />
-        <Label layoutX="266.0" layoutY="332.0" text="81%" />
-      <ImageView fitHeight="200.0" fitWidth="273.0" layoutX="248.0" layoutY="369.0" style="-fx-rotate: 90;">
+      <ImageView fitHeight="852.0" fitWidth="1049.0" layoutY="-3.0">
          <image>
-            <Image url="@arrow.png" />
+            <Image url="@../../../../../../../../../Downloads/Blue_Gradient_Modern_Zoom_Virtual_Background.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="200.0" fitWidth="273.0" layoutX="360.0" layoutY="357.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-rotate: -100;">
+        <Label layoutX="379.0" layoutY="123.0" text="81%">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <ImageView fitHeight="200.0" fitWidth="262.0" layoutX="548.0" layoutY="335.0" style="-fx-rotate: 220; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);;">
          <image>
-            <Image url="@arrow.png" />
+            <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(7).png" />
          </image>
       </ImageView>
-        <AnchorPane layoutX="364.0" layoutY="203.0" prefHeight="140.0" prefWidth="140.0">
+      <ImageView fitHeight="213.0" fitWidth="254.0" layoutX="560.0" layoutY="284.0" style="-fx-rotate: 35; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
+         <image>
+            <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(8).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="200.0" fitWidth="262.0" layoutX="383.0" layoutY="390.0" style="-fx-rotate: -90; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
+         <image>
+            <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(7).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="213.0" fitWidth="254.0" layoutX="420.0" layoutY="360.0" style="-fx-rotate: 90; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
+         <image>
+            <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(8).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="200.0" fitWidth="262.0" layoutX="212.0" layoutY="241.0" style="-fx-rotate: -20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
+         <image>
+            <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(7).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="213.0" fitWidth="254.0" layoutX="239.0" layoutY="289.0" style="-fx-rotate: 150; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
+         <image>
+            <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(8).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="200.0" fitWidth="285.0" layoutX="236.0" layoutY="85.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-rotate: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
+         <image>
+            <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(7).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="213.0" fitWidth="315.0" layoutX="174.0" layoutY="114.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-rotate: -160; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
+         <image>
+            <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(8).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="200.0" fitWidth="262.0" layoutX="600.0" layoutY="140.0" style="-fx-rotate: 160; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
+         <image>
+            <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(7).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="213.0" fitWidth="267.0" layoutX="553.0" layoutY="78.0" style="-fx-rotate: -20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
+         <image>
+            <Image url="@../../../../../../../../../Downloads/Sans%20titre%20(8).png" />
+         </image>
+      </ImageView>
+        <AnchorPane layoutX="464.0" layoutY="221.0" prefHeight="140.0" prefWidth="140.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;">
             <children>
                 <Circle fx:id="circleProfilePictureCenter" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
             </children>
         </AnchorPane>
-        <AnchorPane layoutX="663.0" layoutY="73.0" prefHeight="140.0" prefWidth="140.0">
+        <AnchorPane layoutX="808.0" layoutY="78.0" prefHeight="140.0" prefWidth="140.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;">
             <children>
                 <Circle fx:id="circleProfilePictureNE" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
             </children>
         </AnchorPane>
-        <AnchorPane layoutX="663.0" layoutY="421.0" prefHeight="140.0" prefWidth="140.0">
+        <AnchorPane layoutX="763.0" layoutY="439.0" prefHeight="140.0" prefWidth="140.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;">
             <children>
                 <Circle fx:id="circleProfilePictureSE" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
             </children>
         </AnchorPane>
-        <AnchorPane layoutX="101.0" layoutY="31.0" prefHeight="140.0" prefWidth="140.0">
+        <AnchorPane layoutX="115.0" layoutY="78.0" prefHeight="140.0" prefWidth="140.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;">
             <children>
                 <Circle fx:id="circleProfilePictureNW" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
             </children>
         </AnchorPane>
-        <AnchorPane layoutX="58.0" layoutY="421.0" prefHeight="140.0" prefWidth="140.0">
+        <AnchorPane layoutX="117.0" layoutY="368.0" prefHeight="140.0" prefWidth="140.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;">
             <children>
                 <Circle fx:id="circleProfilePictureSW" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
             </children>
         </AnchorPane>
-      <AnchorPane layoutX="385.0" layoutY="563.0" prefHeight="140.0" prefWidth="140.0">
+      <AnchorPane layoutX="443.0" layoutY="585.0" prefHeight="140.0" prefWidth="140.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;">
          <children>
             <Circle fx:id="circleProfilePictureS" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
          </children>
       </AnchorPane>
+      <Label layoutX="861.0" layoutY="24.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="949.0" layoutY="49.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="965.0" layoutY="104.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Age">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="706.0" layoutY="49.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion : 2">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="818.0" layoutY="387.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="906.0" layoutY="412.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="922.0" layoutY="467.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Age">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="909.0" layoutY="527.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="392.0" layoutY="563.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="335.0" layoutY="638.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="392.0" layoutY="709.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Age">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="501.0" layoutY="744.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="62.0" layoutY="345.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="19.0" layoutY="405.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="41.0" layoutY="466.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Age">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="85.0" layoutY="533.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="161.0" layoutY="24.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="49.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="104.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Age">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="252.0" layoutY="60.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="302.0" layoutY="256.0" text="81%">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="659.0" layoutY="123.0" text="81%">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="743.0" layoutY="271.0" text="81%">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="723.0" layoutY="340.0" text="81%">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="666.0" layoutY="408.0" text="81%">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="582.0" layoutY="470.0" text="81%">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="444.0" layoutY="470.0" text="81%">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="302.0" layoutY="340.0" text="81%">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="323.0" layoutY="451.0" text="81%">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
