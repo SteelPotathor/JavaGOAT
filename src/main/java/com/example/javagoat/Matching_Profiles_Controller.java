@@ -61,6 +61,17 @@ public class Matching_Profiles_Controller {
     private Label ageNE;
 
     @FXML
+    private Label passionSE;
+    @FXML
+    private Label passionNW;
+    @FXML
+    private Label passionSW;
+    @FXML
+    private Label passionS;
+    @FXML
+    private Label passionNE;
+
+    @FXML
     void Initialize() {
 
     }
@@ -72,10 +83,12 @@ public class Matching_Profiles_Controller {
         List<Label> lastNameList = Arrays.asList(lastNameNE, lastNameSE, lastNameS, lastNameSW, lastNameNW);
         List<Label> firstNameList = Arrays.asList(firstNameNE, firstNameSE, firstNameS, firstNameSW, firstNameNW);
         List<Label> ageList = Arrays.asList(ageNE, ageSE, ageS, ageSW, ageNW);
+        List<Label> passionList = Arrays.asList(passionNE, passionSE, passionS, passionSW, passionNW);
         try {
             circleProfilePictureCenter.setFill(new ImagePattern(new Image(profile.getImageView().getImage().getUrl())));
             int i = 0;
             for (Profile p : result_matching.keySet()) {
+                passionList.get(i).setText("Common passions : " + result_matching.get(p));
                 ageList.get(i).setText("Age : " + p.getIdentity().getAge());
                 firstNameList.get(i).setText(p.getIdentity().getFirstname());
                 lastNameList.get(i).setText(p.getIdentity().getLastname());
