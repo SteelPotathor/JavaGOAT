@@ -25,6 +25,8 @@ public class HelloApplication extends Application {
             modelM.addProfile(profile);
         }
 
+        modelM.modelP.getProfileHashMap().get(1).modelHisto.addMatch(modelM.modelP.getProfileHashMap().get(1), modelM.modelP.getProfileHashMap().get(2));
+
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("home.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
