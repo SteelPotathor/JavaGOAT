@@ -474,6 +474,9 @@ public class Edit_Profile_Controller {
             modelMatch.modelP.getProfileHashMap().get(idProfile).setImageView(imageView);
 
             System.out.println(modelMatch.modelP.getProfileHashMap().get(idProfile));
+            Stage stage = (Stage) button_create_profile.getScene().getWindow();
+            // do what you have to do
+            stage.close();
         }
 
     }

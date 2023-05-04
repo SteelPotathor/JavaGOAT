@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 
 import java.util.*;
 
@@ -127,5 +128,10 @@ public class Matching_Profiles_Controller {
         }
 
         System.out.println("Match added");
+
+
+        Stage stage = (Stage) mouseEvent.getPickResult().getIntersectedNode().getScene().getWindow();
+        // do what you have to do
+        stage.close();
     }
 }
