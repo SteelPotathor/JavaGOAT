@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="846.0" prefWidth="1049.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.Matching_Profiles_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="846.0" prefWidth="1049.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.Matching_Profiles_Controller">
     <children>
       <ImageView fitHeight="852.0" fitWidth="1049.0" layoutY="-3.0">
          <image>
@@ -98,57 +97,52 @@
             <Circle fx:id="circleProfilePictureS" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
          </children>
       </AnchorPane>
-      <Label layoutX="861.0" layoutY="24.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom">
+      <Label fx:id="lastNameNE" alignment="CENTER" layoutX="900.0" layoutY="13.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="firstNameNE" contentDisplay="CENTER" layoutX="900.0" layoutY="43.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="ageNE" layoutX="915.0" layoutY="222.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Age">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="949.0" layoutY="49.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom">
+      <Label layoutX="731.0" layoutY="39.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="965.0" layoutY="104.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Age">
+      <Label fx:id="lastNameSE" alignment="CENTER" layoutX="900.0" layoutY="390.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="firstNameSE" alignment="CENTER" layoutX="900.0" layoutY="433.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="ageSE" layoutX="906.0" layoutY="563.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Age">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="706.0" layoutY="49.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion : 2">
+      <Label layoutX="766.0" layoutY="603.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="818.0" layoutY="387.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom">
+      <Label fx:id="firstNameS" alignment="CENTER" layoutX="320.0" layoutY="621.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom" textAlignment="CENTER">
          <font>
-            <Font size="25.0" />
+            <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="906.0" layoutY="412.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="922.0" layoutY="467.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Age">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="909.0" layoutY="527.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="392.0" layoutY="563.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="335.0" layoutY="638.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="392.0" layoutY="709.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Age">
+      <Label fx:id="ageS" layoutX="356.0" layoutY="708.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Age">
          <font>
             <Font size="25.0" />
          </font>
@@ -158,42 +152,42 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="62.0" layoutY="345.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom">
+      <Label fx:id="lastNameSW" alignment="CENTER" layoutX="21.0" layoutY="345.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="firstNameSW" alignment="CENTER" layoutX="20.0" layoutY="377.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="ageSW" layoutX="19.0" layoutY="433.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Age">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="19.0" layoutY="405.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom">
+      <Label layoutX="21.0" layoutY="503.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="41.0" layoutY="466.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Age">
+      <Label fx:id="lastNameNW" alignment="CENTER" layoutX="21.0" layoutY="31.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="firstNameNW" alignment="CENTER" layoutX="20.0" layoutY="67.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="ageNW" layoutX="41.0" layoutY="212.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Age">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="85.0" layoutY="533.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="161.0" layoutY="24.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="33.0" layoutY="49.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="32.0" layoutY="104.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Age">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="252.0" layoutY="60.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion">
+      <Label layoutX="203.0" layoutY="31.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion">
          <font>
             <Font size="25.0" />
          </font>
@@ -241,6 +235,11 @@
       <Label layoutX="323.0" layoutY="451.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lastNameS" alignment="CENTER" layoutX="323.0" layoutY="585.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="25.0" />
          </font>
       </Label>
     </children>
