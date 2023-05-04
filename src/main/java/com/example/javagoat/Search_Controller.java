@@ -344,8 +344,8 @@ public class Search_Controller {
         ObservableList<ProfileTableView> profiles = tableView.getItems();
         for (Profile profile : set) {
             ProfileTableView profileTableView = profile.toProfileTableView();
-            Button modify = (Button) profileTableView.actions.getChildren().get(0);
-            Button match = (Button) profileTableView.actions.getChildren().get(1);
+            Pane modify = (Pane) profileTableView.actions.getChildren().get(0);
+            Pane match = (Pane) profileTableView.actions.getChildren().get(1);
             modify.setOnMouseClicked(this::edit);
             match.setOnMouseClicked(this::match);
             profiles.add(profileTableView);
@@ -365,10 +365,10 @@ public class Search_Controller {
             i++;
             profileTableView = tableView.getItems().get(i);
         }
-        int idProfile = profileTableView.getId();
-        System.out.println(modelMatch.getKNN(idProfile, 5));
+        Profile profile = profileTableView.toProfile();
+
         try {
-            change_scene_to_page_matching(mouseEvent);
+            change_scene_to_page_matching(profile);
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
@@ -497,24 +497,26 @@ public class Search_Controller {
     }
 
     @FXML
-    void change_scene_to_page_edit(Profile event) throws IOException {
+    void change_scene_to_page_edit(Profile profile) throws IOException {
         // open new window
         FXMLLoader loader = new FXMLLoader(getClass().getResource("edit_profile.fxml"));
         Parent root = loader.load();
         // load the controller
 
         Edit_Profile_Controller edit_profile_controller = loader.getController();
-        edit_profile_controller.set_profile(event);
+        edit_profile_controller.set_profile(profile);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
     }
 
     @FXML
-    void change_scene_to_page_matching(MouseEvent event) throws IOException {
+    void change_scene_to_page_matching(Profile profile) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("matching_profiles.fxml"));
         Parent root = loader.load();
 
+        Matching_Profiles_Controller matching_profiles_controller = loader.getController();
+        matching_profiles_controller.set_match(profile);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
