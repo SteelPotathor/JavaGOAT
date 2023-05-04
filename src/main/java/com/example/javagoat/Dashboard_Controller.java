@@ -76,11 +76,11 @@ public class Dashboard_Controller {
     @FXML
     private Label label_today_matches;
     @FXML
-    private Label label_total_matches;
+    private Label label_total_profiles;
     @FXML
     private Label label_today_new_profiles;
     @FXML
-    private Label label_total_events;
+    private Label label_today_events;
 
 
     @FXML
@@ -160,6 +160,15 @@ public class Dashboard_Controller {
         earlyAnimation(0.1);
         initTableView();
         firstFillTableView();
+        initStats();
+    }
+
+
+    private void initStats() {
+        label_total_profiles.setText(String.valueOf(modelMatch.getModelP().getProfileHashMap().size()));
+        label_today_matches.setText("0");
+        label_today_events.setText("4");
+        label_today_new_profiles.setText("0");
     }
 
     private void firstFillTableView() {
