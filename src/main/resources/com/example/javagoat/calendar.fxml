@@ -10,16 +10,27 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="1426.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.Calendar_Controller">
    <children>
+      <ImageView layoutX="1365.0" onMouseClicked="#exit_script">
+         
+            <Image url="@icons8-cross-50.png" />
+         
+      </ImageView>
+      <CalendarView fx:id="calendrier" layoutX="234.0" layoutY="50.0" prefHeight="616.0" prefWidth="1178.0" />
       <Pane prefHeight="699.0" prefWidth="228.0" style="-fx-background-color: linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%);" stylesheets="@style.css">
          <children>
-            <VBox layoutY="169.0" prefHeight="516.0" prefWidth="228.0">
+            <ImageView fitHeight="199.0" fitWidth="199.0" layoutX="15.0" layoutY="14.0" preserveRatio="true">
+               <image>
+                  <Image url="@logo_image.png" />
+               </image>
+            </ImageView>
+            <VBox layoutY="214.0" prefHeight="471.0" prefWidth="228.0">
                <children>
                   <Pane fx:id="dashboard_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_dashboard" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           
+                           <image>
                               <Image url="@lanalyse-des-donnees.png" />
-                           
+                           </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" />
                      </children>
@@ -27,9 +38,9 @@
                   <Pane fx:id="profile_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_new_profile" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           
+                           <image>
                               <Image url="@profil.png" />
-                           
+                           </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New profile" />
                      </children>
@@ -37,9 +48,9 @@
                   <Pane fx:id="search_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_search" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           
+                           <image>
                               <Image url="@seo.png" />
-                           
+                           </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" />
                      </children>
@@ -47,9 +58,9 @@
                   <Pane fx:id="calendar_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_calendar" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           
+                           <image>
                               <Image url="@calendrier.png" />
-                           
+                           </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calendar" />
                      </children>
@@ -57,28 +68,17 @@
                   <Pane fx:id="events_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_events" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0" visible="false">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           
+                           <image>
                               <Image url="@retour-dinformation.png" />
-                           
+                           </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Events" />
                      </children>
                   </Pane>
                </children>
             </VBox>
-            <ImageView fitHeight="176.0" fitWidth="192.0" layoutX="18.0" layoutY="14.0">
-               
-                  <Image url="@logo.png" />
-               
-            </ImageView>
          </children>
       </Pane>
-      <ImageView layoutX="1365.0" onMouseClicked="#exit_script">
-         
-            <Image url="@icons8-cross-50.png" />
-         
-      </ImageView>
-      <CalendarView fx:id="calendrier" layoutX="234.0" layoutY="50.0" prefHeight="616.0" prefWidth="1178.0" />
    </children>
    <!-- make a calendar -->
 
