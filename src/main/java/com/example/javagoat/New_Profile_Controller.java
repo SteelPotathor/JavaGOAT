@@ -1,6 +1,8 @@
 package com.example.javagoat;
 
 import animatefx.animation.BounceInUp;
+import animatefx.animation.FadeInLeftBig;
+import animatefx.animation.FadeInRightBig;
 import animatefx.animation.RotateInDownLeft;
 import com.example.javagoat.back.*;
 import javafx.collections.FXCollections;
@@ -182,6 +184,11 @@ public class New_Profile_Controller {
     ObservableList<String> element_ethnicity = FXCollections.observableArrayList("WHITE", "BLACK", "ASIAN", "LATINO");
 
     @FXML
+    private Pane leftRectangle;
+    @FXML
+    private Pane rightRectangle;
+
+    @FXML
     void initialize() {
         earlyAnimations();
         setTextFieldsLimitations();
@@ -191,6 +198,8 @@ public class New_Profile_Controller {
     }
 
     private void earlyAnimations() {
+        new FadeInLeftBig(leftRectangle).play();
+        new FadeInRightBig(rightRectangle).play();
     }
 
     private void setTextFieldsLimitations() {
@@ -399,11 +408,8 @@ public class New_Profile_Controller {
             alert.setContentText("Your profile has been created");
             alert.showAndWait();
 
-            System.out.println(profile);
-
             modelMatch.addProfile(profile);
 
-            System.out.println(modelMatch.modelP.profileHashMap.size());
         }
 
     }

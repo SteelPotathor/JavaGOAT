@@ -1,7 +1,6 @@
 package com.example.javagoat;
 
-import animatefx.animation.FadeInDown;
-import animatefx.animation.FadeInUpBig;
+import animatefx.animation.*;
 import com.example.javagoat.back.ModelMatch;
 import com.example.javagoat.back.ModelProfile;
 import com.example.javagoat.back.Profile;
@@ -127,11 +126,13 @@ public class Dashboard_Controller {
     }
 
     @FXML
-    void change_scene_to_page_matching() throws IOException {
+    void change_scene_to_page_matching(Profile event) throws IOException {
         // open new window
         FXMLLoader loader = new FXMLLoader(getClass().getResource("matching_profiles.fxml"));
         Parent root = loader.load();
 
+        Matching_Profiles_Controller matching_profiles_controller = loader.getController();
+        matching_profiles_controller.set_match(event);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
@@ -174,7 +175,6 @@ public class Dashboard_Controller {
     private void firstFillTableView() {
         ObservableList<ProfileTableView> profiles = tableView.getItems();
         ModelProfile modelProfile = new ModelProfile();
-        System.out.println(modelProfile.getProfileHashMap());
 
         // Putting some profiles in the tableView
         for (int i = 1; i < 21; i++) {
@@ -230,6 +230,17 @@ public class Dashboard_Controller {
         visiblePauseFourthAnimation.play();
 
         new FadeInUpBig(tableView).play();
+
+        new Swing(label_total_profiles).play();
+        PauseTransition secondAnimationText = new PauseTransition(Duration.seconds((delay - 0.005) * 2));
+        secondAnimationText.setOnFinished(e -> new Swing(label_today_matches).play());
+        secondAnimationText.play();
+        PauseTransition thirdAnimationText = new PauseTransition(Duration.seconds((delay - 0.005) * 3));
+        thirdAnimationText.setOnFinished(e -> new Swing(label_today_new_profiles).play());
+        thirdAnimationText.play();
+        PauseTransition fourthAnimationText = new PauseTransition(Duration.seconds((delay - 0.005) * 2));
+        fourthAnimationText.setOnFinished(e -> new Swing(label_today_new_profiles).play());
+        fourthAnimationText.play();
     }
 
     @FXML
@@ -241,9 +252,8 @@ public class Dashboard_Controller {
                 i++;
                 profileTableView = tableView.getItems().get(i);
             }
-            int idProfile = profileTableView.getId();
-            System.out.println(modelMatch.getKNN(idProfile, 5));
-            change_scene_to_page_matching();
+            Profile profile = profileTableView.toProfile();
+            change_scene_to_page_matching(profile);
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
@@ -259,8 +269,8 @@ public class Dashboard_Controller {
                 i++;
                 profileTableView = tableView.getItems().get(i);
             }
-            Profile idProfile = profileTableView.toProfile();
-            change_scene_to_page_edit(idProfile);
+            Profile profile = profileTableView.toProfile();
+            change_scene_to_page_edit(profile);
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }

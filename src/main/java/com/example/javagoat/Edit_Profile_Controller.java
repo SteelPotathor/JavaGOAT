@@ -1,5 +1,9 @@
 package com.example.javagoat;
 
+import animatefx.animation.FadeInLeftBig;
+import animatefx.animation.FadeInRightBig;
+import animatefx.animation.SlideInLeft;
+import animatefx.animation.SlideInUp;
 import com.example.javagoat.back.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -200,6 +204,10 @@ public class Edit_Profile_Controller {
     @FXML
     private TableColumn<ProfileTableViewHistoric, HBox> feedback;
 
+    @FXML
+    public Pane leftRectangle;
+    @FXML
+    public Pane rightRectangle;
 
     @FXML
     void initialize() {
@@ -213,9 +221,34 @@ public class Edit_Profile_Controller {
 
     private void positif(MouseEvent mouseEvent) {
         // remove the thumbs down, thumbs up is not anymore clickable
+        int i = 0;
+        ProfileTableViewHistoric profileTableViewHistoric = tableview_profile.getItems().get(i);
+        while (i < tableview_profile.getItems().size() && !(profileTableViewHistoric.actions.getChildren().get(0).equals(mouseEvent.getSource()))) {
+            i++;
+            profileTableViewHistoric = tableview_profile.getItems().get(i);
+        }
+        if (profileTableViewHistoric.secondImage) {
+            profileTableViewHistoric.actions.getChildren().remove(0);
+            profileTableViewHistoric.secondImage = false;
+            profileTableViewHistoric.toProfile().positif++;
+            profileTableViewHistoric.toProfile().total++;
+        }
     }
 
     private void negatif(MouseEvent mouseEvent) {
+        // remove the thumbs down, thumbs up is not anymore clickable
+        int i = 0;
+        ProfileTableViewHistoric profileTableViewHistoric = tableview_profile.getItems().get(i);
+        while (i < tableview_profile.getItems().size() && !(profileTableViewHistoric.actions.getChildren().get(1).equals(mouseEvent.getSource()))) {
+            i++;
+            profileTableViewHistoric = tableview_profile.getItems().get(i);
+        }
+        if (profileTableViewHistoric.firstImage) {
+            profileTableViewHistoric.actions.getChildren().remove(1);
+            profileTableViewHistoric.firstImage = false;
+            profileTableViewHistoric.toProfile().total++;
+        }
+        System.out.println(profileTableViewHistoric.toProfile().getRatio());
     }
 
     private void initTableView() {
@@ -228,6 +261,8 @@ public class Edit_Profile_Controller {
     }
 
     private void earlyAnimations() {
+        new FadeInLeftBig(leftRectangle).play();
+        new FadeInRightBig(rightRectangle).play();
     }
 
     private void initImage() {
@@ -324,52 +359,6 @@ public class Edit_Profile_Controller {
     }
 
     @FXML
-    void change_scene_to_page_dashboard(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("home.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void change_scene_to_new_profile(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("new_profile.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void change_scene_to_page_search(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("search.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void change_scene_to_page_calendar(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("calendar.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void change_scene_to_page_events(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("events.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-
-    @FXML
     void exit_script() {
         System.exit(0);
     }
@@ -415,7 +404,14 @@ public class Edit_Profile_Controller {
             alert.setContentText("Your profile has not been edited, please fill all the fields");
             alert.showAndWait();
         } else {
-            Identity identity = new Identity(Integer.parseInt(textfield_age.getText()), Biology.sex.valueOf(sex_choicebox.getValue()), Biology.ethnicity.valueOf(choicebox_ethnicity.getValue()), Integer.parseInt(textfield_qi.getText()), textfield_last_name.getText(), textfield_first_name.getText());
+            // DO NOT CREATE NEW IDENTITY OBJECT
+            Identity identity = modelMatch.modelP.getProfileHashMap().get(idProfile).getIdentity();
+            identity.setLastname(textfield_last_name.getText());
+            identity.setFirstname(textfield_first_name.getText());
+            identity.setAge(Integer.parseInt(textfield_age.getText()));
+            identity.setBsex(Biology.sex.valueOf(sex_choicebox.getValue()));
+            identity.setBethnicity(Biology.ethnicity.valueOf(choicebox_ethnicity.getValue()));
+            identity.setQi(Integer.parseInt(textfield_qi.getText()));
             PhysicalAttributes physicalAttributes = new PhysicalAttributes(Integer.parseInt(textfield_size.getText()), PhysicalAttributes.hairColor.valueOf(color_of_hair_choicebox.getValue()), PhysicalAttributes.hairType.valueOf(hair_type_choicebox.getValue()), PhysicalAttributes.hairLength.valueOf(hair_length_choicebox.getValue()));
             LifeStyle lifeStyle = new LifeStyle(LifeStyle.smoker.valueOf(Smoker_choicebox.getValue()), LifeStyle.athlete.valueOf(Athlete_choicebox.getValue()), LifeStyle.feed.valueOf(feed_choicebox.getValue()), LifeStyle.bodyBuild.valueOf(bodybuild_choicebox.getValue()), LifeStyle.religion.valueOf(religion_choicebox.getValue()), LifeStyle.alcohol.valueOf(alcohol_choicebox.getValue()));
             Preferences preferences = new Preferences(new PhysicalAttributes(Integer.parseInt(textfield_size.getText()), PhysicalAttributes.hairColor.valueOf(color_of_hair_choicebox_preferences.getValue()), PhysicalAttributes.hairType.valueOf(hair_type_choicebox_preferences.getValue()), PhysicalAttributes.hairLength.valueOf(hair_length_choicebox_preferences.getValue())), new Biology(Integer.parseInt(textfield_age_preferences.getText()), Biology.sex.valueOf(sex_choicebox_preferences.getValue()), Biology.ethnicity.valueOf(choicebox_ethnicity_preferences.getValue()), Integer.parseInt(textfield_qi.getText())), new LifeStyle(LifeStyle.smoker.valueOf(Smoker_choicebox_preferences.getValue()), LifeStyle.athlete.valueOf(Athlete_choicebox_preferences.getValue()), LifeStyle.feed.valueOf(feed_choicebox_preferences.getValue()), LifeStyle.bodyBuild.valueOf(bodybuild_choicebox_preferences.getValue()), LifeStyle.religion.valueOf(religion_choicebox_preferences.getValue()), LifeStyle.alcohol.valueOf(alcohol_choicebox_preferences.getValue())));
@@ -437,12 +433,13 @@ public class Edit_Profile_Controller {
             alert.setContentText("Your profile has been successfully edited");
             alert.showAndWait();
 
-            modelMatch.modelP.getProfileHashMap().get(idProfile).setIdentity(identity);
             modelMatch.modelP.getProfileHashMap().get(idProfile).setPhysicalAttributes(physicalAttributes);
             modelMatch.modelP.getProfileHashMap().get(idProfile).setLifeStyle(lifeStyle);
             modelMatch.modelP.getProfileHashMap().get(idProfile).setPreferences(preferences);
             modelMatch.modelP.getProfileHashMap().get(idProfile).setPassion(passion);
             modelMatch.modelP.getProfileHashMap().get(idProfile).setImageView(imageView);
+
+            System.out.println(modelMatch.modelP.getProfileHashMap().get(idProfile));
         }
 
     }
@@ -611,7 +608,6 @@ public class Edit_Profile_Controller {
 
         if (file != null) {
             circle_profile_picture.setFill(new ImagePattern(new Image(file.toURI().toString())));
-            System.out.println(file.getAbsolutePath());
         }
 
     }
@@ -636,7 +632,6 @@ public class Edit_Profile_Controller {
         color_of_hair_choicebox.setValue(profile.getPhysicalAttributes().getHairColor().toString());
         hair_length_choicebox.setValue(profile.getPhysicalAttributes().getHairLength().toString());
         religion_choicebox.setValue(profile.getLifeStyle().getLSreligion().toString());
-
 
         Smoker_choicebox_preferences.setValue(profile.getPreferences().getLifestyle().getLSsmoker().toString());
         choicebox_ethnicity_preferences.setValue(profile.getPreferences().getBiology().getBethnicity().toString());
@@ -677,12 +672,20 @@ public class Edit_Profile_Controller {
         for (Integer key : hashMap.keySet()) {
             Profile profileHash = modelMatch.modelP.getProfileHashMap().get(key);
             ProfileTableViewHistoric profileTableViewHistoric = profileHash.toProfileTableViewHistoric();
-            Pane thumbsUp = (Pane) profileTableViewHistoric.actions.getChildren().get(0);
-            Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(1);
-            thumbsUp.setStyle("-fx-cursor: HAND");
-            thumbsUp.setOnMouseClicked(this::positif);
-            thumbsDown.setStyle("-fx-cursor: HAND");
-            thumbsDown.setOnMouseClicked(this::negatif);
+            if (profileTableViewHistoric.firstImage) {
+                Pane thumbsUp = (Pane) profileTableViewHistoric.actions.getChildren().get(0);
+                thumbsUp.setStyle("-fx-cursor: HAND");
+                thumbsUp.setOnMouseClicked(this::positif);
+            }
+            if (profileTableViewHistoric.firstImage && profileTableViewHistoric.secondImage) {
+                Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(1);
+                thumbsDown.setStyle("-fx-cursor: HAND");
+                thumbsDown.setOnMouseClicked(this::negatif);
+            } else if (profileTableViewHistoric.secondImage) {
+                Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(0);
+                thumbsDown.setStyle("-fx-cursor: HAND");
+                thumbsDown.setOnMouseClicked(this::negatif);
+            }
             profiles.add(profileTableViewHistoric);
         }
         if (profiles.isEmpty()) {
