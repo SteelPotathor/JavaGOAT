@@ -13,10 +13,6 @@
             <Image url="@Blue_Gradient_Modern_Zoom_Virtual_Background.png" />
          </image>
       </ImageView>
-        <Label layoutX="379.0" layoutY="123.0" text="81%">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font></Label>
       <ImageView fitHeight="200.0" fitWidth="262.0" layoutX="548.0" layoutY="335.0" style="-fx-rotate: 220; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);;">
          <image>
             <Image url="@arrow_blue.png" />
@@ -112,9 +108,9 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="731.0" layoutY="39.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion">
+      <Label fx:id="passionNE" layoutX="611.0" layoutY="40.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion" underline="true">
          <font>
-            <Font size="25.0" />
+            <Font size="21.0" />
          </font>
       </Label>
       <Label fx:id="lastNameSE" alignment="CENTER" layoutX="900.0" layoutY="390.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom" textAlignment="CENTER">
@@ -122,7 +118,7 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label fx:id="firstNameSE" alignment="CENTER" layoutX="900.0" layoutY="433.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom" textAlignment="CENTER">
+      <Label fx:id="firstNameSE" alignment="CENTER" layoutX="900.0" layoutY="421.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
@@ -132,32 +128,32 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="766.0" layoutY="603.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion">
+      <Label fx:id="passionSE" layoutX="768.0" layoutY="620.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion" underline="true">
          <font>
-            <Font size="25.0" />
+            <Font size="21.0" />
          </font>
       </Label>
-      <Label fx:id="firstNameS" alignment="CENTER" layoutX="320.0" layoutY="621.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom" textAlignment="CENTER">
-         <font>
-            <Font name="System Bold" size="25.0" />
-         </font>
-      </Label>
-      <Label fx:id="ageS" layoutX="356.0" layoutY="708.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Age">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label layoutX="501.0" layoutY="744.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label fx:id="lastNameSW" alignment="CENTER" layoutX="21.0" layoutY="345.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom" textAlignment="CENTER">
+      <Label fx:id="firstNameS" alignment="CENTER" layoutX="585.0" layoutY="727.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label fx:id="firstNameSW" alignment="CENTER" layoutX="20.0" layoutY="377.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom" textAlignment="CENTER">
+      <Label fx:id="ageS" layoutX="332.0" layoutY="629.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Age">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="passionS" layoutX="295.0" layoutY="745.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion" underline="true">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="lastNameSW" alignment="CENTER" layoutX="118.0" layoutY="529.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="firstNameSW" alignment="CENTER" layoutX="117.0" layoutY="561.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Prénom" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
@@ -167,9 +163,9 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="21.0" layoutY="503.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion">
+      <Label fx:id="passionSW" layoutX="19.0" layoutY="332.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion" underline="true">
          <font>
-            <Font size="25.0" />
+            <Font size="21.0" />
          </font>
       </Label>
       <Label fx:id="lastNameNW" alignment="CENTER" layoutX="21.0" layoutY="31.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom" textAlignment="CENTER">
@@ -187,57 +183,61 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="203.0" layoutY="31.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion">
+      <Label fx:id="passionNW" layoutX="208.0" layoutY="40.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Passion" underline="true">
          <font>
-            <Font size="25.0" />
+            <Font size="21.0" />
          </font>
       </Label>
-      <Label layoutX="302.0" layoutY="256.0" text="81%">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="659.0" layoutY="123.0" text="81%">
+      <Label layoutX="322.0" layoutY="233.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="743.0" layoutY="271.0" text="81%">
+      <Label layoutX="657.0" layoutY="149.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="723.0" layoutY="340.0" text="81%">
+        <Label layoutX="358.0" layoutY="149.0" text="81%">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <Label layoutX="731.0" layoutY="243.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="666.0" layoutY="408.0" text="81%">
+      <Label layoutX="687.0" layoutY="363.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="582.0" layoutY="470.0" text="81%">
+      <Label layoutX="639.0" layoutY="424.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="444.0" layoutY="470.0" text="81%">
+      <Label layoutX="553.0" layoutY="475.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="302.0" layoutY="340.0" text="81%">
+      <Label layoutX="473.0" layoutY="475.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="323.0" layoutY="451.0" text="81%">
+      <Label layoutX="312.0" layoutY="308.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lastNameS" alignment="CENTER" layoutX="323.0" layoutY="585.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom" textAlignment="CENTER">
+      <Label layoutX="334.0" layoutY="410.0" text="81%">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lastNameS" alignment="CENTER" layoutX="588.0" layoutY="691.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
