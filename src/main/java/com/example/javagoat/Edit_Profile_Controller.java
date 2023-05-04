@@ -2,21 +2,16 @@ package com.example.javagoat;
 
 import animatefx.animation.FadeInLeftBig;
 import animatefx.animation.FadeInRightBig;
-import animatefx.animation.SlideInLeft;
-import animatefx.animation.SlideInUp;
 import com.example.javagoat.back.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -27,7 +22,6 @@ import javafx.stage.Stage;
 import org.controlsfx.control.CheckComboBox;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -220,35 +214,64 @@ public class Edit_Profile_Controller {
     }
 
     private void positif(MouseEvent mouseEvent) {
-        // remove the thumbs down, thumbs up is not anymore clickable
         int i = 0;
         ProfileTableViewHistoric profileTableViewHistoric = tableview_profile.getItems().get(i);
         while (i < tableview_profile.getItems().size() && !(profileTableViewHistoric.actions.getChildren().get(0).equals(mouseEvent.getSource()))) {
             i++;
             profileTableViewHistoric = tableview_profile.getItems().get(i);
         }
-        if (profileTableViewHistoric.secondImage) {
-            profileTableViewHistoric.actions.getChildren().remove(0);
-            profileTableViewHistoric.secondImage = false;
+        if (!profileTableViewHistoric.voted) {
+            desactivateThumbsNeg(profileTableViewHistoric);
             profileTableViewHistoric.toProfile().positif++;
             profileTableViewHistoric.toProfile().total++;
         }
+        System.out.println(profileTableViewHistoric.toProfile().getRatio());
     }
 
     private void negatif(MouseEvent mouseEvent) {
-        // remove the thumbs down, thumbs up is not anymore clickable
         int i = 0;
         ProfileTableViewHistoric profileTableViewHistoric = tableview_profile.getItems().get(i);
         while (i < tableview_profile.getItems().size() && !(profileTableViewHistoric.actions.getChildren().get(1).equals(mouseEvent.getSource()))) {
             i++;
             profileTableViewHistoric = tableview_profile.getItems().get(i);
         }
-        if (profileTableViewHistoric.firstImage) {
-            profileTableViewHistoric.actions.getChildren().remove(1);
-            profileTableViewHistoric.firstImage = false;
+        if (!profileTableViewHistoric.voted) {
+            desactivateThumbsPos(profileTableViewHistoric);
             profileTableViewHistoric.toProfile().total++;
+            notificationDashboard();
         }
         System.out.println(profileTableViewHistoric.toProfile().getRatio());
+    }
+
+    private void notificationDashboard() {
+        // send a message in the notif box (dashboard)
+    }
+
+    public void desactivateThumbsNeg(ProfileTableViewHistoric profileTableViewHistoric) {
+        changeCursor(profileTableViewHistoric);
+        Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(1);
+        ImageView imageDown = (ImageView) thumbsDown.getChildren().get(0);
+        imageDown.setPreserveRatio(true);
+        imageDown.setFitHeight(30);
+        imageDown.setImage(new Image("file:src/main/resources/com/example/javagoat/dislikeBlack.png"));
+        profileTableViewHistoric.voted = true;
+    }
+
+    public void desactivateThumbsPos(ProfileTableViewHistoric profileTableViewHistoric) {
+        changeCursor(profileTableViewHistoric);
+        Pane thumbsUp = (Pane) profileTableViewHistoric.actions.getChildren().get(0);
+        ImageView imageUp = (ImageView) thumbsUp.getChildren().get(0);
+        imageUp.setPreserveRatio(true);
+        imageUp.setFitHeight(30);
+        imageUp.setImage(new Image("file:src/main/resources/com/example/javagoat/likeBlack.png"));
+        profileTableViewHistoric.voted = true;
+    }
+
+    public void changeCursor(ProfileTableViewHistoric profileTableViewHistoric) {
+        Pane thumbsUp = (Pane) profileTableViewHistoric.actions.getChildren().get(0);
+        thumbsUp.setStyle("-fx-cursor: NONE");
+        Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(1);
+        thumbsDown.setStyle("-fx-cursor: NONE");
     }
 
     private void initTableView() {
@@ -576,28 +599,6 @@ public class Edit_Profile_Controller {
     }
 
     @FXML
-    void change_background_color(MouseEvent event) throws InterruptedException {
-
-        dashboard_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
-        profile_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
-        search_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
-        calendar_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
-        events_pane.setStyle("-fx-background-color:  linear-gradient(from 0.0% 100.0% to 100.0% 100.0%, #197ac2 0.0%, #197ac2 0.6711%, #6925ba 100.0%)");
-        if (event.getSource() == dashboard_pane) {
-
-            dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
-        } else if (event.getSource() == profile_pane) {
-            profile_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
-        } else if (event.getSource() == search_pane) {
-            search_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
-        } else if (event.getSource() == calendar_pane) {
-            calendar_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
-        } else if (event.getSource() == events_pane) {
-            events_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
-        }
-    }
-
-    @FXML
     void import_new_image(MouseEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Resource File");
@@ -652,17 +653,14 @@ public class Edit_Profile_Controller {
         profile.getPassion().passionVG.forEach(passion -> video_games_list.add(passion.toString()));
 
         for (String value : video_games_list) {
-
             element_video_games.indexOf(value);
             video_games_checkcombobox.getCheckModel().checkIndices(element_video_games.indexOf(value));
-
         }
 
         ArrayList<String> miscellanous_list = new ArrayList<>();
         profile.getPassion().passionM.forEach(passion -> miscellanous_list.add(passion.toString()));
 
         for (String s : miscellanous_list) {
-
             element_miscellanious.indexOf(s);
             miscellanious_checkcombobox.getCheckModel().checkIndices(element_miscellanious.indexOf(s));
         }
@@ -672,20 +670,14 @@ public class Edit_Profile_Controller {
         for (Integer key : hashMap.keySet()) {
             Profile profileHash = modelMatch.modelP.getProfileHashMap().get(key);
             ProfileTableViewHistoric profileTableViewHistoric = profileHash.toProfileTableViewHistoric();
-            if (profileTableViewHistoric.firstImage) {
-                Pane thumbsUp = (Pane) profileTableViewHistoric.actions.getChildren().get(0);
-                thumbsUp.setStyle("-fx-cursor: HAND");
-                thumbsUp.setOnMouseClicked(this::positif);
-            }
-            if (profileTableViewHistoric.firstImage && profileTableViewHistoric.secondImage) {
-                Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(1);
-                thumbsDown.setStyle("-fx-cursor: HAND");
-                thumbsDown.setOnMouseClicked(this::negatif);
-            } else if (profileTableViewHistoric.secondImage) {
-                Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(0);
-                thumbsDown.setStyle("-fx-cursor: HAND");
-                thumbsDown.setOnMouseClicked(this::negatif);
-            }
+            System.out.println(profileTableViewHistoric.toString());
+            Pane thumbsUp = (Pane) profileTableViewHistoric.actions.getChildren().get(0);
+            thumbsUp.setStyle("-fx-cursor: HAND");
+            thumbsUp.setOnMouseClicked(this::positif);
+            Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(1);
+            thumbsDown.setStyle("-fx-cursor: HAND");
+            thumbsDown.setOnMouseClicked(this::negatif);
+            System.out.println(profileTableViewHistoric.getActions().getChildren());
             profiles.add(profileTableViewHistoric);
         }
         if (profiles.isEmpty()) {
@@ -694,5 +686,9 @@ public class Edit_Profile_Controller {
         tableview_profile.setItems(profiles);
 
 
+    }
+
+    private void c(MouseEvent mouseEvent) {
+        System.out.println("here");
     }
 }

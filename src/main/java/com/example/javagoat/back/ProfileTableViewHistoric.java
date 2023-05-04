@@ -10,23 +10,20 @@ import static com.example.javagoat.back.ModelProfile.profileHashMap;
 public class ProfileTableViewHistoric {
 
     public int id;
-    public int priority;
     public ImageView imageView;
     public String firstname;
     public String lastname;
     public int age;
     public String gender;
     public HBox actions;
-    public Pane modify;
-    public Pane match;
-    public boolean firstImage = true;
-    public boolean secondImage = true;
-    public final ImageView thumbsUp = new ImageView(new Image("file:src/main/resources/com/example/javagoat/pouce-vers-le-haut.png"));
-    public final ImageView thumbsDown = new ImageView(new Image("file:src/main/resources/com/example/javagoat/pouce-vers-le-bas.png"));
+    public Pane positiveRate;
+    public Pane negativeRate;
+    public boolean voted = false;
+    public final ImageView thumbsUp = new ImageView(new Image("file:src/main/resources/com/example/javagoat/likeColor.png"));
+    public final ImageView thumbsDown = new ImageView(new Image("file:src/main/resources/com/example/javagoat/dislikeColor.png"));
 
-    public ProfileTableViewHistoric(int id, int significance, ImageView imageView, String firstname, String lastname, int age, String gender) {
+    public ProfileTableViewHistoric(int id, ImageView imageView, String firstname, String lastname, int age, String gender) {
         this.id = id;
-        this.priority = significance;
         this.imageView = imageView;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -36,9 +33,9 @@ public class ProfileTableViewHistoric {
         thumbsUp.setFitHeight(40);
         thumbsDown.setPreserveRatio(true);
         thumbsDown.setFitHeight(40);
-        this.modify = new Pane(thumbsUp);
-        this.match = new Pane(thumbsDown);
-        this.actions = new HBox(this.modify, this.match);
+        this.positiveRate = new Pane(thumbsUp);
+        this.negativeRate = new Pane(thumbsDown);
+        this.actions = new HBox(this.positiveRate, this.negativeRate);
     }
 
     public Profile toProfile() {
@@ -51,14 +48,6 @@ public class ProfileTableViewHistoric {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getPriority() {
-        return priority;
-    }
-
-    public void setPriority(int priority) {
-        this.priority = priority;
     }
 
     public ImageView getImageView() {
@@ -109,20 +98,20 @@ public class ProfileTableViewHistoric {
         this.actions = actions;
     }
 
-    public Pane getModify() {
-        return modify;
+    public Pane getPositiveRate() {
+        return positiveRate;
     }
 
-    public void setModify(Pane modify) {
-        this.modify = modify;
+    public void setPositiveRate(Pane positiveRate) {
+        this.positiveRate = positiveRate;
     }
 
-    public Pane getMatch() {
-        return match;
+    public Pane getNegativeRate() {
+        return negativeRate;
     }
 
-    public void setMatch(Pane match) {
-        this.match = match;
+    public void setNegativeRate(Pane negativeRate) {
+        this.negativeRate = negativeRate;
     }
 
     public ImageView getThumbsUp() {
@@ -131,5 +120,32 @@ public class ProfileTableViewHistoric {
 
     public ImageView getThumbsDown() {
         return thumbsDown;
+    }
+
+    public boolean isVoted() {
+        return voted;
+    }
+
+    public void setVoted(boolean voted) {
+        this.voted = voted;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("ProfileTableViewHistoric{");
+        sb.append("id=").append(id);
+        sb.append(", imageView=").append(imageView);
+        sb.append(", firstname='").append(firstname).append('\'');
+        sb.append(", lastname='").append(lastname).append('\'');
+        sb.append(", age=").append(age);
+        sb.append(", gender='").append(gender).append('\'');
+        sb.append(", actions=").append(actions);
+        sb.append(", positiveRate=").append(positiveRate);
+        sb.append(", negativeRate=").append(negativeRate);
+        sb.append(", voted=").append(voted);
+        sb.append(", thumbsUp=").append(thumbsUp);
+        sb.append(", thumbsDown=").append(thumbsDown);
+        sb.append('}');
+        return sb.toString();
     }
 }

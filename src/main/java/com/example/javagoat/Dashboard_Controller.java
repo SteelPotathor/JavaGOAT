@@ -232,14 +232,14 @@ public class Dashboard_Controller {
         new FadeInUpBig(tableView).play();
 
         new Swing(label_total_profiles).play();
-        PauseTransition secondAnimationText = new PauseTransition(Duration.seconds((delay - 0.005) * 2));
+        PauseTransition secondAnimationText = new PauseTransition(Duration.seconds(delay - 0.005));
         secondAnimationText.setOnFinished(e -> new Swing(label_today_matches).play());
         secondAnimationText.play();
-        PauseTransition thirdAnimationText = new PauseTransition(Duration.seconds((delay - 0.005) * 3));
+        PauseTransition thirdAnimationText = new PauseTransition(Duration.seconds((delay - 0.005) * 2));
         thirdAnimationText.setOnFinished(e -> new Swing(label_today_new_profiles).play());
         thirdAnimationText.play();
-        PauseTransition fourthAnimationText = new PauseTransition(Duration.seconds((delay - 0.005) * 2));
-        fourthAnimationText.setOnFinished(e -> new Swing(label_today_new_profiles).play());
+        PauseTransition fourthAnimationText = new PauseTransition(Duration.seconds((delay - 0.005) * 3));
+        fourthAnimationText.setOnFinished(e -> new Swing(label_today_events).play());
         fourthAnimationText.play();
     }
 
@@ -295,7 +295,6 @@ public class Dashboard_Controller {
         } else if (event.getSource() == events_pane) {
             events_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
         }
-        //modify the color of the panel from event
     }
 
     @FXML

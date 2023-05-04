@@ -21,8 +21,8 @@ public class Profile implements Serializable {
 
     public ImageView imageView;
     public int priority = 1; // Base priority value
-    public int positif=0;
-    public int total=0;
+    public int positif = 0;
+    public int total = 0;
 
 
     // Customised Profile -> Add Profile
@@ -125,7 +125,7 @@ public class Profile implements Serializable {
         img.setPreserveRatio(true);
         img.setFitHeight(40);
         img.setFitWidth(40);
-        return new ProfileTableViewHistoric(this.identity.noId, this.priority, img, this.identity.firstname, this.identity.lastname, this.identity.age, this.identity.Bsex.toString());
+        return new ProfileTableViewHistoric(this.identity.noId, img, this.identity.firstname, this.identity.lastname, this.identity.age, this.identity.Bsex.toString());
     }
 
     public float getDistance(Profile profile) {
@@ -213,7 +213,7 @@ public class Profile implements Serializable {
     }
 
     public double getRatio() {
-        return (double)(this.positif/this.total);
+        return (double) (this.positif / this.total) * 100;
     }
 
     public String toString() {
