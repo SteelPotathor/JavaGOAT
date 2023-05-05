@@ -1,5 +1,6 @@
 package com.example.javagoat;
 
+import animatefx.animation.FadeInUpBig;
 import com.calendarfx.model.Entry;
 import com.calendarfx.view.CalendarView;
 import javafx.fxml.FXML;
@@ -79,6 +80,7 @@ public class Calendar_Controller {
 
     @FXML
     public void initialize() {
+        early_animations();
         //calendar.addEntry(new Entry<>("Dentist")); // reglage à faire
     }
 
@@ -111,6 +113,12 @@ public class Calendar_Controller {
         //modify the color of the panel from event
 
     }
+
+    private void early_animations() {
+        new FadeInUpBig(calendar).play();
+    }
+
+
     @FXML
     void exit_script() {
         System.exit(0);
