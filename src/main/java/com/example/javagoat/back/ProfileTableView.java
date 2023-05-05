@@ -5,6 +5,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 
 import static com.example.javagoat.back.ModelProfile.profileHashMap;
 
@@ -24,7 +26,6 @@ public class ProfileTableView {
     public final ImageView logoMatch = new ImageView(new Image("file:src/main/resources/com/example/javagoat/aimer.png"));
 
 
-
     public ProfileTableView(int id, int significance, ImageView imageView, String firstname, String lastname, int age, String gender) {
         this.id = id;
         this.priority = significance;
@@ -37,9 +38,15 @@ public class ProfileTableView {
         logoModif.setFitHeight(40);
         logoMatch.setPreserveRatio(true);
         logoMatch.setFitHeight(40);
+        Region region1 = new Region();
+        HBox.setHgrow(region1, Priority.ALWAYS);
+        Region region2 = new Region();
+        HBox.setHgrow(region2, Priority.ALWAYS);
+        Region region3 = new Region();
+        HBox.setHgrow(region3, Priority.ALWAYS);
         this.modify = new Pane(logoModif);
         this.match = new Pane(logoMatch);
-        this.actions = new HBox(this.modify, this.match);
+        this.actions = new HBox(region1, this.modify, region2, this.match, region3);
     }
 
 

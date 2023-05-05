@@ -4,6 +4,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 
 import static com.example.javagoat.back.ModelProfile.profileHashMap;
 
@@ -33,9 +35,15 @@ public class ProfileTableViewHistoric {
         thumbsUp.setFitHeight(40);
         thumbsDown.setPreserveRatio(true);
         thumbsDown.setFitHeight(40);
+        Region region1 = new Region();
+        HBox.setHgrow(region1, Priority.ALWAYS);
+        Region region2 = new Region();
+        HBox.setHgrow(region2, Priority.ALWAYS);
+        Region region3 = new Region();
+        HBox.setHgrow(region3, Priority.ALWAYS);
         this.positiveRate = new Pane(thumbsUp);
         this.negativeRate = new Pane(thumbsDown);
-        this.actions = new HBox(this.positiveRate, this.negativeRate);
+        this.actions = new HBox(region1, this.positiveRate, region2, this.negativeRate, region3);
     }
 
     public Profile toProfile() {

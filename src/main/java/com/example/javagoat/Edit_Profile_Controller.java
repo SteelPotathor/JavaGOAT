@@ -208,7 +208,7 @@ public class Edit_Profile_Controller {
     private void positif(MouseEvent mouseEvent) {
         int i = 0;
         ProfileTableViewHistoric profileTableViewHistoric = tableview_profile.getItems().get(i);
-        while (i < tableview_profile.getItems().size() && !(profileTableViewHistoric.actions.getChildren().get(0).equals(mouseEvent.getSource()))) {
+        while (i < tableview_profile.getItems().size() && !(profileTableViewHistoric.actions.getChildren().get(1).equals(mouseEvent.getSource()))) {
             i++;
             profileTableViewHistoric = tableview_profile.getItems().get(i);
         }
@@ -224,7 +224,7 @@ public class Edit_Profile_Controller {
     private void negatif(MouseEvent mouseEvent) {
         int i = 0;
         ProfileTableViewHistoric profileTableViewHistoric = tableview_profile.getItems().get(i);
-        while (i < tableview_profile.getItems().size() && !(profileTableViewHistoric.actions.getChildren().get(1).equals(mouseEvent.getSource()))) {
+        while (i < tableview_profile.getItems().size() && !(profileTableViewHistoric.actions.getChildren().get(3).equals(mouseEvent.getSource()))) {
             i++;
             profileTableViewHistoric = tableview_profile.getItems().get(i);
         }
@@ -242,28 +242,24 @@ public class Edit_Profile_Controller {
 
     public void desactivateThumbsNeg(ProfileTableViewHistoric profileTableViewHistoric) {
         changeCursor(profileTableViewHistoric);
-        Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(1);
+        Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(3);
         ImageView imageDown = (ImageView) thumbsDown.getChildren().get(0);
-        imageDown.setPreserveRatio(true);
-        imageDown.setFitHeight(30);
         imageDown.setVisible(false);
         profileTableViewHistoric.voted = true;
     }
 
     public void desactivateThumbsPos(ProfileTableViewHistoric profileTableViewHistoric) {
         changeCursor(profileTableViewHistoric);
-        Pane thumbsUp = (Pane) profileTableViewHistoric.actions.getChildren().get(0);
+        Pane thumbsUp = (Pane) profileTableViewHistoric.actions.getChildren().get(1);
         ImageView imageUp = (ImageView) thumbsUp.getChildren().get(0);
-        imageUp.setPreserveRatio(true);
-        imageUp.setFitHeight(30);
         imageUp.setVisible(false);
         profileTableViewHistoric.voted = true;
     }
 
     public void changeCursor(ProfileTableViewHistoric profileTableViewHistoric) {
-        Pane thumbsUp = (Pane) profileTableViewHistoric.actions.getChildren().get(0);
+        Pane thumbsUp = (Pane) profileTableViewHistoric.actions.getChildren().get(1);
         thumbsUp.setStyle("-fx-cursor: NONE");
-        Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(1);
+        Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(3);
         thumbsDown.setStyle("-fx-cursor: NONE");
     }
 
@@ -671,10 +667,10 @@ public class Edit_Profile_Controller {
             Profile profileHash = modelMatch.modelP.getProfileHashMap().get(key);
             ProfileTableViewHistoric profileTableViewHistoric = profileHash.toProfileTableViewHistoric();
             System.out.println(profileTableViewHistoric.toString());
-            Pane thumbsUp = (Pane) profileTableViewHistoric.actions.getChildren().get(0);
+            Pane thumbsUp = (Pane) profileTableViewHistoric.actions.getChildren().get(1);
             thumbsUp.setStyle("-fx-cursor: HAND");
             thumbsUp.setOnMouseClicked(this::positif);
-            Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(1);
+            Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(3);
             thumbsDown.setStyle("-fx-cursor: HAND");
             thumbsDown.setOnMouseClicked(this::negatif);
             System.out.println(profileTableViewHistoric.getActions().getChildren());

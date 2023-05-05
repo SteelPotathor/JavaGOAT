@@ -85,89 +85,15 @@ public class Dashboard_Controller {
 
 
     @FXML
-    void change_scene_to_page_dashboard(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("home.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void change_scene_to_new_profile(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("new_profile.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void change_scene_to_page_search(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("search.fxml"));
-
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void change_scene_to_page_edit(Profile event) throws IOException {
-
-        // open new window
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("edit_profile.fxml"));
-        Parent root = loader.load();
-        // load the controller
-        Edit_Profile_Controller edit_profile_controller = loader.getController();
-        edit_profile_controller.set_profile(event);
-        Stage stage = new Stage();
-
-
-        stage.setScene(new Scene(root));
-        stage.show();
-
-    }
-
-    @FXML
-    void change_scene_to_page_matching(Profile event) throws IOException {
-        // open new window
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("matching_profiles.fxml"));
-        Parent root = loader.load();
-
-        Matching_Profiles_Controller matching_profiles_controller = loader.getController();
-        matching_profiles_controller.set_match(event);
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-
-    @FXML
-    void change_scene_to_page_calendar(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("calendar.fxml"));
-
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void change_scene_to_page_events(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("events.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
     void initialize() throws IOException {
         earlyAnimation(0.1);
         initTableView();
         firstFillTableView();
         initStats();
+        initNotification();
+    }
+
+    private void initNotification() {
         for (int i = 0; i < 100; i++) {
             list_view_notification.getItems().add("Notification " + i);
         }
@@ -191,8 +117,8 @@ public class Dashboard_Controller {
             Profile profile = modelProfile.getProfileHashMap().get(i);
             // The object in the tableview must match the columns attributes
             ProfileTableView profileTableView = profile.toProfileTableView();
-            Pane modify = (Pane) profileTableView.actions.getChildren().get(0);
-            Pane match = (Pane) profileTableView.actions.getChildren().get(1);
+            Pane modify = (Pane) profileTableView.actions.getChildren().get(1);
+            Pane match = (Pane) profileTableView.actions.getChildren().get(3);
             modify.setStyle("-fx-cursor: HAND");
             modify.setOnMouseClicked(this::edit);
             match.setStyle("-fx-cursor: HAND");
@@ -258,7 +184,7 @@ public class Dashboard_Controller {
         try {
             int i = 0;
             ProfileTableView profileTableView = tableView.getItems().get(i);
-            while (i < 20 && !(profileTableView.actions.getChildren().get(1).equals(mouseEvent.getSource()))) {
+            while (i < 20 && !(profileTableView.actions.getChildren().get(3).equals(mouseEvent.getSource()))) {
                 i++;
                 profileTableView = tableView.getItems().get(i);
             }
@@ -275,7 +201,7 @@ public class Dashboard_Controller {
         try {
             int i = 0;
             ProfileTableView profileTableView = tableView.getItems().get(i);
-            while (i < 20 && !(profileTableView.actions.getChildren().get(0).equals(mouseEvent.getSource()))) {
+            while (i < 20 && !(profileTableView.actions.getChildren().get(1).equals(mouseEvent.getSource()))) {
                 i++;
                 profileTableView = tableView.getItems().get(i);
             }
@@ -298,12 +224,6 @@ public class Dashboard_Controller {
         }
     }
 
-    @FXML
-    void exit_script() {
-        System.exit(0);
-    }
-
-
     public void unselectNavigation(MouseEvent mouseEvent) {
         if (mouseEvent.getSource() == calendar_pane) {
             calendar_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0)");
@@ -312,5 +232,78 @@ public class Dashboard_Controller {
         } else if (mouseEvent.getSource() == profile_pane) {
             profile_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0)");
         }
+    }
+
+    @FXML
+    void change_scene_to_page_dashboard(MouseEvent event) throws IOException {
+        parent = FXMLLoader.load(getClass().getResource("home.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void change_scene_to_new_profile(MouseEvent event) throws IOException {
+        parent = FXMLLoader.load(getClass().getResource("new_profile.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void change_scene_to_page_search(MouseEvent event) throws IOException {
+        parent = FXMLLoader.load(getClass().getResource("search.fxml"));
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void change_scene_to_page_edit(Profile event) throws IOException {
+
+        // open new window
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("edit_profile.fxml"));
+        Parent root = loader.load();
+        // load the controller
+        Edit_Profile_Controller edit_profile_controller = loader.getController();
+        edit_profile_controller.set_profile(event);
+        Stage stage = new Stage();
+
+        stage.setScene(new Scene(root));
+        stage.show();
+
+    }
+
+    @FXML
+    void change_scene_to_page_matching(Profile event) throws IOException {
+        // open new window
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("matching_profiles.fxml"));
+        Parent root = loader.load();
+
+        Matching_Profiles_Controller matching_profiles_controller = loader.getController();
+        matching_profiles_controller.set_match(event);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    @FXML
+    void change_scene_to_page_calendar(MouseEvent event) throws IOException {
+        parent = FXMLLoader.load(getClass().getResource("calendar.fxml"));
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void exit_script() {
+        System.exit(0);
     }
 }

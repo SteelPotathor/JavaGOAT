@@ -15,7 +15,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -156,8 +155,8 @@ public class Search_Controller {
             Profile profile = profileHashMap.get(i);
             // The object in the tableview must match the columns attributes
             ProfileTableView profileTableView = profile.toProfileTableView();
-            Pane modify = (Pane) profileTableView.actions.getChildren().get(0);
-            Pane match = (Pane) profileTableView.actions.getChildren().get(1);
+            Pane modify = (Pane) profileTableView.actions.getChildren().get(1);
+            Pane match = (Pane) profileTableView.actions.getChildren().get(3);
             modify.setStyle("-fx-cursor: HAND");
             modify.setOnMouseClicked(this::edit);
             match.setStyle("-fx-cursor: HAND");
@@ -341,8 +340,8 @@ public class Search_Controller {
         ObservableList<ProfileTableView> profiles = tableView.getItems();
         for (Profile profile : set) {
             ProfileTableView profileTableView = profile.toProfileTableView();
-            Pane modify = (Pane) profileTableView.actions.getChildren().get(0);
-            Pane match = (Pane) profileTableView.actions.getChildren().get(1);
+            Pane modify = (Pane) profileTableView.actions.getChildren().get(1);
+            Pane match = (Pane) profileTableView.actions.getChildren().get(3);
             modify.setOnMouseClicked(this::edit);
             match.setOnMouseClicked(this::match);
             profiles.add(profileTableView);
@@ -358,7 +357,7 @@ public class Search_Controller {
     public void match(MouseEvent mouseEvent) {
         int i = 0;
         ProfileTableView profileTableView = tableView.getItems().get(i);
-        while (i < profileHashMap.size() && !(profileTableView.actions.getChildren().get(1).equals(mouseEvent.getSource()))) {
+        while (i < profileHashMap.size() && !(profileTableView.actions.getChildren().get(3).equals(mouseEvent.getSource()))) {
             i++;
             profileTableView = tableView.getItems().get(i);
         }
@@ -375,7 +374,7 @@ public class Search_Controller {
     public void edit(MouseEvent mouseEvent) {
         int i = 0;
         ProfileTableView profileTableView = tableView.getItems().get(i);
-        while (i < profileHashMap.size() && !(profileTableView.actions.getChildren().get(0).equals(mouseEvent.getSource()))) {
+        while (i < profileHashMap.size() && !(profileTableView.actions.getChildren().get(1).equals(mouseEvent.getSource()))) {
             i++;
             profileTableView = tableView.getItems().get(i);
         }
@@ -384,6 +383,63 @@ public class Search_Controller {
             change_scene_to_page_edit(profile);
         } catch (IOException ioException) {
             ioException.printStackTrace();
+        }
+    }
+
+
+    @FXML
+    void show_advanced_research(MouseEvent event) {
+        advanced_research_panel_is_open = !advanced_research_panel_is_open;
+        if (advanced_research_panel_is_open) {
+            icon_to_show_or_hide_advanced_research_panel.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("minus.png"))));
+            animateAdvancedOptionsOpening();
+
+        } else {
+            icon_to_show_or_hide_advanced_research_panel.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("plus.png"))));
+            animateAdvancedOptionsClosing();
+
+        }
+        PauseTransition visiblePause = new PauseTransition(Duration.seconds(0.65));
+        PauseTransition visiblePause1 = new PauseTransition(Duration.seconds(0.65));
+        if (!advanced_research_panel_is_open) {
+            visiblePause.setOnFinished(e -> advanced_research_panel.setVisible(advanced_research_panel_is_open));
+            visiblePause1.setOnFinished(e -> advanced_research_panel1.setVisible(advanced_research_panel_is_open));
+            visiblePause.play();
+            visiblePause1.play();
+        } else {
+            advanced_research_panel.setVisible(advanced_research_panel_is_open);
+            advanced_research_panel1.setVisible(advanced_research_panel_is_open);
+        }
+    }
+
+    private void animateAdvancedOptionsClosing() {
+        new FadeOutRightBig(advanced_research_panel1).play();
+        new FadeOutRightBig(advanced_research_panel).play();
+    }
+
+    private void animateAdvancedOptionsOpening() {
+        new FadeInRightBig(advanced_research_panel1).play();
+        new FadeInRightBig(advanced_research_panel).play();
+    }
+
+    @FXML
+    void change_background_color(MouseEvent event) throws InterruptedException {
+        if (event.getSource() == dashboard_pane) {
+            dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
+        } else if (event.getSource() == profile_pane) {
+            profile_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
+        } else if (event.getSource() == calendar_pane) {
+            calendar_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
+        }
+    }
+
+    public void unselectNavigation(MouseEvent mouseEvent) {
+        if (mouseEvent.getSource() == dashboard_pane) {
+            dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0)");
+        } else if (mouseEvent.getSource() == calendar_pane) {
+            calendar_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0)");
+        } else if (mouseEvent.getSource() == profile_pane) {
+            profile_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0)");
         }
     }
 
@@ -424,67 +480,6 @@ public class Search_Controller {
     }
 
     @FXML
-    void change_scene_to_page_events(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("events.fxml")));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void show_advanced_research(MouseEvent event) throws IOException {
-        advanced_research_panel_is_open = !advanced_research_panel_is_open;
-        if (advanced_research_panel_is_open) {
-            icon_to_show_or_hide_advanced_research_panel.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("minus.png"))));
-            animateAdvancedOptionsOpening();
-
-        } else {
-            icon_to_show_or_hide_advanced_research_panel.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("plus.png"))));
-            //add the evenement when clicked on the icon
-            animateAdvancedOptionsClosing();
-
-        }
-        PauseTransition visiblePause = new PauseTransition(Duration.seconds(0.65));
-        PauseTransition visiblePause1 = new PauseTransition(Duration.seconds(0.65));
-        if (!advanced_research_panel_is_open) {
-            visiblePause.setOnFinished(e -> advanced_research_panel.setVisible(advanced_research_panel_is_open));
-            visiblePause1.setOnFinished(e -> advanced_research_panel1.setVisible(advanced_research_panel_is_open));
-            visiblePause.play();
-            visiblePause1.play();
-        } else {
-            advanced_research_panel.setVisible(advanced_research_panel_is_open);
-            advanced_research_panel1.setVisible(advanced_research_panel_is_open);
-        }
-    }
-
-    private void animateAdvancedOptionsClosing() {
-        new FadeOutRightBig(advanced_research_panel1).play();
-        new FadeOutRightBig(advanced_research_panel).play();
-    }
-
-    private void animateAdvancedOptionsOpening() {
-        new FadeInRightBig(advanced_research_panel1).play();
-        new FadeInRightBig(advanced_research_panel).play();
-    }
-
-    @FXML
-    void exit_script() {
-        System.exit(0);
-    }
-
-    @FXML
-    void change_background_color(MouseEvent event) throws InterruptedException {
-        if (event.getSource() == dashboard_pane) {
-            dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
-        } else if (event.getSource() == profile_pane) {
-            profile_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
-        }  else if (event.getSource() == calendar_pane) {
-            calendar_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
-        }
-    }
-
-    @FXML
     void change_scene_to_page_edit(Profile profile) throws IOException {
         // open new window
         FXMLLoader loader = new FXMLLoader(getClass().getResource("edit_profile.fxml"));
@@ -510,15 +505,9 @@ public class Search_Controller {
         stage.show();
     }
 
-
-    public void unselectNavigation(MouseEvent mouseEvent) {
-        if (mouseEvent.getSource() == dashboard_pane) {
-            dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0)");
-        } else if (mouseEvent.getSource() == calendar_pane) {
-            calendar_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0)");
-        } else if (mouseEvent.getSource() == profile_pane) {
-            profile_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0)");
-        }
+    @FXML
+    void exit_script() {
+        System.exit(0);
     }
 }
 
