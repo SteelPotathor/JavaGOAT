@@ -134,15 +134,14 @@ public class Matching_Profiles_Controller {
                     modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(4));
         }
 
+        Stage stage = (Stage) mouseEvent.getPickResult().getIntersectedNode().getScene().getWindow();
+        // do what you have to do
+        stage.close();
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
         alert.setHeaderText("Match added");
         alert.setContentText("The match has been successfully added");
         alert.showAndWait();
-
-
-        Stage stage = (Stage) mouseEvent.getPickResult().getIntersectedNode().getScene().getWindow();
-        // do what you have to do
-        stage.close();
     }
 }

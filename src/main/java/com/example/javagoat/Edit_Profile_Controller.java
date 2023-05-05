@@ -461,12 +461,6 @@ public class Edit_Profile_Controller {
             Image image = imagePattern.getImage();
             ImageView imageView = new ImageView(image);
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information Dialog");
-            alert.setHeaderText("Profile edited");
-            alert.setContentText("Your profile has been successfully edited");
-            alert.showAndWait();
-
             modelMatch.modelP.getProfileHashMap().get(idProfile).setPhysicalAttributes(physicalAttributes);
             modelMatch.modelP.getProfileHashMap().get(idProfile).setLifeStyle(lifeStyle);
             modelMatch.modelP.getProfileHashMap().get(idProfile).setPreferences(preferences);
@@ -477,6 +471,12 @@ public class Edit_Profile_Controller {
             Stage stage = (Stage) button_create_profile.getScene().getWindow();
             // do what you have to do
             stage.close();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText("Profile edited");
+            alert.setContentText("Your profile has been successfully edited");
+            alert.showAndWait();
         }
 
     }
