@@ -51,6 +51,22 @@ public class New_Profile_Controller {
     //Image to put in circle
     @FXML
     private Circle circle_profile_picture;
+
+    //CIRCLE FOR ONGLETS
+
+    @FXML
+    private Circle circle_personnal;
+    @FXML
+    private Circle circle_preferences;
+    @FXML
+    private Circle circle_life_style;
+    @FXML
+    private Circle circle_physical;
+    @FXML
+    private Circle circle_other;
+
+
+
     //ALL THE CHOICEBOXES PERSONNAL INFORMATION
     @FXML
     private ChoiceBox<String> choicebox_ethnicity;
