@@ -65,7 +65,7 @@
       </ImageView>
         <AnchorPane layoutX="464.0" layoutY="221.0" prefHeight="140.0" prefWidth="140.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;">
             <children>
-                <Circle fx:id="circleProfilePictureCenter" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" onMouseEntered="#centerCursor" radius="71.0" stroke="WHITE" strokeType="INSIDE"/>
+                <Circle fx:id="circleProfilePictureCenter" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE"/>
             </children>
         </AnchorPane>
         <AnchorPane layoutX="808.0" layoutY="78.0" prefHeight="140.0" prefWidth="140.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;">

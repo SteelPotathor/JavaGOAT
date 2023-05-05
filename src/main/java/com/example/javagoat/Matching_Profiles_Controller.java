@@ -145,10 +145,6 @@ public class Matching_Profiles_Controller {
         alert.showAndWait();
     }
 
-    @FXML
-    void centerCursor() {
-        circleProfilePictureCenter.setStyle("-fx-cursor: HAND");
-    }
 
     @FXML
     void SWCursor() {
@@ -174,4 +170,5 @@ public class Matching_Profiles_Controller {
     void SCursor() {
         circleProfilePictureS.setStyle("-fx-cursor: HAND");
     }
+    
 }
