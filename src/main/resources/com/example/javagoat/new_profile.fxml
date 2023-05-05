@@ -135,33 +135,58 @@
                   <Font size="35.0" />
                </font>
             </Button>
-            <Pane fx:id="topRectangle" layoutX="36.0" layoutY="7.0" prefHeight="101.0" prefWidth="417.0" style="-fx-border-color: white; -fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 20; -fx-border-radius: 20;">
+            <Pane fx:id="topRectangle" layoutX="36.0" layoutY="7.0" prefHeight="101.0" prefWidth="454.0" style="-fx-border-color: white; -fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 20; -fx-border-radius: 20;">
                <children>
                   <HBox layoutX="14.0" layoutY="18.0" prefHeight="24.0" prefWidth="624.0">
                      <children>
+                        <Circle fx:id="circle_personnal" fill="RED" radius="13.0" stroke="BLACK" strokeType="INSIDE">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Circle>
                         <Button fx:id="button_personnal_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_button" prefHeight="24.0" prefWidth="105.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: rgba(255,255,255,0.7);" text="Personnal" textAlignment="CENTER">
                            <HBox.margin>
-                              <Insets right="20.0" />
+                              <Insets right="5.0" />
                            </HBox.margin>
                         </Button>
+                        <Circle fx:id="circle_preferences" fill="RED" radius="13.0" stroke="BLACK" strokeType="INSIDE">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Circle>
                         <Button fx:id="button_preferences_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_button" prefHeight="24.0" prefWidth="105.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: rgba(255,255,255,0.3);;" text="Preferences" textAlignment="CENTER" />
                      </children>
                   </HBox>
                   <HBox layoutX="14.0" layoutY="58.0" prefHeight="24.0" prefWidth="624.0">
                      <children>
+                        <Circle fx:id="circle_life_style" fill="RED" radius="13.0" stroke="BLACK" strokeType="INSIDE">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Circle>
                         <Button fx:id="button_lifestyle_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_style" prefHeight="24.0" prefWidth="105.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: rgba(255,255,255,0.7);" text="Lifestyle" textAlignment="CENTER">
                            <HBox.margin>
-                              <Insets right="20.0" />
+                              <Insets right="5.0" />
                            </HBox.margin>
                         </Button>
+                        <Circle fx:id="circle_physical" fill="RED" radius="13.0" stroke="BLACK" strokeType="INSIDE">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Circle>
                         <Button fx:id="button_physical_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_style" prefHeight="24.0" prefWidth="105.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: rgba(255,255,255,0.3);;" text="Physical" textAlignment="CENTER">
                            <HBox.margin>
-                              <Insets right="20.0" />
+                              <Insets right="5.0" />
                            </HBox.margin>
                         </Button>
+                        <Circle fx:id="circle_other" fill="RED" radius="13.0" stroke="BLACK" strokeType="INSIDE">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </Circle>
                         <Button fx:id="button_passions_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_style" prefHeight="24.0" prefWidth="105.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: rgba(255,255,255,0.3);;" text="Other" textAlignment="CENTER">
                            <HBox.margin>
-                              <Insets right="20.0" />
+                              <Insets right="5.0" />
                            </HBox.margin>
                         </Button>
                      </children>
