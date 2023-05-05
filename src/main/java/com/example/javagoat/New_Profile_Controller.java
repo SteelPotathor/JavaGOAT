@@ -52,6 +52,8 @@ public class New_Profile_Controller {
     //Image to put in circle
     @FXML
     private Circle circle_profile_picture;
+    @FXML
+    private Pane newImageSelector;
 
     //CIRCLE FOR ONGLETS
 
