@@ -169,7 +169,7 @@ public class Dashboard_Controller {
         label_total_profiles.setText(String.valueOf(modelMatch.getModelP().getProfileHashMap().size()));
         label_today_matches.setText("0");
         label_today_events.setText("4");
-        label_today_new_profiles.setText("0");
+        label_today_new_profiles.setText(String.valueOf(modelMatch.getCreateCounter()));
     }
 
     private void firstFillTableView() {
