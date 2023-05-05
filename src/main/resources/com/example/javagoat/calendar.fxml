@@ -15,7 +15,7 @@
             <Image url="@icons8-cross-50.png" />
          
       </ImageView>
-      <CalendarView fx:id="calendrier" layoutX="234.0" layoutY="50.0" prefHeight="616.0" prefWidth="1178.0" />
+      <CalendarView fx:id="calendar" layoutX="234.0" layoutY="50.0" prefHeight="616.0" prefWidth="1178.0" />
       <Pane prefHeight="699.0" prefWidth="228.0" style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 0.0% 100.0%, #003eb2 0.0%, #8c00ff 100.0%);" stylesheets="@style.css">
          <children>
             <ImageView fitHeight="199.0" fitWidth="199.0" layoutY="44.0" preserveRatio="true">
