@@ -30,8 +30,8 @@ public class HelloApplication extends Application {
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("home.fxml"));
+            //add css
             Scene scene = new Scene(fxmlLoader.load());
-
             stage.setTitle("Application");
             stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(scene);

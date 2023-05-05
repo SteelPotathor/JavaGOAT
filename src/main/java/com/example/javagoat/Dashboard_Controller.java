@@ -15,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -53,6 +54,8 @@ public class Dashboard_Controller {
     private TableColumn<ProfileTableView, String> gender;
     @FXML
     private TableColumn<ProfileTableView, String> actions;
+    @FXML
+    private ListView<String> list_view_notification;
     @FXML
     private VBox notif;
     @FXML
@@ -102,7 +105,9 @@ public class Dashboard_Controller {
     @FXML
     void change_scene_to_page_search(MouseEvent event) throws IOException {
         parent = FXMLLoader.load(getClass().getResource("search.fxml"));
+
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
         scene = new Scene(parent);
         stage.setScene(scene);
         stage.show();
@@ -115,10 +120,11 @@ public class Dashboard_Controller {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("edit_profile.fxml"));
         Parent root = loader.load();
         // load the controller
-
         Edit_Profile_Controller edit_profile_controller = loader.getController();
         edit_profile_controller.set_profile(event);
         Stage stage = new Stage();
+
+
         stage.setScene(new Scene(root));
         stage.show();
 
@@ -140,6 +146,7 @@ public class Dashboard_Controller {
     @FXML
     void change_scene_to_page_calendar(MouseEvent event) throws IOException {
         parent = FXMLLoader.load(getClass().getResource("calendar.fxml"));
+
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -161,6 +168,9 @@ public class Dashboard_Controller {
         initTableView();
         firstFillTableView();
         initStats();
+        for (int i = 0; i < 100; i++) {
+            list_view_notification.getItems().add("Notification " + i);
+        }
         dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
     }
 
