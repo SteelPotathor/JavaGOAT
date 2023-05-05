@@ -26,6 +26,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.util.PriorityQueue;
 
 import static com.example.javagoat.back.ModelProfile.profileHashMap;
 
@@ -113,21 +114,19 @@ public class Dashboard_Controller {
     private void firstFillTableView() {
         ObservableList<ProfileTableView> profiles = tableView.getItems();
         ModelProfile modelProfile = new ModelProfile();
-
+        PriorityQueue<Profile> priorityQueue = modelProfile.toPriorityQueue();
         // Putting some profiles in the tableView
-        for (int i = 1; i < profileHashMap.size() + 1; i++) {
-            Profile profile = modelProfile.getProfileHashMap().get(i);
-            if (profile.priority == 1) {
-                // The object in the tableview must match the columns attributes
-                ProfileTableView profileTableView = profile.toProfileTableView();
-                Pane modify = (Pane) profileTableView.actions.getChildren().get(1);
-                Pane match = (Pane) profileTableView.actions.getChildren().get(3);
-                modify.setStyle("-fx-cursor: HAND");
-                modify.setOnMouseClicked(this::edit);
-                match.setStyle("-fx-cursor: HAND");
-                match.setOnMouseClicked(this::match);
-                profiles.add(profileTableView);
-            }
+        Profile profile = priorityQueue.poll();
+        while (profile.getPriority() == 1 && !priorityQueue.isEmpty() && priorityQueue.size() > 450) {
+            ProfileTableView profileTableView = profile.toProfileTableView();
+            Pane modify = (Pane) profileTableView.actions.getChildren().get(1);
+            Pane match = (Pane) profileTableView.actions.getChildren().get(3);
+            modify.setStyle("-fx-cursor: HAND");
+            modify.setOnMouseClicked(this::edit);
+            match.setStyle("-fx-cursor: HAND");
+            match.setOnMouseClicked(this::match);
+            profiles.add(profileTableView);
+            profile = priorityQueue.poll();
         }
         tableView.setItems(profiles);
     }

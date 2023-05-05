@@ -10,6 +10,11 @@ public class ModelProfile {
     public ModelProfile() {
     }
 
+    public PriorityQueue<Profile> toPriorityQueue() {
+        PriorityQueue<Profile> priorityQueue = new PriorityQueue<>(profileHashMap.values());
+        return priorityQueue;
+    }
+
     public Set<String> getAllLastName() {
         Set<String> set = new HashSet<>();
         set.addAll(this.profileHashMap.values().stream()
@@ -123,12 +128,10 @@ public class ModelProfile {
             Profile p = new Profile();
             p.setRandomProfileExceptName("Alma", "Katherine");
             modelMatch.addProfile(p);      }
-        System.out.println(correspondingName("Alm", "Katherine"));
-        List<String> list = new ArrayList<>();
-        list.add("straight");
-        list.add("curly");
-        System.out.println(list);
-        System.out.println(modelMatch.modelP.searchHairType(list));
+        PriorityQueue<Profile> pq = modelMatch.modelP.toPriorityQueue();
+        while (!pq.isEmpty()) {
+            System.out.println(pq.poll().toString());
+        }
     }
 
 }

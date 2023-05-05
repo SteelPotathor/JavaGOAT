@@ -6,7 +6,7 @@ import javafx.scene.image.ImageView;
 import java.io.Serializable;
 
 
-public class Profile implements Serializable {
+public class Profile implements Serializable, Comparable<Profile> {
 
     public Identity identity;
     public PhysicalAttributes physicalAttributes;
@@ -232,7 +232,13 @@ public class Profile implements Serializable {
         return this.total == 0 ? 0 : (double) (this.positif / this.total) * 100;
     }
 
+
     public String toString() {
         return " (" + this.getIdentity() + " | " + this.getPhysicalAttributes() + " | " + this.getLifeStyle() + ") ";
+    }
+
+    @Override
+    public int compareTo(Profile o) {
+        return this.getPriority() - o.getPriority();
     }
 }
