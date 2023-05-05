@@ -1,6 +1,8 @@
 package com.example.javagoat;
 
-import animatefx.animation.*;
+import animatefx.animation.FadeInDown;
+import animatefx.animation.FadeInUpBig;
+import animatefx.animation.Swing;
 import com.example.javagoat.back.ModelMatch;
 import com.example.javagoat.back.ModelProfile;
 import com.example.javagoat.back.Profile;
@@ -9,7 +11,6 @@ import javafx.animation.PauseTransition;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -62,8 +63,6 @@ public class Dashboard_Controller {
     private Pane search_pane;
     @FXML
     private Pane calendar_pane;
-    @FXML
-    private Pane events_pane;
     @FXML
     public Pane first_stat_box;
     @FXML
@@ -162,6 +161,7 @@ public class Dashboard_Controller {
         initTableView();
         firstFillTableView();
         initStats();
+        dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
     }
 
 
@@ -279,21 +279,12 @@ public class Dashboard_Controller {
 
     @FXML
     void change_background_color(MouseEvent event) throws InterruptedException {
-        dashboard_pane.setStyle("-fx-background-color:  transparent");
-        profile_pane.setStyle("-fx-background-color:  transparent");
-        search_pane.setStyle("-fx-background-color:  transparent");
-        calendar_pane.setStyle("-fx-background-color:  transparent");
-        events_pane.setStyle("-fx-background-color:  transparent");
-        if (event.getSource() == dashboard_pane) {
-            dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
-        } else if (event.getSource() == profile_pane) {
+        if (event.getSource() == profile_pane) {
             profile_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
         } else if (event.getSource() == search_pane) {
             search_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
         } else if (event.getSource() == calendar_pane) {
             calendar_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
-        } else if (event.getSource() == events_pane) {
-            events_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
         }
     }
 
@@ -303,4 +294,13 @@ public class Dashboard_Controller {
     }
 
 
+    public void unselectNavigation(MouseEvent mouseEvent) {
+        if (mouseEvent.getSource() == calendar_pane) {
+            calendar_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0)");
+        } else if (mouseEvent.getSource() == search_pane) {
+            search_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0)");
+        } else if (mouseEvent.getSource() == profile_pane) {
+            profile_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0)");
+        }
+    }
 }

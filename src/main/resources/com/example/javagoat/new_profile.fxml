@@ -563,7 +563,7 @@
             </ImageView>
             <VBox layoutY="278.0" prefHeight="407.0" prefWidth="228.0">
                <children>
-                  <Pane fx:id="dashboard_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_dashboard" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0">
+                  <Pane fx:id="dashboard_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_dashboard" onMouseEntered="#change_background_color" onMouseExited="#unselectNavigation" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -573,7 +573,7 @@
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" />
                      </children>
                   </Pane>
-                  <Pane fx:id="profile_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_new_profile" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0">
+                  <Pane fx:id="profile_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_new_profile" onMouseEntered="#change_background_color" onMouseExited="#unselectNavigation" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -583,7 +583,7 @@
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New profile" />
                      </children>
                   </Pane>
-                  <Pane fx:id="search_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_search" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0">
+                  <Pane fx:id="search_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_search" onMouseEntered="#change_background_color" onMouseExited="#unselectNavigation" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -593,7 +593,7 @@
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" />
                      </children>
                   </Pane>
-                  <Pane fx:id="calendar_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_calendar" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0">
+                  <Pane fx:id="calendar_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_calendar" onMouseEntered="#change_background_color" onMouseExited="#unselectNavigation" prefHeight="69.0" prefWidth="228.0">
                      <children>
                         <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -601,16 +601,6 @@
                            </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calendar" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="events_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_events" onMouseMoved="#change_background_color" prefHeight="69.0" prefWidth="228.0" visible="false">
-                     <children>
-                        <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@retour-dinformation.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Events" />
                      </children>
                   </Pane>
                </children>

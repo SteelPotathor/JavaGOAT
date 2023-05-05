@@ -30,8 +30,6 @@ public class Calendar_Controller {
     private Pane search_pane;
     @FXML
     private Pane calendar_pane;
-    @FXML
-    private Pane events_pane;
 
     @FXML
     private CalendarView calendar;
@@ -69,49 +67,12 @@ public class Calendar_Controller {
         stage.setScene(scene);
         stage.show();
     }
-    @FXML
-    void change_scene_to_page_events(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("events.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
 
     @FXML
     public void initialize() {
+        calendar_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
         early_animations();
         //calendar.addEntry(new Entry<>("Dentist")); // reglage à faire
-    }
-
-    @FXML
-    void change_background_color(MouseEvent event) throws InterruptedException {
-
-        dashboard_pane.setStyle("-fx-background-color:  transparent");
-        profile_pane.setStyle("-fx-background-color:  transparent");
-        search_pane.setStyle("-fx-background-color:  transparent");
-        calendar_pane.setStyle("-fx-background-color:  transparent");
-        if (event.getSource() == dashboard_pane) {
-
-            dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
-        }
-        else if (event.getSource() == profile_pane) {
-            profile_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
-        }
-        else if (event.getSource() == search_pane) {
-            search_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
-        }
-        else if (event.getSource() == calendar_pane) {
-            calendar_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
-        }
-        else if (event.getSource() == events_pane) {
-            events_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
-        }
-
-
-
-        //modify the color of the panel from event
-
     }
 
     private void early_animations() {
@@ -125,4 +86,25 @@ public class Calendar_Controller {
     }
 
 
+    @FXML
+    void change_background_color(MouseEvent event) throws InterruptedException {
+        if (event.getSource() == dashboard_pane) {
+            dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
+        } else if (event.getSource() == search_pane) {
+            search_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
+        } else if (event.getSource() == profile_pane) {
+            profile_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
+        }
+    }
+
+    @FXML
+    void unselectNavigation(MouseEvent mouseEvent) {
+        if (mouseEvent.getSource() == dashboard_pane) {
+            dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0)");
+        } else if (mouseEvent.getSource() == search_pane) {
+            search_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0)");
+        } else if (mouseEvent.getSource() == profile_pane) {
+            profile_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0)");
+        }
+    }
 }

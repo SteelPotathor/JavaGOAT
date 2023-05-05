@@ -47,8 +47,6 @@ public class New_Profile_Controller {
     private Pane search_pane;
     @FXML
     private Pane calendar_pane;
-    @FXML
-    private Pane events_pane;
 
     //Image to put in circle
     @FXML
@@ -196,6 +194,7 @@ public class New_Profile_Controller {
         initAllPersonnalInfo();
         initAllPreferencesInfo();
         initImage();
+        profile_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
     }
 
     private void earlyAnimations() {
@@ -506,29 +505,29 @@ public class New_Profile_Controller {
                 grid_physical_information_preferences.setVisible(false);
                 grid_passions_preferences.setVisible(true);
             }
-
         }
     }
 
 
     @FXML
     void change_background_color(MouseEvent event) throws InterruptedException {
-
-        dashboard_pane.setStyle("-fx-background-color:  transparent");
-        profile_pane.setStyle("-fx-background-color:  transparent");
-        search_pane.setStyle("-fx-background-color:  transparent");
-        calendar_pane.setStyle("-fx-background-color:  transparent");
         if (event.getSource() == dashboard_pane) {
-
             dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
-        } else if (event.getSource() == profile_pane) {
-            profile_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
         } else if (event.getSource() == search_pane) {
             search_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
         } else if (event.getSource() == calendar_pane) {
             calendar_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
-        } else if (event.getSource() == events_pane) {
-            events_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
+        }
+    }
+
+    @FXML
+    void unselectNavigation(MouseEvent mouseEvent) {
+        if (mouseEvent.getSource() == dashboard_pane) {
+            dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0)");
+        } else if (mouseEvent.getSource() == search_pane) {
+            search_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0)");
+        } else if (mouseEvent.getSource() == calendar_pane) {
+            calendar_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0)");
         }
     }
 
