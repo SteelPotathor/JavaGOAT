@@ -25,6 +25,7 @@ public class HelloApplication extends Application {
             modelM.addProfile(profile);
         }
 
+        ModelMatch.createCounter = 0;
         modelM.modelP.getProfileHashMap().get(1).modelHisto.addMatch(modelM.modelP.getProfileHashMap().get(1), modelM.modelP.getProfileHashMap().get(2));
 
         try {
