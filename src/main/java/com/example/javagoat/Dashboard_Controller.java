@@ -27,6 +27,8 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 
+import static com.example.javagoat.back.ModelProfile.profileHashMap;
+
 public class Dashboard_Controller {
 
     ModelMatch modelMatch = new ModelMatch();
@@ -113,17 +115,19 @@ public class Dashboard_Controller {
         ModelProfile modelProfile = new ModelProfile();
 
         // Putting some profiles in the tableView
-        for (int i = 1; i < 21; i++) {
+        for (int i = 1; i < profileHashMap.size() + 1; i++) {
             Profile profile = modelProfile.getProfileHashMap().get(i);
-            // The object in the tableview must match the columns attributes
-            ProfileTableView profileTableView = profile.toProfileTableView();
-            Pane modify = (Pane) profileTableView.actions.getChildren().get(1);
-            Pane match = (Pane) profileTableView.actions.getChildren().get(3);
-            modify.setStyle("-fx-cursor: HAND");
-            modify.setOnMouseClicked(this::edit);
-            match.setStyle("-fx-cursor: HAND");
-            match.setOnMouseClicked(this::match);
-            profiles.add(profileTableView);
+            if (profile.priority == 1) {
+                // The object in the tableview must match the columns attributes
+                ProfileTableView profileTableView = profile.toProfileTableView();
+                Pane modify = (Pane) profileTableView.actions.getChildren().get(1);
+                Pane match = (Pane) profileTableView.actions.getChildren().get(3);
+                modify.setStyle("-fx-cursor: HAND");
+                modify.setOnMouseClicked(this::edit);
+                match.setStyle("-fx-cursor: HAND");
+                match.setOnMouseClicked(this::match);
+                profiles.add(profileTableView);
+            }
         }
         tableView.setItems(profiles);
     }
@@ -141,6 +145,7 @@ public class Dashboard_Controller {
 
     public void earlyAnimation(double delay) {
         new FadeInDown(first_stat_box).play();
+
         second_stat_box.setVisible(false);
         PauseTransition visiblePauseSecondVisible = new PauseTransition(Duration.seconds(delay));
         visiblePauseSecondVisible.setOnFinished(e -> second_stat_box.setVisible(true));

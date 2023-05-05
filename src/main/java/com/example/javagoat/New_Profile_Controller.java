@@ -1,9 +1,15 @@
 package com.example.javagoat;
 
-import animatefx.animation.*;
+import animatefx.animation.FadeInDownBig;
+import animatefx.animation.FadeInLeftBig;
+import animatefx.animation.FadeInRightBig;
+import animatefx.animation.FadeInUpBig;
 import com.example.javagoat.back.*;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
@@ -16,6 +22,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -58,7 +65,7 @@ public class New_Profile_Controller {
     //CIRCLE FOR ONGLETS
 
     @FXML
-    private Circle circle_personnal;
+    private Circle circlePersonal;
     @FXML
     private Circle circle_preferences;
     @FXML
@@ -67,7 +74,6 @@ public class New_Profile_Controller {
     private Circle circle_physical;
     @FXML
     private Circle circle_other;
-
 
 
     //ALL THE CHOICEBOXES PERSONNAL INFORMATION
@@ -130,7 +136,7 @@ public class New_Profile_Controller {
     @FXML
     private Button button_create_profile;
     @FXML
-    private Button button_personnal_information;
+    private Button buttonPersonalInformation;
     @FXML
     private Button button_preferences_information;
     @FXML
@@ -209,8 +215,25 @@ public class New_Profile_Controller {
         initAllPersonnalInfo();
         initAllPreferencesInfo();
         initImage();
+        initListenerCheckComboBox();
         profile_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
     }
+
+    private void initListenerCheckComboBox() {
+        video_games_checkcombobox.getCheckModel().getCheckedItems().addListener(new InvalidationListener() {
+            @Override
+            public void invalidated(Observable observable) {
+                circlePersonalOther();
+            }
+        });
+        miscellanious_checkcombobox.getCheckModel().getCheckedItems().addListener(new InvalidationListener() {
+            @Override
+            public void invalidated(Observable observable) {
+                circlePersonalOther();
+            }
+        });
+    }
+
 
     private void earlyAnimations() {
         new FadeInLeftBig(leftRectangle).play();
@@ -312,57 +335,6 @@ public class New_Profile_Controller {
         miscellanious_checkcombobox.getItems().addAll(element_miscellanious);
     }
 
-    @FXML
-    void change_scene_to_page_dashboard(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("home.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void change_scene_to_new_profile(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("new_profile.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void change_scene_to_page_search(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("search.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void change_scene_to_page_calendar(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("calendar.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void change_scene_to_page_events(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("events.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-
-    @FXML
-    void exit_script() {
-        System.exit(0);
-    }
-
 
     @FXML
     void validate_profil() {
@@ -438,7 +410,7 @@ public class New_Profile_Controller {
         if (event.getSource() == button_preferences_information) {
             button_preferences_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
 
-            button_personnal_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
+            buttonPersonalInformation.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
 
 
@@ -457,7 +429,7 @@ public class New_Profile_Controller {
 
 
         } else {
-            button_personnal_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
+            buttonPersonalInformation.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_preferences_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50");
             button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
 
@@ -563,6 +535,178 @@ public class New_Profile_Controller {
     @FXML
     private void newImageCursor() {
         newImageSelector.setCursor(Cursor.HAND);
+    }
+
+    boolean personnalLifestyle = false;
+    boolean personnalPhysical = false;
+    boolean personnalOther = false;
+    boolean preferencesLifestyle = false;
+    boolean preferencesPhysical = false;
+    boolean preferencesOther = false;
+
+    public void checkPersonalLifeStyle(ActionEvent actionEvent) {
+        circlePersonalLifestyle();
+    }
+
+    private void circlePersonalLifestyle() {
+        if (Smoker_choicebox.getSelectionModel().getSelectedItem() != null && feed_choicebox.getSelectionModel().getSelectedItem() != null && Athlete_choicebox.getSelectionModel().getSelectedItem() != null && alcohol_choicebox.getSelectionModel().getSelectedItem() != null) {
+            if (!Smoker_choicebox.getSelectionModel().getSelectedItem().equals("Select") && !feed_choicebox.getSelectionModel().getSelectedItem().equals("Select") && !Athlete_choicebox.getSelectionModel().getSelectedItem().equals("Select") && !alcohol_choicebox.getSelectionModel().getSelectedItem().equals("Select")) {
+                circle_life_style.setFill(Paint.valueOf("green"));
+                personnalLifestyle = true;
+            } else {
+                circle_life_style.setFill(Paint.valueOf("red"));
+                personnalLifestyle = false;
+            }
+            personalColor();
+        }
+    }
+
+    public void checkPersonalPhysical(ActionEvent actionEvent) {
+        circlePersonalPhysical();
+    }
+
+    private void circlePersonalPhysical() {
+        if (bodybuild_choicebox.getSelectionModel().getSelectedItem() != null && choicebox_ethnicity.getSelectionModel().getSelectedItem() != null && hair_type_choicebox.getSelectionModel().getSelectedItem() != null && hair_length_choicebox.getSelectionModel().getSelectedItem() != null && color_of_hair_choicebox.getSelectionModel().getSelectedItem() != null) {
+            if (!bodybuild_choicebox.getSelectionModel().getSelectedItem().equals("Select") && !choicebox_ethnicity.getSelectionModel().getSelectedItem().equals("Select") && !hair_type_choicebox.getSelectionModel().getSelectedItem().equals("Select") && !hair_length_choicebox.getSelectionModel().getSelectedItem().equals("Select") && !color_of_hair_choicebox.getSelectionModel().getSelectedItem().equals("Select")) {
+                circle_physical.setFill(Paint.valueOf("green"));
+                personnalPhysical = true;
+            } else {
+                circle_physical.setFill(Paint.valueOf("red"));
+                personnalPhysical = false;
+            }
+            personalColor();
+        }
+    }
+
+    public void checkPersonalOther(ActionEvent mouseEvent) {
+        circlePersonalOther();
+    }
+
+    private void circlePersonalOther() {
+        if (religion_choicebox.getSelectionModel().getSelectedItem() != null) {
+            if (video_games_checkcombobox.getCheckModel().getCheckedItems().get(0) != null && miscellanious_checkcombobox.getCheckModel().getCheckedItems().get(0) != null && !religion_choicebox.getSelectionModel().getSelectedItem().equals("Select")) {
+                circle_other.setFill(Paint.valueOf("green"));
+                personnalOther = true;
+            } else {
+                circle_other.setFill(Paint.valueOf("red"));
+                personnalOther = false;
+            }
+            personalColor();
+        }
+    }
+
+    void personalColor() {
+        if (personnalLifestyle && personnalPhysical && personnalOther) {
+            circlePersonal.setFill(Paint.valueOf("green"));
+        } else {
+            circlePersonal.setFill(Paint.valueOf("red"));
+        }
+    }
+
+    public void changeCircleColorNewTab(MouseEvent mouseEvent) {
+        if (mouseEvent.getSource() == button_preferences_information) {
+            circlePreferencesLifeStyle();
+            circlePreferencesPhysical();
+            circlePreferencesOther();
+        } else if (mouseEvent.getSource() == buttonPersonalInformation) {
+            circlePersonalLifestyle();
+            circlePersonalPhysical();
+            circlePersonalOther();
+        }
+    }
+
+    public void checkPreferencesLifestyle(ActionEvent actionEvent) {
+        circlePreferencesLifeStyle();
+    }
+
+    private void circlePreferencesLifeStyle() {
+        if (Smoker_choicebox_preferences.getSelectionModel().getSelectedItem() != null && feed_choicebox_preferences.getSelectionModel().getSelectedItem() != null && Athlete_choicebox_preferences.getSelectionModel().getSelectedItem() != null && alcohol_choicebox_preferences.getSelectionModel().getSelectedItem() != null) {
+            if (!Smoker_choicebox_preferences.getSelectionModel().getSelectedItem().equals("Select") && !feed_choicebox_preferences.getSelectionModel().getSelectedItem().equals("Select") && !Athlete_choicebox_preferences.getSelectionModel().getSelectedItem().equals("Select") && !alcohol_choicebox_preferences.getSelectionModel().getSelectedItem().equals("Select")) {
+                circle_life_style.setFill(Paint.valueOf("green"));
+            } else {
+                circle_life_style.setFill(Paint.valueOf("red"));
+            }
+            preferencesColor();
+        }
+    }
+
+    public void checkPreferencesPhysical(ActionEvent actionEvent) {
+        circlePreferencesPhysical();
+    }
+
+    private void circlePreferencesPhysical() {
+        if (bodybuild_choicebox_preferences.getSelectionModel().getSelectedItem() != null && choicebox_ethnicity_preferences.getSelectionModel().getSelectedItem() != null && hair_type_choicebox_preferences.getSelectionModel().getSelectedItem() != null && hair_length_choicebox_preferences.getSelectionModel().getSelectedItem() != null && color_of_hair_choicebox_preferences.getSelectionModel().getSelectedItem() != null && sex_choicebox_preferences.getSelectionModel().getSelectedItem() != null) {
+            if (!bodybuild_choicebox_preferences.getSelectionModel().getSelectedItem().equals("Select") && !choicebox_ethnicity_preferences.getSelectionModel().getSelectedItem().equals("Select") && !hair_type_choicebox_preferences.getSelectionModel().getSelectedItem().equals("Select") && !hair_length_choicebox_preferences.getSelectionModel().getSelectedItem().equals("Select") && !color_of_hair_choicebox_preferences.getSelectionModel().getSelectedItem().equals("Select") && !sex_choicebox_preferences.getSelectionModel().getSelectedItem().equals("MALE/FEMALE")) {
+                circle_physical.setFill(Paint.valueOf("green"));
+            } else {
+                circle_physical.setFill(Paint.valueOf("red"));
+            }
+            preferencesColor();
+        }
+    }
+
+    public void checkPreferencesOther(ActionEvent actionEvent) {
+        circlePreferencesOther();
+    }
+
+    private void circlePreferencesOther() {
+        if (religion_choicebox_preferences.getSelectionModel().getSelectedItem() != null) {
+            if (textfield_age_preferences.getText() != null && textfield_size_preferences.getText() != null && !religion_choicebox_preferences.getSelectionModel().getSelectedItem().equals("Select")) {
+                circle_other.setFill(Paint.valueOf("green"));
+            } else {
+                circle_other.setFill(Paint.valueOf("red"));
+            }
+            preferencesColor();
+        }
+    }
+
+    void preferencesColor() {
+        if (preferencesLifestyle && preferencesPhysical && preferencesOther) {
+            circle_preferences.setFill(Paint.valueOf("green"));
+        } else {
+            circle_preferences.setFill(Paint.valueOf("red"));
+        }
+    }
+
+    @FXML
+    void change_scene_to_page_dashboard(MouseEvent event) throws IOException {
+        parent = FXMLLoader.load(getClass().getResource("home.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void change_scene_to_new_profile(MouseEvent event) throws IOException {
+        parent = FXMLLoader.load(getClass().getResource("new_profile.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void change_scene_to_page_search(MouseEvent event) throws IOException {
+        parent = FXMLLoader.load(getClass().getResource("search.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void change_scene_to_page_calendar(MouseEvent event) throws IOException {
+        parent = FXMLLoader.load(getClass().getResource("calendar.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void exit_script() {
+        System.exit(0);
     }
 }
 

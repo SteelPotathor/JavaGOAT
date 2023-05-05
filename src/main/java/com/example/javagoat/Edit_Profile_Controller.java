@@ -619,9 +619,9 @@ public class Edit_Profile_Controller {
         textfield_qi.setText(String.valueOf(profile.getIdentity().qi));
         circle_profile_picture.setFill(new ImagePattern(new Image(profile.getImageView().getImage().getUrl())));
         if (profile.getTotal() <= 1) {
-            feedbackText.setText("Feedback : " + Double.toString(profile.getRatio()) + " %    " + profile.getTotal() + " vote");
+            feedbackText.setText("Feedback : " + profile.getRatio() + " %    " + profile.getTotal() + " vote");
         } else {
-            feedbackText.setText("Feedback : " + Double.toString(profile.getRatio()) + " %    " + profile.getTotal() + " votes");
+            feedbackText.setText("Feedback : " + profile.getRatio() + " %    " + profile.getTotal() + " votes");
         }
         Smoker_choicebox.setValue(profile.getLifeStyle().getLSsmoker().toString());
         choicebox_ethnicity.setValue(profile.getIdentity().getBethnicity().toString());
