@@ -6,13 +6,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
@@ -38,6 +38,7 @@ public class New_Profile_Controller {
     private Scene scene;
     @FXML
     private Parent parent;
+
     //ALL THE PANES
     @FXML
     private Pane dashboard_pane;
@@ -51,6 +52,9 @@ public class New_Profile_Controller {
     //Image to put in circle
     @FXML
     private Circle circle_profile_picture;
+    @FXML
+    private Pane newImageSelector;
+
     //ALL THE CHOICEBOXES PERSONNAL INFORMATION
     @FXML
     private ChoiceBox<String> choicebox_ethnicity;
@@ -101,10 +105,6 @@ public class New_Profile_Controller {
     private ChoiceBox<String> hair_type_choicebox_preferences;
     @FXML
     private ChoiceBox<String> hair_length_choicebox_preferences;
-    @FXML
-    private CheckComboBox<String> video_games_checkcombobox_preferences;
-    @FXML
-    private CheckComboBox<String> miscellanious_checkcombobox_preferences;
     @FXML
     private ChoiceBox<String> sex_choicebox_preferences;
 
@@ -543,6 +543,11 @@ public class New_Profile_Controller {
             ImagePattern imagePattern = new ImagePattern(new Image(file.toURI().toString()));
             circle_profile_picture.setFill(imagePattern);
         }
+    }
+
+    @FXML
+    private void newImageCursor() {
+        newImageSelector.setCursor(Cursor.HAND);
     }
 }
 
