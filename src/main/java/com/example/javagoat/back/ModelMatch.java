@@ -7,11 +7,13 @@ import java.util.*;
 
 public class ModelMatch implements Serializable {
 
-    public static HashMap<Integer /*id*/, TreeSet<Tuple>> stockDistance = new HashMap<>();
+    public static HashMap<Integer /*id*/, TreeSet<Tuple>> stockDistance;
     public ModelProfile modelP;
 
     public String DistancePath = "src\\main\\java\\com\\example\\javagoat\\back\\Distances.xml";
     public String ProfilePath = "src\\main\\java\\com\\example\\javagoat\\back\\Profiles.xml";
+
+    public static int createCounter = 0;
 
 
     public ModelMatch() {
@@ -33,7 +35,6 @@ public class ModelMatch implements Serializable {
                 decoder = new XMLDecoder(bufferedInputStream);
                 stockDistance = (HashMap<Integer, TreeSet<Tuple>>) decoder.readObject();
             }
-
 
         } catch (Exception e) {
             modelP = new ModelProfile();
@@ -63,6 +64,8 @@ public class ModelMatch implements Serializable {
 
         // Add the profile 'p' in the hashMap
         this.modelP.profileHashMap.put(p.identity.getNoId(), p);
+
+        createCounter++;
     }
 
     public void editProfile(Profile p) {
@@ -90,6 +93,7 @@ public class ModelMatch implements Serializable {
         }
 
         modelP.profileHashMap.replace(p.getIdentity().getNoId(), p);
+
     }
 
     public HashMap<Profile, Integer> getKNN(int noProfile, int howMany) {
@@ -169,4 +173,11 @@ public class ModelMatch implements Serializable {
         modelP = modelProfile;
     }
 
+    public static int getCreateCounter() {
+        return createCounter;
+    }
+
+    public static void setCreateCounter(int createCounter) {
+        ModelMatch.createCounter = createCounter;
+    }
 }
