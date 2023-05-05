@@ -529,7 +529,7 @@
                      <VBox.margin>
                         <Insets bottom="20.0" />
                      </VBox.margin></ChoiceBox>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="267.0" text="Number of feedback : 13">
+                  <Label fx:id="feedbackText" alignment="CENTER" prefHeight="17.0" prefWidth="267.0" text="Number of feedback : 13">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>

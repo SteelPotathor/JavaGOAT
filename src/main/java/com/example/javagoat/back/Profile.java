@@ -212,8 +212,24 @@ public class Profile implements Serializable {
         this.priority = priority;
     }
 
+    public int getPositif() {
+        return positif;
+    }
+
+    public void setPositif(int positif) {
+        this.positif = positif;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
     public double getRatio() {
-        return (double) (this.positif / this.total) * 100;
+        return this.total == 0 ? 0 : (double) (this.positif / this.total) * 100;
     }
 
     public String toString() {

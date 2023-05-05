@@ -9,8 +9,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
@@ -127,6 +125,7 @@ public class Edit_Profile_Controller {
     public TextField textfield_age;
     public TextField textfield_size;
     public TextField textfield_qi;
+    public Label feedbackText;
 
     //ALL GRIDS Personnal Information
     @FXML
@@ -619,6 +618,11 @@ public class Edit_Profile_Controller {
         textfield_size.setText(String.valueOf(profile.getPhysicalAttributes().getSize()));
         textfield_qi.setText(String.valueOf(profile.getIdentity().qi));
         circle_profile_picture.setFill(new ImagePattern(new Image(profile.getImageView().getImage().getUrl())));
+        if (profile.getTotal() <= 1) {
+            feedbackText.setText("Feedback : " + Double.toString(profile.getRatio()) + " %    " + profile.getTotal() + " vote");
+        } else {
+            feedbackText.setText("Feedback : " + Double.toString(profile.getRatio()) + " %    " + profile.getTotal() + " votes");
+        }
         Smoker_choicebox.setValue(profile.getLifeStyle().getLSsmoker().toString());
         choicebox_ethnicity.setValue(profile.getIdentity().getBethnicity().toString());
         alcohol_choicebox.setValue(profile.getLifeStyle().getLSalcohol().toString());
@@ -680,7 +684,7 @@ public class Edit_Profile_Controller {
             tableview_profile.setPlaceholder(new Label("No matches!"));
         }
         tableview_profile.setItems(profiles);
-        
+
     }
 
     public void newImageCursor(MouseEvent mouseEvent) {
