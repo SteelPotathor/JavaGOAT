@@ -144,4 +144,34 @@ public class Matching_Profiles_Controller {
         alert.setContentText("The match has been successfully added");
         alert.showAndWait();
     }
+
+    @FXML
+    void centerCursor() {
+        circleProfilePictureCenter.setStyle("-fx-cursor: HAND");
+    }
+
+    @FXML
+    void SWCursor() {
+        circleProfilePictureSW.setStyle("-fx-cursor: HAND");
+    }
+
+    @FXML
+    void NECursor() {
+        circleProfilePictureNE.setStyle("-fx-cursor: HAND");
+    }
+
+    @FXML
+    void NWCursor() {
+        circleProfilePictureNW.setStyle("-fx-cursor: HAND");
+    }
+
+    @FXML
+    void SECursor() {
+        circleProfilePictureSE.setStyle("-fx-cursor: HAND");
+    }
+
+    @FXML
+    void SCursor() {
+        circleProfilePictureS.setStyle("-fx-cursor: HAND");
+    }
 }
