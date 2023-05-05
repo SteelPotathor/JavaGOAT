@@ -246,7 +246,7 @@ public class Edit_Profile_Controller {
         ImageView imageDown = (ImageView) thumbsDown.getChildren().get(0);
         imageDown.setPreserveRatio(true);
         imageDown.setFitHeight(30);
-        imageDown.setImage(new Image("file:src/main/resources/com/example/javagoat/dislikeBlack.png"));
+        imageDown.setVisible(false);
         profileTableViewHistoric.voted = true;
     }
 
@@ -256,7 +256,7 @@ public class Edit_Profile_Controller {
         ImageView imageUp = (ImageView) thumbsUp.getChildren().get(0);
         imageUp.setPreserveRatio(true);
         imageUp.setFitHeight(30);
-        imageUp.setImage(new Image("file:src/main/resources/com/example/javagoat/likeBlack.png"));
+        imageUp.setVisible(false);
         profileTableViewHistoric.voted = true;
     }
 
