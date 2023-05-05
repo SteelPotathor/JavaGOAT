@@ -544,7 +544,7 @@
                   <Circle fx:id="circle_profile_picture" fill="WHITE" layoutX="70.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
                </children>
             </AnchorPane>
-            <Pane layoutX="201.0" layoutY="118.0" onMouseClicked="#import_new_image">
+            <Pane fx:id="newImageSelector" layoutX="201.0" layoutY="118.0" onMouseEntered="#newImageCursor" onMouseClicked="#import_new_image">
                <children>
                   <ImageView fitHeight="50.0" fitWidth="50.0">
                      <image>

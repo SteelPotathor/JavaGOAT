@@ -8,6 +8,7 @@ import com.example.javagoat.back.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -36,27 +37,12 @@ public class Edit_Profile_Controller {
     ModelMatch modelMatch = new ModelMatch();
     int idProfile;
 
-    @FXML
-    private Stage stage;
-    @FXML
-    private Scene scene;
-    @FXML
-    private Parent parent;
-    //ALL THE PANES
-    @FXML
-    private Pane dashboard_pane;
-    @FXML
-    private Pane profile_pane;
-    @FXML
-    private Pane search_pane;
-    @FXML
-    private Pane calendar_pane;
-    @FXML
-    private Pane events_pane;
-
     //Image to put in circle
     @FXML
     private Circle circle_profile_picture;
+    @FXML
+    private Pane newImageSelector;
+
     //ALL THE CHOICEBOXES PERSONNAL INFORMATION
     @FXML
     private ChoiceBox<String> choicebox_ethnicity;
@@ -260,7 +246,7 @@ public class Edit_Profile_Controller {
         ImageView imageDown = (ImageView) thumbsDown.getChildren().get(0);
         imageDown.setPreserveRatio(true);
         imageDown.setFitHeight(30);
-        imageDown.setImage(new Image("file:src/main/resources/com/example/javagoat/dislikeBlack.png"));
+        imageDown.setVisible(false);
         profileTableViewHistoric.voted = true;
     }
 
@@ -270,7 +256,7 @@ public class Edit_Profile_Controller {
         ImageView imageUp = (ImageView) thumbsUp.getChildren().get(0);
         imageUp.setPreserveRatio(true);
         imageUp.setFitHeight(30);
-        imageUp.setImage(new Image("file:src/main/resources/com/example/javagoat/likeBlack.png"));
+        imageUp.setVisible(false);
         profileTableViewHistoric.voted = true;
     }
 
@@ -698,11 +684,11 @@ public class Edit_Profile_Controller {
             tableview_profile.setPlaceholder(new Label("No matches!"));
         }
         tableview_profile.setItems(profiles);
-
-
+        
     }
 
-    private void c(MouseEvent mouseEvent) {
-        System.out.println("here");
+    public void newImageCursor(MouseEvent mouseEvent) {
+        newImageSelector.setCursor(Cursor.HAND);
     }
+
 }
