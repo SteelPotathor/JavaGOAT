@@ -3,6 +3,8 @@ package com.example.javagoat;
 import com.example.javagoat.back.ModelMatch;
 import com.example.javagoat.back.Profile;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -105,29 +107,38 @@ public class Matching_Profiles_Controller {
             e.printStackTrace();
         }
 
-        
+
     }
 
     public void make_match(MouseEvent mouseEvent) {
-        switch (mouseEvent.getPickResult().getIntersectedNode().getId()) {
-            case "circleProfilePictureNE":
-                modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(0));
-                break;
-            case "circleProfilePictureSE":
-                modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(1));
-                break;
-            case "circleProfilePictureS":
-                modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(2));
-                break;
-            case "circleProfilePictureSW":
-                modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(3));
-                break;
-            case "circleProfilePictureNW":
-                modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(4));
-                break;
+        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+        confirm.setTitle("Confirmation Dialog");
+        confirm.setHeaderText("Are you sure you want to add this match ?");
+        confirm.setContentText("You can't undo this action");
+        Optional<ButtonType> result = confirm.showAndWait();
+
+        if (result.get() != ButtonType.OK) {
+            return;
         }
 
-        System.out.println("Match added");
+        switch (mouseEvent.getPickResult().getIntersectedNode().getId()) {
+            case "circleProfilePictureNE" ->
+                    modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(0));
+            case "circleProfilePictureSE" ->
+                    modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(1));
+            case "circleProfilePictureS" ->
+                    modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(2));
+            case "circleProfilePictureSW" ->
+                    modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(3));
+            case "circleProfilePictureNW" ->
+                    modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(4));
+        }
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText("Match added");
+        alert.setContentText("The match has been successfully added");
+        alert.showAndWait();
 
 
         Stage stage = (Stage) mouseEvent.getPickResult().getIntersectedNode().getScene().getWindow();
