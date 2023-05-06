@@ -436,13 +436,15 @@ public class Edit_Profile_Controller {
             Image image = imagePattern.getImage();
             ImageView imageView = new ImageView(image);
 
-            modelMatch.modelP.getProfileHashMap().get(idProfile).setPhysicalAttributes(physicalAttributes);
-            modelMatch.modelP.getProfileHashMap().get(idProfile).setLifeStyle(lifeStyle);
-            modelMatch.modelP.getProfileHashMap().get(idProfile).setPreferences(preferences);
-            modelMatch.modelP.getProfileHashMap().get(idProfile).setPassion(passion);
-            modelMatch.modelP.getProfileHashMap().get(idProfile).setImageView(imageView);
+            Profile profile = modelMatch.modelP.getProfileHashMap().get(idProfile);
 
-            System.out.println(modelMatch.modelP.getProfileHashMap().get(idProfile));
+            profile.setPhysicalAttributes(physicalAttributes);
+            profile.setLifeStyle(lifeStyle);
+            profile.setPreferences(preferences);
+            profile.setPassion(passion);
+            profile.setImageView(imageView);
+
+            modelMatch.editProfile(profile);
             Stage stage = (Stage) button_create_profile.getScene().getWindow();
             stage.close();
 
