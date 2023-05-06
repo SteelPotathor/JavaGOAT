@@ -8,7 +8,6 @@ import com.example.javagoat.back.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -258,20 +257,19 @@ public class Edit_Profile_Controller {
                 notificationDashboard();
                 updateSearch();
             }
-            System.out.println(profileTableViewHistoric.toProfile().getRatio());
         } catch (Exception exception) {
             exception.printStackTrace();
         }
     }
 
     private void notificationDashboard() throws IOException {
-        if (dashboard_controller!=null) {
+        if (dashboard_controller != null) {
             dashboard_controller.initializeWithoutAnimations();
         }
     }
 
     private void updateSearch() throws IOException {
-        if (search_controller!=null) {
+        if (search_controller != null) {
             search_controller.initializeWithoutAnimations();
         }
     }
@@ -573,14 +571,12 @@ public class Edit_Profile_Controller {
         for (Integer key : hashMap.keySet()) {
             Profile profileHash = modelMatch.modelP.getProfileHashMap().get(key);
             ProfileTableViewHistoric profileTableViewHistoric = profileHash.toProfileTableViewHistoric();
-            System.out.println(profileTableViewHistoric.toString());
             Pane thumbsUp = (Pane) profileTableViewHistoric.actions.getChildren().get(1);
             thumbsUp.setStyle("-fx-cursor: HAND");
             thumbsUp.setOnMouseClicked(this::positif);
             Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(3);
             thumbsDown.setStyle("-fx-cursor: HAND");
             thumbsDown.setOnMouseClicked(this::negatif);
-            System.out.println(profileTableViewHistoric.getActions().getChildren());
             profiles.add(profileTableViewHistoric);
         }
         if (profiles.isEmpty()) {

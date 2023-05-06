@@ -113,6 +113,7 @@ public class Dashboard_Controller {
     }
 
     public void fillTableView() {
+        tableView.getItems().clear();
         ObservableList<ProfileTableView> profiles = tableView.getItems();
         PriorityQueue<Profile> priorityQueue = modelMatch.modelP.toPriorityQueue();
         // Putting some profiles in the tableView
@@ -224,7 +225,6 @@ public class Dashboard_Controller {
         while (i < 30 && iterator.hasNext()) {
             Map.Entry entry = iterator.next();
             list_view_notification.getItems().add(simpleDateFormat.format(entry.getKey()) + " : " + entry.getValue().toString());
-            System.out.println(entry.getValue());
             i++;
         }
     }

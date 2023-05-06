@@ -161,6 +161,7 @@ public class Search_Controller {
 
 
     private void firstFillTableView() {
+        tableView.getItems().clear();
         ObservableList<ProfileTableView> profiles = tableView.getItems();
         for (int i = 1; i < profileHashMap.size() + 1; i++) {
             Profile profile = profileHashMap.get(i);

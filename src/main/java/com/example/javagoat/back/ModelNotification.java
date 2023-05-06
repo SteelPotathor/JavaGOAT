@@ -15,7 +15,6 @@ public class ModelNotification {
 
     public void addNotification(Date date, String string) {
         stockNotification.put(date, string);
-        System.out.println(stockNotification);
     }
 
     public static void main(String[] args) {

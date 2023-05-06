@@ -112,8 +112,6 @@ public class Matching_Profiles_Controller {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
     public void make_match(MouseEvent mouseEvent) throws IOException {
@@ -122,7 +120,6 @@ public class Matching_Profiles_Controller {
         confirm.setHeaderText("Are you sure you want to add this match ?");
         confirm.setContentText("You can't undo this action");
         Optional<ButtonType> result = confirm.showAndWait();
-
         if (result.get() != ButtonType.OK) {
             return;
         }
@@ -162,7 +159,6 @@ public class Matching_Profiles_Controller {
 
         notificationDashboard();
         updateSearch();
-
     }
 
     private void updateSearch() {
