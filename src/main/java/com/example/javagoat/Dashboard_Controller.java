@@ -21,11 +21,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
@@ -35,6 +35,7 @@ public class Dashboard_Controller {
 
     ModelMatch modelMatch = new ModelMatch();
     ModelNotification modelNotification = new ModelNotification();
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
 
     @FXML
     private Stage stage;
@@ -61,8 +62,6 @@ public class Dashboard_Controller {
     public TableColumn<ProfileTableView, String> actions;
     @FXML
     public ListView<String> list_view_notification;
-    @FXML
-    private VBox notif;
     @FXML
     private Pane dashboard_pane;
     @FXML
@@ -96,23 +95,15 @@ public class Dashboard_Controller {
         fillTableView();
         fillNotifications();
         initStats();
-        //initNotification();
+        dashboard_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
     }
 
     public void initializeWithoutAnimations() {
-        //initTableView();
-        //fillTableView();
+        initTableView();
+        fillTableView();
         fillNotifications();
-        //initStats();
+        initStats();
     }
-
-    private void initNotification() {
-        for (int i = 0; i < 100; i++) {
-            list_view_notification.getItems().add("Notification " + i);
-        }
-        dashboard_pane.setStyle("-fx-background-color: rgba(255, 255,255, 0.3)");
-    }
-
 
     private void initStats() {
         label_total_profiles.setText(String.valueOf(modelMatch.getModelP().getProfileHashMap().size()));
@@ -232,7 +223,8 @@ public class Dashboard_Controller {
         Iterator<Map.Entry<Date, String>> iterator = modelNotification.stockNotification.entrySet().iterator();
         while (i < 30 && iterator.hasNext()) {
             Map.Entry entry = iterator.next();
-            list_view_notification.getItems().add(entry.getKey().toString() + " " + entry.getValue().toString());
+            list_view_notification.getItems().add(simpleDateFormat.format(entry.getKey()) + " : " + entry.getValue().toString());
+            System.out.println(entry.getValue());
             i++;
         }
     }
@@ -280,9 +272,7 @@ public class Dashboard_Controller {
     @FXML
     void change_scene_to_page_search(MouseEvent event) throws IOException {
         parent = FXMLLoader.load(getClass().getResource("search.fxml"));
-
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
         scene = new Scene(parent);
         stage.setScene(scene);
         stage.show();
@@ -290,12 +280,12 @@ public class Dashboard_Controller {
 
     @FXML
     void change_scene_to_page_edit(Profile event) throws IOException {
-
         // open new window
         FXMLLoader loader = new FXMLLoader(getClass().getResource("edit_profile.fxml"));
         Parent root = loader.load();
         // load the controller
         Edit_Profile_Controller edit_profile_controller = loader.getController();
+        edit_profile_controller.setDashboard_controller(this);
         edit_profile_controller.set_profile(event);
         Stage stage = new Stage();
 
@@ -312,6 +302,7 @@ public class Dashboard_Controller {
 
         Matching_Profiles_Controller matching_profiles_controller = loader.getController();
         matching_profiles_controller.set_match(event);
+        matching_profiles_controller.setDashboard_controller(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();

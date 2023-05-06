@@ -141,6 +141,17 @@ public class Search_Controller {
         search_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
     }
 
+    public void initializeWithoutAnimations() {
+        initAllCheckComboBox();
+        setAgeTextField(20, 59);
+        setHeightTextField(100, 200);
+        setTextFieldsLimitations();
+        setTextFieldsAutoCompletion();
+        initTableView();
+        firstFillTableView();
+        search_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
+    }
+
     private void early_animations() {
         new RotateInDownLeft(first_name_text_field).play();
         new RotateInDownLeft(last_name_text_field).play();
@@ -485,9 +496,9 @@ public class Search_Controller {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("edit_profile.fxml"));
         Parent root = loader.load();
         // load the controller
-
         Edit_Profile_Controller edit_profile_controller = loader.getController();
         edit_profile_controller.set_profile(profile);
+        edit_profile_controller.setSearch_controller(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
@@ -500,6 +511,7 @@ public class Search_Controller {
 
         Matching_Profiles_Controller matching_profiles_controller = loader.getController();
         matching_profiles_controller.set_match(profile);
+        matching_profiles_controller.setSearch_controller(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
@@ -509,5 +521,6 @@ public class Search_Controller {
     void exit_script() {
         System.exit(0);
     }
+
 }
 

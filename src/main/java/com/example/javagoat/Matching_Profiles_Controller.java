@@ -1,6 +1,7 @@
 package com.example.javagoat;
 
 import com.example.javagoat.back.ModelMatch;
+import com.example.javagoat.back.ModelNotification;
 import com.example.javagoat.back.Profile;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -12,10 +13,12 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.*;
 
 public class Matching_Profiles_Controller {
 
+    ModelNotification modelNotification = new ModelNotification();
     public ModelMatch modelMatch = new ModelMatch();
     public Profile profileSelected;
     public HashMap<Profile, Integer> result_matching;
@@ -78,6 +81,9 @@ public class Matching_Profiles_Controller {
     @FXML
     private Label passionNE;
 
+    private Dashboard_Controller dashboard_controller;
+    private Search_Controller search_controller;
+
     @FXML
     void Initialize() {
 
@@ -110,7 +116,7 @@ public class Matching_Profiles_Controller {
 
     }
 
-    public void make_match(MouseEvent mouseEvent) {
+    public void make_match(MouseEvent mouseEvent) throws IOException {
         Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
         confirm.setTitle("Confirmation Dialog");
         confirm.setHeaderText("Are you sure you want to add this match ?");
@@ -122,16 +128,26 @@ public class Matching_Profiles_Controller {
         }
 
         switch (mouseEvent.getPickResult().getIntersectedNode().getId()) {
-            case "circleProfilePictureNE" ->
-                    modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(0));
-            case "circleProfilePictureSE" ->
-                    modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(1));
-            case "circleProfilePictureS" ->
-                    modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(2));
-            case "circleProfilePictureSW" ->
-                    modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(3));
-            case "circleProfilePictureNW" ->
-                    modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(4));
+            case "circleProfilePictureNE" -> {
+                modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(0));
+                modelNotification.addNotification(new Date(), "New match : " + profileSelected.getIdentity().getLastname() + " " + profileSelected.getIdentity().getFirstname() + " and " + profileList.get(0).getIdentity().getLastname() + " " + profileList.get(0).getIdentity().getFirstname());
+            }
+            case "circleProfilePictureSE" -> {
+                modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(1));
+                modelNotification.addNotification(new Date(), "New match : " + profileSelected.getIdentity().getLastname() + " " + profileSelected.getIdentity().getFirstname() + " and " + profileList.get(1).getIdentity().getLastname() + " " + profileList.get(1).getIdentity().getFirstname());
+            }
+            case "circleProfilePictureS" -> {
+                modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(2));
+                modelNotification.addNotification(new Date(), "New match : " + profileSelected.getIdentity().getLastname() + " " + profileSelected.getIdentity().getFirstname() + " and " + profileList.get(2).getIdentity().getLastname() + " " + profileList.get(2).getIdentity().getFirstname());
+            }
+            case "circleProfilePictureSW" -> {
+                modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(3));
+                modelNotification.addNotification(new Date(), "New match : " + profileSelected.getIdentity().getLastname() + " " + profileSelected.getIdentity().getFirstname() + " and " + profileList.get(3).getIdentity().getLastname() + " " + profileList.get(3).getIdentity().getFirstname());
+            }
+            case "circleProfilePictureNW" -> {
+                modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(4));
+                modelNotification.addNotification(new Date(), "New match : " + profileSelected.getIdentity().getLastname() + " " + profileSelected.getIdentity().getFirstname() + " and " + profileList.get(4).getIdentity().getLastname() + " " + profileList.get(4).getIdentity().getFirstname());
+            }
         }
 
         Stage stage = (Stage) mouseEvent.getPickResult().getIntersectedNode().getScene().getWindow();
@@ -143,8 +159,23 @@ public class Matching_Profiles_Controller {
         alert.setHeaderText("Match added");
         alert.setContentText("The match has been successfully added");
         alert.showAndWait();
+
+        notificationDashboard();
+        updateSearch();
+
     }
 
+    private void updateSearch() {
+        if (search_controller != null) {
+            search_controller.initializeWithoutAnimations();
+        }
+    }
+
+    private void notificationDashboard() throws IOException {
+        if (dashboard_controller != null) {
+            dashboard_controller.initializeWithoutAnimations();
+        }
+    }
 
     @FXML
     void SWCursor() {
@@ -170,5 +201,12 @@ public class Matching_Profiles_Controller {
     void SCursor() {
         circleProfilePictureS.setStyle("-fx-cursor: HAND");
     }
-    
+
+    public void setDashboard_controller(Dashboard_Controller dashboardController) {
+        this.dashboard_controller = dashboardController;
+    }
+
+    public void setSearch_controller(Search_Controller searchController) {
+        this.search_controller = searchController;
+    }
 }

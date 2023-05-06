@@ -8,6 +8,7 @@ import com.example.javagoat.back.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -31,8 +32,11 @@ import java.util.Objects;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
 
+import static com.example.javagoat.back.ModelProfile.profileHashMap;
+
 public class Edit_Profile_Controller {
 
+    ModelNotification modelNotification = new ModelNotification();
     ModelMatch modelMatch = new ModelMatch();
     int idProfile;
 
@@ -195,6 +199,17 @@ public class Edit_Profile_Controller {
     @FXML
     public Pane topRectangle;
 
+    private Dashboard_Controller dashboard_controller;
+    private Search_Controller search_controller;
+
+    public void setDashboard_controller(Dashboard_Controller dashboard_controller) {
+        this.dashboard_controller = dashboard_controller;
+    }
+
+    public void setSearch_controller(Search_Controller search_controller) {
+        this.search_controller = search_controller;
+    }
+
     @FXML
     void initialize() {
         earlyAnimations();
@@ -206,38 +221,59 @@ public class Edit_Profile_Controller {
     }
 
     private void positif(MouseEvent mouseEvent) {
-        int i = 0;
-        ProfileTableViewHistoric profileTableViewHistoric = tableview_profile.getItems().get(i);
-        while (i < tableview_profile.getItems().size() && !(profileTableViewHistoric.actions.getChildren().get(1).equals(mouseEvent.getSource()))) {
-            i++;
-            profileTableViewHistoric = tableview_profile.getItems().get(i);
+        try {
+            int i = 0;
+            ProfileTableViewHistoric profileTableViewHistoric = tableview_profile.getItems().get(i);
+            while (i < tableview_profile.getItems().size() && !(profileTableViewHistoric.actions.getChildren().get(1).equals(mouseEvent.getSource()))) {
+                i++;
+                profileTableViewHistoric = tableview_profile.getItems().get(i);
+            }
+            if (!profileTableViewHistoric.voted) {
+                desactivateThumbsNeg(profileTableViewHistoric);
+                profileTableViewHistoric.toProfile().positif++;
+                profileTableViewHistoric.toProfile().total++;
+                modelNotification.addNotification(new Date(), profileTableViewHistoric.lastname + " " + profileTableViewHistoric.firstname + " received a positive feedback from " + profileHashMap.get(idProfile).getIdentity().getLastname() + " " + profileHashMap.get(idProfile).getIdentity().getFirstname());
+                notificationDashboard();
+                updateSearch();
+            }
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
-        if (!profileTableViewHistoric.voted) {
-            desactivateThumbsNeg(profileTableViewHistoric);
-            profileTableViewHistoric.toProfile().positif++;
-            profileTableViewHistoric.toProfile().total++;
-            notificationDashboard();
-        }
-        System.out.println(profileTableViewHistoric.toProfile().getRatio());
+
     }
 
     private void negatif(MouseEvent mouseEvent) {
-        int i = 0;
-        ProfileTableViewHistoric profileTableViewHistoric = tableview_profile.getItems().get(i);
-        while (i < tableview_profile.getItems().size() && !(profileTableViewHistoric.actions.getChildren().get(3).equals(mouseEvent.getSource()))) {
-            i++;
-            profileTableViewHistoric = tableview_profile.getItems().get(i);
+        try {
+            int i = 0;
+            ProfileTableViewHistoric profileTableViewHistoric = tableview_profile.getItems().get(i);
+            while (i < tableview_profile.getItems().size() && !(profileTableViewHistoric.actions.getChildren().get(3).equals(mouseEvent.getSource()))) {
+                i++;
+                profileTableViewHistoric = tableview_profile.getItems().get(i);
+            }
+            if (!profileTableViewHistoric.voted) {
+                desactivateThumbsPos(profileTableViewHistoric);
+                profileTableViewHistoric.toProfile().total++;
+                modelNotification.addNotification(new Date(), profileTableViewHistoric.lastname + " " + profileTableViewHistoric.firstname + " received a negative feedback from " + profileHashMap.get(idProfile).getIdentity().getLastname() + " " + profileHashMap.get(idProfile).getIdentity().getFirstname());
+
+                notificationDashboard();
+                updateSearch();
+            }
+            System.out.println(profileTableViewHistoric.toProfile().getRatio());
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
-        if (!profileTableViewHistoric.voted) {
-            desactivateThumbsPos(profileTableViewHistoric);
-            profileTableViewHistoric.toProfile().total++;
-            notificationDashboard();
-        }
-        System.out.println(profileTableViewHistoric.toProfile().getRatio());
     }
 
-    private void notificationDashboard() {
-        // send a message in the notif box (dashboard)
+    private void notificationDashboard() throws IOException {
+        if (dashboard_controller!=null) {
+            dashboard_controller.initializeWithoutAnimations();
+        }
+    }
+
+    private void updateSearch() throws IOException {
+        if (search_controller!=null) {
+            search_controller.initializeWithoutAnimations();
+        }
     }
 
     public void desactivateThumbsNeg(ProfileTableViewHistoric profileTableViewHistoric) {
@@ -453,9 +489,11 @@ public class Edit_Profile_Controller {
             alert.setHeaderText("Profile edited");
             alert.setContentText("Your profile has been successfully edited");
             alert.showAndWait();
+
+            modelNotification.addNotification(new Date(), "Profile of " + profile.getIdentity().getLastname() + " " + profile.getIdentity().getFirstname() + " has been successfully edited");
+            notificationDashboard();
+            updateSearch();
         }
-        Dashboard_Controller dashboard_controller = new Dashboard_Controller();
-        dashboard_controller.list_view_notification.getItems().clear();
     }
 
     @FXML
