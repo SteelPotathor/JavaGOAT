@@ -141,13 +141,7 @@ public class Search_Controller {
         search_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
     }
 
-    public void initializeWithoutAnimations() {
-        initAllCheckComboBox();
-        setAgeTextField(20, 59);
-        setHeightTextField(100, 200);
-        setTextFieldsLimitations();
-        setTextFieldsAutoCompletion();
-        initTableView();
+    public void updateAfterEditOrMatch() {
         firstFillTableView();
         search_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
     }

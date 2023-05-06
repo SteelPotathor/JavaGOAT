@@ -98,11 +98,8 @@ public class Dashboard_Controller {
         dashboard_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
     }
 
-    public void initializeWithoutAnimations() {
-        initTableView();
-        fillTableView();
+    public void updateAfterEditOrMatch() {
         fillNotifications();
-        initStats();
     }
 
     private void initStats() {

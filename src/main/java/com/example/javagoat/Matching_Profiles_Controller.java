@@ -163,13 +163,13 @@ public class Matching_Profiles_Controller {
 
     private void updateSearch() {
         if (search_controller != null) {
-            search_controller.initializeWithoutAnimations();
+            search_controller.updateAfterEditOrMatch();
         }
     }
 
     private void notificationDashboard() throws IOException {
         if (dashboard_controller != null) {
-            dashboard_controller.initializeWithoutAnimations();
+            dashboard_controller.updateAfterEditOrMatch();
         }
     }
 

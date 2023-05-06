@@ -264,13 +264,13 @@ public class Edit_Profile_Controller {
 
     private void notificationDashboard() throws IOException {
         if (dashboard_controller != null) {
-            dashboard_controller.initializeWithoutAnimations();
+            dashboard_controller.updateAfterEditOrMatch();
         }
     }
 
     private void updateSearch() throws IOException {
         if (search_controller != null) {
-            search_controller.initializeWithoutAnimations();
+            search_controller.updateAfterEditOrMatch();
         }
     }
 
