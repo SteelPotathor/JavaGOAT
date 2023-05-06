@@ -171,8 +171,12 @@
             </VBox>
          </children>
       </Pane>
-      <ListView editable="true" layoutX="1132.0" layoutY="292.0" prefHeight="200.0" prefWidth="200.0" />
-      <TitledPane alignment="CENTER" animated="false" layoutX="1099.0" layoutY="225.0" prefHeight="460.0" prefWidth="266.0" text="Notification">
+      <ImageView fitHeight="393.0" fitWidth="235.0" layoutX="1115.0" layoutY="293.0" preserveRatio="true">
+         <image>
+            <Image url="@Capture_decran_2023-04-16_154047.png" />
+         </image>
+      </ImageView>
+      <TitledPane alignment="CENTER" layoutX="1100.0" layoutY="225.0" prefHeight="460.0" prefWidth="266.0" text="Notification">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
