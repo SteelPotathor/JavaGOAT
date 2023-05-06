@@ -143,6 +143,7 @@ public class Search_Controller {
 
     public void updateAfterEditOrMatch() {
         firstFillTableView();
+        setTextFieldsAutoCompletion();
         search_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
     }
 
