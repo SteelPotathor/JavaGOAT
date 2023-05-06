@@ -2,12 +2,14 @@ package com.example.javagoat.back;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
 
 public class ModelHistoMatch implements Serializable {
 
     public HashMap<Integer, Date> stockHisto;
     public SimpleDateFormat timeFormat = new SimpleDateFormat("dd/MM/yyyy");
+    public ModelNotification modelNotification = new ModelNotification();
 
     public ModelHistoMatch() {
         this.stockHisto = new HashMap<>();
@@ -22,6 +24,7 @@ public class ModelHistoMatch implements Serializable {
         matchP1.put(p2.getIdentity().getNoId(), new Date());
         HashMap<Integer, Date> matchP2 = p2.getModelHisto().getStockHisto();
         matchP2.put(p1.getIdentity().getNoId(), new Date());
+        modelNotification.addNotification(new Date(), "Match between " + p1.getIdentity().getFirstname() + " " + p1.getIdentity().getLastname() + " and " + p2.getIdentity().getFirstname() + " " + p2.getIdentity().getLastname());
     }
 
     public HashMap<Integer, Date> getStockHisto() {

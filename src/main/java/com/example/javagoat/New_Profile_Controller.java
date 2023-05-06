@@ -413,14 +413,12 @@ public class New_Profile_Controller {
             buttonPersonalInformation.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
 
-
             button_physical_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_passions_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
 
             grid_life_style_preferences.setVisible(true);
             grid_physical_information_preferences.setVisible(false);
             grid_passions_preferences.setVisible(false);
-
 
             grid_passions.setVisible(false);
             grid_physical_information.setVisible(false);
@@ -433,10 +431,8 @@ public class New_Profile_Controller {
             button_preferences_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50");
             button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
 
-
             button_physical_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
             button_passions_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");
-
 
             grid_life_style_preferences.setVisible(false);
             grid_physical_information_preferences.setVisible(false);
@@ -464,8 +460,6 @@ public class New_Profile_Controller {
                 grid_physical_information_preferences.setVisible(false);
                 grid_passions_preferences.setVisible(false);
             }
-
-
         } else if (event.getSource() == button_physical_information) {
             button_physical_information.setStyle("-fx-background-color:  rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50");
             button_lifestyle_information.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50; -fx-underline: false");

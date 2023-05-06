@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import org.controlsfx.control.CheckComboBox;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -371,16 +372,9 @@ public class Edit_Profile_Controller {
         textfield_size_preferences.setTextFormatter(formatterNumbers5);
     }
 
-    @FXML
-    void exit_script() {
-
-        //exit the window
-
-    }
-
 
     @FXML
-    void validate_profil() {
+    void validate_profil() throws IOException {
         if (Objects.equals(choicebox_ethnicity.getValue(), "Select")
                 || Objects.equals(Smoker_choicebox.getValue(), "Select")
                 || Objects.equals(alcohol_choicebox.getValue(), "Select")
@@ -450,7 +444,6 @@ public class Edit_Profile_Controller {
 
             System.out.println(modelMatch.modelP.getProfileHashMap().get(idProfile));
             Stage stage = (Stage) button_create_profile.getScene().getWindow();
-            // do what you have to do
             stage.close();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -459,6 +452,101 @@ public class Edit_Profile_Controller {
             alert.setContentText("Your profile has been successfully edited");
             alert.showAndWait();
         }
+        Dashboard_Controller dashboard_controller = new Dashboard_Controller();
+        dashboard_controller.list_view_notification.getItems().clear();
+    }
+
+    @FXML
+    void import_new_image(MouseEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Resource File");
+        //type of file jpg png
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.jpeg"));
+        File file = fileChooser.showOpenDialog(null);
+
+        if (file != null) {
+            circle_profile_picture.setFill(new ImagePattern(new Image(file.toURI().toString())));
+        }
+
+    }
+
+    @FXML
+    public void set_profile(Profile profile) {
+        idProfile = profile.getIdentity().getNoId();
+        textfield_first_name.setText(profile.getIdentity().firstname);
+        textfield_last_name.setText(profile.getIdentity().lastname);
+        textfield_age.setText(String.valueOf(profile.getIdentity().age));
+        sex_choicebox.setValue(profile.getIdentity().getBsex().toString());
+        textfield_size.setText(String.valueOf(profile.getPhysicalAttributes().getSize()));
+        textfield_qi.setText(String.valueOf(profile.getIdentity().qi));
+        circle_profile_picture.setFill(new ImagePattern(new Image(profile.getImageView().getImage().getUrl())));
+        if (profile.getTotal() <= 1) {
+            feedbackText.setText("Feedback : " + profile.getRatio() + " %    " + profile.getTotal() + " vote");
+        } else {
+            feedbackText.setText("Feedback : " + profile.getRatio() + " %    " + profile.getTotal() + " votes");
+        }
+        Smoker_choicebox.setValue(profile.getLifeStyle().getLSsmoker().toString());
+        choicebox_ethnicity.setValue(profile.getIdentity().getBethnicity().toString());
+        alcohol_choicebox.setValue(profile.getLifeStyle().getLSalcohol().toString());
+        Athlete_choicebox.setValue(profile.getLifeStyle().getLSathlete().toString());
+        feed_choicebox.setValue(profile.getLifeStyle().getLSfeed().toString());
+        bodybuild_choicebox.setValue(profile.getLifeStyle().getLSbodyBuild().toString());
+        hair_type_choicebox.setValue(profile.getPhysicalAttributes().getHairType().toString());
+        color_of_hair_choicebox.setValue(profile.getPhysicalAttributes().getHairColor().toString());
+        hair_length_choicebox.setValue(profile.getPhysicalAttributes().getHairLength().toString());
+        religion_choicebox.setValue(profile.getLifeStyle().getLSreligion().toString());
+
+        Smoker_choicebox_preferences.setValue(profile.getPreferences().getLifestyle().getLSsmoker().toString());
+        choicebox_ethnicity_preferences.setValue(profile.getPreferences().getBiology().getBethnicity().toString());
+        alcohol_choicebox_preferences.setValue(profile.getPreferences().getLifestyle().getLSalcohol().toString());
+        Athlete_choicebox_preferences.setValue(profile.getPreferences().getLifestyle().getLSathlete().toString());
+        feed_choicebox_preferences.setValue(profile.getPreferences().getLifestyle().getLSfeed().toString());
+        bodybuild_choicebox_preferences.setValue(profile.getPreferences().getLifestyle().getLSbodyBuild().toString());
+        hair_type_choicebox_preferences.setValue(profile.getPreferences().getPhysicalAttributes().getHairType().toString());
+        color_of_hair_choicebox_preferences.setValue(profile.getPreferences().getPhysicalAttributes().getHairColor().toString());
+        hair_length_choicebox_preferences.setValue(profile.getPreferences().getPhysicalAttributes().getHairLength().toString());
+        religion_choicebox_preferences.setValue(profile.getPreferences().getLifestyle().getLSreligion().toString());
+        sex_choicebox_preferences.setValue(profile.getPreferences().getBiology().getBsex().toString());
+        textfield_age_preferences.setText(String.valueOf(profile.getPreferences().getBiology().getAge()));
+        textfield_size_preferences.setText(String.valueOf(profile.getPreferences().getPhysicalAttributes().getSize()));
+        // convert the arraylist in indexedCheckModel
+
+        ArrayList<String> video_games_list = new ArrayList<>();
+        profile.getPassion().passionVG.forEach(passion -> video_games_list.add(passion.toString()));
+
+        for (String value : video_games_list) {
+            element_video_games.indexOf(value);
+            video_games_checkcombobox.getCheckModel().checkIndices(element_video_games.indexOf(value));
+        }
+
+        ArrayList<String> miscellanous_list = new ArrayList<>();
+        profile.getPassion().passionM.forEach(passion -> miscellanous_list.add(passion.toString()));
+
+        for (String s : miscellanous_list) {
+            element_miscellanious.indexOf(s);
+            miscellanious_checkcombobox.getCheckModel().checkIndices(element_miscellanious.indexOf(s));
+        }
+
+        ObservableList<ProfileTableViewHistoric> profiles = tableview_profile.getItems();
+        HashMap<Integer, Date> hashMap = profile.modelHisto.stockHisto;
+        for (Integer key : hashMap.keySet()) {
+            Profile profileHash = modelMatch.modelP.getProfileHashMap().get(key);
+            ProfileTableViewHistoric profileTableViewHistoric = profileHash.toProfileTableViewHistoric();
+            System.out.println(profileTableViewHistoric.toString());
+            Pane thumbsUp = (Pane) profileTableViewHistoric.actions.getChildren().get(1);
+            thumbsUp.setStyle("-fx-cursor: HAND");
+            thumbsUp.setOnMouseClicked(this::positif);
+            Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(3);
+            thumbsDown.setStyle("-fx-cursor: HAND");
+            thumbsDown.setOnMouseClicked(this::negatif);
+            System.out.println(profileTableViewHistoric.getActions().getChildren());
+            profiles.add(profileTableViewHistoric);
+        }
+        if (profiles.isEmpty()) {
+            tableview_profile.setPlaceholder(new Label("No matches!"));
+        }
+        tableview_profile.setItems(profiles);
 
     }
 
@@ -593,102 +681,12 @@ public class Edit_Profile_Controller {
         button_create_profile.setStyle("-fx-background-color:  rgba(255,255,255,0.3); -fx-background-radius: 50; -fx-border-radius: 50");
     }
 
-    @FXML
-    void import_new_image(MouseEvent event) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Resource File");
-        //type of file jpg png
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif", "*.jpeg"));
-        File file = fileChooser.showOpenDialog(null);
-
-        if (file != null) {
-            circle_profile_picture.setFill(new ImagePattern(new Image(file.toURI().toString())));
-        }
-
-    }
-
-    @FXML
-    public void set_profile(Profile profile) {
-        idProfile = profile.getIdentity().getNoId();
-        textfield_first_name.setText(profile.getIdentity().firstname);
-        textfield_last_name.setText(profile.getIdentity().lastname);
-        textfield_age.setText(String.valueOf(profile.getIdentity().age));
-        sex_choicebox.setValue(profile.getIdentity().getBsex().toString());
-        textfield_size.setText(String.valueOf(profile.getPhysicalAttributes().getSize()));
-        textfield_qi.setText(String.valueOf(profile.getIdentity().qi));
-        circle_profile_picture.setFill(new ImagePattern(new Image(profile.getImageView().getImage().getUrl())));
-        if (profile.getTotal() <= 1) {
-            feedbackText.setText("Feedback : " + profile.getRatio() + " %    " + profile.getTotal() + " vote");
-        } else {
-            feedbackText.setText("Feedback : " + profile.getRatio() + " %    " + profile.getTotal() + " votes");
-        }
-        Smoker_choicebox.setValue(profile.getLifeStyle().getLSsmoker().toString());
-        choicebox_ethnicity.setValue(profile.getIdentity().getBethnicity().toString());
-        alcohol_choicebox.setValue(profile.getLifeStyle().getLSalcohol().toString());
-        Athlete_choicebox.setValue(profile.getLifeStyle().getLSathlete().toString());
-        feed_choicebox.setValue(profile.getLifeStyle().getLSfeed().toString());
-        bodybuild_choicebox.setValue(profile.getLifeStyle().getLSbodyBuild().toString());
-        hair_type_choicebox.setValue(profile.getPhysicalAttributes().getHairType().toString());
-        color_of_hair_choicebox.setValue(profile.getPhysicalAttributes().getHairColor().toString());
-        hair_length_choicebox.setValue(profile.getPhysicalAttributes().getHairLength().toString());
-        religion_choicebox.setValue(profile.getLifeStyle().getLSreligion().toString());
-
-        Smoker_choicebox_preferences.setValue(profile.getPreferences().getLifestyle().getLSsmoker().toString());
-        choicebox_ethnicity_preferences.setValue(profile.getPreferences().getBiology().getBethnicity().toString());
-        alcohol_choicebox_preferences.setValue(profile.getPreferences().getLifestyle().getLSalcohol().toString());
-        Athlete_choicebox_preferences.setValue(profile.getPreferences().getLifestyle().getLSathlete().toString());
-        feed_choicebox_preferences.setValue(profile.getPreferences().getLifestyle().getLSfeed().toString());
-        bodybuild_choicebox_preferences.setValue(profile.getPreferences().getLifestyle().getLSbodyBuild().toString());
-        hair_type_choicebox_preferences.setValue(profile.getPreferences().getPhysicalAttributes().getHairType().toString());
-        color_of_hair_choicebox_preferences.setValue(profile.getPreferences().getPhysicalAttributes().getHairColor().toString());
-        hair_length_choicebox_preferences.setValue(profile.getPreferences().getPhysicalAttributes().getHairLength().toString());
-        religion_choicebox_preferences.setValue(profile.getPreferences().getLifestyle().getLSreligion().toString());
-        sex_choicebox_preferences.setValue(profile.getPreferences().getBiology().getBsex().toString());
-        textfield_age_preferences.setText(String.valueOf(profile.getPreferences().getBiology().getAge()));
-        textfield_size_preferences.setText(String.valueOf(profile.getPreferences().getPhysicalAttributes().getSize()));
-        // convert the arraylist in indexedCheckModel
-
-        ArrayList<String> video_games_list = new ArrayList<>();
-        profile.getPassion().passionVG.forEach(passion -> video_games_list.add(passion.toString()));
-
-        for (String value : video_games_list) {
-            element_video_games.indexOf(value);
-            video_games_checkcombobox.getCheckModel().checkIndices(element_video_games.indexOf(value));
-        }
-
-        ArrayList<String> miscellanous_list = new ArrayList<>();
-        profile.getPassion().passionM.forEach(passion -> miscellanous_list.add(passion.toString()));
-
-        for (String s : miscellanous_list) {
-            element_miscellanious.indexOf(s);
-            miscellanious_checkcombobox.getCheckModel().checkIndices(element_miscellanious.indexOf(s));
-        }
-
-        ObservableList<ProfileTableViewHistoric> profiles = tableview_profile.getItems();
-        HashMap<Integer, Date> hashMap = profile.modelHisto.stockHisto;
-        for (Integer key : hashMap.keySet()) {
-            Profile profileHash = modelMatch.modelP.getProfileHashMap().get(key);
-            ProfileTableViewHistoric profileTableViewHistoric = profileHash.toProfileTableViewHistoric();
-            System.out.println(profileTableViewHistoric.toString());
-            Pane thumbsUp = (Pane) profileTableViewHistoric.actions.getChildren().get(1);
-            thumbsUp.setStyle("-fx-cursor: HAND");
-            thumbsUp.setOnMouseClicked(this::positif);
-            Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(3);
-            thumbsDown.setStyle("-fx-cursor: HAND");
-            thumbsDown.setOnMouseClicked(this::negatif);
-            System.out.println(profileTableViewHistoric.getActions().getChildren());
-            profiles.add(profileTableViewHistoric);
-        }
-        if (profiles.isEmpty()) {
-            tableview_profile.setPlaceholder(new Label("No matches!"));
-        }
-        tableview_profile.setItems(profiles);
-
-    }
-
     public void newImageCursor(MouseEvent mouseEvent) {
         newImageSelector.setCursor(Cursor.HAND);
     }
 
+    @FXML
+    void exit_script() {
+        //exit the window
+    }
 }

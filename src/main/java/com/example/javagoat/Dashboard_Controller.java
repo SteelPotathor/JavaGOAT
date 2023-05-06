@@ -4,7 +4,7 @@ import animatefx.animation.FadeInDown;
 import animatefx.animation.FadeInUpBig;
 import animatefx.animation.Swing;
 import com.example.javagoat.back.ModelMatch;
-import com.example.javagoat.back.ModelProfile;
+import com.example.javagoat.back.ModelNotification;
 import com.example.javagoat.back.Profile;
 import com.example.javagoat.back.ProfileTableView;
 import javafx.animation.PauseTransition;
@@ -26,13 +26,15 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.PriorityQueue;
-
-import static com.example.javagoat.back.ModelProfile.profileHashMap;
 
 public class Dashboard_Controller {
 
     ModelMatch modelMatch = new ModelMatch();
+    ModelNotification modelNotification = new ModelNotification();
 
     @FXML
     private Stage stage;
@@ -42,23 +44,23 @@ public class Dashboard_Controller {
     private Parent parent;
 
     @FXML
-    private TableView<ProfileTableView> tableView;
+    public TableView<ProfileTableView> tableView;
     @FXML
-    private TableColumn<ProfileTableView, Integer> priority;
+    public TableColumn<ProfileTableView, Integer> priority;
     @FXML
-    private TableColumn<ProfileTableView, String> image;
+    public TableColumn<ProfileTableView, String> image;
     @FXML
-    private TableColumn<ProfileTableView, String> firstname;
+    public TableColumn<ProfileTableView, String> firstname;
     @FXML
-    private TableColumn<ProfileTableView, String> lastname;
+    public TableColumn<ProfileTableView, String> lastname;
     @FXML
-    private TableColumn<ProfileTableView, Integer> age;
+    public TableColumn<ProfileTableView, Integer> age;
     @FXML
-    private TableColumn<ProfileTableView, String> gender;
+    public TableColumn<ProfileTableView, String> gender;
     @FXML
-    private TableColumn<ProfileTableView, String> actions;
+    public TableColumn<ProfileTableView, String> actions;
     @FXML
-    private ListView<String> list_view_notification;
+    public ListView<String> list_view_notification;
     @FXML
     private VBox notif;
     @FXML
@@ -91,9 +93,17 @@ public class Dashboard_Controller {
     void initialize() throws IOException {
         earlyAnimation(0.1);
         initTableView();
-        firstFillTableView();
+        fillTableView();
+        fillNotifications();
         initStats();
-        initNotification();
+        //initNotification();
+    }
+
+    public void initializeWithoutAnimations() {
+        //initTableView();
+        //fillTableView();
+        fillNotifications();
+        //initStats();
     }
 
     private void initNotification() {
@@ -111,10 +121,9 @@ public class Dashboard_Controller {
         label_today_new_profiles.setText(String.valueOf(modelMatch.getCreateCounter()));
     }
 
-    private void firstFillTableView() {
+    public void fillTableView() {
         ObservableList<ProfileTableView> profiles = tableView.getItems();
-        ModelProfile modelProfile = new ModelProfile();
-        PriorityQueue<Profile> priorityQueue = modelProfile.toPriorityQueue();
+        PriorityQueue<Profile> priorityQueue = modelMatch.modelP.toPriorityQueue();
         // Putting some profiles in the tableView
         Profile profile = priorityQueue.poll();
         while (profile.getPriority() == 1 && !priorityQueue.isEmpty() && priorityQueue.size() > 450) {
@@ -213,6 +222,18 @@ public class Dashboard_Controller {
             change_scene_to_page_edit(profile);
         } catch (IOException ioException) {
             ioException.printStackTrace();
+        }
+    }
+
+
+    void fillNotifications() {
+        list_view_notification.getItems().clear();
+        int i = 0;
+        Iterator<Map.Entry<Date, String>> iterator = modelNotification.stockNotification.entrySet().iterator();
+        while (i < 30 && iterator.hasNext()) {
+            Map.Entry entry = iterator.next();
+            list_view_notification.getItems().add(entry.getKey().toString() + " " + entry.getValue().toString());
+            i++;
         }
     }
 

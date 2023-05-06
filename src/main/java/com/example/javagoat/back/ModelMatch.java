@@ -9,6 +9,7 @@ public class ModelMatch implements Serializable {
 
     public static HashMap<Integer /*id*/, TreeSet<TupleTreeSet>> stockDistance;
     public ModelProfile modelP;
+    public ModelNotification modelN = new ModelNotification();
 
     public String DistancePath = "src\\main\\java\\com\\example\\javagoat\\back\\Distances.xml";
     public String ProfilePath = "src\\main\\java\\com\\example\\javagoat\\back\\Profiles.xml";
@@ -64,7 +65,7 @@ public class ModelMatch implements Serializable {
 
         // Add the profile 'p' in the hashMap
         this.modelP.profileHashMap.put(p.identity.getNoId(), p);
-
+        modelN.addNotification(new Date(), "Profile created : " + p.identity.getLastname() + " " + p.identity.getFirstname());
         createCounter++;
     }
 
@@ -93,6 +94,7 @@ public class ModelMatch implements Serializable {
         }
 
         modelP.profileHashMap.replace(p.getIdentity().getNoId(), p);
+        modelN.addNotification(new Date(), "Profile edited : " + p.identity.getLastname() + " " + p.identity.getFirstname());
 
     }
 
