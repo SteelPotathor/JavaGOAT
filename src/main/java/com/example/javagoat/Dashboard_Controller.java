@@ -100,6 +100,7 @@ public class Dashboard_Controller {
 
     public void updateAfterEditOrMatch() {
         fillNotifications();
+        fillTableView();
     }
 
     private void initStats() {
