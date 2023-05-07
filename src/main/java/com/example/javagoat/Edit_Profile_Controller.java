@@ -457,14 +457,8 @@ public class Edit_Profile_Controller {
             alert.setContentText("Your profile has not been edited, please fill all the fields");
             alert.showAndWait();
         } else {
-            // DO NOT CREATE NEW IDENTITY OBJECT
-            Identity identity = modelMatch.modelP.getProfileHashMap().get(idProfile).getIdentity();
-            identity.setLastname(textfield_last_name.getText());
-            identity.setFirstname(textfield_first_name.getText());
-            identity.setAge(Integer.parseInt(textfield_age.getText()));
-            identity.setBsex(Biology.sex.valueOf(sex_choicebox.getValue()));
-            identity.setBethnicity(Biology.ethnicity.valueOf(choicebox_ethnicity.getValue()));
-            identity.setQi(Integer.parseInt(textfield_qi.getText()));
+            Identity identity = new Identity(Integer.parseInt(textfield_age.getText()),Biology.sex.valueOf(sex_choicebox.getValue()),Biology.ethnicity.valueOf(choicebox_ethnicity.getValue()),Integer.parseInt(textfield_qi.getText()),textfield_last_name.getText(),textfield_first_name.getText(), true);
+            identity.setNoId(idProfile);
             PhysicalAttributes physicalAttributes = new PhysicalAttributes(Integer.parseInt(textfield_size.getText()), PhysicalAttributes.hairColor.valueOf(color_of_hair_choicebox.getValue()), PhysicalAttributes.hairType.valueOf(hair_type_choicebox.getValue()), PhysicalAttributes.hairLength.valueOf(hair_length_choicebox.getValue()));
             LifeStyle lifeStyle = new LifeStyle(LifeStyle.smoker.valueOf(Smoker_choicebox.getValue()), LifeStyle.athlete.valueOf(Athlete_choicebox.getValue()), LifeStyle.feed.valueOf(feed_choicebox.getValue()), LifeStyle.bodyBuild.valueOf(bodybuild_choicebox.getValue()), LifeStyle.religion.valueOf(religion_choicebox.getValue()), LifeStyle.alcohol.valueOf(alcohol_choicebox.getValue()));
             Preferences preferences = new Preferences(new PhysicalAttributes(Integer.parseInt(textfield_size.getText()), PhysicalAttributes.hairColor.valueOf(color_of_hair_choicebox_preferences.getValue()), PhysicalAttributes.hairType.valueOf(hair_type_choicebox_preferences.getValue()), PhysicalAttributes.hairLength.valueOf(hair_length_choicebox_preferences.getValue())), new Biology(Integer.parseInt(textfield_age_preferences.getText()), Biology.sex.valueOf(sex_choicebox_preferences.getValue()), Biology.ethnicity.valueOf(choicebox_ethnicity_preferences.getValue()), Integer.parseInt(textfield_qi.getText())), new LifeStyle(LifeStyle.smoker.valueOf(Smoker_choicebox_preferences.getValue()), LifeStyle.athlete.valueOf(Athlete_choicebox_preferences.getValue()), LifeStyle.feed.valueOf(feed_choicebox_preferences.getValue()), LifeStyle.bodyBuild.valueOf(bodybuild_choicebox_preferences.getValue()), LifeStyle.religion.valueOf(religion_choicebox_preferences.getValue()), LifeStyle.alcohol.valueOf(alcohol_choicebox_preferences.getValue())));
@@ -485,6 +479,7 @@ public class Edit_Profile_Controller {
             try {
                 Profile oldProfile = profile.clone();
 
+                profile.setIdentity(identity);
                 profile.setPhysicalAttributes(physicalAttributes);
                 profile.setLifeStyle(lifeStyle);
                 profile.setPreferences(preferences);

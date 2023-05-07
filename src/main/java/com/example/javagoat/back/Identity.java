@@ -19,6 +19,12 @@ public class Identity extends Biology implements Serializable, Cloneable {
         this.noId = currentMembers;
     }
 
+    public Identity(int age, sex sex, ethnicity ethnicity, int qi, String lastname, String firstname, boolean ok) {
+        super(age, sex, ethnicity, qi);
+        this.lastname = lastname;
+        this.firstname = firstname;
+    }
+
     // Random Identity
     public Identity() {}
 

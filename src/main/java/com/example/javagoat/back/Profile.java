@@ -262,7 +262,7 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
         clone.setPassion(clone.getPassion().clone());
         clone.setVectProfile(clone.getVectProfile().clone());
         clone.setVectPreferences(clone.getVectPreferences().clone());
-        clone.setModelHisto(clone.getModelHisto().clone());
+        //clone.setModelHisto(clone.getModelHisto().clone());
 
         return clone;
     }
