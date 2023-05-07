@@ -350,7 +350,9 @@ public class Search_Controller {
             Pane modify = (Pane) profileTableView.actions.getChildren().get(1);
             Pane match = (Pane) profileTableView.actions.getChildren().get(3);
             modify.setOnMouseClicked(this::edit);
+            modify.setStyle("-fx-cursor: hand");
             match.setOnMouseClicked(this::match);
+            match.setStyle("-fx-cursor: hand");
             profiles.add(profileTableView);
         }
         if (profiles.isEmpty()) {

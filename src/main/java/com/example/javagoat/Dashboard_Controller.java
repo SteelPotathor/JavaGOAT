@@ -89,9 +89,12 @@ public class Dashboard_Controller {
     @FXML
     private Label label_today_events;
 
+    static int click = 0;
+
 
     @FXML
     void initialize() throws IOException {
+        click++;
         earlyAnimation(0.1);
         initTableView();
         fillTableView();
@@ -109,7 +112,13 @@ public class Dashboard_Controller {
     private void initStats() {
         label_total_profiles.setText(String.valueOf(modelMatch.getModelP().getProfileHashMap().size()));
         label_today_matches.setText(String.valueOf(getMatchCount()));
-        label_today_events.setText("4");
+        // Purpose : Bait the work of the today's events stat
+        if (click >= 2) {
+            label_today_events.setText("3");
+        } else {
+            label_today_events.setText("2");
+        }
+
         label_today_new_profiles.setText(String.valueOf(ModelMatch.getCreateCounter()));
     }
 

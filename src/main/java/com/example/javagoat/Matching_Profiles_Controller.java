@@ -1,6 +1,6 @@
 package com.example.javagoat;
 
-import animatefx.animation.BounceInDown;
+import animatefx.animation.*;
 import com.example.javagoat.back.ModelMatch;
 import com.example.javagoat.back.ModelNotification;
 import com.example.javagoat.back.Profile;
@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -19,6 +20,16 @@ import java.util.*;
 
 public class Matching_Profiles_Controller {
 
+    public ImageView arrowBlueSE;
+    public ImageView arrowRedSE;
+    public ImageView arrowBlueS;
+    public ImageView arrowRedS;
+    public ImageView arrowBlueSW;
+    public ImageView arrowRedSW;
+    public ImageView arrowRedNE;
+    public ImageView arrowBlueNE;
+    public ImageView arrowRedNW;
+    public ImageView arrowBlueNW;
     ModelNotification modelNotification = new ModelNotification();
     public ModelMatch modelMatch = new ModelMatch();
     public Profile profileSelected;
@@ -85,6 +96,27 @@ public class Matching_Profiles_Controller {
     private Dashboard_Controller dashboard_controller;
     private Search_Controller search_controller;
 
+
+    public void animation() {
+        new FadeInDownBig(circleProfilePictureCenter).play();
+        new FadeInDownBig(circleProfilePictureNW).play();
+        new FadeInDownBig(circleProfilePictureNE).play();
+        new FadeInUpBig(circleProfilePictureSW).play();
+        new FadeInUpBig(circleProfilePictureSE).play();
+        new FadeInUpBig(circleProfilePictureS).play();
+
+        new RotateInDownLeft(arrowRedSE).play();
+        new RotateInDownLeft(arrowBlueS).play();
+        new RotateInDownLeft(arrowRedS).play();
+        new RotateInDownLeft(arrowBlueSW).play();
+        new RotateInDownLeft(arrowRedSW).play();
+        new RotateInDownLeft(arrowBlueNE).play();
+        new RotateInDownLeft(arrowRedNE).play();
+        new RotateInDownLeft(arrowBlueNW).play();
+        new RotateInDownLeft(arrowRedNW).play();
+
+    }
+
     public void set_match(Profile profile) {
         profileSelected = profile;
         result_matching = modelMatch.getKNN(profile.getIdentity().getNoId(), 5);
@@ -108,7 +140,7 @@ public class Matching_Profiles_Controller {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        new BounceInDown(circleProfilePictureCenter).play();
+        animation();
     }
 
     public void make_match(MouseEvent mouseEvent) throws IOException {
