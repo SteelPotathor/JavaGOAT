@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
@@ -617,8 +618,10 @@ public class New_Profile_Controller {
         if (Smoker_choicebox_preferences.getSelectionModel().getSelectedItem() != null && feed_choicebox_preferences.getSelectionModel().getSelectedItem() != null && Athlete_choicebox_preferences.getSelectionModel().getSelectedItem() != null && alcohol_choicebox_preferences.getSelectionModel().getSelectedItem() != null) {
             if (!Smoker_choicebox_preferences.getSelectionModel().getSelectedItem().equals("Select") && !feed_choicebox_preferences.getSelectionModel().getSelectedItem().equals("Select") && !Athlete_choicebox_preferences.getSelectionModel().getSelectedItem().equals("Select") && !alcohol_choicebox_preferences.getSelectionModel().getSelectedItem().equals("Select")) {
                 circle_life_style.setFill(Paint.valueOf("green"));
+                preferencesLifestyle = true;
             } else {
                 circle_life_style.setFill(Paint.valueOf("red"));
+                preferencesLifestyle = false;
             }
             preferencesColor();
         }
@@ -632,29 +635,38 @@ public class New_Profile_Controller {
         if (bodybuild_choicebox_preferences.getSelectionModel().getSelectedItem() != null && choicebox_ethnicity_preferences.getSelectionModel().getSelectedItem() != null && hair_type_choicebox_preferences.getSelectionModel().getSelectedItem() != null && hair_length_choicebox_preferences.getSelectionModel().getSelectedItem() != null && color_of_hair_choicebox_preferences.getSelectionModel().getSelectedItem() != null && sex_choicebox_preferences.getSelectionModel().getSelectedItem() != null) {
             if (!bodybuild_choicebox_preferences.getSelectionModel().getSelectedItem().equals("Select") && !choicebox_ethnicity_preferences.getSelectionModel().getSelectedItem().equals("Select") && !hair_type_choicebox_preferences.getSelectionModel().getSelectedItem().equals("Select") && !hair_length_choicebox_preferences.getSelectionModel().getSelectedItem().equals("Select") && !color_of_hair_choicebox_preferences.getSelectionModel().getSelectedItem().equals("Select") && !sex_choicebox_preferences.getSelectionModel().getSelectedItem().equals("MALE/FEMALE")) {
                 circle_physical.setFill(Paint.valueOf("green"));
+                preferencesPhysical = true;
             } else {
                 circle_physical.setFill(Paint.valueOf("red"));
+                preferencesPhysical = false;
             }
             preferencesColor();
         }
     }
 
-    public void checkPreferencesOther(ActionEvent actionEvent) {
+    public void checkPreferencesOther(KeyEvent actionEvent) {
+        circlePreferencesOther();
+    }
+
+    public void checkPreferencesReligion(ActionEvent actionEvent) {
         circlePreferencesOther();
     }
 
     private void circlePreferencesOther() {
         if (religion_choicebox_preferences.getSelectionModel().getSelectedItem() != null) {
-            if (textfield_age_preferences.getText() != null && textfield_size_preferences.getText() != null && !religion_choicebox_preferences.getSelectionModel().getSelectedItem().equals("Select")) {
+            if (!textfield_age_preferences.getText().equals("") && !textfield_size_preferences.getText().equals("") && !religion_choicebox_preferences.getSelectionModel().getSelectedItem().equals("Select")) {
                 circle_other.setFill(Paint.valueOf("green"));
+                preferencesOther = true;
             } else {
                 circle_other.setFill(Paint.valueOf("red"));
+                preferencesOther = false;
             }
             preferencesColor();
         }
     }
 
     void preferencesColor() {
+        System.out.println(preferencesLifestyle + " " + preferencesPhysical + " " + preferencesOther);
         if (preferencesLifestyle && preferencesPhysical && preferencesOther) {
             circle_preferences.setFill(Paint.valueOf("green"));
         } else {
@@ -702,6 +714,7 @@ public class New_Profile_Controller {
     void exit_script() {
         System.exit(0);
     }
+
 }
 
 

@@ -231,14 +231,17 @@ public class Edit_Profile_Controller {
                 desactivateThumbsNeg(profileTableViewHistoric);
                 profileTableViewHistoric.toProfile().positif++;
                 profileTableViewHistoric.toProfile().total++;
+                System.out.println(profileTableViewHistoric.toProfile().total);
+                System.out.println(profileTableViewHistoric.toProfile().positif);
+                System.out.println(profileTableViewHistoric.toProfile().getRatio());
                 modelNotification.addNotification(new Date(), profileTableViewHistoric.lastname + " " + profileTableViewHistoric.firstname + " received a positive feedback from " + profileHashMap.get(idProfile).getIdentity().getLastname() + " " + profileHashMap.get(idProfile).getIdentity().getFirstname());
                 notificationDashboard();
                 updateSearch();
             }
+            profileTableViewHistoric.voted = true;
         } catch (Exception exception) {
             exception.printStackTrace();
         }
-
     }
 
     private void negatif(MouseEvent mouseEvent) {
@@ -252,11 +255,14 @@ public class Edit_Profile_Controller {
             if (!profileTableViewHistoric.voted) {
                 desactivateThumbsPos(profileTableViewHistoric);
                 profileTableViewHistoric.toProfile().total++;
+                System.out.println(profileTableViewHistoric.toProfile().total);
+                System.out.println(profileTableViewHistoric.toProfile().positif);
+                System.out.println(profileTableViewHistoric.toProfile().getRatio());
                 modelNotification.addNotification(new Date(), profileTableViewHistoric.lastname + " " + profileTableViewHistoric.firstname + " received a negative feedback from " + profileHashMap.get(idProfile).getIdentity().getLastname() + " " + profileHashMap.get(idProfile).getIdentity().getFirstname());
-
                 notificationDashboard();
                 updateSearch();
             }
+            profileTableViewHistoric.voted = true;
         } catch (Exception exception) {
             exception.printStackTrace();
         }
@@ -275,19 +281,23 @@ public class Edit_Profile_Controller {
     }
 
     public void desactivateThumbsNeg(ProfileTableViewHistoric profileTableViewHistoric) {
-        changeCursor(profileTableViewHistoric);
-        Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(3);
-        ImageView imageDown = (ImageView) thumbsDown.getChildren().get(0);
-        imageDown.setVisible(false);
-        profileTableViewHistoric.voted = true;
+        if (!profileTableViewHistoric.voted) {
+            changeCursor(profileTableViewHistoric);
+            Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(3);
+            ImageView imageDown = (ImageView) thumbsDown.getChildren().get(0);
+            imageDown.setVisible(false);
+            profileTableViewHistoric.voted = true;
+        }
     }
 
     public void desactivateThumbsPos(ProfileTableViewHistoric profileTableViewHistoric) {
-        changeCursor(profileTableViewHistoric);
-        Pane thumbsUp = (Pane) profileTableViewHistoric.actions.getChildren().get(1);
-        ImageView imageUp = (ImageView) thumbsUp.getChildren().get(0);
-        imageUp.setVisible(false);
-        profileTableViewHistoric.voted = true;
+        if (!profileTableViewHistoric.voted) {
+            changeCursor(profileTableViewHistoric);
+            Pane thumbsUp = (Pane) profileTableViewHistoric.actions.getChildren().get(1);
+            ImageView imageUp = (ImageView) thumbsUp.getChildren().get(0);
+            imageUp.setVisible(false);
+            profileTableViewHistoric.voted = true;
+        }
     }
 
     public void changeCursor(ProfileTableViewHistoric profileTableViewHistoric) {

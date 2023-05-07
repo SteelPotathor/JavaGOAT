@@ -30,7 +30,8 @@ public class Launcher {
             System.out.println("Key: " + profile.getPassion() + " Value: " + res.get(profile));
         }
 
-
+        System.out.println(res);
+        System.out.println(launcher.modelM.getModelP().getProfileHashMap().get(5));
     }
 
 }

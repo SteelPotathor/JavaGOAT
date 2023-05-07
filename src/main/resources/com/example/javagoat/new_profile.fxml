@@ -184,7 +184,7 @@
                               <Insets right="5.0" />
                            </HBox.margin>
                         </Circle>
-                        <Button fx:id="button_passions_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_style" prefHeight="24.0" prefWidth="105.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: rgba(255,255,255,0.3);;" text="Other" textAlignment="CENTER">
+                        <Button fx:id="button_passions_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_style" prefHeight="24.0" prefWidth="105.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: rgba(255,255,255,0.3);;" text="Passion/Other" textAlignment="CENTER">
                            <HBox.margin>
                               <Insets right="5.0" />
                            </HBox.margin>
@@ -489,7 +489,7 @@
                      <children>
                         <Pane>
                            <children>
-                              <ChoiceBox fx:id="religion_choicebox_preferences" onAction="#checkPreferencesOther" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
+                              <ChoiceBox fx:id="religion_choicebox_preferences" onAction="#checkPreferencesReligion" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
                               <Label text="Religion">
                                  <font>
                                     <Font size="18.0" />
@@ -504,7 +504,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="textfield_age_preferences" onAction="#checkPreferencesOther" alignment="CENTER" layoutY="24.0" prefHeight="46.0" prefWidth="192.0" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50;">
+                              <TextField fx:id="textfield_age_preferences" onKeyReleased="#checkPreferencesOther" alignment="CENTER" layoutY="24.0" prefHeight="46.0" prefWidth="192.0" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50;">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -521,7 +521,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="textfield_size_preferences" onAction="#checkPreferencesOther" alignment="CENTER" layoutY="33.0" prefHeight="46.0" prefWidth="192.0" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50;">
+                              <TextField fx:id="textfield_size_preferences" onKeyReleased="#checkPreferencesOther" alignment="CENTER" layoutY="33.0" prefHeight="46.0" prefWidth="192.0" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50;">
                                  <font>
                                     <Font size="16.0" />
                                  </font>

@@ -31,6 +31,8 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.PriorityQueue;
 
+import static com.example.javagoat.back.ModelHistoMatch.getMatchCount;
+
 public class Dashboard_Controller {
 
     ModelMatch modelMatch = new ModelMatch();
@@ -101,13 +103,14 @@ public class Dashboard_Controller {
     public void updateAfterEditOrMatch() {
         fillNotifications();
         fillTableView();
+        initStats();
     }
 
     private void initStats() {
         label_total_profiles.setText(String.valueOf(modelMatch.getModelP().getProfileHashMap().size()));
-        label_today_matches.setText("0");
+        label_today_matches.setText(String.valueOf(getMatchCount()));
         label_today_events.setText("4");
-        label_today_new_profiles.setText(String.valueOf(modelMatch.getCreateCounter()));
+        label_today_new_profiles.setText(String.valueOf(ModelMatch.getCreateCounter()));
     }
 
     public void fillTableView() {

@@ -21,8 +21,8 @@ public class Profile implements Serializable, Comparable<Profile> {
 
     public ImageView imageView;
     public int priority = 1; // Base priority value
-    public int positif = 0;
-    public int total = 0;
+    public double positif = 0;
+    public double total = 0;
 
 
     // Customised Profile -> Add Profile
@@ -212,7 +212,7 @@ public class Profile implements Serializable, Comparable<Profile> {
         this.priority = priority;
     }
 
-    public int getPositif() {
+    public double getPositif() {
         return positif;
     }
 
@@ -220,7 +220,7 @@ public class Profile implements Serializable, Comparable<Profile> {
         this.positif = positif;
     }
 
-    public int getTotal() {
+    public double getTotal() {
         return total;
     }
 
@@ -229,16 +229,17 @@ public class Profile implements Serializable, Comparable<Profile> {
     }
 
     public double getRatio() {
-        return this.total == 0 ? 0 : (double) (this.positif / this.total) * 100;
+        return this.total == 0 ? 0 : this.positif / this.total * 100;
     }
 
 
     public String toString() {
-        return " (" + this.getIdentity() + " | " + this.getPhysicalAttributes() + " | " + this.getLifeStyle() + ") ";
+        return " (" + this.getIdentity() + " | " + this.getPhysicalAttributes() + " | " + this.getLifeStyle() + " | " + this.getPreferences()+") ";
     }
 
     @Override
     public int compareTo(Profile o) {
         return this.getPriority() - o.getPriority();
     }
+
 }

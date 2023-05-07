@@ -11,6 +11,8 @@ public class ModelHistoMatch implements Serializable {
     public SimpleDateFormat timeFormat = new SimpleDateFormat("dd/MM/yyyy");
     public ModelNotification modelNotification = new ModelNotification();
 
+    public static int matchCount = 0;
+
     public ModelHistoMatch() {
         this.stockHisto = new HashMap<>();
     }
@@ -25,6 +27,7 @@ public class ModelHistoMatch implements Serializable {
         HashMap<Integer, Date> matchP2 = p2.getModelHisto().getStockHisto();
         matchP2.put(p1.getIdentity().getNoId(), new Date());
         modelNotification.addNotification(new Date(), "Match between " + p1.getIdentity().getFirstname() + " " + p1.getIdentity().getLastname() + " and " + p2.getIdentity().getFirstname() + " " + p2.getIdentity().getLastname());
+        matchCount++;
     }
 
     public HashMap<Integer, Date> getStockHisto() {
@@ -41,6 +44,22 @@ public class ModelHistoMatch implements Serializable {
 
     public void setTimeFormat(SimpleDateFormat timeFormat) {
         this.timeFormat = timeFormat;
+    }
+
+    public ModelNotification getModelNotification() {
+        return modelNotification;
+    }
+
+    public void setModelNotification(ModelNotification modelNotification) {
+        this.modelNotification = modelNotification;
+    }
+
+    public static int getMatchCount() {
+        return matchCount;
+    }
+
+    public static void setMatchCount(int matchCount) {
+        ModelHistoMatch.matchCount = matchCount;
     }
 
     @Override

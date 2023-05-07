@@ -1,5 +1,6 @@
 package com.example.javagoat;
 
+import animatefx.animation.BounceInDown;
 import com.example.javagoat.back.ModelMatch;
 import com.example.javagoat.back.ModelNotification;
 import com.example.javagoat.back.Profile;
@@ -84,11 +85,6 @@ public class Matching_Profiles_Controller {
     private Dashboard_Controller dashboard_controller;
     private Search_Controller search_controller;
 
-    @FXML
-    void Initialize() {
-
-    }
-
     public void set_match(Profile profile) {
         profileSelected = profile;
         result_matching = modelMatch.getKNN(profile.getIdentity().getNoId(), 5);
@@ -112,6 +108,7 @@ public class Matching_Profiles_Controller {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        new BounceInDown(circleProfilePictureCenter).play();
     }
 
     public void make_match(MouseEvent mouseEvent) throws IOException {
@@ -161,13 +158,14 @@ public class Matching_Profiles_Controller {
         updateSearch();
     }
 
+
     private void updateSearch() {
         if (search_controller != null) {
             search_controller.updateAfterEditOrMatch();
         }
     }
 
-    private void notificationDashboard() throws IOException {
+    private void notificationDashboard() {
         if (dashboard_controller != null) {
             dashboard_controller.updateAfterEditOrMatch();
         }
