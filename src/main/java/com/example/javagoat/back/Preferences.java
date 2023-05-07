@@ -2,7 +2,7 @@ package com.example.javagoat.back;
 
 import java.io.Serializable;
 
-public class Preferences implements Serializable {
+public class Preferences implements Serializable, Cloneable {
 
     public PhysicalAttributes physicalAttributes;
     public Biology biology;
@@ -34,6 +34,16 @@ public class Preferences implements Serializable {
         }
     }
 
+    @Override
+    public Preferences clone() throws CloneNotSupportedException {
+        Preferences clone = (Preferences) super.clone();
+        clone.setPhysicalAttributes(clone.physicalAttributes.clone());
+        clone.setBiology((Biology) clone.biology.clone());
+        clone.setLifestyle(clone.lifestyle.clone());
+
+        return clone;
+    }
+
     public PhysicalAttributes getPhysicalAttributes() {
         return physicalAttributes;
     }
@@ -58,8 +68,13 @@ public class Preferences implements Serializable {
         this.lifestyle = lifestyle;
     }
 
+    @Override
     public String toString() {
-        return "Preference :  [" + getBiology() + " | " + getPhysicalAttributes() + " | " + getLifestyle() + "]";
+        final StringBuilder sb = new StringBuilder("Preferences{");
+        sb.append("physicalAttributes=").append(physicalAttributes);
+        sb.append(", biology=").append(biology);
+        sb.append(", lifestyle=").append(lifestyle);
+        sb.append('}');
+        return sb.toString();
     }
-
 }

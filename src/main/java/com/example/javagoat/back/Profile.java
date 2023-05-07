@@ -6,7 +6,7 @@ import javafx.scene.image.ImageView;
 import java.io.Serializable;
 
 
-public class Profile implements Serializable, Comparable<Profile> {
+public class Profile implements Serializable, Comparable<Profile>, Cloneable {
 
     public Identity identity;
     public PhysicalAttributes physicalAttributes;
@@ -133,6 +133,7 @@ public class Profile implements Serializable, Comparable<Profile> {
     }
 
     public Identity getIdentity() {
+        System.out.println(identity.toString());
         return identity;
     }
 
@@ -233,8 +234,16 @@ public class Profile implements Serializable, Comparable<Profile> {
     }
 
 
+    @Override
     public String toString() {
-        return " (" + this.getIdentity() + " | " + this.getPhysicalAttributes() + " | " + this.getLifeStyle() + " | " + this.getPreferences()+") ";
+        final StringBuilder sb = new StringBuilder("Profile{");
+        sb.append("identity=").append(identity);
+        sb.append(", physicalAttributes=").append(physicalAttributes);
+        sb.append(", lifeStyle=").append(lifeStyle);
+        sb.append(", preferences=").append(preferences);
+        sb.append(", passion=").append(passion);
+        sb.append('}');
+        return sb.toString();
     }
 
     @Override
@@ -242,4 +251,19 @@ public class Profile implements Serializable, Comparable<Profile> {
         return this.getPriority() - o.getPriority();
     }
 
+    @Override
+    public Profile clone() throws CloneNotSupportedException {
+        Profile clone = (Profile) super.clone();
+
+        clone.setIdentity((Identity) clone.getIdentity().clone());
+        clone.setPhysicalAttributes(clone.getPhysicalAttributes().clone());
+        clone.setLifeStyle(clone.getLifeStyle().clone());
+        clone.setPreferences(clone.getPreferences().clone());
+        clone.setPassion(clone.getPassion().clone());
+        clone.setVectProfile(clone.getVectProfile().clone());
+        clone.setVectPreferences(clone.getVectPreferences().clone());
+        clone.setModelHisto(clone.getModelHisto().clone());
+
+        return clone;
+    }
 }

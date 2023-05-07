@@ -1,9 +1,8 @@
 package com.example.javagoat.back;
 
-
 import java.io.Serializable;
 
-public class Identity extends Biology implements Serializable {
+public class Identity extends Biology implements Serializable, Cloneable {
 
     public String lastname;
     public String firstname;
@@ -29,6 +28,11 @@ public class Identity extends Biology implements Serializable {
         this.setFirstname(getRandomName()[0]);
         currentMembers++;
         this.setNoId(currentMembers);
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     public String getLastname() {
@@ -63,8 +67,17 @@ public class Identity extends Biology implements Serializable {
         Identity.currentMembers = currentMembers;
     }
 
+
+
+    @Override
     public String toString() {
-        return "Identity : {" + getNoId() + ", " + getFirstname() + ", " + getLastname() + ", " + getAge() + ", " + getBsex() + "}";
+        final StringBuilder sb = new StringBuilder("Identity{");
+        sb.append("lastname='").append(lastname).append('\'');
+        sb.append(", firstname='").append(firstname).append('\'');
+        sb.append(", noId=").append(noId);
+        sb.append(super.toString());
+        sb.append('}');
+        return sb.toString();
     }
 
 }

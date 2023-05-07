@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class LifeStyle implements Serializable {
+public class LifeStyle implements Serializable, Cloneable {
 
     public smoker LSsmoker;
     public athlete LSathlete;
@@ -130,6 +130,11 @@ public class LifeStyle implements Serializable {
         setLSalcohol(alcohol.randomLSalcohol());
     }
 
+    @Override
+    public LifeStyle clone() throws CloneNotSupportedException {
+        return (LifeStyle) super.clone();
+    }
+
     public smoker getLSsmoker() {
         return LSsmoker;
     }
@@ -178,8 +183,16 @@ public class LifeStyle implements Serializable {
         this.LSalcohol = LSalcohol;
     }
 
+    @Override
     public String toString() {
-        return "LifeStyle : {" + getLSsmoker() + ", " + getLSathlete() + ", " + getLSfeed() + ", " + getLSbodyBuild() + "}";
+        final StringBuilder sb = new StringBuilder("LifeStyle{");
+        sb.append("LSsmoker=").append(LSsmoker);
+        sb.append(", LSathlete=").append(LSathlete);
+        sb.append(", LSfeed=").append(LSfeed);
+        sb.append(", LSbodyBuild=").append(LSbodyBuild);
+        sb.append(", LSreligion=").append(LSreligion);
+        sb.append(", LSalcohol=").append(LSalcohol);
+        sb.append('}');
+        return sb.toString();
     }
-
 }

@@ -8,18 +8,16 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class Biology implements Serializable {
+public class Biology implements Serializable, Cloneable {
 
     public int age;
     public sex Bsex;
     public ethnicity Bethnicity;
     public int qi;
 
-    public static final Random random = new Random();
-
     public enum sex {
         MALE, FEMALE;
-
+        public static final Random random = new Random();
         private static final List<sex> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
         private static final int SIZE = VALUES.size();
 
@@ -31,7 +29,7 @@ public class Biology implements Serializable {
 
     public enum ethnicity {
         WHITE, BLACK, ASIAN, LATINO;
-
+        public static final Random random = new Random();
         private static final List<ethnicity> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
         private static final int SIZE = VALUES.size();
 
@@ -53,6 +51,7 @@ public class Biology implements Serializable {
     public Biology() {}
 
     public void setRandomBiology() {
+        Random random = new Random();
         setAge(random.nextInt(40) + 20);
         setBsex(sex.randomSex());
         setBethnicity(ethnicity.randomEthnicity());
@@ -70,6 +69,11 @@ public class Biology implements Serializable {
     public int gauss_law_simulation(int average, int standard_deviation) {
         int number = gauss_law_simulation_classic();
         return average + standard_deviation * number;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     public String[] getRandomName() {
@@ -108,8 +112,14 @@ public class Biology implements Serializable {
         this.qi = qi;
     }
 
+    @Override
     public String toString() {
-        return "Biology : {" + getBsex() + ", " + getAge() + ", " + getBethnicity() + ", " + getQi() + "}";
+        final StringBuilder sb = new StringBuilder("Biology{");
+        sb.append("age=").append(age);
+        sb.append(", Bsex=").append(Bsex);
+        sb.append(", Bethnicity=").append(Bethnicity);
+        sb.append(", qi=").append(qi);
+        sb.append('}');
+        return sb.toString();
     }
-
 }

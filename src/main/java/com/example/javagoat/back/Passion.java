@@ -2,7 +2,7 @@ package com.example.javagoat.back;
 
 import java.util.*;
 
-public class Passion {
+public class Passion implements Cloneable {
 
     public HashSet<video_games> passionVG = new HashSet<>();
     public HashSet<miscellaneous> passionM = new HashSet<>();
@@ -73,10 +73,10 @@ public class Passion {
         TENNIS,
         SOCCER,
         MARTIAL_ARTS,
-        LITTERATURE,
+        LITERATURE,
         DIVING,
         WRITING,
-        PROGRAMMATION,
+        PROGRAMMING,
         PHOTOGRAPHY,
         GARDENING,
         HISTORY,
@@ -96,7 +96,7 @@ public class Passion {
         PSYCHOLOGY,
         PHILOSOPHY,
         SCIENCES,
-        THEATHER,
+        THEATER,
         VLOGGING,
         CLIMBING,
         NUDISM,
@@ -129,6 +129,14 @@ public class Passion {
         }
     }
 
+    @Override
+    public Passion clone() throws CloneNotSupportedException {
+        Passion clone = (Passion) super.clone();
+        clone.passionVG = (HashSet<video_games>) passionVG.clone();
+        clone.passionM = (HashSet<miscellaneous>) passionM.clone();
+        return clone;
+    }
+
     public HashSet<video_games> getPassionVG() {
         return passionVG;
     }
@@ -145,8 +153,13 @@ public class Passion {
         this.passionM = passionM;
     }
 
+    @Override
     public String toString() {
-        return "Passion VG : " + this.passionVG + " | Passion M : " + this.passionM;
+        final StringBuilder sb = new StringBuilder("Passion{");
+        sb.append("passionVG=").append(passionVG);
+        sb.append(", passionM=").append(passionM);
+        sb.append('}');
+        return sb.toString();
     }
 
 }

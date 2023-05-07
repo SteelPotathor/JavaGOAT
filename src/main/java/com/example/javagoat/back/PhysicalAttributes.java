@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class PhysicalAttributes implements Serializable {
+public class PhysicalAttributes implements Serializable, Cloneable {
 
     public int size;
     public hairColor PAhairColor;
@@ -76,6 +76,11 @@ public class PhysicalAttributes implements Serializable {
         setHairLength(hairLength.randomHLength());
     }
 
+    @Override
+    public PhysicalAttributes clone() throws CloneNotSupportedException {
+        return (PhysicalAttributes) super.clone();
+    }
+
     public int getSize() {
         return size;
     }
@@ -132,8 +137,14 @@ public class PhysicalAttributes implements Serializable {
         this.PAhairLength = PAhairLength;
     }
 
+    @Override
     public String toString() {
-        return "Physical Attributes : {" + getSize() + ", " + getHairColor() + ", " + getHairType() + ", " + getHairLength() + "}";
+        final StringBuilder sb = new StringBuilder("PhysicalAttributes{");
+        sb.append("size=").append(size);
+        sb.append(", PAhairColor=").append(PAhairColor);
+        sb.append(", PAhairType=").append(PAhairType);
+        sb.append(", PAhairLength=").append(PAhairLength);
+        sb.append('}');
+        return sb.toString();
     }
-
 }

@@ -69,33 +69,70 @@ public class ModelMatch implements Serializable {
         createCounter++;
     }
 
-    public void editProfile(Profile p) {
-        // Get the old profile before updating it
-        Profile oldProfile = modelP.profileHashMap.get(p.getIdentity().getNoId());
+    public void removeProfile(Profile p) {
+        // Remove the profile 'p' from the HashMap
+        this.modelP.profileHashMap.remove(p.identity.getNoId());
 
-        // Set in every TreeSets the new distance between the profile 'p' and every other profiles contained in this HashMap
+        // Remove the profile 'p' from every TreeSet
         for (int idProfile : stockDistance.keySet()) {
-            if (idProfile != p.getIdentity().getNoId()) {
+            TreeSet<TupleTreeSet> treeSetProfile = stockDistance.get(idProfile);
+            //treeSetProfile.removeIf(tuple -> tuple.id == p.identity.getNoId());
+            System.out.println("correct contains:"+treeSetProfile.contains(new TupleTreeSet(p.identity.getNoId(),this.modelP.getProfileHashMap().get(idProfile),p)));
+            //treeSetProfile.remove(new TupleTreeSet(p.identity.getNoId(), this.modelP.getProfileHashMap().get(idProfile), p));
+        }
+
+        // Remove the TreeSet of the profile 'p'
+        stockDistance.remove(p.identity.getNoId());
+        createCounter--;
+    }
+
+
+    public void editProfile(Profile newProfile, Profile oldProfile) {
+        // Set in every TreeSets the new distance between the profile 'newProfile' and every other profiles contained in this HashMap
+        for (int idProfile : stockDistance.keySet()) {
+            if (idProfile != newProfile.getIdentity().getNoId()) {
                 TreeSet<TupleTreeSet> treeSetProfile = stockDistance.get(idProfile);
                 Profile profile = modelP.profileHashMap.get(idProfile);
-                treeSetProfile.remove(new TupleTreeSet(p.identity.getNoId(), profile, oldProfile));
-                treeSetProfile.add(new TupleTreeSet(p.identity.getNoId(), profile, p));
+                treeSetProfile.remove(new TupleTreeSet(newProfile.identity.getNoId(), profile, oldProfile));
+                treeSetProfile.add(new TupleTreeSet(newProfile.identity.getNoId(), profile, newProfile));
             }
         }
 
-        // Clear the TreeSet for the profile 'p'
-        stockDistance.get(p.identity.getNoId()).clear();
-        TreeSet<TupleTreeSet> treeSetP = stockDistance.get(p.identity.getNoId());
+        // Clear the TreeSet for the profile 'newProfile'
+        stockDistance.get(newProfile.identity.getNoId()).clear();
+        TreeSet<TupleTreeSet> treeSetP = stockDistance.get(newProfile.identity.getNoId());
 
         // Add in the new TreeSet every distance with other profiles
         for (int idProfile : modelP.profileHashMap.keySet()) {
             Profile profile = modelP.profileHashMap.get(idProfile);
-            treeSetP.add(new TupleTreeSet(idProfile, p, profile));
+            treeSetP.add(new TupleTreeSet(idProfile, newProfile, profile));
         }
 
-        modelP.profileHashMap.replace(p.getIdentity().getNoId(), p);
-        modelN.addNotification(new Date(), "Profile edited : " + p.identity.getLastname() + " " + p.identity.getFirstname());
+        modelP.profileHashMap.remove(oldProfile.getIdentity().getNoId());
+        /*
+        for (int key: modelP.getProfileHashMap().keySet()) {
+            System.out.println(modelP.getProfileHashMap().get(key));
+        }
+        System.out.println();
 
+         */
+        modelP.profileHashMap.put(newProfile.getIdentity().getNoId(), newProfile);
+        /*
+        for (int key: modelP.getProfileHashMap().keySet()) {
+            System.out.println(modelP.getProfileHashMap().get(key));
+        }
+        System.out.println();
+        System.out.println(modelP.getProfileHashMap().size());
+        for (int key: modelP.getProfileHashMap().keySet()) {
+            System.out.println(modelP.getProfileHashMap().get(key));
+        }
+         */
+        System.out.println();
+        modelN.addNotification(new Date(), "Profile edited : " + newProfile.identity.getLastname() + " " + newProfile.identity.getFirstname());
+        System.out.println();
+        System.out.println(newProfile);
+        System.out.println();
+        System.out.println(oldProfile);
     }
 
     public HashMap<Profile, Integer> getKNN(int noProfile, int howMany) {

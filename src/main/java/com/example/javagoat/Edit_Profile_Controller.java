@@ -482,13 +482,21 @@ public class Edit_Profile_Controller {
 
             Profile profile = modelMatch.modelP.getProfileHashMap().get(idProfile);
 
-            profile.setPhysicalAttributes(physicalAttributes);
-            profile.setLifeStyle(lifeStyle);
-            profile.setPreferences(preferences);
-            profile.setPassion(passion);
-            profile.setImageView(imageView);
+            try {
+                Profile oldProfile = profile.clone();
 
-            modelMatch.editProfile(profile);
+                profile.setPhysicalAttributes(physicalAttributes);
+                profile.setLifeStyle(lifeStyle);
+                profile.setPreferences(preferences);
+                profile.setPassion(passion);
+                profile.setImageView(imageView);
+
+                modelMatch.editProfile(profile, oldProfile);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            System.out.println(modelMatch.getStockDistance().get(1));
             Stage stage = (Stage) button_create_profile.getScene().getWindow();
             stage.close();
 

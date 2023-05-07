@@ -2,7 +2,7 @@ package com.example.javagoat.back;
 
 import java.io.Serializable;
 
-public class Vecteur implements Serializable {
+public class Vecteur implements Serializable, Cloneable {
 
     public float xSize;
     public float xAge;
@@ -229,6 +229,12 @@ public class Vecteur implements Serializable {
             }
         }
     }
+
+    @Override
+    public Vecteur clone() throws CloneNotSupportedException {
+        return (Vecteur) super.clone();
+    }
+
 
     public float getxSize() {
         return xSize;
