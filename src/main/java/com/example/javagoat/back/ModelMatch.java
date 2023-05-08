@@ -22,7 +22,6 @@ public class ModelMatch implements Serializable {
         try {
             modelP = new ModelProfile();
 
-            // check if the hashmap is not null because of static (we don't want to reset it)
             FileInputStream fileInputStream = new FileInputStream(this.ProfilePath);
             BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
             decoder = new XMLDecoder(bufferedInputStream);
@@ -152,7 +151,7 @@ public class ModelMatch implements Serializable {
 
         while (i < howMany && itr.hasNext()) {
             TupleTreeSet t = itr.next();
-            if (hashMapH == null || !hashMapH.containsKey(t.id)) {
+            if ((hashMapH == null || !hashMapH.containsKey(t.id)) && t.id != noProfile) {
                 HashSet<Passion.miscellaneous> PMprofile = modelP.profileHashMap.get(noProfile).getPassion().getPassionM();
                 HashSet<Passion.video_games> PVGprofile = modelP.profileHashMap.get(noProfile).getPassion().getPassionVG();
                 int counter = modelP.profileHashMap.get(t.id).getPassion().getPassionM().stream().filter(PMprofile::contains).toArray().length;
