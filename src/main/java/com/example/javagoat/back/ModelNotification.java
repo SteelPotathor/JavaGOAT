@@ -1,9 +1,6 @@
 package com.example.javagoat.back;
 
-import org.controlsfx.control.Notifications;
-
-import java.beans.XMLEncoder;
-import java.io.*;
+import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.TreeMap;
@@ -13,7 +10,6 @@ public class ModelNotification implements Serializable {
     public static TreeMap<Date, String> stockNotification = new TreeMap<Date, String>(Comparator.reverseOrder());
 
     public ModelNotification() {
-
     }
 
     public void addNotification(Date date, String string) {

@@ -177,7 +177,6 @@ public class Matching_Profiles_Controller {
         }
 
         Stage stage = (Stage) mouseEvent.getPickResult().getIntersectedNode().getScene().getWindow();
-        // do what you have to do
         stage.close();
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

@@ -5,14 +5,13 @@ import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
 public class ModelHistoMatch implements Serializable {
 
-    public HashMap<Integer, Date> stockHisto;
-    public SimpleDateFormat timeFormat = new SimpleDateFormat("dd/MM/yyyy");
+    public HashMap<Integer, Date> stockHisto = new HashMap<>();
+
     public ModelNotification modelNotification = new ModelNotification();
 
     public static int matchCount = 0;
@@ -23,6 +22,7 @@ public class ModelHistoMatch implements Serializable {
 
     public ModelHistoMatch() {
     }
+
 
     public void saveHisto() {
         String ProfilePath = "src\\main\\java\\com\\example\\javagoat\\back\\Profiles.xml";
@@ -39,7 +39,7 @@ public class ModelHistoMatch implements Serializable {
             if (encoder != null) encoder.close();
         }
     }
-/*
+
     public void addMatch(Profile p1, Profile p2) {
         // Put the priority at the lowest for the two profiles
         p1.setPriority(3);
@@ -50,7 +50,7 @@ public class ModelHistoMatch implements Serializable {
         matchP2.put(p1.getIdentity().getNoId(), new Date());
         modelNotification.addNotification(new Date(), "Match between " + p1.getIdentity().getFirstname() + " " + p1.getIdentity().getLastname() + " and " + p2.getIdentity().getFirstname() + " " + p2.getIdentity().getLastname());
         matchCount++;
-    }*/
+    }
 
     public HashMap<Integer, Date> getStockHisto() {
         return stockHisto;
@@ -58,14 +58,6 @@ public class ModelHistoMatch implements Serializable {
 
     public void setStockHisto(HashMap<Integer, Date> stockHisto) {
         this.stockHisto = stockHisto;
-    }
-
-    public SimpleDateFormat getTimeFormat() {
-        return timeFormat;
-    }
-
-    public void setTimeFormat(SimpleDateFormat timeFormat) {
-        this.timeFormat = timeFormat;
     }
 
     public ModelNotification getModelNotification() {
@@ -88,7 +80,6 @@ public class ModelHistoMatch implements Serializable {
     public String toString() {
         final StringBuilder sb = new StringBuilder("ModelHistoMatch{");
         sb.append("stockHisto=").append(stockHisto);
-        sb.append(", timeFormat=").append(timeFormat);
         sb.append('}');
         return sb.toString();
     }
