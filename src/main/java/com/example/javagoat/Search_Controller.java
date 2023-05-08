@@ -371,7 +371,6 @@ public class Search_Controller {
             profileTableView = tableView.getItems().get(i);
         }
         Profile profile = profileTableView.toProfile();
-
         try {
             change_scene_to_page_matching(profile);
         } catch (IOException ioException) {

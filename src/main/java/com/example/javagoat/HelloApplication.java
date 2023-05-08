@@ -69,7 +69,7 @@ public class HelloApplication extends Application {
             }
         }
         for (int i=1; i<11;i++) {
-            System.out.println(modelMatch.modelP.getProfileHashMap().get(i).modelHisto.stockHisto);
+            System.out.println("histo "+i+":"+modelMatch.modelP.getProfileHashMap().get(i).modelHisto.stockHisto);
         }
         launch();
     }

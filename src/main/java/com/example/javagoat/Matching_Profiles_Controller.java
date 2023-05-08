@@ -21,19 +21,33 @@ import java.util.*;
 public class Matching_Profiles_Controller {
 
     public ImageView arrowBlueSE;
+
     public ImageView arrowRedSE;
+
     public ImageView arrowBlueS;
+
     public ImageView arrowRedS;
+
     public ImageView arrowBlueSW;
+
     public ImageView arrowRedSW;
+
     public ImageView arrowRedNE;
+
     public ImageView arrowBlueNE;
+
     public ImageView arrowRedNW;
+
     public ImageView arrowBlueNW;
+
     ModelNotification modelNotification = new ModelNotification();
-    public ModelMatch modelMatch = new ModelMatch();
+
+    //public ModelMatch modelMatch = new ModelMatch();
+
     public Profile profileSelected;
+
     public HashMap<Profile, Integer> result_matching;
+
     public List<Profile> profileList;
 
     @FXML
@@ -94,6 +108,11 @@ public class Matching_Profiles_Controller {
     private Label passionNE;
 
     private Dashboard_Controller dashboard_controller;
+    private ModelMatch modelMatch;
+
+    public void setModelMatch(ModelMatch modelMatch) {
+        this.modelMatch = modelMatch;
+    }
     private Search_Controller search_controller;
 
 
@@ -156,6 +175,8 @@ public class Matching_Profiles_Controller {
         switch (mouseEvent.getPickResult().getIntersectedNode().getId()) {
             case "circleProfilePictureNE" -> {
                 modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(0));
+                profileSelected.modelHisto.addMatch(profileSelected, profileList.get(0));
+                profileList.get(0).modelHisto.addMatch(profileList.get(0), profileSelected);
             }
             case "circleProfilePictureSE" -> {
                 modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(1));
@@ -171,6 +192,9 @@ public class Matching_Profiles_Controller {
             }
         }
 
+        System.out.println(profileSelected.modelHisto);
+        System.out.println(profileList.get(0).modelHisto);
+
         Stage stage = (Stage) mouseEvent.getPickResult().getIntersectedNode().getScene().getWindow();
         stage.close();
 
@@ -180,6 +204,7 @@ public class Matching_Profiles_Controller {
         alert.setContentText("The match has been successfully added");
         alert.showAndWait();
 
+        modelMatch.saveProfiles();
         notificationDashboard();
         updateSearch();
     }

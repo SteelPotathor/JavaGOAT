@@ -3,10 +3,7 @@ package com.example.javagoat;
 import animatefx.animation.FadeInDown;
 import animatefx.animation.FadeInUpBig;
 import animatefx.animation.Swing;
-import com.example.javagoat.back.ModelMatch;
-import com.example.javagoat.back.ModelNotification;
-import com.example.javagoat.back.Profile;
-import com.example.javagoat.back.ProfileTableView;
+import com.example.javagoat.back.*;
 import javafx.animation.PauseTransition;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -21,6 +18,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -32,10 +30,12 @@ import java.util.Map;
 import java.util.PriorityQueue;
 
 import static com.example.javagoat.back.ModelHistoMatch.getMatchCount;
+import static com.example.javagoat.back.ModelProfile.profileHashMap;
 
 public class Dashboard_Controller {
 
     ModelMatch modelMatch = new ModelMatch();
+
     ModelNotification modelNotification = new ModelNotification();
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
 
@@ -49,7 +49,7 @@ public class Dashboard_Controller {
     @FXML
     public TableView<ProfileTableView> tableView;
     @FXML
-    public TableColumn<ProfileTableView, Integer> priority;
+    public TableColumn<ProfileTableView, Circle> priority;
     @FXML
     public TableColumn<ProfileTableView, String> image;
     @FXML
@@ -89,13 +89,14 @@ public class Dashboard_Controller {
     @FXML
     private Label label_today_events;
 
-    static int click = 0;
+    private static int click = 0;
+
+    private final int total = 60;
 
 
     @FXML
     void initialize() throws IOException {
         click++;
-        System.out.println("dashboard:" + modelMatch);
         earlyAnimation(0.1);
         initTableView();
         fillTableView();
@@ -108,6 +109,11 @@ public class Dashboard_Controller {
         fillNotifications();
         fillTableView();
         initStats();
+        System.out.println("retour dashboard");
+        for (int i = 1; i < 11; i++) {
+            Profile p = profileHashMap.get(i);
+            System.out.println(p.modelHisto.getStockHisto());
+        }
     }
 
     private void initStats() {
@@ -127,13 +133,12 @@ public class Dashboard_Controller {
         tableView.getItems().clear();
         ObservableList<ProfileTableView> profiles = tableView.getItems();
         PriorityQueue<Profile> priorityQueue = modelMatch.modelP.toPriorityQueue();
-        System.out.println("file:" + priorityQueue);
+
         // Putting some profiles in the tableView
         Profile profile = priorityQueue.poll();
-        int total = 0;
-        while (!priorityQueue.isEmpty() && profile.getPriority() == 1 && total < 60) {
+        int cpt = 0;
+        while (!priorityQueue.isEmpty() && profile.getPriority() == 1 && cpt < total) {
             ProfileTableView profileTableView = profile.toProfileTableView();
-            System.out.println("profiletableview : " + profileTableView);
             Pane modify = (Pane) profileTableView.actions.getChildren().get(1);
             Pane match = (Pane) profileTableView.actions.getChildren().get(3);
             modify.setStyle("-fx-cursor: HAND");
@@ -142,9 +147,8 @@ public class Dashboard_Controller {
             match.setOnMouseClicked(this::match);
             profiles.add(profileTableView);
             profile = priorityQueue.poll();
-            total++;
+            cpt++;
         }
-        System.out.println("size tableview : " + profiles.size());
         tableView.setItems(profiles);
     }
 
@@ -202,14 +206,14 @@ public class Dashboard_Controller {
 
     @FXML
     public void match(MouseEvent mouseEvent) {
+        int i = 0;
+        ProfileTableView profileTableView = tableView.getItems().get(i);
+        while (i < total && !(profileTableView.actions.getChildren().get(3).equals(mouseEvent.getSource()))) {
+            i++;
+            profileTableView = tableView.getItems().get(i);
+        }
+        Profile profile = profileTableView.toProfile();
         try {
-            int i = 0;
-            ProfileTableView profileTableView = tableView.getItems().get(i);
-            while (i < 20 && !(profileTableView.actions.getChildren().get(3).equals(mouseEvent.getSource()))) {
-                i++;
-                profileTableView = tableView.getItems().get(i);
-            }
-            Profile profile = profileTableView.toProfile();
             change_scene_to_page_matching(profile);
         } catch (IOException ioException) {
             ioException.printStackTrace();
@@ -219,14 +223,14 @@ public class Dashboard_Controller {
 
     @FXML
     public void edit(MouseEvent mouseEvent) {
+        int i = 0;
+        ProfileTableView profileTableView = tableView.getItems().get(i);
+        while (i < total && !(profileTableView.actions.getChildren().get(1).equals(mouseEvent.getSource()))) {
+            i++;
+            profileTableView = tableView.getItems().get(i);
+        }
+        Profile profile = profileTableView.toProfile();
         try {
-            int i = 0;
-            ProfileTableView profileTableView = tableView.getItems().get(i);
-            while (i < 20 && !(profileTableView.actions.getChildren().get(1).equals(mouseEvent.getSource()))) {
-                i++;
-                profileTableView = tableView.getItems().get(i);
-            }
-            Profile profile = profileTableView.toProfile();
             change_scene_to_page_edit(profile);
         } catch (IOException ioException) {
             ioException.printStackTrace();
@@ -301,8 +305,8 @@ public class Dashboard_Controller {
         Parent root = loader.load();
         // load the controller
         Edit_Profile_Controller edit_profile_controller = loader.getController();
-        edit_profile_controller.setDashboard_controller(this);
         edit_profile_controller.set_profile(event);
+        edit_profile_controller.setDashboard_controller(this);
         Stage stage = new Stage();
 
         stage.setScene(new Scene(root));
@@ -311,13 +315,14 @@ public class Dashboard_Controller {
     }
 
     @FXML
-    void change_scene_to_page_matching(Profile event) throws IOException {
+    void change_scene_to_page_matching(Profile profile) throws IOException {
         // open new window
         FXMLLoader loader = new FXMLLoader(getClass().getResource("matching_profiles.fxml"));
         Parent root = loader.load();
 
         Matching_Profiles_Controller matching_profiles_controller = loader.getController();
-        matching_profiles_controller.set_match(event);
+        matching_profiles_controller.setModelMatch(modelMatch);
+        matching_profiles_controller.set_match(profile);
         matching_profiles_controller.setDashboard_controller(this);
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -336,7 +341,6 @@ public class Dashboard_Controller {
 
     @FXML
     void exit_script() {
-        System.out.println("ok");
         modelMatch.saveProfiles();
         modelMatch.saveDistances();
         System.exit(0);

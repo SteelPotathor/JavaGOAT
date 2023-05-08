@@ -25,7 +25,7 @@ public class Launcher {
             p.setRandomProfile();
             launcher.modelM.addProfile(p);
         }
-        
+
 
         /*
         System.out.println(launcher.modelM.getModelP().getProfileHashMap().get(5).getPassion());

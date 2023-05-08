@@ -7,13 +7,14 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
+import javafx.scene.shape.Circle;
 
 import static com.example.javagoat.back.ModelProfile.profileHashMap;
 
 public class ProfileTableView {
 
     public int id;
-    public int priority;
+    public Circle priority;
     public ImageView imageView;
     public String firstname;
     public String lastname;
@@ -28,7 +29,13 @@ public class ProfileTableView {
 
     public ProfileTableView(int id, int significance, ImageView imageView, String firstname, String lastname, int age, String gender) {
         this.id = id;
-        this.priority = significance;
+        switch (significance) {
+            case 1 -> this.priority = new Circle(10, javafx.scene.paint.Color.GREEN);
+            case 2 -> this.priority = new Circle(10, javafx.scene.paint.Color.ORANGE);
+            case 3 -> this.priority = new Circle(10, javafx.scene.paint.Color.RED);
+            default -> this.priority = new Circle(10, javafx.scene.paint.Color.BLACK);
+        }
+        this.priority.setStroke(javafx.scene.paint.Color.BLACK);
         this.imageView = imageView;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -66,11 +73,11 @@ public class ProfileTableView {
         this.id = id;
     }
 
-    public int getPriority() {
+    public Circle getPriority() {
         return priority;
     }
 
-    public void setPriority(int priority) {
+    public void setPriority(Circle priority) {
         this.priority = priority;
     }
 

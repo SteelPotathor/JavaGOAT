@@ -231,9 +231,6 @@ public class Edit_Profile_Controller {
                 desactivateThumbsNeg(profileTableViewHistoric);
                 profileTableViewHistoric.toProfile().positif++;
                 profileTableViewHistoric.toProfile().total++;
-                System.out.println(profileTableViewHistoric.toProfile().total);
-                System.out.println(profileTableViewHistoric.toProfile().positif);
-                System.out.println(profileTableViewHistoric.toProfile().getRatio());
                 modelNotification.addNotification(new Date(), profileTableViewHistoric.lastname + " " + profileTableViewHistoric.firstname + " received a positive feedback from " + profileHashMap.get(idProfile).getIdentity().getLastname() + " " + profileHashMap.get(idProfile).getIdentity().getFirstname());
                 notificationDashboard();
                 updateSearch();
@@ -255,9 +252,6 @@ public class Edit_Profile_Controller {
             if (!profileTableViewHistoric.voted) {
                 desactivateThumbsPos(profileTableViewHistoric);
                 profileTableViewHistoric.toProfile().total++;
-                System.out.println(profileTableViewHistoric.toProfile().total);
-                System.out.println(profileTableViewHistoric.toProfile().positif);
-                System.out.println(profileTableViewHistoric.toProfile().getRatio());
                 modelNotification.addNotification(new Date(), profileTableViewHistoric.lastname + " " + profileTableViewHistoric.firstname + " received a negative feedback from " + profileHashMap.get(idProfile).getIdentity().getLastname() + " " + profileHashMap.get(idProfile).getIdentity().getFirstname());
                 notificationDashboard();
                 updateSearch();
@@ -489,8 +483,6 @@ public class Edit_Profile_Controller {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-            //System.out.println(modelMatch.getStockDistance().get(1));
             Stage stage = (Stage) button_create_profile.getScene().getWindow();
             stage.close();
 
@@ -578,7 +570,10 @@ public class Edit_Profile_Controller {
         }
 
         ObservableList<ProfileTableViewHistoric> profiles = tableview_profile.getItems();
-        HashMap<Integer, Date> hashMap = profile.modelHisto.stockHisto;
+        HashMap<Integer, Date> hashMap = profile.getModelHisto().getStockHisto();
+        System.out.println("histo de "+profile.identity.lastname+": "+hashMap);
+        hashMap.put(5, new Date());
+        System.out.println("histo de "+profile.identity.lastname+": "+hashMap);
         for (Integer key : hashMap.keySet()) {
             Profile profileHash = modelMatch.modelP.getProfileHashMap().get(key);
             ProfileTableViewHistoric profileTableViewHistoric = profileHash.toProfileTableViewHistoric();
