@@ -42,7 +42,7 @@ public class Matching_Profiles_Controller {
 
     ModelNotification modelNotification = new ModelNotification();
 
-    //public ModelMatch modelMatch = new ModelMatch();
+    public ModelMatch modelMatch;
 
     public Profile profileSelected;
 
@@ -108,7 +108,6 @@ public class Matching_Profiles_Controller {
     private Label passionNE;
 
     private Dashboard_Controller dashboard_controller;
-    private ModelMatch modelMatch;
 
     public void setModelMatch(ModelMatch modelMatch) {
         this.modelMatch = modelMatch;
@@ -192,9 +191,6 @@ public class Matching_Profiles_Controller {
             }
         }
 
-        System.out.println(profileSelected.modelHisto);
-        System.out.println(profileList.get(0).modelHisto);
-
         Stage stage = (Stage) mouseEvent.getPickResult().getIntersectedNode().getScene().getWindow();
         stage.close();
 
@@ -204,7 +200,6 @@ public class Matching_Profiles_Controller {
         alert.setContentText("The match has been successfully added");
         alert.showAndWait();
 
-        modelMatch.saveProfiles();
         notificationDashboard();
         updateSearch();
     }

@@ -36,7 +36,7 @@ import static com.example.javagoat.back.ModelProfile.profileHashMap;
 public class Edit_Profile_Controller {
 
     ModelNotification modelNotification = new ModelNotification();
-    ModelMatch modelMatch = new ModelMatch();
+    ModelMatch modelMatch;
     int idProfile;
 
     //Image to put in circle
@@ -203,6 +203,10 @@ public class Edit_Profile_Controller {
 
     public void setDashboard_controller(Dashboard_Controller dashboard_controller) {
         this.dashboard_controller = dashboard_controller;
+    }
+
+    public void setModelMatch(ModelMatch modelMatch) {
+        this.modelMatch = modelMatch;
     }
 
     public void setSearch_controller(Search_Controller search_controller) {
@@ -571,9 +575,6 @@ public class Edit_Profile_Controller {
 
         ObservableList<ProfileTableViewHistoric> profiles = tableview_profile.getItems();
         HashMap<Integer, Date> hashMap = profile.getModelHisto().getStockHisto();
-        System.out.println("histo de "+profile.identity.lastname+": "+hashMap);
-        hashMap.put(5, new Date());
-        System.out.println("histo de "+profile.identity.lastname+": "+hashMap);
         for (Integer key : hashMap.keySet()) {
             Profile profileHash = modelMatch.modelP.getProfileHashMap().get(key);
             ProfileTableViewHistoric profileTableViewHistoric = profileHash.toProfileTableViewHistoric();
@@ -726,6 +727,5 @@ public class Edit_Profile_Controller {
     public void newImageCursor(MouseEvent mouseEvent) {
         newImageSelector.setCursor(Cursor.HAND);
     }
-
 
 }

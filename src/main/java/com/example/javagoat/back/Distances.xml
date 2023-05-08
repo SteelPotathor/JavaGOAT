@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="20.0.1" class="java.beans.XMLDecoder">
+<java version="20" class="java.beans.XMLDecoder">
  <object class="java.util.HashMap">
   <void method="put">
    <int>1</int>
@@ -10,14 +10,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet0"/>
-        <int>9</int>
+        <int>7</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet0"/>
-        <float>19.691538</float>
+        <float>15.703076</float>
        </void>
       </void>
      </object>
@@ -28,14 +28,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet1"/>
-        <int>6</int>
+        <int>9</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet1"/>
-        <float>21.126154</float>
+        <float>18.572308</float>
        </void>
       </void>
      </object>
@@ -46,14 +46,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet2"/>
-        <int>3</int>
+        <int>8</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet2"/>
-        <float>26.73</float>
+        <float>1016.2923</float>
        </void>
       </void>
      </object>
@@ -64,14 +64,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet3"/>
-        <int>1</int>
+        <int>3</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet3"/>
-        <float>27.857693</float>
+        <float>1017.49615</float>
        </void>
       </void>
      </object>
@@ -89,7 +89,7 @@
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet4"/>
-        <float>1025.0323</float>
+        <float>1018.9915</float>
        </void>
       </void>
      </object>
@@ -107,7 +107,7 @@
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet5"/>
-        <float>1026.4116</float>
+        <float>1026.3439</float>
        </void>
       </void>
      </object>
@@ -118,14 +118,32 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet6"/>
-        <int>7</int>
+        <int>5</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet6"/>
-        <float>1035.6</float>
+        <float>1031.4723</float>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet7">
+      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
+       <string>id</string>
+       <void method="set">
+        <object idref="TupleTreeSet7"/>
+        <int>10</int>
+       </void>
+      </void>
+      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
+       <string>distance</string>
+       <void method="set">
+        <object idref="TupleTreeSet7"/>
+        <float>1033.8807</float>
        </void>
       </void>
      </object>
@@ -136,37 +154,19 @@
    <int>2</int>
    <object class="java.util.TreeSet">
     <void method="add">
-     <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet7">
-      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
-       <string>id</string>
-       <void method="set">
-        <object idref="TupleTreeSet7"/>
-        <int>8</int>
-       </void>
-      </void>
-      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
-       <string>distance</string>
-       <void method="set">
-        <object idref="TupleTreeSet7"/>
-        <float>13.033846</float>
-       </void>
-      </void>
-     </object>
-    </void>
-    <void method="add">
      <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet8">
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet8"/>
-        <int>10</int>
+        <int>3</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet8"/>
-        <float>17.430769</float>
+        <float>11.057692</float>
        </void>
       </void>
      </object>
@@ -177,14 +177,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet9"/>
-        <int>6</int>
+        <int>8</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet9"/>
-        <float>20.330769</float>
+        <float>13.861538</float>
        </void>
       </void>
      </object>
@@ -195,14 +195,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet10"/>
-        <int>1</int>
+        <int>4</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet10"/>
-        <float>22.122307</float>
+        <float>18.29</float>
        </void>
       </void>
      </object>
@@ -213,14 +213,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet11"/>
-        <int>3</int>
+        <int>5</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet11"/>
-        <float>23.434616</float>
+        <float>23.341537</float>
        </void>
       </void>
      </object>
@@ -231,14 +231,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet12"/>
-        <int>9</int>
+        <int>1</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet12"/>
-        <float>25.996155</float>
+        <float>27.91077</float>
        </void>
       </void>
      </object>
@@ -249,14 +249,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet13"/>
-        <int>4</int>
+        <int>6</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet13"/>
-        <float>1017.47614</float>
+        <float>31.40923</float>
        </void>
       </void>
      </object>
@@ -267,14 +267,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet14"/>
-        <int>5</int>
+        <int>10</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet14"/>
-        <float>1019.64923</float>
+        <float>33.473076</float>
        </void>
       </void>
      </object>
@@ -292,7 +292,25 @@
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet15"/>
-        <float>1020.8646</float>
+        <float>1016.8108</float>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet16">
+      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
+       <string>id</string>
+       <void method="set">
+        <object idref="TupleTreeSet16"/>
+        <int>9</int>
+       </void>
+      </void>
+      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
+       <string>distance</string>
+       <void method="set">
+        <object idref="TupleTreeSet16"/>
+        <float>1026.4415</float>
        </void>
       </void>
      </object>
@@ -303,37 +321,19 @@
    <int>3</int>
    <object class="java.util.TreeSet">
     <void method="add">
-     <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet16">
-      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
-       <string>id</string>
-       <void method="set">
-        <object idref="TupleTreeSet16"/>
-        <int>10</int>
-       </void>
-      </void>
-      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
-       <string>distance</string>
-       <void method="set">
-        <object idref="TupleTreeSet16"/>
-        <float>16.683079</float>
-       </void>
-      </void>
-     </object>
-    </void>
-    <void method="add">
      <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet17">
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet17"/>
-        <int>6</int>
+        <int>2</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet17"/>
-        <float>18.521538</float>
+        <float>13.538461</float>
        </void>
       </void>
      </object>
@@ -351,7 +351,7 @@
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet18"/>
-        <float>20.689999</float>
+        <float>17.726923</float>
        </void>
       </void>
      </object>
@@ -369,7 +369,7 @@
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet19"/>
-        <float>21.986153</float>
+        <float>19.737692</float>
        </void>
       </void>
      </object>
@@ -380,14 +380,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet20"/>
-        <int>9</int>
+        <int>5</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet20"/>
-        <float>24.563847</float>
+        <float>21.657692</float>
        </void>
       </void>
      </object>
@@ -398,14 +398,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet21"/>
-        <int>2</int>
+        <int>6</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet21"/>
-        <float>1021.0846</float>
+        <float>27.525383</float>
        </void>
       </void>
      </object>
@@ -416,14 +416,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet22"/>
-        <int>4</int>
+        <int>10</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet22"/>
-        <float>1025.2439</float>
+        <float>31.549229</float>
        </void>
       </void>
      </object>
@@ -434,14 +434,32 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet23"/>
-        <int>5</int>
+        <int>7</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet23"/>
-        <float>1026.417</float>
+        <float>1014.42694</float>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet24">
+      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
+       <string>id</string>
+       <void method="set">
+        <object idref="TupleTreeSet24"/>
+        <int>9</int>
+       </void>
+      </void>
+      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
+       <string>distance</string>
+       <void method="set">
+        <object idref="TupleTreeSet24"/>
+        <float>1019.0577</float>
        </void>
       </void>
      </object>
@@ -452,37 +470,19 @@
    <int>4</int>
    <object class="java.util.TreeSet">
     <void method="add">
-     <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet24">
-      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
-       <string>id</string>
-       <void method="set">
-        <object idref="TupleTreeSet24"/>
-        <int>5</int>
-       </void>
-      </void>
-      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
-       <string>distance</string>
-       <void method="set">
-        <object idref="TupleTreeSet24"/>
-        <float>16.70923</float>
-       </void>
-      </void>
-     </object>
-    </void>
-    <void method="add">
      <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet25">
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet25"/>
-        <int>2</int>
+        <int>9</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet25"/>
-        <float>19.023077</float>
+        <float>21.933077</float>
        </void>
       </void>
      </object>
@@ -493,14 +493,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet26"/>
-        <int>10</int>
+        <int>7</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet26"/>
-        <float>1017.9908</float>
+        <float>24.763847</float>
        </void>
       </void>
      </object>
@@ -518,7 +518,7 @@
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet27"/>
-        <float>1021.02924</float>
+        <float>1021.7654</float>
        </void>
       </void>
      </object>
@@ -529,14 +529,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet28"/>
-        <int>8</int>
+        <int>1</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet28"/>
-        <float>1024.8938</float>
+        <float>1024.2639</float>
        </void>
       </void>
      </object>
@@ -547,14 +547,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet29"/>
-        <int>1</int>
+        <int>3</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet29"/>
-        <float>1025.9977</float>
+        <float>1028.2169</float>
        </void>
       </void>
      </object>
@@ -565,14 +565,32 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet30"/>
-        <int>3</int>
+        <int>10</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet30"/>
-        <float>1030.6254</float>
+        <float>1029.6016</float>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet31">
+      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
+       <string>id</string>
+       <void method="set">
+        <object idref="TupleTreeSet31"/>
+        <int>5</int>
+       </void>
+      </void>
+      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
+       <string>distance</string>
+       <void method="set">
+        <object idref="TupleTreeSet31"/>
+        <float>1034.733</float>
        </void>
       </void>
      </object>
@@ -583,37 +601,19 @@
    <int>5</int>
    <object class="java.util.TreeSet">
     <void method="add">
-     <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet31">
-      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
-       <string>id</string>
-       <void method="set">
-        <object idref="TupleTreeSet31"/>
-        <int>10</int>
-       </void>
-      </void>
-      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
-       <string>distance</string>
-       <void method="set">
-        <object idref="TupleTreeSet31"/>
-        <float>19.675385</float>
-       </void>
-      </void>
-     </object>
-    </void>
-    <void method="add">
      <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet32">
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet32"/>
-        <int>9</int>
+        <int>7</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet32"/>
-        <float>21.37154</float>
+        <float>15.811538</float>
        </void>
       </void>
      </object>
@@ -624,14 +624,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet33"/>
-        <int>8</int>
+        <int>9</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet33"/>
-        <float>26.07846</float>
+        <float>24.142307</float>
        </void>
       </void>
      </object>
@@ -642,14 +642,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet34"/>
-        <int>3</int>
+        <int>1</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet34"/>
-        <float>30.91</float>
+        <float>1014.1885</float>
        </void>
       </void>
      </object>
@@ -660,14 +660,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet35"/>
-        <int>1</int>
+        <int>4</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet35"/>
-        <float>35.88231</float>
+        <float>1017.92926</float>
        </void>
       </void>
      </object>
@@ -678,14 +678,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet36"/>
-        <int>2</int>
+        <int>10</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet36"/>
-        <float>1019.9923</float>
+        <float>1019.12616</float>
        </void>
       </void>
      </object>
@@ -696,14 +696,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet37"/>
-        <int>4</int>
+        <int>2</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet37"/>
-        <float>1027.8516</float>
+        <float>1020.2231</float>
        </void>
       </void>
      </object>
@@ -714,14 +714,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet38"/>
-        <int>7</int>
+        <int>3</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet38"/>
-        <float>1030.74</float>
+        <float>1023.64154</float>
        </void>
       </void>
      </object>
@@ -737,14 +737,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet39"/>
-        <int>3</int>
+        <int>8</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet39"/>
-        <float>18.152308</float>
+        <float>17.274616</float>
        </void>
       </void>
      </object>
@@ -755,14 +755,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet40"/>
-        <int>10</int>
+        <int>4</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet40"/>
-        <float>25.433077</float>
+        <float>21.923077</float>
        </void>
       </void>
      </object>
@@ -773,14 +773,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet41"/>
-        <int>1</int>
+        <int>2</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet41"/>
-        <float>29.939999</float>
+        <float>23.075384</float>
        </void>
       </void>
      </object>
@@ -791,14 +791,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet42"/>
-        <int>2</int>
+        <int>3</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet42"/>
-        <float>1024.5347</float>
+        <float>26.87077</float>
        </void>
       </void>
      </object>
@@ -809,14 +809,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet43"/>
-        <int>4</int>
+        <int>5</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet43"/>
-        <float>1028.7938</float>
+        <float>28.094616</float>
        </void>
       </void>
      </object>
@@ -827,37 +827,32 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet44"/>
-        <int>7</int>
+        <int>1</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet44"/>
-        <float>1035.2823</float>
+        <float>29.563847</float>
        </void>
       </void>
      </object>
     </void>
-   </object>
-  </void>
-  <void method="put">
-   <int>7</int>
-   <object class="java.util.TreeSet">
     <void method="add">
      <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet45">
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet45"/>
-        <int>6</int>
+        <int>9</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet45"/>
-        <float>21.660769</float>
+        <float>1016.9946</float>
        </void>
       </void>
      </object>
@@ -868,32 +863,37 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet46"/>
-        <int>9</int>
+        <int>7</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet46"/>
-        <float>27.326153</float>
+        <float>1024.0638</float>
        </void>
       </void>
      </object>
     </void>
+   </object>
+  </void>
+  <void method="put">
+   <int>7</int>
+   <object class="java.util.TreeSet">
     <void method="add">
      <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet47">
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet47"/>
-        <int>1</int>
+        <int>10</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet47"/>
-        <float>28.692308</float>
+        <float>13.757692</float>
        </void>
       </void>
      </object>
@@ -904,14 +904,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet48"/>
-        <int>10</int>
+        <int>8</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet48"/>
-        <float>30.299229</float>
+        <float>16.46923</float>
        </void>
       </void>
      </object>
@@ -929,7 +929,7 @@
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet49"/>
-        <float>33.264614</float>
+        <float>19.873077</float>
        </void>
       </void>
      </object>
@@ -940,14 +940,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet50"/>
-        <int>2</int>
+        <int>5</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet50"/>
-        <float>1022.2669</float>
+        <float>21.44923</float>
        </void>
       </void>
      </object>
@@ -958,14 +958,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet51"/>
-        <int>4</int>
+        <int>2</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet51"/>
-        <float>1024.0461</float>
+        <float>24.59154</float>
        </void>
       </void>
      </object>
@@ -976,14 +976,32 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet52"/>
-        <int>5</int>
+        <int>1</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet52"/>
-        <float>1027.5193</float>
+        <float>27.78</float>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet53">
+      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
+       <string>id</string>
+       <void method="set">
+        <object idref="TupleTreeSet53"/>
+        <int>9</int>
+       </void>
+      </void>
+      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
+       <string>distance</string>
+       <void method="set">
+        <object idref="TupleTreeSet53"/>
+        <float>1030.1107</float>
        </void>
       </void>
      </object>
@@ -994,37 +1012,19 @@
    <int>8</int>
    <object class="java.util.TreeSet">
     <void method="add">
-     <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet53">
+     <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet54">
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>id</string>
        <void method="set">
-        <object idref="TupleTreeSet53"/>
+        <object idref="TupleTreeSet54"/>
         <int>1</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
-        <object idref="TupleTreeSet53"/>
-        <float>25.643845</float>
-       </void>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet54">
-      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
-       <string>id</string>
-       <void method="set">
         <object idref="TupleTreeSet54"/>
-        <int>10</int>
-       </void>
-      </void>
-      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
-       <string>distance</string>
-       <void method="set">
-        <object idref="TupleTreeSet54"/>
-        <float>30.590769</float>
+        <float>18.69923</float>
        </void>
       </void>
      </object>
@@ -1035,14 +1035,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet55"/>
-        <int>6</int>
+        <int>3</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet55"/>
-        <float>32.65231</float>
+        <float>20.292309</float>
        </void>
       </void>
      </object>
@@ -1053,14 +1053,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet56"/>
-        <int>2</int>
+        <int>4</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet56"/>
-        <float>1025.7385</float>
+        <float>23.439999</float>
        </void>
       </void>
      </object>
@@ -1071,14 +1071,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet57"/>
-        <int>4</int>
+        <int>2</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet57"/>
-        <float>1030.0977</float>
+        <float>26.772308</float>
        </void>
       </void>
      </object>
@@ -1096,7 +1096,7 @@
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet58"/>
-        <float>1031.6708</float>
+        <float>28.368462</float>
        </void>
       </void>
      </object>
@@ -1114,7 +1114,7 @@
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet59"/>
-        <float>1040.8861</float>
+        <float>1024.1608</float>
        </void>
       </void>
      </object>
@@ -1130,14 +1130,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet60"/>
-        <int>2</int>
+        <int>1</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet60"/>
-        <float>19.811539</float>
+        <float>18.026922</float>
        </void>
       </void>
      </object>
@@ -1148,14 +1148,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet61"/>
-        <int>5</int>
+        <int>6</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet61"/>
-        <float>25.220768</float>
+        <float>19.871538</float>
        </void>
       </void>
      </object>
@@ -1166,14 +1166,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet62"/>
-        <int>7</int>
+        <int>5</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet62"/>
-        <float>29.436153</float>
+        <float>21.496155</float>
        </void>
       </void>
      </object>
@@ -1191,7 +1191,7 @@
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet63"/>
-        <float>31.032309</float>
+        <float>24.067692</float>
        </void>
       </void>
      </object>
@@ -1202,14 +1202,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet64"/>
-        <int>3</int>
+        <int>2</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet64"/>
-        <float>1017.51385</float>
+        <float>27.084614</float>
        </void>
       </void>
      </object>
@@ -1220,14 +1220,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet65"/>
-        <int>1</int>
+        <int>3</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet65"/>
-        <float>1020.98615</float>
+        <float>31.279999</float>
        </void>
       </void>
      </object>
@@ -1238,50 +1238,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet66"/>
-        <int>8</int>
+        <int>7</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet66"/>
-        <float>1026.2823</float>
-       </void>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet67">
-      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
-       <string>id</string>
-       <void method="set">
-        <object idref="TupleTreeSet67"/>
-        <int>6</int>
-       </void>
-      </void>
-      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
-       <string>distance</string>
-       <void method="set">
-        <object idref="TupleTreeSet67"/>
-        <float>1027.8176</float>
-       </void>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet68">
-      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
-       <string>id</string>
-       <void method="set">
-        <object idref="TupleTreeSet68"/>
-        <int>10</int>
-       </void>
-      </void>
-      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
-       <string>distance</string>
-       <void method="set">
-        <object idref="TupleTreeSet68"/>
-        <float>1032.6792</float>
+        <float>1025.9731</float>
        </void>
       </void>
      </object>
@@ -1292,19 +1256,55 @@
    <int>10</int>
    <object class="java.util.TreeSet">
     <void method="add">
+     <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet67">
+      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
+       <string>id</string>
+       <void method="set">
+        <object idref="TupleTreeSet67"/>
+        <int>4</int>
+       </void>
+      </void>
+      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
+       <string>distance</string>
+       <void method="set">
+        <object idref="TupleTreeSet67"/>
+        <float>14.426924</float>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet68">
+      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
+       <string>id</string>
+       <void method="set">
+        <object idref="TupleTreeSet68"/>
+        <int>3</int>
+       </void>
+      </void>
+      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
+       <string>distance</string>
+       <void method="set">
+        <object idref="TupleTreeSet68"/>
+        <float>18.52077</float>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void method="add">
      <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet69">
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet69"/>
-        <int>2</int>
+        <int>5</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet69"/>
-        <float>24.252308</float>
+        <float>23.275385</float>
        </void>
       </void>
      </object>
@@ -1315,14 +1315,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet70"/>
-        <int>4</int>
+        <int>1</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet70"/>
-        <float>27.553078</float>
+        <float>24.406155</float>
        </void>
       </void>
      </object>
@@ -1333,14 +1333,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet71"/>
-        <int>6</int>
+        <int>7</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet71"/>
-        <float>1021.23846</float>
+        <float>1010.81384</float>
        </void>
       </void>
      </object>
@@ -1351,50 +1351,14 @@
        <string>id</string>
        <void method="set">
         <object idref="TupleTreeSet72"/>
-        <int>8</int>
+        <int>9</int>
        </void>
       </void>
       <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
        <string>distance</string>
        <void method="set">
         <object idref="TupleTreeSet72"/>
-        <float>1025.7031</float>
-       </void>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet73">
-      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
-       <string>id</string>
-       <void method="set">
-        <object idref="TupleTreeSet73"/>
-        <int>3</int>
-       </void>
-      </void>
-      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
-       <string>distance</string>
-       <void method="set">
-        <object idref="TupleTreeSet73"/>
-        <float>1028.0347</float>
-       </void>
-      </void>
-     </object>
-    </void>
-    <void method="add">
-     <object class="com.example.javagoat.back.TupleTreeSet" id="TupleTreeSet74">
-      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
-       <string>id</string>
-       <void method="set">
-        <object idref="TupleTreeSet74"/>
-        <int>1</int>
-       </void>
-      </void>
-      <void class="com.example.javagoat.back.TupleTreeSet" method="getField">
-       <string>distance</string>
-       <void method="set">
-        <object idref="TupleTreeSet74"/>
-        <float>1036.507</float>
+        <float>1031.6447</float>
        </void>
       </void>
      </object>

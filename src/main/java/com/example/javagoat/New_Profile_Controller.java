@@ -390,8 +390,9 @@ public class New_Profile_Controller {
             for (String miscellaneous : miscellaneous_checked)
                 passion.passionM.add(Passion.miscellaneous.valueOf(miscellaneous));
 
-            String imageView = String.valueOf(new ImageView(new Image(file.getAbsolutePath()))) ;
-            Profile profile = new Profile(identity, physicalAttributes, lifeStyle, preferences, passion, imageView);
+            ImagePattern imagePattern = (ImagePattern) circle_profile_picture.getFill();
+            String image = imagePattern.getImage().getUrl();
+            Profile profile = new Profile(identity, physicalAttributes, lifeStyle, preferences, passion, image);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText("Profile created");
@@ -399,7 +400,7 @@ public class New_Profile_Controller {
             alert.showAndWait();
 
             modelMatch.addProfile(profile);
-
+            modelMatch.saveProfiles();
         }
 
     }

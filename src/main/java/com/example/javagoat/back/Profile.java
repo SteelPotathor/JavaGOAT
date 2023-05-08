@@ -114,6 +114,8 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
     }
 
     public ProfileTableView toProfileTableView() {
+        System.out.println(this.imageView);
+        System.out.println(this.imageView.toString());
         ImageView img = new ImageView(new Image(this.imageView));
         img.setPreserveRatio(true);
         img.setFitHeight(40);

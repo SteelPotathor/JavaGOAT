@@ -18,12 +18,10 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
 /*
         ModelMatch modelM = new ModelMatch();
+        System.out.println(modelM.toString());
 
-        for (int i = 0; i < 500; i++) { // 4000 profiles crash the view (because search has no limits)
-            Profile profile = new Profile();
-            profile.setRandomProfile();
-            modelM.addProfile(profile);
-        }
+        //ModelMatch.createCounter = 0;
+        //modelM.modelP.getProfileHashMap().get(1).modelHisto.addMatch(modelM.modelP.getProfileHashMap().get(1), modelM.modelP.getProfileHashMap().get(2));
 
         ModelMatch.createCounter = 0;
         modelM.modelP.getProfileHashMap().get(1).modelHisto.addMatch(modelM.modelP.getProfileHashMap().get(1), modelM.modelP.getProfileHashMap().get(2));
@@ -40,6 +38,7 @@ public class HelloApplication extends Application {
             System.out.println("Error : the application can't be launched");
             System.exit(0);
         }
+
     }
 
 

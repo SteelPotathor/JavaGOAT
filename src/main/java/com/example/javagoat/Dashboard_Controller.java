@@ -305,6 +305,7 @@ public class Dashboard_Controller {
         Parent root = loader.load();
         // load the controller
         Edit_Profile_Controller edit_profile_controller = loader.getController();
+        edit_profile_controller.setModelMatch(modelMatch);
         edit_profile_controller.set_profile(event);
         edit_profile_controller.setDashboard_controller(this);
         Stage stage = new Stage();

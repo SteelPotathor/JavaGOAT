@@ -25,7 +25,8 @@ public class Launcher {
             p.setRandomProfile();
             launcher.modelM.addProfile(p);
         }
-
+            launcher.modelM.saveProfiles();
+            launcher.modelM.saveDistances();
 
         /*
         System.out.println(launcher.modelM.getModelP().getProfileHashMap().get(5).getPassion());
