@@ -712,9 +712,9 @@ public class New_Profile_Controller {
 
     @FXML
     void exit_script() {
-        System.exit(0);
         modelMatch.saveProfiles();
         modelMatch.saveDistances();
+        System.exit(0);
     }
 
 }

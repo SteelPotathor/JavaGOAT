@@ -500,7 +500,6 @@ public class Edit_Profile_Controller {
             alert.setContentText("Your profile has been successfully edited");
             alert.showAndWait();
 
-            modelNotification.addNotification(new Date(), "Profile of " + profile.getIdentity().getLastname() + " " + profile.getIdentity().getFirstname() + " has been successfully edited");
             notificationDashboard();
             updateSearch();
         }

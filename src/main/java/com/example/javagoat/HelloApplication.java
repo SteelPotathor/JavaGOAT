@@ -16,7 +16,7 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-
+/*
         ModelMatch modelM = new ModelMatch();
 
         for (int i = 0; i < 500; i++) { // 4000 profiles crash the view (because search has no limits)
@@ -27,10 +27,9 @@ public class HelloApplication extends Application {
 
         ModelMatch.createCounter = 0;
         modelM.modelP.getProfileHashMap().get(1).modelHisto.addMatch(modelM.modelP.getProfileHashMap().get(1), modelM.modelP.getProfileHashMap().get(2));
-
+*/
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("home.fxml"));
-            //add css
             Scene scene = new Scene(fxmlLoader.load());
             stage.setTitle("Application");
             stage.initStyle(StageStyle.DECORATED);
@@ -45,11 +44,11 @@ public class HelloApplication extends Application {
 
 
     public static void main(String[] args) {
-        //ModelProfile modelProfile = new ModelProfile(); Useful to create this object?
+        ModelMatch modelMatch = new ModelMatch();
         //We can create another class to handle this algorithm
         Date actualDate = new Date();
-        for (Integer key : ModelProfile.profileHashMap.keySet()) {
-            Profile profile = ModelProfile.profileHashMap.get(key);
+        for (Integer key : modelMatch.modelP.profileHashMap.keySet()) {
+            Profile profile = modelMatch.modelP.profileHashMap.get(key);
             Date aux = new Date(1900, 1, 1);
             for (Integer id : profile.modelHisto.stockHisto.keySet()) {
                 Date date = profile.modelHisto.stockHisto.get(id);
@@ -68,6 +67,9 @@ public class HelloApplication extends Application {
             } else { // more than two weeks
                 profile.setPriority(1);
             }
+        }
+        for (int i=1; i<11;i++) {
+            System.out.println(modelMatch.modelP.getProfileHashMap().get(i).modelHisto.stockHisto);
         }
         launch();
     }

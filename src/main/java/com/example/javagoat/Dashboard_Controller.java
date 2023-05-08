@@ -95,6 +95,7 @@ public class Dashboard_Controller {
     @FXML
     void initialize() throws IOException {
         click++;
+        System.out.println("dashboard:" + modelMatch);
         earlyAnimation(0.1);
         initTableView();
         fillTableView();
@@ -126,10 +127,13 @@ public class Dashboard_Controller {
         tableView.getItems().clear();
         ObservableList<ProfileTableView> profiles = tableView.getItems();
         PriorityQueue<Profile> priorityQueue = modelMatch.modelP.toPriorityQueue();
+        System.out.println("file:" + priorityQueue);
         // Putting some profiles in the tableView
         Profile profile = priorityQueue.poll();
-        while (!priorityQueue.isEmpty() && profile.getPriority() == 1 && priorityQueue.size() > 450) {
+        int total = 0;
+        while (!priorityQueue.isEmpty() && profile.getPriority() == 1 && total < 60) {
             ProfileTableView profileTableView = profile.toProfileTableView();
+            System.out.println("profiletableview : " + profileTableView);
             Pane modify = (Pane) profileTableView.actions.getChildren().get(1);
             Pane match = (Pane) profileTableView.actions.getChildren().get(3);
             modify.setStyle("-fx-cursor: HAND");
@@ -138,7 +142,9 @@ public class Dashboard_Controller {
             match.setOnMouseClicked(this::match);
             profiles.add(profileTableView);
             profile = priorityQueue.poll();
+            total++;
         }
+        System.out.println("size tableview : " + profiles.size());
         tableView.setItems(profiles);
     }
 

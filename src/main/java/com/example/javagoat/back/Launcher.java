@@ -17,16 +17,17 @@ public class Launcher {
         ModelNotification modelNotification = new ModelNotification();
         modelNotification.addNotification(new Date(), "Bonjour");
         Launcher launcher = new Launcher(new ModelMatch());
-        //launcher.modelM.saveProfiles();
-        //launcher.modelM.saveDistances();
+
+
 
         for (int i = 0; i < 10; i++) {
             Profile p = new Profile();
             p.setRandomProfile();
             launcher.modelM.addProfile(p);
         }
-        launcher.modelM.saveProfiles();
-/*
+        
+
+        /*
         System.out.println(launcher.modelM.getModelP().getProfileHashMap().get(5).getPassion());
         HashMap<Profile, Integer> res = (launcher.modelM.getKNN(5, 5));
 

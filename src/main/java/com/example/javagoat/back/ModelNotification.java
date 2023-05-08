@@ -3,6 +3,7 @@ package com.example.javagoat.back;
 import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.TreeMap;
 
 public class ModelNotification implements Serializable {
@@ -22,6 +23,14 @@ public class ModelNotification implements Serializable {
 
     public static void setStockNotification(TreeMap<Date, String> stockNotification) {
         ModelNotification.stockNotification = stockNotification;
+    }
+
+    public String toString() {
+        String s="";
+        for (Date date : stockNotification.keySet()) {
+            s+=date + " : " + stockNotification.get(date);
+        }
+        return s;
     }
 
     public static void main(String[] args) {

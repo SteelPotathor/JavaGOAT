@@ -213,9 +213,9 @@ public class Calendar_Controller {
 
     @FXML
     void exit_script() {
-        System.exit(0);
         modelMatch.saveProfiles();
         modelMatch.saveDistances();
+        System.exit(0);
     }
 
 

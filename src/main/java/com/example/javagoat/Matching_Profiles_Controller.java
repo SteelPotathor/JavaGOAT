@@ -156,23 +156,18 @@ public class Matching_Profiles_Controller {
         switch (mouseEvent.getPickResult().getIntersectedNode().getId()) {
             case "circleProfilePictureNE" -> {
                 modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(0));
-                modelNotification.addNotification(new Date(), "New match : " + profileSelected.getIdentity().getLastname() + " " + profileSelected.getIdentity().getFirstname() + " and " + profileList.get(0).getIdentity().getLastname() + " " + profileList.get(0).getIdentity().getFirstname());
             }
             case "circleProfilePictureSE" -> {
                 modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(1));
-                modelNotification.addNotification(new Date(), "New match : " + profileSelected.getIdentity().getLastname() + " " + profileSelected.getIdentity().getFirstname() + " and " + profileList.get(1).getIdentity().getLastname() + " " + profileList.get(1).getIdentity().getFirstname());
             }
             case "circleProfilePictureS" -> {
                 modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(2));
-                modelNotification.addNotification(new Date(), "New match : " + profileSelected.getIdentity().getLastname() + " " + profileSelected.getIdentity().getFirstname() + " and " + profileList.get(2).getIdentity().getLastname() + " " + profileList.get(2).getIdentity().getFirstname());
             }
             case "circleProfilePictureSW" -> {
                 modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(3));
-                modelNotification.addNotification(new Date(), "New match : " + profileSelected.getIdentity().getLastname() + " " + profileSelected.getIdentity().getFirstname() + " and " + profileList.get(3).getIdentity().getLastname() + " " + profileList.get(3).getIdentity().getFirstname());
             }
             case "circleProfilePictureNW" -> {
                 modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(4));
-                modelNotification.addNotification(new Date(), "New match : " + profileSelected.getIdentity().getLastname() + " " + profileSelected.getIdentity().getFirstname() + " and " + profileList.get(4).getIdentity().getLastname() + " " + profileList.get(4).getIdentity().getFirstname());
             }
         }
 

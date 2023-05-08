@@ -16,28 +16,7 @@ public class ModelHistoMatch implements Serializable {
 
     public static int matchCount = 0;
 
-    public ModelHistoMatch(HashMap<Integer, Date> stockHisto) {
-        this.stockHisto = stockHisto;
-    }
-
     public ModelHistoMatch() {
-    }
-
-
-    public void saveHisto() {
-        String ProfilePath = "src\\main\\java\\com\\example\\javagoat\\back\\Profiles.xml";
-        XMLEncoder encoder = null;
-        try {
-            FileOutputStream fos = new FileOutputStream(ProfilePath);
-            BufferedOutputStream oos = new BufferedOutputStream(fos);
-            encoder = new XMLEncoder(oos);
-            encoder.writeObject(this);
-            encoder.flush();
-        } catch (final IOException e) {
-            throw new RuntimeException();
-        } finally {
-            if (encoder != null) encoder.close();
-        }
     }
 
     public void addMatch(Profile p1, Profile p2) {
@@ -50,6 +29,7 @@ public class ModelHistoMatch implements Serializable {
         matchP2.put(p1.getIdentity().getNoId(), new Date());
         modelNotification.addNotification(new Date(), "Match between " + p1.getIdentity().getFirstname() + " " + p1.getIdentity().getLastname() + " and " + p2.getIdentity().getFirstname() + " " + p2.getIdentity().getLastname());
         matchCount++;
+        System.out.println(stockHisto);
     }
 
     public HashMap<Integer, Date> getStockHisto() {

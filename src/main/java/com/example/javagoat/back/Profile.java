@@ -42,7 +42,7 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
         this.vectPreferences = new Vecteur();
         this.vectProfile.setProfileVecteur(this);
         this.vectPreferences.setPrefVecteur(this.getPreferences());
-        this.modelHisto = new ModelHistoMatch(new HashMap<>());
+        this.modelHisto = new ModelHistoMatch();
         this.imageView = imageView;
     }
 
@@ -75,7 +75,7 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
         this.vectProfile.setProfileVecteur(this);
         this.vectPreferences.setPrefVecteur(this.getPreferences());
 
-        this.modelHisto = new ModelHistoMatch(new HashMap<>());
+        this.modelHisto = new ModelHistoMatch();
 
         this.imageView = "file:src/main/resources/com/example/javagoat/DefaultImage.png";
     }
@@ -108,7 +108,7 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
         this.vectProfile.setProfileVecteur(this);
         this.vectPreferences.setPrefVecteur(this.getPreferences());
 
-        this.modelHisto = new ModelHistoMatch(new HashMap<>());
+        this.modelHisto = new ModelHistoMatch();
 
         this.imageView = "file:src/main/resources/com/example/javagoat/DefaultImage.png";
     }

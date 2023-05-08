@@ -123,16 +123,32 @@ public class ModelProfile implements Serializable {
         this.profileHashMap = profileHashMap;
     }
 
+    @Override
+    public String toString() {
+        String s = "";
+        for (Integer i : profileHashMap.keySet()) {
+            s += i + ": " + profileHashMap.get(i) + "\n";
+        }
+        return s;
+    }
+
     public static void main(String[] args) {
-        ModelMatch modelMatch = new ModelMatch();
+ /*
         for (int i = 0; i < 100; i++) {
             Profile p = new Profile();
             p.setRandomProfileExceptName("Alma", "Katherine");
-            modelMatch.addProfile(p);      }
+            modelMatch.addProfile(p);
+        }
         PriorityQueue<Profile> pq = modelMatch.modelP.toPriorityQueue();
         while (!pq.isEmpty()) {
             System.out.println(pq.poll().toString());
         }
+        */
+
+        ModelMatch modelMatch = new ModelMatch();
+        System.out.println("modelmatch: " + modelMatch);
+        ModelProfile modelProfile = new ModelProfile();
+        System.out.println("modelProfile:" + modelProfile);
     }
 
 }
