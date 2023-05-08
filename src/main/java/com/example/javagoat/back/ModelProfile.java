@@ -1,9 +1,10 @@
 package com.example.javagoat.back;
 
+import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class ModelProfile {
+public class ModelProfile implements Serializable {
 
     public static HashMap<Integer /*id*/, Profile> profileHashMap = new HashMap<>(); // This DS must be accessible and be the same for everyone
 

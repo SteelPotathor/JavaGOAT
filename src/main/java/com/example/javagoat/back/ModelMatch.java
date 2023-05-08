@@ -170,7 +170,6 @@ public class ModelMatch implements Serializable {
             encoder = new XMLEncoder(oos);
             encoder.writeObject(this.getModelP().getProfileHashMap());
             encoder.flush();
-
         } catch (final IOException e) {
             throw new RuntimeException();
         } finally {

@@ -518,6 +518,8 @@ public class Search_Controller {
     @FXML
     void exit_script() {
         System.exit(0);
+        modelMatch.saveProfiles();
+        modelMatch.saveDistances();
     }
 
 }

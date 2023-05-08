@@ -471,8 +471,7 @@ public class Edit_Profile_Controller {
                 passion.passionM.add(Passion.miscellaneous.valueOf(miscellaneous));
 
             ImagePattern imagePattern = (ImagePattern) circle_profile_picture.getFill();
-            Image image = imagePattern.getImage();
-            ImageView imageView = new ImageView(image);
+            String image = imagePattern.getImage().getUrl();
 
             Profile profile = modelMatch.modelP.getProfileHashMap().get(idProfile);
 
@@ -484,14 +483,14 @@ public class Edit_Profile_Controller {
                 profile.setLifeStyle(lifeStyle);
                 profile.setPreferences(preferences);
                 profile.setPassion(passion);
-                profile.setImageView(imageView);
+                profile.setImageView(image);
 
                 modelMatch.editProfile(profile, oldProfile);
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-            System.out.println(modelMatch.getStockDistance().get(1));
+            //System.out.println(modelMatch.getStockDistance().get(1));
             Stage stage = (Stage) button_create_profile.getScene().getWindow();
             stage.close();
 
@@ -531,7 +530,7 @@ public class Edit_Profile_Controller {
         sex_choicebox.setValue(profile.getIdentity().getBsex().toString());
         textfield_size.setText(String.valueOf(profile.getPhysicalAttributes().getSize()));
         textfield_qi.setText(String.valueOf(profile.getIdentity().qi));
-        circle_profile_picture.setFill(new ImagePattern(new Image(profile.getImageView().getImage().getUrl())));
+        circle_profile_picture.setFill(new ImagePattern(new Image(profile.getImageView())));
         if (profile.getTotal() <= 1) {
             feedbackText.setText("Feedback : " + profile.getRatio() + " %    " + profile.getTotal() + " vote");
         } else {
@@ -734,8 +733,5 @@ public class Edit_Profile_Controller {
         newImageSelector.setCursor(Cursor.HAND);
     }
 
-    @FXML
-    void exit_script() {
-        //exit the window
-    }
+
 }

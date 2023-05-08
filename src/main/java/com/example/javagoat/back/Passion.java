@@ -1,8 +1,9 @@
 package com.example.javagoat.back;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class Passion implements Cloneable {
+public class Passion implements Serializable, Cloneable {
 
     public HashSet<video_games> passionVG = new HashSet<>();
     public HashSet<miscellaneous> passionM = new HashSet<>();

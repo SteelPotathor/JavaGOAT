@@ -127,14 +127,14 @@ public class Matching_Profiles_Controller {
         List<Label> ageList = Arrays.asList(ageNE, ageSE, ageS, ageSW, ageNW);
         List<Label> passionList = Arrays.asList(passionNE, passionSE, passionS, passionSW, passionNW);
         try {
-            circleProfilePictureCenter.setFill(new ImagePattern(new Image(profile.getImageView().getImage().getUrl())));
+            circleProfilePictureCenter.setFill(new ImagePattern(new Image(profile.getImageView())));
             int i = 0;
             for (Profile p : result_matching.keySet()) {
                 passionList.get(i).setText("Common passions : " + result_matching.get(p));
                 ageList.get(i).setText("Age : " + p.getIdentity().getAge());
                 firstNameList.get(i).setText(p.getIdentity().getFirstname());
                 lastNameList.get(i).setText(p.getIdentity().getLastname());
-                circleList.get(i).setFill(new ImagePattern(new Image(p.getImageView().getImage().getUrl())));
+                circleList.get(i).setFill(new ImagePattern(new Image(p.getImageView())));
                 i++;
             }
         } catch (Exception e) {
@@ -149,7 +149,7 @@ public class Matching_Profiles_Controller {
         confirm.setHeaderText("Are you sure you want to add this match ?");
         confirm.setContentText("You can't undo this action");
         Optional<ButtonType> result = confirm.showAndWait();
-        if (result.get() != ButtonType.OK) {
+        if (result.isPresent() && result.get() != ButtonType.OK) {
             return;
         }
 

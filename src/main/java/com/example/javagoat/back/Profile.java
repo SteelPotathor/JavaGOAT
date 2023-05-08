@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 
 public class Profile implements Serializable, Comparable<Profile>, Cloneable {
@@ -19,14 +20,14 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
 
     public ModelHistoMatch modelHisto;
 
-    public ImageView imageView;
+    public String imageView;
     public int priority = 1; // Base priority value
     public double positif = 0;
     public double total = 0;
 
 
     // Customised Profile -> Add Profile
-    public Profile(Identity identity, PhysicalAttributes physicalAttributes, LifeStyle lifeStyle, Preferences preferences, Passion passion, ImageView imageView) {
+    public Profile(Identity identity, PhysicalAttributes physicalAttributes, LifeStyle lifeStyle, Preferences preferences, Passion passion, String imageView) {
         this.identity = identity;
         this.physicalAttributes = physicalAttributes;
         this.lifeStyle = lifeStyle;
@@ -41,7 +42,7 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
         this.vectPreferences = new Vecteur();
         this.vectProfile.setProfileVecteur(this);
         this.vectPreferences.setPrefVecteur(this.getPreferences());
-        this.modelHisto = new ModelHistoMatch();
+        this.modelHisto = new ModelHistoMatch(new HashMap<>());
         this.imageView = imageView;
     }
 
@@ -74,9 +75,9 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
         this.vectProfile.setProfileVecteur(this);
         this.vectPreferences.setPrefVecteur(this.getPreferences());
 
-        this.modelHisto = new ModelHistoMatch();
+        this.modelHisto = new ModelHistoMatch(new HashMap<>());
 
-        this.imageView = new ImageView(new Image("file:src/main/resources/com/example/javagoat/DefaultImage.png"));
+        this.imageView = "file:src/main/resources/com/example/javagoat/DefaultImage.png";
     }
 
     // Method used for multiple tests
@@ -107,13 +108,13 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
         this.vectProfile.setProfileVecteur(this);
         this.vectPreferences.setPrefVecteur(this.getPreferences());
 
-        this.modelHisto = new ModelHistoMatch();
+        this.modelHisto = new ModelHistoMatch(new HashMap<>());
 
-        this.imageView = new ImageView(new Image("file:src/main/resources/com/example/javagoat/DefaultImage.png"));
+        this.imageView = "file:src/main/resources/com/example/javagoat/DefaultImage.png";
     }
 
     public ProfileTableView toProfileTableView() {
-        ImageView img = this.imageView;
+        ImageView img = new ImageView(new Image(this.imageView));
         img.setPreserveRatio(true);
         img.setFitHeight(40);
         img.setFitWidth(40);
@@ -121,7 +122,7 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
     }
 
     public ProfileTableViewHistoric toProfileTableViewHistoric() {
-        ImageView img = this.imageView;
+        ImageView img = new ImageView(new Image(this.imageView));
         img.setPreserveRatio(true);
         img.setFitHeight(40);
         img.setFitWidth(40);
@@ -133,7 +134,6 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
     }
 
     public Identity getIdentity() {
-        System.out.println(identity.toString());
         return identity;
     }
 
@@ -197,11 +197,11 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
         this.modelHisto = modelHisto;
     }
 
-    public ImageView getImageView() {
+    public String getImageView() {
         return imageView;
     }
 
-    public void setImageView(ImageView imageView) {
+    public void setImageView(String imageView) {
         this.imageView = imageView;
     }
 
@@ -233,6 +233,13 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
         return this.total == 0 ? 0 : this.positif / this.total * 100;
     }
 
+    public void setPositif(double positif) {
+        this.positif = positif;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
 
     @Override
     public String toString() {

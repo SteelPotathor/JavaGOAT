@@ -1,6 +1,7 @@
 package com.example.javagoat.back;
 
 
+import java.util.Date;
 import java.util.HashMap;
 
 public class Launcher {
@@ -13,25 +14,12 @@ public class Launcher {
 
 
     public static void main(String[] args) {
-        Launcher launcher = new Launcher(new ModelMatch());
-
-        for (int i = 0; i < 500; i++) {
-            Profile p = new Profile();
-            p.setRandomProfile();
-            launcher.modelM.addProfile(p);
-        }
-
-        System.out.println(launcher.modelM.getModelP().getProfileHashMap().get(5).getPassion());
-        HashMap<Profile, Integer> res = (launcher.modelM.getKNN(5, 5));
+        ModelNotification modelNotification = new ModelNotification();
+        modelNotification.addNotification(new Date(), "Bonjour");
 
 
-        // Get key and value from HashMap
-        for (Profile profile : res.keySet()) {
-            System.out.println("Key: " + profile.getPassion() + " Value: " + res.get(profile));
-        }
-
-        System.out.println(res);
-        System.out.println(launcher.modelM.getModelP().getProfileHashMap().get(5));
+        //launcher.modelM.saveProfiles();
+        //launcher.modelM.saveDistances();
     }
 
 }

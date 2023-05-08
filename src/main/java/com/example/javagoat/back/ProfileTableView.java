@@ -49,6 +49,10 @@ public class ProfileTableView {
         this.actions = new HBox(region1, this.modify, region2, this.match, region3);
     }
 
+    public ProfileTableView() {
+
+    }
+
 
     public Profile toProfile() {
         return profileHashMap.get(this.id);

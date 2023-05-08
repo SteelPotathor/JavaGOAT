@@ -390,7 +390,7 @@ public class New_Profile_Controller {
             for (String miscellaneous : miscellaneous_checked)
                 passion.passionM.add(Passion.miscellaneous.valueOf(miscellaneous));
 
-            ImageView imageView = new ImageView(new Image(file.getAbsolutePath()));
+            String imageView = String.valueOf(new ImageView(new Image(file.getAbsolutePath()))) ;
             Profile profile = new Profile(identity, physicalAttributes, lifeStyle, preferences, passion, imageView);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
@@ -713,6 +713,8 @@ public class New_Profile_Controller {
     @FXML
     void exit_script() {
         System.exit(0);
+        modelMatch.saveProfiles();
+        modelMatch.saveDistances();
     }
 
 }

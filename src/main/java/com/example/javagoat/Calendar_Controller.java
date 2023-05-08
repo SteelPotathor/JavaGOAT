@@ -1,11 +1,11 @@
 package com.example.javagoat;
 
 import animatefx.animation.FadeInUpBig;
-import animatefx.animation.SlideOutDown;
 import com.calendarfx.model.Calendar;
 import com.calendarfx.model.CalendarSource;
 import com.calendarfx.model.Entry;
 import com.calendarfx.view.CalendarView;
+import com.example.javagoat.back.ModelMatch;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -18,11 +18,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.ZoneId;
-import java.util.List;
-import java.util.Map;
 
 public class Calendar_Controller {
+
+    ModelMatch modelMatch = new ModelMatch();
 
     @FXML
     private Stage stage;
@@ -215,6 +214,8 @@ public class Calendar_Controller {
     @FXML
     void exit_script() {
         System.exit(0);
+        modelMatch.saveProfiles();
+        modelMatch.saveDistances();
     }
 
 
