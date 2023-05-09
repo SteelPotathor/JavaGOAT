@@ -166,6 +166,7 @@ public class Matching_Profiles_Controller {
         List<Label> passionList = Arrays.asList(passionNE, passionSE, passionS, passionSW, passionNW);
         List<Label> labelBlueList = Arrays.asList(labelBlueNE, labelBlueSE, labelBlueS, labelBlueSW, labelBlueNW);
         List<Label> labelRedList = Arrays.asList(labelRedNE, labelRedSE, labelRedS, labelRedSW, labelRedNW);
+
         try {
             circleProfilePictureCenter.setFill(new ImagePattern(new Image(profile.getImageView())));
             int i = 0;
@@ -176,21 +177,8 @@ public class Matching_Profiles_Controller {
                 lastNameList.get(i).setText(p.getIdentity().getLastname());
                 circleList.get(i).setFill(new ImagePattern(new Image(p.getImageView())));
 
-                TreeSet<TupleTreeSet> treeSetBlue = modelMatch.getStockDistance().get(profile.getIdentity().getNoId());
-                for (TupleTreeSet t : treeSetBlue) {
-                    if (t.getId() == p.getIdentity().getNoId()) {
-                        labelBlueList.get(i).setText(Math.round(100 - (100 * t.getDistance() / 51.4669)) + "%");
-                        break;
-                    }
-                }
-
-                TreeSet<TupleTreeSet> treeSetRed = modelMatch.getStockDistance().get(p.getIdentity().getNoId());
-                for (TupleTreeSet t : treeSetRed) {
-                    if (t.getId() == profile.getIdentity().getNoId()) {
-                        labelRedList.get(i).setText(Math.round(100 - (100 * t.getDistance() / 51.4669)) + "%");
-                        break;
-                    }
-                }
+                labelBlueList.get(i).setText(Math.round(100 - (100 * profile.getDistance(p) / 51.4669)) + "%");
+                labelRedList.get(i).setText(Math.round(100 - (100 * p.getDistance(profile) / 51.4669)) + "%");
 
                 i++;
             }
@@ -198,6 +186,19 @@ public class Matching_Profiles_Controller {
             e.printStackTrace();
         }
         animation();
+    }
+
+    private void extracted(Profile profile, List<Label> labelRedList, int i, Profile p) {
+        TreeSet<TupleTreeSet> treeSetRed = modelMatch.getStockDistance().get(p.getIdentity().getNoId());
+        System.out.println("treeSetRed : " + treeSetRed);
+        for (TupleTreeSet t : treeSetRed) {
+            System.out.println(modelMatch.modelP.getProfileHashMap().get(t.getId()) + " " + t.getDistance());
+            if (t.getId() == profile.getIdentity().getNoId()) {
+                System.out.println("ok " + Math.round(100 - (100 * t.getDistance() / 51.4669)) + "% " + t.getDistance());
+                labelRedList.get(i).setText(Math.round(100 - (100 * t.getDistance() / 51.4669)) + "%");
+                break;
+            }
+        }
     }
 
     public void make_match(MouseEvent mouseEvent) throws IOException {
