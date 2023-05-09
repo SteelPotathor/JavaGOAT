@@ -4,7 +4,6 @@ import animatefx.animation.FadeInDownBig;
 import animatefx.animation.FadeInUpBig;
 import animatefx.animation.RotateInDownLeft;
 import com.example.javagoat.back.ModelMatch;
-import com.example.javagoat.back.ModelNotification;
 import com.example.javagoat.back.Profile;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

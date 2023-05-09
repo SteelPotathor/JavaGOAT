@@ -158,7 +158,7 @@ public class Search_Controller {
     private void firstFillTableView() {
         tableView.getItems().clear();
         ObservableList<ProfileTableView> profiles = tableView.getItems();
-        for (int i = 1; i < profileHashMap.size() + 1; i++) {
+        for (int i = 1; i < 150; i++) {
             Profile profile = profileHashMap.get(i);
             // The object in the tableview must match the columns attributes
             ProfileTableView profileTableView = profile.toProfileTableView();
@@ -175,13 +175,12 @@ public class Search_Controller {
 
 
     private void setTextFieldsAutoCompletion() {
-        ModelProfile modelProfile = new ModelProfile();
-        Set<String> lastnameList = modelProfile.getAllLastName();
+        Set<String> lastnameList = modelMatch.modelP.getAllLastName();
         last_name_search_bar = TextFields.bindAutoCompletion(last_name_text_field, suggestionRequest -> matchingLastName(lastnameList, suggestionRequest.getUserText()));
         last_name_search_bar.setDelay(0);
         last_name_search_bar.setVisibleRowCount(5);
 
-        Set<String> firstnameList = modelProfile.getAllFirstName();
+        Set<String> firstnameList = modelMatch.modelP.getAllFirstName();
         first_name_search_bar = TextFields.bindAutoCompletion(first_name_text_field, suggestionRequest -> matchingFirstName(firstnameList, suggestionRequest.getUserText()));
         first_name_search_bar.setDelay(0);
         first_name_search_bar.setVisibleRowCount(5);
@@ -304,7 +303,6 @@ public class Search_Controller {
     }
 
     void update() {
-        ModelProfile modelProfile = new ModelProfile();
         String lastname = last_name_text_field.getText();
         String firstname = first_name_text_field.getText();
 
@@ -339,7 +337,7 @@ public class Search_Controller {
         List<String> ethnicity = ethnicity_choice_box.getCheckModel().getCheckedItems();
         List<String> bodybuild = weight_choice_box.getCheckModel().getCheckedItems();
         List<String> sex = sexe_choice_box.getCheckModel().getCheckedItems();
-        Set<Profile> set = modelProfile.searchProfile(firstname, lastname, min_size, max_size, min_age, max_age, hairType, hairColor, ethnicity, bodybuild, sex);
+        Set<Profile> set = modelMatch.modelP.searchProfile(firstname, lastname, min_size, max_size, min_age, max_age, hairType, hairColor, ethnicity, bodybuild, sex);
 
         // Clear the tableView
         tableView.getItems().clear();

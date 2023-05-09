@@ -1,9 +1,13 @@
 package com.example.javagoat;
 
 import animatefx.animation.FadeInDown;
+import animatefx.animation.FadeInRightBig;
 import animatefx.animation.FadeInUpBig;
 import animatefx.animation.Swing;
-import com.example.javagoat.back.*;
+import com.example.javagoat.back.ModelMatch;
+import com.example.javagoat.back.ModelNotification;
+import com.example.javagoat.back.Profile;
+import com.example.javagoat.back.ProfileTableView;
 import javafx.animation.PauseTransition;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,10 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -30,8 +31,6 @@ import java.util.Map;
 import java.util.PriorityQueue;
 
 import static com.example.javagoat.back.ModelHistoMatch.getMatchCount;
-import static com.example.javagoat.back.ModelMatch.stockDistance;
-import static com.example.javagoat.back.ModelProfile.profileHashMap;
 
 public class Dashboard_Controller {
 
@@ -89,6 +88,8 @@ public class Dashboard_Controller {
     private Label label_today_new_profiles;
     @FXML
     private Label label_today_events;
+    @FXML
+    public TitledPane notificationsBox;
 
     private static int click = 0;
 
@@ -104,23 +105,12 @@ public class Dashboard_Controller {
         fillNotifications();
         initStats();
         dashboard_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
-        System.out.println(stockDistance);
-        for (Integer i:profileHashMap.keySet()) {
-            Profile p = profileHashMap.get(i);
-            System.out.println(p.identity.getLastname() +" : "+p.getPriority());
-        }
     }
 
     public void updateAfterEditOrMatch() {
         fillNotifications();
         fillTableView();
         initStats();
-        System.out.println("retour dashboard");
-        for (int i = 1; i < 11; i++) {
-            Profile p = profileHashMap.get(i);
-            System.out.println(p.modelHisto.getStockHisto());
-        }
-        System.out.println(stockDistance);
     }
 
     private void initStats() {
@@ -141,7 +131,7 @@ public class Dashboard_Controller {
         ObservableList<ProfileTableView> profiles = tableView.getItems();
         PriorityQueue<Profile> priorityQueue = modelMatch.modelP.toPriorityQueue();
 
-        System.out.println("file prio : " +modelMatch.modelP.toPriorityQueue());
+        System.out.println("file prio : " + modelMatch.modelP.toPriorityQueue());
 
         // Putting some profiles in the tableView
         int cpt = 0;
@@ -210,6 +200,8 @@ public class Dashboard_Controller {
         PauseTransition fourthAnimationText = new PauseTransition(Duration.seconds((delay - 0.005) * 3));
         fourthAnimationText.setOnFinished(e -> new Swing(label_today_events).play());
         fourthAnimationText.play();
+
+        new FadeInRightBig(notificationsBox).play();
     }
 
     @FXML

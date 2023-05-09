@@ -210,15 +210,6 @@ public class Calendar_Controller {
         new FadeInUpBig(calendar).play();
     }
 
-
-    @FXML
-    void exit_script() {
-        modelMatch.saveProfiles();
-        modelMatch.saveDistances();
-        System.exit(0);
-    }
-
-
     @FXML
     void change_background_color(MouseEvent event) throws InterruptedException {
         if (event.getSource() == dashboard_pane) {
@@ -239,5 +230,12 @@ public class Calendar_Controller {
         } else if (mouseEvent.getSource() == profile_pane) {
             profile_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0)");
         }
+    }
+
+    @FXML
+    void exit_script() {
+        modelMatch.saveProfiles();
+        modelMatch.saveDistances();
+        System.exit(0);
     }
 }
