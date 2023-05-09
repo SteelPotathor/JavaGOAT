@@ -142,6 +142,7 @@ public class Matching_Profiles_Controller {
         new FadeInUpBig(circleProfilePictureSE).play();
         new FadeInUpBig(circleProfilePictureS).play();
 
+        new RotateInDownLeft(arrowBlueSE).play();
         new RotateInDownLeft(arrowRedSE).play();
         new RotateInDownLeft(arrowBlueS).play();
         new RotateInDownLeft(arrowRedS).play();
@@ -178,7 +179,7 @@ public class Matching_Profiles_Controller {
                 TreeSet<TupleTreeSet> treeSetBlue = modelMatch.getStockDistance().get(profile.getIdentity().getNoId());
                 for (TupleTreeSet t : treeSetBlue) {
                     if (t.getId() == p.getIdentity().getNoId()) {
-                        labelBlueList.get(i).setText(Math.round(100 - (100 * t.getDistance() / 1051.4669)) + "%");
+                        labelBlueList.get(i).setText(Math.round(100 - (100 * t.getDistance() / 51.4669)) + "%");
                         break;
                     }
                 }
@@ -186,7 +187,7 @@ public class Matching_Profiles_Controller {
                 TreeSet<TupleTreeSet> treeSetRed = modelMatch.getStockDistance().get(p.getIdentity().getNoId());
                 for (TupleTreeSet t : treeSetRed) {
                     if (t.getId() == profile.getIdentity().getNoId()) {
-                        labelRedList.get(i).setText(Math.round(100 - (100 * t.getDistance() / 1051.4669)) + "%");
+                        labelRedList.get(i).setText(Math.round(100 - (100 * t.getDistance() / 51.4669)) + "%");
                         break;
                     }
                 }
