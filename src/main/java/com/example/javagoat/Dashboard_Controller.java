@@ -16,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -23,6 +24,8 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import javax.swing.text.html.ImageView;
+import java.awt.*;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -45,7 +48,8 @@ public class Dashboard_Controller {
     private Scene scene;
     @FXML
     private Parent parent;
-
+    @FXML
+    private Pane coucoumike;
     @FXML
     public TableView<ProfileTableView> tableView;
     @FXML
@@ -104,6 +108,7 @@ public class Dashboard_Controller {
         fillTableView();
         fillNotifications();
         initStats();
+
         dashboard_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
     }
 
@@ -200,6 +205,12 @@ public class Dashboard_Controller {
         fourthAnimationText.play();
 
         new FadeInRightBig(notificationsBox).play();
+        coucoumike.setVisible(false);
+        PauseTransition imagemike = new PauseTransition(Duration.seconds(4));
+        imagemike.setOnFinished(e -> coucoumike.setVisible(true));
+        imagemike.play();
+
+
     }
 
     @FXML
