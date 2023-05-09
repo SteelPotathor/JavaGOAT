@@ -131,8 +131,6 @@ public class Dashboard_Controller {
         ObservableList<ProfileTableView> profiles = tableView.getItems();
         PriorityQueue<Profile> priorityQueue = modelMatch.modelP.toPriorityQueue();
 
-        System.out.println("file prio : " + modelMatch.modelP.toPriorityQueue());
-
         // Putting some profiles in the tableView
         int cpt = 0;
         while (!priorityQueue.isEmpty() && cpt < total) {

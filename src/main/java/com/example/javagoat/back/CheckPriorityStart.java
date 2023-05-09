@@ -16,7 +16,6 @@ public class CheckPriorityStart {
                 // Determine the nearest date
                 if (date.after(aux)) {
                     aux = date;
-                    System.out.println("new aux : " + aux);
                 }
             }
             long time = aux.getTime();

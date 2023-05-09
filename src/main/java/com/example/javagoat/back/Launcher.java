@@ -18,8 +18,6 @@ public class Launcher {
         modelNotification.addNotification(new Date(), "Bonjour");
         Launcher launcher = new Launcher(new ModelMatch());
 
-
-
         for (int i = 0; i < 1000; i++) {
             Profile p = new Profile();
             p.setRandomProfile();
@@ -27,21 +25,6 @@ public class Launcher {
         }
             launcher.modelM.saveProfiles();
             launcher.modelM.saveDistances();
-
-        /*
-        System.out.println(launcher.modelM.getModelP().getProfileHashMap().get(5).getPassion());
-        HashMap<Profile, Integer> res = (launcher.modelM.getKNN(5, 5));
-
-
-        // Get key and value from HashMap
-        for (Profile profile : res.keySet()) {
-            System.out.println("Key: " + profile.getPassion() + " Value: " + res.get(profile));
-        }
-
-        System.out.println(res);
-        System.out.println(launcher.modelM.getModelP().getProfileHashMap().get(5));
-
- */
     }
 
 }

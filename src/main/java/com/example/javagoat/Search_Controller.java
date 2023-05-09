@@ -5,7 +5,6 @@ import animatefx.animation.FadeInUpBig;
 import animatefx.animation.FadeOutRightBig;
 import animatefx.animation.RotateInDownLeft;
 import com.example.javagoat.back.ModelMatch;
-import com.example.javagoat.back.ModelProfile;
 import com.example.javagoat.back.Profile;
 import com.example.javagoat.back.ProfileTableView;
 import javafx.animation.PauseTransition;
@@ -158,19 +157,24 @@ public class Search_Controller {
     private void firstFillTableView() {
         tableView.getItems().clear();
         ObservableList<ProfileTableView> profiles = tableView.getItems();
-        for (int i = 1; i < 150; i++) {
-            Profile profile = profileHashMap.get(i);
-            // The object in the tableview must match the columns attributes
-            ProfileTableView profileTableView = profile.toProfileTableView();
-            Pane modify = (Pane) profileTableView.actions.getChildren().get(1);
-            Pane match = (Pane) profileTableView.actions.getChildren().get(3);
-            modify.setStyle("-fx-cursor: HAND");
-            modify.setOnMouseClicked(this::edit);
-            match.setStyle("-fx-cursor: HAND");
-            match.setOnMouseClicked(this::match);
-            profiles.add(profileTableView);
+        try {
+            for (int i = 1; i < 150; i++) {
+                Profile profile = profileHashMap.get(i);
+                // The object in the tableview must match the columns attributes
+                ProfileTableView profileTableView = profile.toProfileTableView();
+                Pane modify = (Pane) profileTableView.actions.getChildren().get(1);
+                Pane match = (Pane) profileTableView.actions.getChildren().get(3);
+                modify.setStyle("-fx-cursor: HAND");
+                modify.setOnMouseClicked(this::edit);
+                match.setStyle("-fx-cursor: HAND");
+                match.setOnMouseClicked(this::match);
+                profiles.add(profileTableView);
+            }
+            tableView.setItems(profiles);
+        } catch (NullPointerException nullPointerException) {
+            tableView.setPlaceholder(new Label("No results"));
+            System.out.println("NullPointerException");
         }
-        tableView.setItems(profiles);
     }
 
 

@@ -401,13 +401,7 @@ public class New_Profile_Controller {
             alert.setContentText("Your profile has been created");
             alert.showAndWait();
 
-            System.out.println("new profile : " + profile);
-
-            System.out.println("ancienne database : " +modelMatch.modelP.getProfileHashMap());
             modelMatch.addProfile(profile);
-            System.out.println("nouvelle db : " +modelMatch.modelP.getProfileHashMap());
-            //modelMatch.saveProfiles();
-            System.out.println(profile);
         }
     }
 

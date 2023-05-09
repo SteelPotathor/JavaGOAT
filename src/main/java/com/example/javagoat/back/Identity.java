@@ -16,7 +16,6 @@ public class Identity extends Biology implements Serializable, Cloneable {
         this.lastname = lastname;
         this.firstname = firstname;
         this.noId = noid;
-        System.out.println("id profil : " + this.noId);
     }
 
     // Random Identity

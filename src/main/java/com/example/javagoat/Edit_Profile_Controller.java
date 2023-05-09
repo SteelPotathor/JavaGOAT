@@ -480,10 +480,9 @@ public class Edit_Profile_Controller {
                 profile.setPreferences(preferences);
                 profile.setPassion(passion);
                 profile.setImageView(image);
-                System.out.println(stockDistance.get(oldProfile.identity.noId));
+
                 modelMatch.editProfile(profile, oldProfile);
-                System.out.println(stockDistance.get(profile.identity.noId));
-                System.out.println("noid : "+profile.getIdentity().noId);
+
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -528,7 +527,6 @@ public class Edit_Profile_Controller {
         textfield_size.setText(String.valueOf(profile.getPhysicalAttributes().getSize()));
         textfield_qi.setText(String.valueOf(profile.getIdentity().qi));
         circle_profile_picture.setFill(new ImagePattern(new Image(profile.getImageView())));
-        System.out.println(profile.getImageView());
         if (profile.getTotal() <= 1) {
             feedbackText.setText("Feedback : " + decimalFormat.format(profile.getRatio()) + " %    " + profile.getTotal() + " vote");
         } else {

@@ -39,6 +39,5 @@ public class ModelNotification implements Serializable {
         modelNotification.addNotification(new Date(122, 4, 3), "2");
         modelNotification.addNotification(new Date(121, 4, 3), "1");
         modelNotification.addNotification(new Date(), "4");
-        System.out.println(modelNotification.stockNotification);
     }
 }
