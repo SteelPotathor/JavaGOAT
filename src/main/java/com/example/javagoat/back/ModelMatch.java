@@ -123,7 +123,7 @@ public class ModelMatch implements Serializable {
 
         while (i < howMany && itr.hasNext()) {
             TupleTreeSet t = itr.next();
-            if ((hashMapH == null || !hashMapH.containsKey(t.id)) && t.id != noProfile) {
+            if ((hashMapH == null || !hashMapH.containsKey(t.id)) && t.id != noProfile && modelP.profileHashMap.get(t.id).getPreferences().getBiology().getBsex() == modelP.getProfileHashMap().get(noProfile).getIdentity().getBsex()) {
                 HashSet<Passion.miscellaneous> PMprofile = modelP.profileHashMap.get(noProfile).getPassion().getPassionM();
                 HashSet<Passion.video_games> PVGprofile = modelP.profileHashMap.get(noProfile).getPassion().getPassionVG();
                 int counter = modelP.profileHashMap.get(t.id).getPassion().getPassionM().stream().filter(PMprofile::contains).toArray().length;
