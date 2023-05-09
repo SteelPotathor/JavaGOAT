@@ -13,32 +13,32 @@
             <Image url="@Blue_Gradient_Modern_Zoom_Virtual_Background.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowBlueSE" fitHeight="200.0" fitWidth="262.0" layoutX="548.0" layoutY="335.0" style="-fx-rotate: 220; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);;">
+      <ImageView fx:id="arrowBlueSE" fitHeight="200.0" fitWidth="262.0" layoutX="543.0" layoutY="321.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-rotate: 220; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);;">
          <image>
             <Image url="@arrow_blue.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowRedSE" fitHeight="213.0" fitWidth="254.0" layoutX="560.0" layoutY="284.0" style="-fx-rotate: 35; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
+      <ImageView fx:id="arrowRedSE" fitHeight="213.0" fitWidth="254.0" layoutX="570.0" layoutY="272.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-rotate: 35; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
          <image>
             <Image url="@arrow_red.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowBlueS" fitHeight="200.0" fitWidth="262.0" layoutX="383.0" layoutY="390.0" style="-fx-rotate: -90; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
+      <ImageView fx:id="arrowBlueS" fitHeight="200.0" fitWidth="262.0" layoutX="369.0" layoutY="376.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-rotate: -90; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
          <image>
             <Image url="@arrow_blue.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowRedS" fitHeight="213.0" fitWidth="254.0" layoutX="420.0" layoutY="360.0" style="-fx-rotate: 90; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
+      <ImageView fx:id="arrowRedS" fitHeight="213.0" fitWidth="254.0" layoutX="426.0" layoutY="369.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-rotate: 90; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
          <image>
             <Image url="@arrow_red.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowBlueSW" fitHeight="200.0" fitWidth="262.0" layoutX="212.0" layoutY="241.0" style="-fx-rotate: -20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
+      <ImageView fx:id="arrowBlueSW" fitHeight="200.0" fitWidth="262.0" layoutX="212.0" layoutY="241.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-rotate: -20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
          <image>
             <Image url="@arrow_blue.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowRedSW" fitHeight="213.0" fitWidth="254.0" layoutX="239.0" layoutY="289.0" style="-fx-rotate: 150; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
+      <ImageView fx:id="arrowRedSW" fitHeight="214.0" fitWidth="264.0" layoutX="231.0" layoutY="286.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-rotate: 150; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
          <image>
             <Image url="@arrow_red.png" />
          </image>
@@ -53,12 +53,12 @@
             <Image url="@arrow_red.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowBlueNE" fitHeight="200.0" fitWidth="262.0" layoutX="600.0" layoutY="140.0" style="-fx-rotate: 160; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
+      <ImageView fx:id="arrowBlueNE" fitHeight="200.0" fitWidth="262.0" layoutX="587.0" layoutY="143.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-rotate: 160; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
          <image>
             <Image url="@arrow_blue.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowRedNE" fitHeight="213.0" fitWidth="267.0" layoutX="553.0" layoutY="78.0" style="-fx-rotate: -20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
+      <ImageView fx:id="arrowRedNE" fitHeight="213.0" fitWidth="267.0" layoutX="553.0" layoutY="78.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-rotate: -20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 10, 0, 0, 0);">
          <image>
             <Image url="@arrow_red.png" />
          </image>
@@ -90,7 +90,7 @@
         </AnchorPane>
       <AnchorPane layoutX="443.0" layoutY="585.0" prefHeight="140.0" prefWidth="140.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;">
          <children>
-            <Circle fx:id="circleProfilePictureS" fill="DODGERBLUE" layoutX="71.0" layoutY="71.0" onMouseClicked="#make_match" onMouseEntered="#SCursor" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
+            <Circle fx:id="circleProfilePictureS" fill="DODGERBLUE" layoutX="85.0" layoutY="71.0" onMouseClicked="#make_match" onMouseEntered="#SCursor" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
          </children>
       </AnchorPane>
       <Label fx:id="lastNameNE" alignment="CENTER" layoutX="859.0" layoutY="6.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Nom" textAlignment="CENTER">
@@ -138,7 +138,7 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label fx:id="ageS" layoutX="332.0" layoutY="621.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Age">
+      <Label fx:id="ageS" layoutX="341.0" layoutY="625.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,12), 50, 0, 0, 0);;" text="Age">
          <font>
             <Font size="25.0" />
          </font>
@@ -207,12 +207,12 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="labelRedSE" layoutX="687.0" layoutY="363.0" text="81%">
+      <Label fx:id="labelRedSE" layoutX="698.0" layoutY="353.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="labelBlueSE" layoutX="639.0" layoutY="424.0" text="81%">
+      <Label fx:id="labelBlueSE" layoutX="645.0" layoutY="424.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
