@@ -188,51 +188,51 @@
             <Font size="21.0" />
          </font>
       </Label>
-      <Label layoutX="322.0" layoutY="233.0" text="81%">
+      <Label fx:id="labelRedNW" layoutX="322.0" layoutY="233.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="657.0" layoutY="149.0" text="81%">
+      <Label fx:id="labelRedNE" layoutX="657.0" layoutY="149.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-        <Label layoutX="358.0" layoutY="149.0" text="81%">
+        <Label fx:id="labelBlueNW" layoutX="358.0" layoutY="149.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <Label layoutX="731.0" layoutY="243.0" text="81%">
+      <Label fx:id="labelBlueNE" layoutX="731.0" layoutY="243.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="687.0" layoutY="363.0" text="81%">
+      <Label fx:id="labelRedSE" layoutX="687.0" layoutY="363.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="639.0" layoutY="424.0" text="81%">
+      <Label fx:id="labelBlueSE" layoutX="639.0" layoutY="424.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="553.0" layoutY="475.0" text="81%">
+      <Label fx:id="labelRedS" layoutX="553.0" layoutY="475.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="473.0" layoutY="475.0" text="81%">
+      <Label fx:id="labelBlueS" layoutX="473.0" layoutY="475.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="312.0" layoutY="308.0" text="81%">
+      <Label fx:id="labelBlueSW" layoutX="312.0" layoutY="308.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="334.0" layoutY="410.0" text="81%">
+      <Label fx:id="labelRedSW" layoutX="334.0" layoutY="410.0" text="81%">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

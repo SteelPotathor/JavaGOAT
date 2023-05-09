@@ -3,6 +3,7 @@ package com.example.javagoat.back;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.TreeSet;
 
 public class Launcher {
 
@@ -18,13 +19,26 @@ public class Launcher {
         modelNotification.addNotification(new Date(), "Bonjour");
         Launcher launcher = new Launcher(new ModelMatch());
 
-        for (int i = 0; i < 1000; i++) {
-            Profile p = new Profile();
-            p.setRandomProfile();
-            launcher.modelM.addProfile(p);
+        HashMap<Integer, TreeSet<TupleTreeSet>> map = launcher.modelM.getStockDistance();
+
+        float min = 1000000000000.0F;
+        float max = 0.0F;
+        float sum = 0.0F;
+
+        for (Integer i : map.keySet()) {
+            for (TupleTreeSet t : map.get(i)) {
+                if (min > t.getDistance()) {
+                    min = t.getDistance();
+                }
+                if (max < t.getDistance()) {
+                    max = t.getDistance();
+                }
+                sum += t.getDistance();
+            }
         }
-            launcher.modelM.saveProfiles();
-            launcher.modelM.saveDistances();
+
+        System.out.println((min + max) / 2);
+        System.out.println(max);
     }
 
 }

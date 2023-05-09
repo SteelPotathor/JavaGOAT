@@ -5,6 +5,7 @@ import animatefx.animation.FadeInUpBig;
 import animatefx.animation.RotateInDownLeft;
 import com.example.javagoat.back.ModelMatch;
 import com.example.javagoat.back.Profile;
+import com.example.javagoat.back.TupleTreeSet;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -107,6 +108,27 @@ public class Matching_Profiles_Controller {
     @FXML
     private Label passionNE;
 
+    @FXML
+    private Label labelBlueSE;
+    @FXML
+    private Label labelRedSE;
+    @FXML
+    private Label labelBlueNW;
+    @FXML
+    private Label labelRedNW;
+    @FXML
+    private Label labelBlueSW;
+    @FXML
+    private Label labelRedSW;
+    @FXML
+    private Label labelBlueS;
+    @FXML
+    private Label labelRedS;
+    @FXML
+    private Label labelBlueNE;
+    @FXML
+    private Label labelRedNE;
+
     private Dashboard_Controller dashboard_controller;
 
     private Search_Controller search_controller;
@@ -141,6 +163,8 @@ public class Matching_Profiles_Controller {
         List<Label> firstNameList = Arrays.asList(firstNameNE, firstNameSE, firstNameS, firstNameSW, firstNameNW);
         List<Label> ageList = Arrays.asList(ageNE, ageSE, ageS, ageSW, ageNW);
         List<Label> passionList = Arrays.asList(passionNE, passionSE, passionS, passionSW, passionNW);
+        List<Label> labelBlueList = Arrays.asList(labelBlueNE, labelBlueSE, labelBlueS, labelBlueSW, labelBlueNW);
+        List<Label> labelRedList = Arrays.asList(labelRedNE, labelRedSE, labelRedS, labelRedSW, labelRedNW);
         try {
             circleProfilePictureCenter.setFill(new ImagePattern(new Image(profile.getImageView())));
             int i = 0;
@@ -150,6 +174,23 @@ public class Matching_Profiles_Controller {
                 firstNameList.get(i).setText(p.getIdentity().getFirstname());
                 lastNameList.get(i).setText(p.getIdentity().getLastname());
                 circleList.get(i).setFill(new ImagePattern(new Image(p.getImageView())));
+
+                TreeSet<TupleTreeSet> treeSetBlue = modelMatch.getStockDistance().get(profile.getIdentity().getNoId());
+                for (TupleTreeSet t : treeSetBlue) {
+                    if (t.getId() == p.getIdentity().getNoId()) {
+                        labelBlueList.get(i).setText(Math.round(100 - (100 * t.getDistance() / 1051.4669)) + "%");
+                        break;
+                    }
+                }
+
+                TreeSet<TupleTreeSet> treeSetRed = modelMatch.getStockDistance().get(p.getIdentity().getNoId());
+                for (TupleTreeSet t : treeSetRed) {
+                    if (t.getId() == profile.getIdentity().getNoId()) {
+                        labelRedList.get(i).setText(Math.round(100 - (100 * t.getDistance() / 1051.4669)) + "%");
+                        break;
+                    }
+                }
+
                 i++;
             }
         } catch (Exception e) {
