@@ -21,9 +21,6 @@ public class ModelHistoMatch implements Serializable {
 
     public void addMatch(Profile p1, Profile p2) {
         // Put the priority at the lowest for the two profiles
-        System.out.println("methode add ");
-        System.out.println(p1.getModelHisto().stockHisto);
-        System.out.println(p2.getModelHisto().stockHisto);
         p1.setPriority(3);
         p2.setPriority(3);
         HashMap<Integer, Date> matchP1 = p1.getModelHisto().getStockHisto();
@@ -32,9 +29,6 @@ public class ModelHistoMatch implements Serializable {
         matchP2.put(p1.getIdentity().getNoId(), new Date());
         modelNotification.addNotification(new Date(), "Match between " + p1.getIdentity().getFirstname() + " " + p1.getIdentity().getLastname() + " and " + p2.getIdentity().getFirstname() + " " + p2.getIdentity().getLastname());
         matchCount++;
-        System.out.println("update histo p1: " +matchP1);
-        System.out.println("update histo p2: " +matchP2);
-        System.out.println("fin methode add");
     }
 
     public HashMap<Integer, Date> getStockHisto() {

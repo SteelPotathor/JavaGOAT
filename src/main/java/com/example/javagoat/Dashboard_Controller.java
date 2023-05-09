@@ -30,6 +30,7 @@ import java.util.Map;
 import java.util.PriorityQueue;
 
 import static com.example.javagoat.back.ModelHistoMatch.getMatchCount;
+import static com.example.javagoat.back.ModelMatch.stockDistance;
 import static com.example.javagoat.back.ModelProfile.profileHashMap;
 
 public class Dashboard_Controller {
@@ -103,6 +104,11 @@ public class Dashboard_Controller {
         fillNotifications();
         initStats();
         dashboard_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
+        System.out.println(stockDistance);
+        for (Integer i:profileHashMap.keySet()) {
+            Profile p = profileHashMap.get(i);
+            System.out.println(p.identity.getLastname() +" : "+p.getPriority());
+        }
     }
 
     public void updateAfterEditOrMatch() {
@@ -114,6 +120,7 @@ public class Dashboard_Controller {
             Profile p = profileHashMap.get(i);
             System.out.println(p.modelHisto.getStockHisto());
         }
+        System.out.println(stockDistance);
     }
 
     private void initStats() {
@@ -134,10 +141,12 @@ public class Dashboard_Controller {
         ObservableList<ProfileTableView> profiles = tableView.getItems();
         PriorityQueue<Profile> priorityQueue = modelMatch.modelP.toPriorityQueue();
 
+        System.out.println("file prio : " +modelMatch.modelP.toPriorityQueue());
+
         // Putting some profiles in the tableView
-        Profile profile = priorityQueue.poll();
         int cpt = 0;
-        while (!priorityQueue.isEmpty() && profile.getPriority() == 1 && cpt < total) {
+        while (!priorityQueue.isEmpty() && cpt < total) {
+            Profile profile = priorityQueue.poll();
             ProfileTableView profileTableView = profile.toProfileTableView();
             Pane modify = (Pane) profileTableView.actions.getChildren().get(1);
             Pane match = (Pane) profileTableView.actions.getChildren().get(3);
@@ -146,7 +155,6 @@ public class Dashboard_Controller {
             match.setStyle("-fx-cursor: HAND");
             match.setOnMouseClicked(this::match);
             profiles.add(profileTableView);
-            profile = priorityQueue.poll();
             cpt++;
         }
         tableView.setItems(profiles);
@@ -305,7 +313,6 @@ public class Dashboard_Controller {
         Parent root = loader.load();
         // load the controller
         Edit_Profile_Controller edit_profile_controller = loader.getController();
-        edit_profile_controller.setModelMatch(modelMatch);
         edit_profile_controller.set_profile(event);
         edit_profile_controller.setDashboard_controller(this);
         Stage stage = new Stage();
@@ -322,7 +329,6 @@ public class Dashboard_Controller {
         Parent root = loader.load();
 
         Matching_Profiles_Controller matching_profiles_controller = loader.getController();
-        matching_profiles_controller.setModelMatch(modelMatch);
         matching_profiles_controller.set_match(profile);
         matching_profiles_controller.setDashboard_controller(this);
         Stage stage = new Stage();

@@ -1,6 +1,8 @@
 package com.example.javagoat;
 
-import animatefx.animation.*;
+import animatefx.animation.FadeInDownBig;
+import animatefx.animation.FadeInUpBig;
+import animatefx.animation.RotateInDownLeft;
 import com.example.javagoat.back.ModelMatch;
 import com.example.javagoat.back.ModelNotification;
 import com.example.javagoat.back.Profile;
@@ -19,6 +21,9 @@ import java.io.IOException;
 import java.util.*;
 
 public class Matching_Profiles_Controller {
+
+
+    public ModelMatch modelMatch = new ModelMatch();
 
     public ImageView arrowBlueSE;
 
@@ -39,10 +44,6 @@ public class Matching_Profiles_Controller {
     public ImageView arrowRedNW;
 
     public ImageView arrowBlueNW;
-
-    ModelNotification modelNotification = new ModelNotification();
-
-    public ModelMatch modelMatch;
 
     public Profile profileSelected;
 
@@ -109,9 +110,6 @@ public class Matching_Profiles_Controller {
 
     private Dashboard_Controller dashboard_controller;
 
-    public void setModelMatch(ModelMatch modelMatch) {
-        this.modelMatch = modelMatch;
-    }
     private Search_Controller search_controller;
 
 
@@ -174,8 +172,6 @@ public class Matching_Profiles_Controller {
         switch (mouseEvent.getPickResult().getIntersectedNode().getId()) {
             case "circleProfilePictureNE" -> {
                 modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(0));
-                profileSelected.modelHisto.addMatch(profileSelected, profileList.get(0));
-                profileList.get(0).modelHisto.addMatch(profileList.get(0), profileSelected);
             }
             case "circleProfilePictureSE" -> {
                 modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(1));

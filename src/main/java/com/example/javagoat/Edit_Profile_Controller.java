@@ -24,6 +24,7 @@ import org.controlsfx.control.CheckComboBox;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -31,12 +32,13 @@ import java.util.Objects;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
 
+import static com.example.javagoat.back.ModelMatch.stockDistance;
 import static com.example.javagoat.back.ModelProfile.profileHashMap;
 
 public class Edit_Profile_Controller {
 
     ModelNotification modelNotification = new ModelNotification();
-    ModelMatch modelMatch;
+    ModelMatch modelMatch = new ModelMatch();
     int idProfile;
 
     //Image to put in circle
@@ -205,9 +207,6 @@ public class Edit_Profile_Controller {
         this.dashboard_controller = dashboard_controller;
     }
 
-    public void setModelMatch(ModelMatch modelMatch) {
-        this.modelMatch = modelMatch;
-    }
 
     public void setSearch_controller(Search_Controller search_controller) {
         this.search_controller = search_controller;
@@ -455,8 +454,7 @@ public class Edit_Profile_Controller {
             alert.setContentText("Your profile has not been edited, please fill all the fields");
             alert.showAndWait();
         } else {
-            Identity identity = new Identity(Integer.parseInt(textfield_age.getText()),Biology.sex.valueOf(sex_choicebox.getValue()),Biology.ethnicity.valueOf(choicebox_ethnicity.getValue()),Integer.parseInt(textfield_qi.getText()),textfield_last_name.getText(),textfield_first_name.getText(), true);
-            identity.setNoId(idProfile);
+            Identity identity = new Identity(Integer.parseInt(textfield_age.getText()),Biology.sex.valueOf(sex_choicebox.getValue()),Biology.ethnicity.valueOf(choicebox_ethnicity.getValue()),Integer.parseInt(textfield_qi.getText()),textfield_last_name.getText(),textfield_first_name.getText(), idProfile);
             PhysicalAttributes physicalAttributes = new PhysicalAttributes(Integer.parseInt(textfield_size.getText()), PhysicalAttributes.hairColor.valueOf(color_of_hair_choicebox.getValue()), PhysicalAttributes.hairType.valueOf(hair_type_choicebox.getValue()), PhysicalAttributes.hairLength.valueOf(hair_length_choicebox.getValue()));
             LifeStyle lifeStyle = new LifeStyle(LifeStyle.smoker.valueOf(Smoker_choicebox.getValue()), LifeStyle.athlete.valueOf(Athlete_choicebox.getValue()), LifeStyle.feed.valueOf(feed_choicebox.getValue()), LifeStyle.bodyBuild.valueOf(bodybuild_choicebox.getValue()), LifeStyle.religion.valueOf(religion_choicebox.getValue()), LifeStyle.alcohol.valueOf(alcohol_choicebox.getValue()));
             Preferences preferences = new Preferences(new PhysicalAttributes(Integer.parseInt(textfield_size.getText()), PhysicalAttributes.hairColor.valueOf(color_of_hair_choicebox_preferences.getValue()), PhysicalAttributes.hairType.valueOf(hair_type_choicebox_preferences.getValue()), PhysicalAttributes.hairLength.valueOf(hair_length_choicebox_preferences.getValue())), new Biology(Integer.parseInt(textfield_age_preferences.getText()), Biology.sex.valueOf(sex_choicebox_preferences.getValue()), Biology.ethnicity.valueOf(choicebox_ethnicity_preferences.getValue()), Integer.parseInt(textfield_qi.getText())), new LifeStyle(LifeStyle.smoker.valueOf(Smoker_choicebox_preferences.getValue()), LifeStyle.athlete.valueOf(Athlete_choicebox_preferences.getValue()), LifeStyle.feed.valueOf(feed_choicebox_preferences.getValue()), LifeStyle.bodyBuild.valueOf(bodybuild_choicebox_preferences.getValue()), LifeStyle.religion.valueOf(religion_choicebox_preferences.getValue()), LifeStyle.alcohol.valueOf(alcohol_choicebox_preferences.getValue())));
@@ -482,8 +480,11 @@ public class Edit_Profile_Controller {
                 profile.setPreferences(preferences);
                 profile.setPassion(passion);
                 profile.setImageView(image);
-
+                System.out.println(stockDistance.get(oldProfile.identity.noId));
                 modelMatch.editProfile(profile, oldProfile);
+                System.out.println(stockDistance.get(profile.identity.noId));
+                System.out.println("noid : "+profile.getIdentity().noId);
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -518,6 +519,7 @@ public class Edit_Profile_Controller {
 
     @FXML
     public void set_profile(Profile profile) {
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
         idProfile = profile.getIdentity().getNoId();
         textfield_first_name.setText(profile.getIdentity().firstname);
         textfield_last_name.setText(profile.getIdentity().lastname);
@@ -527,9 +529,9 @@ public class Edit_Profile_Controller {
         textfield_qi.setText(String.valueOf(profile.getIdentity().qi));
         circle_profile_picture.setFill(new ImagePattern(new Image(profile.getImageView())));
         if (profile.getTotal() <= 1) {
-            feedbackText.setText("Feedback : " + profile.getRatio() + " %    " + profile.getTotal() + " vote");
+            feedbackText.setText("Feedback : " + decimalFormat.format(profile.getRatio()) + " %    " + profile.getTotal() + " vote");
         } else {
-            feedbackText.setText("Feedback : " + profile.getRatio() + " %    " + profile.getTotal() + " votes");
+            feedbackText.setText("Feedback : " + decimalFormat.format(profile.getRatio()) + " %    " + profile.getTotal() + " votes");
         }
         Smoker_choicebox.setValue(profile.getLifeStyle().getLSsmoker().toString());
         choicebox_ethnicity.setValue(profile.getIdentity().getBethnicity().toString());

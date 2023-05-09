@@ -132,23 +132,4 @@ public class ModelProfile implements Serializable {
         return s;
     }
 
-    public static void main(String[] args) {
- /*
-        for (int i = 0; i < 100; i++) {
-            Profile p = new Profile();
-            p.setRandomProfileExceptName("Alma", "Katherine");
-            modelMatch.addProfile(p);
-        }
-        PriorityQueue<Profile> pq = modelMatch.modelP.toPriorityQueue();
-        while (!pq.isEmpty()) {
-            System.out.println(pq.poll().toString());
-        }
-        */
-
-        ModelMatch modelMatch = new ModelMatch();
-        System.out.println("modelmatch: " + modelMatch);
-        ModelProfile modelProfile = new ModelProfile();
-        System.out.println("modelProfile:" + modelProfile);
-    }
-
 }

@@ -494,7 +494,6 @@ public class Search_Controller {
         Parent root = loader.load();
         // load the controller
         Edit_Profile_Controller edit_profile_controller = loader.getController();
-        edit_profile_controller.setModelMatch(modelMatch);
         edit_profile_controller.set_profile(profile);
         edit_profile_controller.setSearch_controller(this);
         Stage stage = new Stage();
@@ -508,7 +507,6 @@ public class Search_Controller {
         Parent root = loader.load();
 
         Matching_Profiles_Controller matching_profiles_controller = loader.getController();
-        matching_profiles_controller.setModelMatch(modelMatch);
         matching_profiles_controller.set_match(profile);
         matching_profiles_controller.setSearch_controller(this);
         Stage stage = new Stage();

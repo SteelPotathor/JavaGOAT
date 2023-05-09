@@ -20,7 +20,7 @@ public class Launcher {
 
 
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 100; i++) {
             Profile p = new Profile();
             p.setRandomProfile();
             launcher.modelM.addProfile(p);

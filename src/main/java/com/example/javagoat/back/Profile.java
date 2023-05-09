@@ -114,8 +114,6 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
     }
 
     public ProfileTableView toProfileTableView() {
-        System.out.println(this.imageView);
-        System.out.println(this.imageView.toString());
         ImageView img = new ImageView(new Image(this.imageView));
         img.setPreserveRatio(true);
         img.setFitHeight(40);
@@ -271,7 +269,6 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
         clone.setPassion(clone.getPassion().clone());
         clone.setVectProfile(clone.getVectProfile().clone());
         clone.setVectPreferences(clone.getVectPreferences().clone());
-        //clone.setModelHisto(clone.getModelHisto().clone());
 
         return clone;
     }

@@ -21,19 +21,23 @@ public class ModelMatch implements Serializable {
         XMLDecoder decoder = null;
         try {
             modelP = new ModelProfile();
-
-            FileInputStream fileInputStream = new FileInputStream(this.ProfilePath);
-            BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
-            decoder = new XMLDecoder(bufferedInputStream);
-            modelP.profileHashMap = ((HashMap<Integer, Profile>) decoder.readObject());
-
+            //System.out.println("modelphash: "+modelP.getProfileHashMap());
+            if (modelP.getProfileHashMap().size()==0) {
+                FileInputStream fileInputStream = new FileInputStream(this.ProfilePath);
+                BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
+                decoder = new XMLDecoder(bufferedInputStream);
+                modelP.profileHashMap = ((HashMap<Integer, Profile>) decoder.readObject());
+            //System.out.println("rewrite");
+            }
             // check if the DS is not null because of static (we don't want to reset it)
             if (stockDistance == null) {
-                fileInputStream = new FileInputStream(this.DistancePath);
-                bufferedInputStream = new BufferedInputStream(fileInputStream);
+                FileInputStream fileInputStream = new FileInputStream(this.DistancePath);
+                BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
                 decoder = new XMLDecoder(bufferedInputStream);
                 stockDistance = (HashMap<Integer, TreeSet<TupleTreeSet>>) decoder.readObject();
             }
+
+            //System.out.println("modelphashafter : "+modelP.getProfileHashMap());
 
         } catch (Exception e) {
             modelP = new ModelProfile();
@@ -76,7 +80,7 @@ public class ModelMatch implements Serializable {
         for (int idProfile : stockDistance.keySet()) {
             TreeSet<TupleTreeSet> treeSetProfile = stockDistance.get(idProfile);
             //treeSetProfile.removeIf(tuple -> tuple.id == p.identity.getNoId());
-            System.out.println("correct contains:"+treeSetProfile.contains(new TupleTreeSet(p.identity.getNoId(),this.modelP.getProfileHashMap().get(idProfile),p)));
+            //System.out.println("correct contains:"+treeSetProfile.contains(new TupleTreeSet(p.identity.getNoId(),this.modelP.getProfileHashMap().get(idProfile),p)));
             //treeSetProfile.remove(new TupleTreeSet(p.identity.getNoId(), this.modelP.getProfileHashMap().get(idProfile), p));
         }
 
@@ -97,10 +101,6 @@ public class ModelMatch implements Serializable {
             }
         }
 
-        System.out.println(oldProfile.identity.noId);
-        System.out.println(newProfile.identity.noId);
-        System.out.println(stockDistance.get(newProfile.identity.noId));
-        System.out.println("stockdistance : " + stockDistance.size());
         // Clear the TreeSet for the profile 'newProfile'
         stockDistance.get(newProfile.identity.getNoId()).clear();
         TreeSet<TupleTreeSet> treeSetP = stockDistance.get(newProfile.identity.getNoId());
@@ -130,12 +130,12 @@ public class ModelMatch implements Serializable {
             System.out.println(modelP.getProfileHashMap().get(key));
         }
          */
-        System.out.println();
+        //System.out.println();
         modelN.addNotification(new Date(), "Profile edited : " + newProfile.identity.getLastname() + " " + newProfile.identity.getFirstname());
-        System.out.println();
-        System.out.println("new Profile: "+newProfile);
-        System.out.println();
-        System.out.println("oldProfile: "+oldProfile);
+        //System.out.println();
+        //System.out.println("new Profile: "+newProfile);
+        //System.out.println();
+        //System.out.println("oldProfile: "+oldProfile);
     }
 
     public HashMap<Profile, Integer> getKNN(int noProfile, int howMany) {
