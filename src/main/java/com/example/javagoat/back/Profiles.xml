@@ -49686,25 +49686,19 @@
   </void>
  </object>
 <void class="com.example.javagoat.back.Passion" id="Field0" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet0" method="get">
-  <object idref="Passion47"/>
+  <object idref="Passion40"/>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games0" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>MINECRAFT</string>
+   <object class="java.lang.Enum" id="Passion$miscellaneous0" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>VACATIONS</string>
    </object>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games1" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>DOTA_2</string>
-   </object>
-  </void>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games2" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>BATTLEFIELD</string>
+   <object class="java.lang.Enum" id="Passion$miscellaneous1" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>MARTIAL_ARTS</string>
    </object>
   </void>
  </void>
@@ -49713,49 +49707,46 @@
 <void class="com.example.javagoat.back.Passion" id="Field1" method="getField">
  <string>passionVG</string>
  <void id="HashSet1" method="get">
-  <object idref="Passion53"/>
+  <object idref="Passion15"/>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games3" method="valueOf">
+   <object class="java.lang.Enum" id="Passion$video_games0" method="valueOf">
     <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>ROCKET_LEAGUE</string>
+    <string>CS_GO</string>
    </object>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games4" method="valueOf">
+   <object class="java.lang.Enum" id="Passion$video_games1" method="valueOf">
     <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>VALHEIM</string>
+    <string>VALORANT</string>
    </object>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games5" method="valueOf">
+   <object class="java.lang.Enum" id="Passion$video_games2" method="valueOf">
     <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>APEX_LEGENDS</string>
+    <string>THE_DOORS</string>
    </object>
   </void>
  </void>
 </void>
 <void idref="HashSet1"/>
 <void class="com.example.javagoat.back.Passion" id="Field2" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet2" method="get">
-  <object idref="Passion71"/>
+  <object idref="Passion66"/>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games6" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>SEA_OF_THIEVES</string>
+   <object class="java.lang.Enum" id="Passion$miscellaneous2" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>TRAVELING</string>
    </object>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games7" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>BRAWLHALLA</string>
+   <object class="java.lang.Enum" id="Passion$miscellaneous3" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>COOKING</string>
    </object>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games8" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>DIVINE_KNOCKOUT</string>
-   </object>
+   <object idref="Passion$miscellaneous0"/>
   </void>
  </void>
 </void>
@@ -49763,61 +49754,88 @@
 <void class="com.example.javagoat.back.Passion" id="Field3" method="getField">
  <string>passionM</string>
  <void id="HashSet3" method="get">
-  <object idref="Passion32"/>
+  <object idref="Passion6"/>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous0" method="valueOf">
+   <object class="java.lang.Enum" id="Passion$miscellaneous4" method="valueOf">
     <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>PSYCHOLOGY</string>
+    <string>GRINDING</string>
    </object>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous1" method="valueOf">
+   <object class="java.lang.Enum" id="Passion$miscellaneous5" method="valueOf">
     <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>ANIMALS</string>
+    <string>RUNNING</string>
    </object>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous2" method="valueOf">
+   <object class="java.lang.Enum" id="Passion$miscellaneous6" method="valueOf">
     <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>BASKET</string>
+    <string>FURRIES</string>
+   </object>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$miscellaneous7" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>GEOGRAPHY</string>
+   </object>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$miscellaneous8" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>MUSIC</string>
    </object>
   </void>
  </void>
 </void>
 <void idref="HashSet3"/>
 <void class="com.example.javagoat.back.Passion" id="Field4" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet4" method="get">
-  <object idref="Passion40"/>
+  <object idref="Passion97"/>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous3" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>MARTIAL_ARTS</string>
+   <object idref="Passion$video_games2"/>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$video_games3" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>HEARTHSTONE</string>
    </object>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous4" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>VACATIONS</string>
+   <object class="java.lang.Enum" id="Passion$video_games4" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>TERRARIA</string>
+   </object>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$video_games5" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>VALHEIM</string>
    </object>
   </void>
  </void>
 </void>
 <void idref="HashSet4"/>
 <void class="com.example.javagoat.back.Passion" id="Field5" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet5" method="get">
-  <object idref="Passion67"/>
+  <object idref="Passion22"/>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous5" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>MANGA</string>
+   <object class="java.lang.Enum" id="Passion$video_games6" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>DESTINY_2</string>
    </object>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous6" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>GYM</string>
+   <object class="java.lang.Enum" id="Passion$video_games7" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>GENSHIN_IMPACT</string>
+   </object>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$video_games8" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>RUST</string>
    </object>
   </void>
  </void>
@@ -49826,33 +49844,48 @@
 <void class="com.example.javagoat.back.Passion" id="Field6" method="getField">
  <string>passionVG</string>
  <void id="HashSet6" method="get">
-  <object idref="Passion79"/>
+  <object idref="Passion3"/>
   <void method="add">
    <object class="java.lang.Enum" id="Passion$video_games9" method="valueOf">
     <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>TERRARIA</string>
+    <string>JACKBOX_PARTY</string>
    </object>
   </void>
   <void method="add">
-   <object idref="Passion$video_games5"/>
-  </void>
- </void>
-</void>
-<void idref="HashSet6"/>
-<void class="com.example.javagoat.back.Passion" id="Field7" method="getField">
- <string>passionVG</string>
- <void id="HashSet7" method="get">
-  <object idref="Passion39"/>
-  <void method="add">
    <object class="java.lang.Enum" id="Passion$video_games10" method="valueOf">
     <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>STREET_FIGHTER</string>
+    <string>DRAGON_QUEST</string>
    </object>
   </void>
   <void method="add">
    <object class="java.lang.Enum" id="Passion$video_games11" method="valueOf">
     <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>CRAB_GAME</string>
+    <string>ARK</string>
+   </object>
+  </void>
+ </void>
+</void>
+<void idref="HashSet6"/>
+<void class="com.example.javagoat.back.Passion" id="Field7" method="getField">
+ <string>passionM</string>
+ <void id="HashSet7" method="get">
+  <object idref="Passion48"/>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$miscellaneous9" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>GYM</string>
+   </object>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$miscellaneous10" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>THEATER</string>
+   </object>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$miscellaneous11" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>ANIME</string>
    </object>
   </void>
  </void>
@@ -49861,64 +49894,67 @@
 <void class="com.example.javagoat.back.Passion" id="Field8" method="getField">
  <string>passionVG</string>
  <void id="HashSet8" method="get">
-  <object idref="Passion20"/>
+  <object idref="Passion66"/>
   <void method="add">
-   <object idref="Passion$video_games9"/>
+   <object idref="Passion$video_games11"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games7"/>
+   <object idref="Passion$video_games4"/>
   </void>
   <void method="add">
    <object class="java.lang.Enum" id="Passion$video_games12" method="valueOf">
     <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>THE_DOORS</string>
+    <string>MINECRAFT</string>
    </object>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games8"/>
   </void>
  </void>
 </void>
 <void idref="HashSet8"/>
 <void class="com.example.javagoat.back.Passion" id="Field9" method="getField">
- <string>passionM</string>
- <void id="HashSet9" method="get">
-  <object idref="Passion82"/>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous7" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>SLEEP</string>
-   </object>
-  </void>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous8" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>DIVING</string>
-   </object>
-  </void>
- </void>
-</void>
-<void idref="HashSet9"/>
-<void class="com.example.javagoat.back.Passion" id="Field10" method="getField">
  <string>passionVG</string>
- <void id="HashSet10" method="get">
-  <object idref="Passion14"/>
-  <void method="add">
-   <object idref="Passion$video_games12"/>
-  </void>
+ <void id="HashSet9" method="get">
+  <object idref="Passion83"/>
   <void method="add">
    <object class="java.lang.Enum" id="Passion$video_games13" method="valueOf">
     <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>GENSHIN_IMPACT</string>
+    <string>DEAD_BY_DAYLIGHT</string>
    </object>
   </void>
   <void method="add">
    <object class="java.lang.Enum" id="Passion$video_games14" method="valueOf">
     <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>SUPER_SMASH_BROS</string>
+    <string>DIABLO_3</string>
    </object>
   </void>
   <void method="add">
    <object class="java.lang.Enum" id="Passion$video_games15" method="valueOf">
     <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>LEAGUE_OF_LEGENDS</string>
+    <string>GTA</string>
+   </object>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games5"/>
+  </void>
+ </void>
+</void>
+<void idref="HashSet9"/>
+<void class="com.example.javagoat.back.Passion" id="Field10" method="getField">
+ <string>passionM</string>
+ <void id="HashSet10" method="get">
+  <object idref="Passion19"/>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$miscellaneous12" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>SOCCER</string>
+   </object>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$miscellaneous13" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>ANIMALS</string>
    </object>
   </void>
  </void>
@@ -49927,27 +49963,18 @@
 <void class="com.example.javagoat.back.Passion" id="Field11" method="getField">
  <string>passionVG</string>
  <void id="HashSet11" method="get">
-  <object idref="Passion29"/>
+  <object idref="Passion18"/>
+  <void method="add">
+   <object idref="Passion$video_games11"/>
+  </void>
   <void method="add">
    <object class="java.lang.Enum" id="Passion$video_games16" method="valueOf">
     <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>ARK</string>
+    <string>FALL_GUYS</string>
    </object>
   </void>
   <void method="add">
    <object idref="Passion$video_games2"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games9"/>
-  </void>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games17" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>RUST</string>
-   </object>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games15"/>
   </void>
  </void>
 </void>
@@ -49955,23 +49982,23 @@
 <void class="com.example.javagoat.back.Passion" id="Field12" method="getField">
  <string>passionM</string>
  <void id="HashSet12" method="get">
-  <object idref="Passion89"/>
+  <object idref="Passion95"/>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous9" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>RUNNING</string>
-   </object>
+   <object idref="Passion$miscellaneous13"/>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous10" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>NETFLIX</string>
-   </object>
-  </void>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous11" method="valueOf">
+   <object class="java.lang.Enum" id="Passion$miscellaneous14" method="valueOf">
     <class>com.example.javagoat.back.Passion$miscellaneous</class>
     <string>PAINTING</string>
+   </object>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous12"/>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$miscellaneous15" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>CHESS</string>
    </object>
   </void>
  </void>
@@ -49980,27 +50007,24 @@
 <void class="com.example.javagoat.back.Passion" id="Field13" method="getField">
  <string>passionM</string>
  <void id="HashSet13" method="get">
-  <object idref="Passion63"/>
+  <object idref="Passion86"/>
   <void method="add">
-   <object idref="Passion$miscellaneous4"/>
+   <object idref="Passion$miscellaneous15"/>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous12" method="valueOf">
+   <object class="java.lang.Enum" id="Passion$miscellaneous16" method="valueOf">
     <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>WRITING</string>
+    <string>PORN</string>
    </object>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous13" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>VLOGGING</string>
-   </object>
-  </void>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous14" method="valueOf">
+   <object class="java.lang.Enum" id="Passion$miscellaneous17" method="valueOf">
     <class>com.example.javagoat.back.Passion$miscellaneous</class>
     <string>COSPLAY</string>
    </object>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous11"/>
   </void>
  </void>
 </void>
@@ -50008,26 +50032,20 @@
 <void class="com.example.javagoat.back.Passion" id="Field14" method="getField">
  <string>passionM</string>
  <void id="HashSet14" method="get">
-  <object idref="Passion86"/>
+  <object idref="Passion45"/>
   <void method="add">
-   <object idref="Passion$miscellaneous14"/>
-  </void>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous15" method="valueOf">
+   <object class="java.lang.Enum" id="Passion$miscellaneous18" method="valueOf">
     <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>ANIME</string>
+    <string>MANGA</string>
    </object>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous16" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>CHESS</string>
-   </object>
+   <object idref="Passion$miscellaneous6"/>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous17" method="valueOf">
+   <object class="java.lang.Enum" id="Passion$miscellaneous19" method="valueOf">
     <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>PORN</string>
+    <string>DIVING</string>
    </object>
   </void>
  </void>
@@ -50036,15 +50054,24 @@
 <void class="com.example.javagoat.back.Passion" id="Field15" method="getField">
  <string>passionM</string>
  <void id="HashSet15" method="get">
-  <object idref="Passion76"/>
+  <object idref="Passion92"/>
   <void method="add">
-   <object idref="Passion$miscellaneous16"/>
+   <object class="java.lang.Enum" id="Passion$miscellaneous20" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>SPIRITUALITY</string>
+   </object>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous3"/>
+   <object class="java.lang.Enum" id="Passion$miscellaneous21" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>PHILOSOPHY</string>
+   </object>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous15"/>
+   <object class="java.lang.Enum" id="Passion$miscellaneous22" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>SLEEP</string>
+   </object>
   </void>
  </void>
 </void>
@@ -50052,15 +50079,24 @@
 <void class="com.example.javagoat.back.Passion" id="Field16" method="getField">
  <string>passionM</string>
  <void id="HashSet16" method="get">
-  <object idref="Passion16"/>
+  <object idref="Passion5"/>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous18" method="valueOf">
+   <object idref="Passion$miscellaneous5"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous12"/>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$miscellaneous23" method="valueOf">
     <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>SCIENCES</string>
+    <string>BIKE</string>
    </object>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous9"/>
+   <object class="java.lang.Enum" id="Passion$miscellaneous24" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>MODE</string>
+   </object>
   </void>
  </void>
 </void>
@@ -50068,119 +50104,128 @@
 <void class="com.example.javagoat.back.Passion" id="Field17" method="getField">
  <string>passionM</string>
  <void id="HashSet17" method="get">
-  <object idref="Passion58"/>
+  <object idref="Passion53"/>
   <void method="add">
-   <object idref="Passion$miscellaneous3"/>
-  </void>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous19" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>MUSIC</string>
-   </object>
-  </void>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous20" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>PLAYING_WITH_KIDS</string>
-   </object>
-  </void>
- </void>
-</void>
-<void idref="HashSet17"/>
-<void class="com.example.javagoat.back.Passion" id="Field18" method="getField">
- <string>passionVG</string>
- <void id="HashSet18" method="get">
-  <object idref="Passion80"/>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games18" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>FALL_GUYS</string>
-   </object>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games0"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games13"/>
-  </void>
- </void>
-</void>
-<void idref="HashSet18"/>
-<void class="com.example.javagoat.back.Passion" id="Field19" method="getField">
- <string>passionM</string>
- <void id="HashSet19" method="get">
-  <object idref="Passion96"/>
-  <void method="add">
-   <object idref="Passion$miscellaneous7"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous11"/>
-  </void>
- </void>
-</void>
-<void idref="HashSet19"/>
-<void class="com.example.javagoat.back.Passion" id="Field20" method="getField">
- <string>passionM</string>
- <void id="HashSet20" method="get">
-  <object idref="Passion14"/>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous21" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>MOVIES</string>
-   </object>
-  </void>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous22" method="valueOf">
+   <object class="java.lang.Enum" id="Passion$miscellaneous25" method="valueOf">
     <class>com.example.javagoat.back.Passion$miscellaneous</class>
     <string>DANCING</string>
    </object>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous23" method="valueOf">
+   <object class="java.lang.Enum" id="Passion$miscellaneous26" method="valueOf">
     <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>PHOTOGRAPHY</string>
+    <string>LITERATURE</string>
    </object>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous4"/>
+   <object idref="Passion$miscellaneous9"/>
+  </void>
+ </void>
+</void>
+<void idref="HashSet17"/>
+<void class="com.example.javagoat.back.Passion" id="Field18" method="getField">
+ <string>passionM</string>
+ <void id="HashSet18" method="get">
+  <object idref="Passion94"/>
+  <void method="add">
+   <object idref="Passion$miscellaneous18"/>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$miscellaneous27" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>PROGRAMMING</string>
+   </object>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$miscellaneous28" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>MOVIES</string>
+   </object>
+  </void>
+ </void>
+</void>
+<void idref="HashSet18"/>
+<void class="com.example.javagoat.back.Passion" id="Field19" method="getField">
+ <string>passionVG</string>
+ <void id="HashSet19" method="get">
+  <object idref="Passion21"/>
+  <void method="add">
+   <object idref="Passion$video_games14"/>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$video_games17" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>CALL_OF_DUTY</string>
+   </object>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$video_games18" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>MONSTER_HUNTER</string>
+   </object>
+  </void>
+ </void>
+</void>
+<void idref="HashSet19"/>
+<void class="com.example.javagoat.back.Passion" id="Field20" method="getField">
+ <string>passionVG</string>
+ <void id="HashSet20" method="get">
+  <object idref="Passion70"/>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$video_games19" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>WORLD_OF_WARCRAFT</string>
+   </object>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games11"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games12"/>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$video_games20" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>BATTLEFIELD</string>
+   </object>
   </void>
  </void>
 </void>
 <void idref="HashSet20"/>
 <void class="com.example.javagoat.back.Passion" id="Field21" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet21" method="get">
-  <object idref="Passion21"/>
+  <object idref="Passion49"/>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games19" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>DIABLO_3</string>
-   </object>
+   <object idref="Passion$miscellaneous2"/>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games20" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>MONSTER_HUNTER</string>
-   </object>
-  </void>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games21" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>CALL_OF_DUTY</string>
-   </object>
+   <object idref="Passion$miscellaneous1"/>
   </void>
  </void>
 </void>
 <void idref="HashSet21"/>
 <void class="com.example.javagoat.back.Passion" id="Field22" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet22" method="get">
-  <object idref="Passion84"/>
+  <object idref="Passion29"/>
   <void method="add">
-   <object idref="Passion$miscellaneous20"/>
+   <object idref="Passion$video_games8"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous4"/>
+   <object idref="Passion$video_games11"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games4"/>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$video_games21" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>LEAGUE_OF_LEGENDS</string>
+   </object>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games20"/>
   </void>
  </void>
 </void>
@@ -50188,72 +50233,84 @@
 <void class="com.example.javagoat.back.Passion" id="Field23" method="getField">
  <string>passionVG</string>
  <void id="HashSet23" method="get">
-  <object idref="Passion98"/>
+  <object idref="Passion90"/>
   <void method="add">
-   <object idref="Passion$video_games19"/>
+   <object class="java.lang.Enum" id="Passion$video_games22" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>SUPER_SMASH_BROS</string>
+   </object>
   </void>
   <void method="add">
-   <object idref="Passion$video_games7"/>
+   <object idref="Passion$video_games3"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games20"/>
+   <object class="java.lang.Enum" id="Passion$video_games23" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>APEX_LEGENDS</string>
+   </object>
   </void>
   <void method="add">
-   <object idref="Passion$video_games6"/>
+   <object idref="Passion$video_games8"/>
   </void>
  </void>
 </void>
 <void idref="HashSet23"/>
 <void class="com.example.javagoat.back.Passion" id="Field24" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet24" method="get">
-  <object idref="Passion15"/>
+  <object idref="Passion32"/>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous24" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>GARDENING</string>
+   <object idref="Passion$video_games1"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games14"/>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$video_games24" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>BRAWLHALLA</string>
    </object>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous25" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>TENNIS</string>
+   <object idref="Passion$video_games10"/>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$video_games25" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>STREET_FIGHTER</string>
    </object>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous12"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous14"/>
   </void>
  </void>
 </void>
 <void idref="HashSet24"/>
 <void class="com.example.javagoat.back.Passion" id="Field25" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet25" method="get">
-  <object idref="Passion4"/>
+  <object idref="Passion47"/>
   <void method="add">
-   <object idref="Passion$miscellaneous20"/>
+   <object class="java.lang.Enum" id="Passion$video_games26" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>DOTA_2</string>
+   </object>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous22"/>
+   <object idref="Passion$video_games12"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous0"/>
+   <object idref="Passion$video_games20"/>
   </void>
  </void>
 </void>
 <void idref="HashSet25"/>
 <void class="com.example.javagoat.back.Passion" id="Field26" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet26" method="get">
-  <object idref="Passion29"/>
+  <object idref="Passion89"/>
   <void method="add">
-   <object idref="Passion$miscellaneous10"/>
+   <object idref="Passion$video_games14"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous6"/>
+   <object idref="Passion$video_games3"/>
   </void>
  </void>
 </void>
@@ -50261,46 +50318,40 @@
 <void class="com.example.javagoat.back.Passion" id="Field27" method="getField">
  <string>passionVG</string>
  <void id="HashSet27" method="get">
-  <object idref="Passion95"/>
+  <object idref="Passion36"/>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games22" method="valueOf">
+   <object class="java.lang.Enum" id="Passion$video_games27" method="valueOf">
     <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>WORLD_OF_WARCRAFT</string>
+    <string>ROCKET_LEAGUE</string>
    </object>
   </void>
   <void method="add">
-   <object idref="Passion$video_games2"/>
-  </void>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games23" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>WARFRAME</string>
-   </object>
-  </void>
- </void>
-</void>
-<void idref="HashSet27"/>
-<void class="com.example.javagoat.back.Passion" id="Field28" method="getField">
- <string>passionVG</string>
- <void id="HashSet28" method="get">
-  <object idref="Passion48"/>
-  <void method="add">
-   <object idref="Passion$video_games16"/>
-  </void>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games24" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>FORTNITE</string>
-   </object>
+   <object idref="Passion$video_games1"/>
   </void>
   <void method="add">
    <object idref="Passion$video_games17"/>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games25" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>PUBG</string>
-   </object>
+   <object idref="Passion$video_games11"/>
+  </void>
+ </void>
+</void>
+<void idref="HashSet27"/>
+<void class="com.example.javagoat.back.Passion" id="Field28" method="getField">
+ <string>passionM</string>
+ <void id="HashSet28" method="get">
+  <object idref="Passion2"/>
+  <void method="add">
+   <object idref="Passion$miscellaneous0"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous5"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous23"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous8"/>
   </void>
  </void>
 </void>
@@ -50308,24 +50359,24 @@
 <void class="com.example.javagoat.back.Passion" id="Field29" method="getField">
  <string>passionM</string>
  <void id="HashSet29" method="get">
-  <object idref="Passion87"/>
+  <object idref="Passion68"/>
   <void method="add">
-   <object idref="Passion$miscellaneous21"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous16"/>
-  </void>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous26" method="valueOf">
+   <object class="java.lang.Enum" id="Passion$miscellaneous29" method="valueOf">
     <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>FURRIES</string>
+    <string>HISTORY</string>
    </object>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous18"/>
+   <object class="java.lang.Enum" id="Passion$miscellaneous30" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>DECORATIONS</string>
+   </object>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous9"/>
+   <object class="java.lang.Enum" id="Passion$miscellaneous31" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>SCIENCES</string>
+   </object>
   </void>
  </void>
 </void>
@@ -50333,18 +50384,18 @@
 <void class="com.example.javagoat.back.Passion" id="Field30" method="getField">
  <string>passionVG</string>
  <void id="HashSet30" method="get">
-  <object idref="Passion58"/>
+  <object idref="Passion95"/>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games26" method="valueOf">
+   <object class="java.lang.Enum" id="Passion$video_games28" method="valueOf">
     <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>HEARTHSTONE</string>
+    <string>WARFRAME</string>
    </object>
   </void>
   <void method="add">
    <object idref="Passion$video_games19"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games11"/>
+   <object idref="Passion$video_games20"/>
   </void>
  </void>
 </void>
@@ -50352,75 +50403,66 @@
 <void class="com.example.javagoat.back.Passion" id="Field31" method="getField">
  <string>passionM</string>
  <void id="HashSet31" method="get">
-  <object idref="Passion1"/>
+  <object idref="Passion0"/>
   <void method="add">
-   <object idref="Passion$miscellaneous9"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous17"/>
-  </void>
- </void>
-</void>
-<void idref="HashSet31"/>
-<void class="com.example.javagoat.back.Passion" id="Field32" method="getField">
- <string>passionM</string>
- <void id="HashSet32" method="get">
-  <object idref="Passion59"/>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous27" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>SOCCER</string>
-   </object>
-  </void>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous28" method="valueOf">
+   <object class="java.lang.Enum" id="Passion$miscellaneous32" method="valueOf">
     <class>com.example.javagoat.back.Passion$miscellaneous</class>
     <string>YOGA</string>
    </object>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous29" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>DECORATIONS</string>
-   </object>
+   <object idref="Passion$miscellaneous14"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous14"/>
+   <object idref="Passion$miscellaneous8"/>
+  </void>
+ </void>
+</void>
+<void idref="HashSet31"/>
+<void class="com.example.javagoat.back.Passion" id="Field32" method="getField">
+ <string>passionVG</string>
+ <void id="HashSet32" method="get">
+  <object idref="Passion46"/>
+  <void method="add">
+   <object idref="Passion$video_games4"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games2"/>
   </void>
  </void>
 </void>
 <void idref="HashSet32"/>
 <void class="com.example.javagoat.back.Passion" id="Field33" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet33" method="get">
-  <object idref="Passion64"/>
+  <object idref="Passion78"/>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games27" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>JACKBOX_PARTY</string>
+   <object idref="Passion$miscellaneous9"/>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$miscellaneous33" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>PSYCHOLOGY</string>
    </object>
   </void>
   <void method="add">
-   <object idref="Passion$video_games9"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games12"/>
+   <object idref="Passion$miscellaneous11"/>
   </void>
  </void>
 </void>
 <void idref="HashSet33"/>
 <void class="com.example.javagoat.back.Passion" id="Field34" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet34" method="get">
-  <object idref="Passion41"/>
+  <object idref="Passion23"/>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous30" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>COOKING</string>
+   <object class="java.lang.Enum" id="Passion$video_games29" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>FORTNITE</string>
    </object>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous15"/>
+   <object idref="Passion$video_games24"/>
   </void>
  </void>
 </void>
@@ -50428,24 +50470,18 @@
 <void class="com.example.javagoat.back.Passion" id="Field35" method="getField">
  <string>passionM</string>
  <void id="HashSet35" method="get">
-  <object idref="Passion36"/>
+  <object idref="Passion35"/>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous31" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>LITERATURE</string>
-   </object>
+   <object idref="Passion$miscellaneous20"/>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous32" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>GEOGRAPHY</string>
-   </object>
+   <object idref="Passion$miscellaneous26"/>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous33" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>SPIRITUALITY</string>
-   </object>
+   <object idref="Passion$miscellaneous12"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous19"/>
   </void>
  </void>
 </void>
@@ -50453,40 +50489,28 @@
 <void class="com.example.javagoat.back.Passion" id="Field36" method="getField">
  <string>passionVG</string>
  <void id="HashSet36" method="get">
-  <object idref="Passion51"/>
+  <object idref="Passion5"/>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games28" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>GTA</string>
-   </object>
+   <object idref="Passion$video_games15"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games18"/>
+   <object idref="Passion$video_games9"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games23"/>
+   <object idref="Passion$video_games27"/>
   </void>
  </void>
 </void>
 <void idref="HashSet36"/>
 <void class="com.example.javagoat.back.Passion" id="Field37" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet37" method="get">
-  <object idref="Passion85"/>
+  <object idref="Passion96"/>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games29" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>CS_GO</string>
-   </object>
+   <object idref="Passion$miscellaneous14"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games21"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games26"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games22"/>
+   <object idref="Passion$miscellaneous22"/>
   </void>
  </void>
 </void>
@@ -50494,40 +50518,37 @@
 <void class="com.example.javagoat.back.Passion" id="Field38" method="getField">
  <string>passionVG</string>
  <void id="HashSet38" method="get">
-  <object idref="Passion3"/>
+  <object idref="Passion91"/>
   <void method="add">
-   <object idref="Passion$video_games16"/>
+   <object idref="Passion$video_games19"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games27"/>
+   <object idref="Passion$video_games2"/>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games30" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>DRAGON_QUEST</string>
-   </object>
+   <object idref="Passion$video_games8"/>
   </void>
  </void>
 </void>
 <void idref="HashSet38"/>
 <void class="com.example.javagoat.back.Passion" id="Field39" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet39" method="get">
-  <object idref="Passion92"/>
+  <object idref="Passion23"/>
   <void method="add">
-   <object idref="Passion$video_games4"/>
+   <object idref="Passion$miscellaneous9"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games9"/>
+   <object idref="Passion$miscellaneous14"/>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games31" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>DESTINY_2</string>
-   </object>
+   <object idref="Passion$miscellaneous26"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games28"/>
+   <object idref="Passion$miscellaneous29"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous19"/>
   </void>
  </void>
 </void>
@@ -50535,21 +50556,12 @@
 <void class="com.example.javagoat.back.Passion" id="Field40" method="getField">
  <string>passionM</string>
  <void id="HashSet40" method="get">
-  <object idref="Passion28"/>
+  <object idref="Passion7"/>
+  <void method="add">
+   <object idref="Passion$miscellaneous2"/>
+  </void>
   <void method="add">
    <object idref="Passion$miscellaneous8"/>
-  </void>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous34" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>THEATER</string>
-   </object>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous18"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous15"/>
   </void>
  </void>
 </void>
@@ -50557,21 +50569,15 @@
 <void class="com.example.javagoat.back.Passion" id="Field41" method="getField">
  <string>passionVG</string>
  <void id="HashSet41" method="get">
-  <object idref="Passion93"/>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games32" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>VALORANT</string>
-   </object>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games9"/>
-  </void>
+  <object idref="Passion65"/>
   <void method="add">
    <object idref="Passion$video_games14"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games6"/>
+   <object idref="Passion$video_games29"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games8"/>
   </void>
  </void>
 </void>
@@ -50579,15 +50585,18 @@
 <void class="com.example.javagoat.back.Passion" id="Field42" method="getField">
  <string>passionVG</string>
  <void id="HashSet42" method="get">
-  <object idref="Passion49"/>
+  <object idref="Passion30"/>
   <void method="add">
-   <object idref="Passion$video_games20"/>
+   <object idref="Passion$video_games25"/>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games33" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>DEAD_BY_DAYLIGHT</string>
-   </object>
+   <object idref="Passion$video_games22"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games24"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games5"/>
   </void>
  </void>
 </void>
@@ -50595,12 +50604,15 @@
 <void class="com.example.javagoat.back.Passion" id="Field43" method="getField">
  <string>passionVG</string>
  <void id="HashSet43" method="get">
-  <object idref="Passion31"/>
+  <object idref="Passion13"/>
   <void method="add">
-   <object idref="Passion$video_games1"/>
+   <object idref="Passion$video_games0"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games21"/>
+   <object idref="Passion$video_games22"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games26"/>
   </void>
  </void>
 </void>
@@ -50608,34 +50620,40 @@
 <void class="com.example.javagoat.back.Passion" id="Field44" method="getField">
  <string>passionM</string>
  <void id="HashSet44" method="get">
-  <object idref="Passion25"/>
+  <object idref="Passion74"/>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous35" method="valueOf">
+   <object idref="Passion$miscellaneous25"/>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$miscellaneous34" method="valueOf">
     <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>TRAVELING</string>
+    <string>PHOTOGRAPHY</string>
    </object>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous10"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous2"/>
+   <object idref="Passion$miscellaneous11"/>
   </void>
  </void>
 </void>
 <void idref="HashSet44"/>
 <void class="com.example.javagoat.back.Passion" id="Field45" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet45" method="get">
-  <object idref="Passion9"/>
+  <object idref="Passion7"/>
   <void method="add">
-   <object idref="Passion$miscellaneous21"/>
+   <object idref="Passion$video_games27"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous16"/>
+   <object idref="Passion$video_games14"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous14"/>
+   <object idref="Passion$video_games9"/>
+  </void>
+  <void method="add">
+   <object class="java.lang.Enum" id="Passion$video_games30" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>AMOGUS</string>
+   </object>
   </void>
  </void>
 </void>
@@ -50643,31 +50661,40 @@
 <void class="com.example.javagoat.back.Passion" id="Field46" method="getField">
  <string>passionVG</string>
  <void id="HashSet46" method="get">
-  <object idref="Passion16"/>
+  <object idref="Passion71"/>
   <void method="add">
-   <object idref="Passion$video_games28"/>
+   <object idref="Passion$video_games24"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games16"/>
+   <object class="java.lang.Enum" id="Passion$video_games31" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>SEA_OF_THIEVES</string>
+   </object>
   </void>
   <void method="add">
-   <object idref="Passion$video_games22"/>
+   <object class="java.lang.Enum" id="Passion$video_games32" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>DIVINE_KNOCKOUT</string>
+   </object>
   </void>
  </void>
 </void>
 <void idref="HashSet46"/>
 <void class="com.example.javagoat.back.Passion" id="Field47" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet47" method="get">
-  <object idref="Passion0"/>
+  <object idref="Passion92"/>
   <void method="add">
-   <object idref="Passion$miscellaneous28"/>
+   <object idref="Passion$video_games6"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous19"/>
+   <object idref="Passion$video_games4"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous11"/>
+   <object idref="Passion$video_games15"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games5"/>
   </void>
  </void>
 </void>
@@ -50675,15 +50702,18 @@
 <void class="com.example.javagoat.back.Passion" id="Field48" method="getField">
  <string>passionM</string>
  <void id="HashSet48" method="get">
-  <object idref="Passion53"/>
+  <object idref="Passion89"/>
   <void method="add">
-   <object idref="Passion$miscellaneous22"/>
+   <object idref="Passion$miscellaneous5"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous31"/>
+   <object idref="Passion$miscellaneous14"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous6"/>
+   <object class="java.lang.Enum" id="Passion$miscellaneous35" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>NETFLIX</string>
+   </object>
   </void>
  </void>
 </void>
@@ -50691,24 +50721,15 @@
 <void class="com.example.javagoat.back.Passion" id="Field49" method="getField">
  <string>passionVG</string>
  <void id="HashSet49" method="get">
-  <object idref="Passion60"/>
+  <object idref="Passion57"/>
   <void method="add">
-   <object idref="Passion$video_games33"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games28"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games24"/>
+   <object idref="Passion$video_games21"/>
   </void>
   <void method="add">
    <object idref="Passion$video_games10"/>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$video_games34" method="valueOf">
-    <class>com.example.javagoat.back.Passion$video_games</class>
-    <string>AMOGUS</string>
-   </object>
+   <object idref="Passion$video_games7"/>
   </void>
  </void>
 </void>
@@ -50716,18 +50737,21 @@
 <void class="com.example.javagoat.back.Passion" id="Field50" method="getField">
  <string>passionM</string>
  <void id="HashSet50" method="get">
-  <object idref="Passion57"/>
+  <object idref="Passion11"/>
   <void method="add">
-   <object idref="Passion$miscellaneous19"/>
+   <object idref="Passion$miscellaneous14"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous7"/>
+   <object class="java.lang.Enum" id="Passion$miscellaneous36" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>TENNIS</string>
+   </object>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous13"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous15"/>
+   <object class="java.lang.Enum" id="Passion$miscellaneous37" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>PLAYING_WITH_KIDS</string>
+   </object>
   </void>
  </void>
 </void>
@@ -50735,56 +50759,59 @@
 <void class="com.example.javagoat.back.Passion" id="Field51" method="getField">
  <string>passionVG</string>
  <void id="HashSet51" method="get">
-  <object idref="Passion61"/>
+  <object idref="Passion52"/>
   <void method="add">
-   <object idref="Passion$video_games13"/>
+   <object idref="Passion$video_games7"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games24"/>
+   <object idref="Passion$video_games1"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games23"/>
+   <object idref="Passion$video_games15"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games5"/>
   </void>
  </void>
 </void>
 <void idref="HashSet51"/>
 <void class="com.example.javagoat.back.Passion" id="Field52" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet52" method="get">
-  <object idref="Passion1"/>
+  <object idref="Passion79"/>
   <void method="add">
-   <object idref="Passion$video_games32"/>
+   <object idref="Passion$miscellaneous24"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games19"/>
+   <object idref="Passion$miscellaneous3"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games17"/>
+   <object idref="Passion$miscellaneous6"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games13"/>
+   <object idref="Passion$miscellaneous7"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous15"/>
   </void>
  </void>
 </void>
 <void idref="HashSet52"/>
 <void class="com.example.javagoat.back.Passion" id="Field53" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet53" method="get">
-  <object idref="Passion97"/>
+  <object idref="Passion1"/>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous36" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>MODE</string>
-   </object>
+   <object idref="Passion$video_games7"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous22"/>
+   <object idref="Passion$video_games1"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous5"/>
+   <object idref="Passion$video_games14"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous30"/>
+   <object idref="Passion$video_games8"/>
   </void>
  </void>
 </void>
@@ -50792,12 +50819,15 @@
 <void class="com.example.javagoat.back.Passion" id="Field54" method="getField">
  <string>passionVG</string>
  <void id="HashSet54" method="get">
-  <object idref="Passion41"/>
+  <object idref="Passion77"/>
   <void method="add">
-   <object idref="Passion$video_games6"/>
+   <object idref="Passion$video_games23"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games8"/>
+   <object idref="Passion$video_games9"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games18"/>
   </void>
  </void>
 </void>
@@ -50805,15 +50835,12 @@
 <void class="com.example.javagoat.back.Passion" id="Field55" method="getField">
  <string>passionM</string>
  <void id="HashSet55" method="get">
-  <object idref="Passion26"/>
+  <object idref="Passion67"/>
   <void method="add">
-   <object idref="Passion$miscellaneous16"/>
+   <object idref="Passion$miscellaneous18"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous13"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous2"/>
+   <object idref="Passion$miscellaneous9"/>
   </void>
  </void>
 </void>
@@ -50821,18 +50848,15 @@
 <void class="com.example.javagoat.back.Passion" id="Field56" method="getField">
  <string>passionVG</string>
  <void id="HashSet56" method="get">
-  <object idref="Passion66"/>
+  <object idref="Passion17"/>
   <void method="add">
-   <object idref="Passion$video_games9"/>
+   <object idref="Passion$video_games3"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games0"/>
+   <object idref="Passion$video_games14"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games17"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games16"/>
+   <object idref="Passion$video_games30"/>
   </void>
  </void>
 </void>
@@ -50840,18 +50864,21 @@
 <void class="com.example.javagoat.back.Passion" id="Field57" method="getField">
  <string>passionM</string>
  <void id="HashSet57" method="get">
-  <object idref="Passion94"/>
+  <object idref="Passion37"/>
   <void method="add">
-   <object idref="Passion$miscellaneous21"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous5"/>
-  </void>
-  <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous37" method="valueOf">
+   <object class="java.lang.Enum" id="Passion$miscellaneous38" method="valueOf">
     <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>PROGRAMMING</string>
+    <string>VLOGGING</string>
    </object>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous6"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous36"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous32"/>
   </void>
  </void>
 </void>
@@ -50859,34 +50886,34 @@
 <void class="com.example.javagoat.back.Passion" id="Field58" method="getField">
  <string>passionVG</string>
  <void id="HashSet58" method="get">
-  <object idref="Passion73"/>
+  <object idref="Passion49"/>
   <void method="add">
-   <object idref="Passion$video_games29"/>
+   <object idref="Passion$video_games13"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games15"/>
+   <object idref="Passion$video_games18"/>
   </void>
  </void>
 </void>
 <void idref="HashSet58"/>
 <void class="com.example.javagoat.back.Passion" id="Field59" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet59" method="get">
-  <object idref="Passion83"/>
+  <object idref="Passion60"/>
   <void method="add">
-   <object idref="Passion$miscellaneous6"/>
+   <object idref="Passion$video_games25"/>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous38" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>PHILOSOPHY</string>
-   </object>
+   <object idref="Passion$video_games13"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous10"/>
+   <object idref="Passion$video_games15"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous4"/>
+   <object idref="Passion$video_games29"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games30"/>
   </void>
  </void>
 </void>
@@ -50894,53 +50921,50 @@
 <void class="com.example.javagoat.back.Passion" id="Field60" method="getField">
  <string>passionM</string>
  <void id="HashSet60" method="get">
-  <object idref="Passion33"/>
+  <object idref="Passion51"/>
+  <void method="add">
+   <object idref="Passion$miscellaneous22"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous16"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous26"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous19"/>
+  </void>
+ </void>
+</void>
+<void idref="HashSet60"/>
+<void class="com.example.javagoat.back.Passion" id="Field61" method="getField">
+ <string>passionM</string>
+ <void id="HashSet61" method="get">
+  <object idref="Passion26"/>
   <void method="add">
    <object class="java.lang.Enum" id="Passion$miscellaneous39" method="valueOf">
     <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>GRINDING</string>
+    <string>BASKET</string>
    </object>
   </void>
   <void method="add">
    <object idref="Passion$miscellaneous38"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous33"/>
-  </void>
- </void>
-</void>
-<void idref="HashSet60"/>
-<void class="com.example.javagoat.back.Passion" id="Field61" method="getField">
- <string>passionVG</string>
- <void id="HashSet61" method="get">
-  <object idref="Passion97"/>
-  <void method="add">
-   <object idref="Passion$video_games4"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games26"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games9"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games12"/>
+   <object idref="Passion$miscellaneous15"/>
   </void>
  </void>
 </void>
 <void idref="HashSet61"/>
 <void class="com.example.javagoat.back.Passion" id="Field62" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet62" method="get">
-  <object idref="Passion54"/>
+  <object idref="Passion98"/>
   <void method="add">
-   <object idref="Passion$video_games18"/>
+   <object idref="Passion$miscellaneous12"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games27"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games28"/>
+   <object idref="Passion$miscellaneous20"/>
   </void>
  </void>
 </void>
@@ -50948,18 +50972,15 @@
 <void class="com.example.javagoat.back.Passion" id="Field63" method="getField">
  <string>passionM</string>
  <void id="HashSet63" method="get">
-  <object idref="Passion30"/>
+  <object idref="Passion24"/>
+  <void method="add">
+   <object idref="Passion$miscellaneous6"/>
+  </void>
   <void method="add">
    <object idref="Passion$miscellaneous30"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous31"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous5"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous28"/>
+   <object idref="Passion$miscellaneous22"/>
   </void>
  </void>
 </void>
@@ -50967,12 +50988,9 @@
 <void class="com.example.javagoat.back.Passion" id="Field64" method="getField">
  <string>passionVG</string>
  <void id="HashSet64" method="get">
-  <object idref="Passion89"/>
+  <object idref="Passion100"/>
   <void method="add">
-   <object idref="Passion$video_games19"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games26"/>
+   <object idref="Passion$video_games1"/>
   </void>
  </void>
 </void>
@@ -50980,15 +50998,12 @@
 <void class="com.example.javagoat.back.Passion" id="Field65" method="getField">
  <string>passionVG</string>
  <void id="HashSet65" method="get">
-  <object idref="Passion63"/>
+  <object idref="Passion8"/>
   <void method="add">
-   <object idref="Passion$video_games13"/>
+   <object idref="Passion$video_games15"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games4"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games25"/>
+   <object idref="Passion$video_games32"/>
   </void>
  </void>
 </void>
@@ -50996,18 +51011,12 @@
 <void class="com.example.javagoat.back.Passion" id="Field66" method="getField">
  <string>passionM</string>
  <void id="HashSet66" method="get">
-  <object idref="Passion35"/>
+  <object idref="Passion41"/>
   <void method="add">
-   <object idref="Passion$miscellaneous27"/>
+   <object idref="Passion$miscellaneous3"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous8"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous31"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous33"/>
+   <object idref="Passion$miscellaneous11"/>
   </void>
  </void>
 </void>
@@ -51015,41 +51024,41 @@
 <void class="com.example.javagoat.back.Passion" id="Field67" method="getField">
  <string>passionVG</string>
  <void id="HashSet67" method="get">
-  <object idref="Passion74"/>
+  <object idref="Passion41"/>
   <void method="add">
-   <object idref="Passion$video_games3"/>
+   <object idref="Passion$video_games31"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games22"/>
+   <object idref="Passion$video_games32"/>
   </void>
  </void>
 </void>
 <void idref="HashSet67"/>
 <void class="com.example.javagoat.back.Passion" id="Field68" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet68" method="get">
-  <object idref="Passion100"/>
+  <object idref="Passion55"/>
   <void method="add">
-   <object idref="Passion$miscellaneous21"/>
+   <object idref="Passion$video_games30"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games2"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games4"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games8"/>
   </void>
  </void>
 </void>
 <void idref="HashSet68"/>
 <void class="com.example.javagoat.back.Passion" id="Field69" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet69" method="get">
-  <object idref="Passion86"/>
+  <object idref="Passion100"/>
   <void method="add">
-   <object idref="Passion$video_games29"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games16"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games31"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games23"/>
+   <object idref="Passion$miscellaneous28"/>
   </void>
  </void>
 </void>
@@ -51057,69 +51066,66 @@
 <void class="com.example.javagoat.back.Passion" id="Field70" method="getField">
  <string>passionM</string>
  <void id="HashSet70" method="get">
-  <object idref="Passion44"/>
+  <object idref="Passion3"/>
   <void method="add">
-   <object idref="Passion$miscellaneous22"/>
+   <object idref="Passion$miscellaneous24"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous13"/>
+   <object idref="Passion$miscellaneous29"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous33"/>
+   <object idref="Passion$miscellaneous4"/>
   </void>
  </void>
 </void>
 <void idref="HashSet70"/>
 <void class="com.example.javagoat.back.Passion" id="Field71" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet71" method="get">
-  <object idref="Passion72"/>
+  <object idref="Passion25"/>
   <void method="add">
-   <object idref="Passion$video_games26"/>
+   <object idref="Passion$miscellaneous39"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games14"/>
+   <object idref="Passion$miscellaneous2"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games10"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games16"/>
+   <object idref="Passion$miscellaneous35"/>
   </void>
  </void>
 </void>
 <void idref="HashSet71"/>
 <void class="com.example.javagoat.back.Passion" id="Field72" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet72" method="get">
-  <object idref="Passion3"/>
+  <object idref="Passion86"/>
   <void method="add">
-   <object idref="Passion$miscellaneous39"/>
+   <object idref="Passion$video_games28"/>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous40" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>HISTORY</string>
-   </object>
+   <object idref="Passion$video_games0"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous36"/>
+   <object idref="Passion$video_games11"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games6"/>
   </void>
  </void>
 </void>
 <void idref="HashSet72"/>
 <void class="com.example.javagoat.back.Passion" id="Field73" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet73" method="get">
-  <object idref="Passion19"/>
+  <object idref="Passion99"/>
   <void method="add">
-   <object idref="Passion$video_games26"/>
+   <object idref="Passion$miscellaneous18"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games1"/>
+   <object idref="Passion$miscellaneous12"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games13"/>
+   <object idref="Passion$miscellaneous16"/>
   </void>
  </void>
 </void>
@@ -51127,72 +51133,63 @@
 <void class="com.example.javagoat.back.Passion" id="Field74" method="getField">
  <string>passionM</string>
  <void id="HashSet74" method="get">
-  <object idref="Passion56"/>
+  <object idref="Passion69"/>
   <void method="add">
    <object idref="Passion$miscellaneous2"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous33"/>
+   <object idref="Passion$miscellaneous18"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous37"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous8"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous11"/>
+   <object idref="Passion$miscellaneous4"/>
   </void>
  </void>
 </void>
 <void idref="HashSet74"/>
 <void class="com.example.javagoat.back.Passion" id="Field75" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet75" method="get">
-  <object idref="Passion84"/>
+  <object idref="Passion17"/>
   <void method="add">
-   <object idref="Passion$video_games12"/>
+   <object idref="Passion$miscellaneous6"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games15"/>
+   <object idref="Passion$miscellaneous22"/>
   </void>
  </void>
 </void>
 <void idref="HashSet75"/>
 <void class="com.example.javagoat.back.Passion" id="Field76" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet76" method="get">
-  <object idref="Passion34"/>
+  <object idref="Passion54"/>
   <void method="add">
-   <object idref="Passion$video_games0"/>
+   <object idref="Passion$miscellaneous31"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games17"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games25"/>
+   <object idref="Passion$miscellaneous4"/>
   </void>
  </void>
 </void>
 <void idref="HashSet76"/>
 <void class="com.example.javagoat.back.Passion" id="Field77" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet77" method="get">
-  <object idref="Passion81"/>
+  <object idref="Passion99"/>
   <void method="add">
-   <object idref="Passion$miscellaneous15"/>
+   <object idref="Passion$video_games16"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous29"/>
+   <object idref="Passion$video_games17"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous26"/>
+   <object idref="Passion$video_games24"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous23"/>
+   <object idref="Passion$video_games12"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous33"/>
+   <object idref="Passion$video_games3"/>
   </void>
  </void>
 </void>
@@ -51200,18 +51197,15 @@
 <void class="com.example.javagoat.back.Passion" id="Field78" method="getField">
  <string>passionM</string>
  <void id="HashSet78" method="get">
-  <object idref="Passion77"/>
+  <object idref="Passion36"/>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous41" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>NUDISM</string>
-   </object>
+   <object idref="Passion$miscellaneous26"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous1"/>
+   <object idref="Passion$miscellaneous7"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous17"/>
+   <object idref="Passion$miscellaneous20"/>
   </void>
  </void>
 </void>
@@ -51219,12 +51213,15 @@
 <void class="com.example.javagoat.back.Passion" id="Field79" method="getField">
  <string>passionM</string>
  <void id="HashSet79" method="get">
-  <object idref="Passion65"/>
+  <object idref="Passion73"/>
   <void method="add">
-   <object idref="Passion$miscellaneous10"/>
+   <object idref="Passion$miscellaneous28"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous24"/>
+   <object class="java.lang.Enum" id="Passion$miscellaneous40" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>CLIMBING</string>
+   </object>
   </void>
  </void>
 </void>
@@ -51232,44 +51229,53 @@
 <void class="com.example.javagoat.back.Passion" id="Field80" method="getField">
  <string>passionM</string>
  <void id="HashSet80" method="get">
-  <object idref="Passion31"/>
+  <object idref="Passion61"/>
   <void method="add">
-   <object idref="Passion$miscellaneous16"/>
+   <object idref="Passion$miscellaneous33"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous32"/>
+   <object idref="Passion$miscellaneous36"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous21"/>
+   <object idref="Passion$miscellaneous31"/>
   </void>
  </void>
 </void>
 <void idref="HashSet80"/>
 <void class="com.example.javagoat.back.Passion" id="Field81" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet81" method="get">
-  <object idref="Passion10"/>
+  <object idref="Passion72"/>
   <void method="add">
-   <object idref="Passion$miscellaneous16"/>
+   <object idref="Passion$video_games11"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous1"/>
+   <object idref="Passion$video_games22"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous17"/>
+   <object idref="Passion$video_games3"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games25"/>
   </void>
  </void>
 </void>
 <void idref="HashSet81"/>
 <void class="com.example.javagoat.back.Passion" id="Field82" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet82" method="get">
-  <object idref="Passion2"/>
+  <object idref="Passion30"/>
   <void method="add">
-   <object idref="Passion$video_games14"/>
+   <object idref="Passion$miscellaneous26"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games0"/>
+   <object idref="Passion$miscellaneous3"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous18"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous32"/>
   </void>
  </void>
 </void>
@@ -51277,12 +51283,21 @@
 <void class="com.example.javagoat.back.Passion" id="Field83" method="getField">
  <string>passionVG</string>
  <void id="HashSet83" method="get">
-  <object idref="Passion46"/>
+  <object idref="Passion4"/>
   <void method="add">
-   <object idref="Passion$video_games9"/>
+   <object idref="Passion$video_games2"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games12"/>
+   <object idref="Passion$video_games0"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games27"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games13"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games6"/>
   </void>
  </void>
 </void>
@@ -51290,59 +51305,56 @@
 <void class="com.example.javagoat.back.Passion" id="Field84" method="getField">
  <string>passionM</string>
  <void id="HashSet84" method="get">
-  <object idref="Passion2"/>
+  <object idref="Passion38"/>
   <void method="add">
-   <object idref="Passion$miscellaneous9"/>
+   <object idref="Passion$miscellaneous1"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous19"/>
+   <object idref="Passion$miscellaneous5"/>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous42" method="valueOf">
+   <object class="java.lang.Enum" id="Passion$miscellaneous41" method="valueOf">
     <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>BIKE</string>
+    <string>NUDISM</string>
    </object>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous4"/>
   </void>
  </void>
 </void>
 <void idref="HashSet84"/>
 <void class="com.example.javagoat.back.Passion" id="Field85" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet85" method="get">
-  <object idref="Passion62"/>
+  <object idref="Passion93"/>
   <void method="add">
-   <object idref="Passion$miscellaneous21"/>
+   <object idref="Passion$video_games1"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous22"/>
+   <object idref="Passion$video_games4"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous27"/>
+   <object idref="Passion$video_games31"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games22"/>
   </void>
  </void>
 </void>
 <void idref="HashSet85"/>
 <void class="com.example.javagoat.back.Passion" id="Field86" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet86" method="get">
-  <object idref="Passion79"/>
+  <object idref="Passion43"/>
   <void method="add">
-   <object idref="Passion$miscellaneous16"/>
+   <object idref="Passion$video_games26"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous36"/>
+   <object idref="Passion$video_games10"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous26"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous32"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous30"/>
+   <object class="java.lang.Enum" id="Passion$video_games33" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>PUBG</string>
+   </object>
   </void>
  </void>
 </void>
@@ -51350,79 +51362,82 @@
 <void class="com.example.javagoat.back.Passion" id="Field87" method="getField">
  <string>passionM</string>
  <void id="HashSet87" method="get">
-  <object idref="Passion95"/>
+  <object idref="Passion82"/>
   <void method="add">
-   <object idref="Passion$miscellaneous27"/>
+   <object idref="Passion$miscellaneous19"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous16"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous1"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous11"/>
+   <object idref="Passion$miscellaneous22"/>
   </void>
  </void>
 </void>
 <void idref="HashSet87"/>
 <void class="com.example.javagoat.back.Passion" id="Field88" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet88" method="get">
-  <object idref="Passion48"/>
+  <object idref="Passion69"/>
   <void method="add">
-   <object idref="Passion$miscellaneous6"/>
+   <object idref="Passion$video_games30"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous34"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous15"/>
+   <object class="java.lang.Enum" id="Passion$video_games34" method="valueOf">
+    <class>com.example.javagoat.back.Passion$video_games</class>
+    <string>CRAB_GAME</string>
+   </object>
   </void>
  </void>
 </void>
 <void idref="HashSet88"/>
 <void class="com.example.javagoat.back.Passion" id="Field89" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet89" method="get">
-  <object idref="Passion85"/>
+  <object idref="Passion98"/>
   <void method="add">
-   <object idref="Passion$miscellaneous9"/>
+   <object idref="Passion$video_games14"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous32"/>
+   <object idref="Passion$video_games24"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous17"/>
+   <object idref="Passion$video_games31"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games18"/>
   </void>
  </void>
 </void>
 <void idref="HashSet89"/>
 <void class="com.example.javagoat.back.Passion" id="Field90" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet90" method="get">
-  <object idref="Passion20"/>
+  <object idref="Passion19"/>
   <void method="add">
-   <object idref="Passion$miscellaneous25"/>
+   <object idref="Passion$video_games7"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous33"/>
+   <object idref="Passion$video_games3"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games26"/>
   </void>
  </void>
 </void>
 <void idref="HashSet90"/>
 <void class="com.example.javagoat.back.Passion" id="Field91" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet91" method="get">
-  <object idref="Passion38"/>
+  <object idref="Passion18"/>
   <void method="add">
-   <object idref="Passion$video_games9"/>
+   <object idref="Passion$miscellaneous0"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games19"/>
+   <object idref="Passion$miscellaneous21"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games16"/>
+   <object idref="Passion$miscellaneous14"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous22"/>
   </void>
  </void>
 </void>
@@ -51430,15 +51445,12 @@
 <void class="com.example.javagoat.back.Passion" id="Field92" method="getField">
  <string>passionM</string>
  <void id="HashSet92" method="get">
-  <object idref="Passion70"/>
+  <object idref="Passion42"/>
   <void method="add">
-   <object idref="Passion$miscellaneous20"/>
+   <object idref="Passion$miscellaneous14"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous5"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous0"/>
+   <object idref="Passion$miscellaneous25"/>
   </void>
  </void>
 </void>
@@ -51446,69 +51458,66 @@
 <void class="com.example.javagoat.back.Passion" id="Field93" method="getField">
  <string>passionVG</string>
  <void id="HashSet93" method="get">
-  <object idref="Passion55"/>
+  <object idref="Passion61"/>
   <void method="add">
-   <object idref="Passion$video_games34"/>
+   <object idref="Passion$video_games7"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games9"/>
+   <object idref="Passion$video_games29"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games17"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games12"/>
+   <object idref="Passion$video_games28"/>
   </void>
  </void>
 </void>
 <void idref="HashSet93"/>
 <void class="com.example.javagoat.back.Passion" id="Field94" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet94" method="get">
-  <object idref="Passion64"/>
+  <object idref="Passion40"/>
   <void method="add">
-   <object idref="Passion$miscellaneous10"/>
+   <object idref="Passion$video_games9"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous15"/>
+   <object idref="Passion$video_games12"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games24"/>
   </void>
  </void>
 </void>
 <void idref="HashSet94"/>
 <void class="com.example.javagoat.back.Passion" id="Field95" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet95" method="get">
-  <object idref="Passion30"/>
+  <object idref="Passion28"/>
   <void method="add">
-   <object idref="Passion$video_games7"/>
+   <object idref="Passion$miscellaneous11"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games14"/>
+   <object idref="Passion$miscellaneous31"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games10"/>
+   <object idref="Passion$miscellaneous10"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games4"/>
+   <object idref="Passion$miscellaneous19"/>
   </void>
  </void>
 </void>
 <void idref="HashSet95"/>
 <void class="com.example.javagoat.back.Passion" id="Field96" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet96" method="get">
-  <object idref="Passion27"/>
+  <object idref="Passion11"/>
   <void method="add">
-   <object idref="Passion$miscellaneous24"/>
+   <object idref="Passion$video_games22"/>
   </void>
   <void method="add">
-   <object class="java.lang.Enum" id="Passion$miscellaneous43" method="valueOf">
-    <class>com.example.javagoat.back.Passion$miscellaneous</class>
-    <string>CLIMBING</string>
-   </object>
+   <object idref="Passion$video_games24"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous3"/>
+   <object idref="Passion$video_games27"/>
   </void>
  </void>
 </void>
@@ -51516,50 +51525,47 @@
 <void class="com.example.javagoat.back.Passion" id="Field97" method="getField">
  <string>passionM</string>
  <void id="HashSet97" method="get">
-  <object idref="Passion39"/>
+  <object idref="Passion64"/>
   <void method="add">
-   <object idref="Passion$miscellaneous1"/>
+   <object idref="Passion$miscellaneous35"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous34"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous25"/>
+   <object idref="Passion$miscellaneous11"/>
   </void>
  </void>
 </void>
 <void idref="HashSet97"/>
 <void class="com.example.javagoat.back.Passion" id="Field98" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet98" method="get">
-  <object idref="Passion47"/>
+  <object idref="Passion59"/>
   <void method="add">
-   <object idref="Passion$miscellaneous7"/>
+   <object idref="Passion$video_games0"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous12"/>
+   <object idref="Passion$video_games24"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous5"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous4"/>
+   <object idref="Passion$video_games28"/>
   </void>
  </void>
 </void>
 <void idref="HashSet98"/>
 <void class="com.example.javagoat.back.Passion" id="Field99" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet99" method="get">
-  <object idref="Passion68"/>
+  <object idref="Passion35"/>
   <void method="add">
-   <object idref="Passion$miscellaneous40"/>
+   <object idref="Passion$video_games32"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous18"/>
+   <object idref="Passion$video_games22"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous29"/>
+   <object idref="Passion$video_games21"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games6"/>
   </void>
  </void>
 </void>
@@ -51567,47 +51573,56 @@
 <void class="com.example.javagoat.back.Passion" id="Field100" method="getField">
  <string>passionM</string>
  <void id="HashSet100" method="get">
-  <object idref="Passion13"/>
+  <object idref="Passion47"/>
   <void method="add">
-   <object idref="Passion$miscellaneous3"/>
+   <object class="java.lang.Enum" id="Passion$miscellaneous42" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>WRITING</string>
+   </object>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous0"/>
   </void>
   <void method="add">
    <object idref="Passion$miscellaneous18"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous38"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous0"/>
+   <object idref="Passion$miscellaneous22"/>
   </void>
  </void>
 </void>
 <void idref="HashSet100"/>
 <void class="com.example.javagoat.back.Passion" id="Field101" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet101" method="get">
-  <object idref="Passion50"/>
+  <object idref="Passion83"/>
   <void method="add">
-   <object idref="Passion$video_games13"/>
+   <object idref="Passion$miscellaneous9"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games25"/>
+   <object idref="Passion$miscellaneous0"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous21"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous35"/>
   </void>
  </void>
 </void>
 <void idref="HashSet101"/>
 <void class="com.example.javagoat.back.Passion" id="Field102" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet102" method="get">
-  <object idref="Passion11"/>
+  <object idref="Passion96"/>
   <void method="add">
-   <object idref="Passion$miscellaneous20"/>
+   <object idref="Passion$video_games21"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous25"/>
+   <object idref="Passion$video_games29"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous11"/>
+   <object idref="Passion$video_games30"/>
   </void>
  </void>
 </void>
@@ -51615,12 +51630,15 @@
 <void class="com.example.javagoat.back.Passion" id="Field103" method="getField">
  <string>passionVG</string>
  <void id="HashSet103" method="get">
-  <object idref="Passion6"/>
+  <object idref="Passion78"/>
   <void method="add">
-   <object idref="Passion$video_games24"/>
+   <object idref="Passion$video_games11"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games9"/>
+   <object idref="Passion$video_games27"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games21"/>
   </void>
   <void method="add">
    <object idref="Passion$video_games34"/>
@@ -51629,20 +51647,20 @@
 </void>
 <void idref="HashSet103"/>
 <void class="com.example.javagoat.back.Passion" id="Field104" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet104" method="get">
-  <object idref="Passion78"/>
+  <object idref="Passion59"/>
   <void method="add">
-   <object idref="Passion$video_games3"/>
+   <object idref="Passion$miscellaneous17"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games16"/>
+   <object idref="Passion$miscellaneous30"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games11"/>
+   <object idref="Passion$miscellaneous12"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games15"/>
+   <object idref="Passion$miscellaneous32"/>
   </void>
  </void>
 </void>
@@ -51650,47 +51668,44 @@
 <void class="com.example.javagoat.back.Passion" id="Field105" method="getField">
  <string>passionVG</string>
  <void id="HashSet105" method="get">
-  <object idref="Passion65"/>
+  <object idref="Passion44"/>
   <void method="add">
-   <object idref="Passion$video_games19"/>
+   <object idref="Passion$video_games3"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games17"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games24"/>
+   <object idref="Passion$video_games26"/>
   </void>
  </void>
 </void>
 <void idref="HashSet105"/>
 <void class="com.example.javagoat.back.Passion" id="Field106" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet106" method="get">
-  <object idref="Passion99"/>
+  <object idref="Passion73"/>
   <void method="add">
-   <object idref="Passion$miscellaneous27"/>
+   <object idref="Passion$video_games21"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous5"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous17"/>
+   <object idref="Passion$video_games0"/>
   </void>
  </void>
 </void>
 <void idref="HashSet106"/>
 <void class="com.example.javagoat.back.Passion" id="Field107" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet107" method="get">
-  <object idref="Passion55"/>
+  <object idref="Passion14"/>
   <void method="add">
-   <object idref="Passion$miscellaneous28"/>
+   <object idref="Passion$video_games22"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous8"/>
+   <object idref="Passion$video_games7"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous37"/>
+   <object idref="Passion$video_games21"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games2"/>
   </void>
  </void>
 </void>
@@ -51698,31 +51713,28 @@
 <void class="com.example.javagoat.back.Passion" id="Field108" method="getField">
  <string>passionM</string>
  <void id="HashSet108" method="get">
-  <object idref="Passion66"/>
+  <object idref="Passion10"/>
   <void method="add">
-   <object idref="Passion$miscellaneous4"/>
+   <object idref="Passion$miscellaneous13"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous30"/>
+   <object idref="Passion$miscellaneous16"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous35"/>
+   <object idref="Passion$miscellaneous15"/>
   </void>
  </void>
 </void>
 <void idref="HashSet108"/>
 <void class="com.example.javagoat.back.Passion" id="Field109" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet109" method="get">
-  <object idref="Passion45"/>
+  <object idref="Passion8"/>
   <void method="add">
-   <object idref="Passion$video_games6"/>
+   <object idref="Passion$miscellaneous37"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games29"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games15"/>
+   <object idref="Passion$miscellaneous8"/>
   </void>
  </void>
 </void>
@@ -51730,15 +51742,15 @@
 <void class="com.example.javagoat.back.Passion" id="Field110" method="getField">
  <string>passionVG</string>
  <void id="HashSet110" method="get">
-  <object idref="Passion33"/>
+  <object idref="Passion82"/>
   <void method="add">
-   <object idref="Passion$video_games34"/>
+   <object idref="Passion$video_games2"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games17"/>
+   <object idref="Passion$video_games15"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games12"/>
+   <object idref="Passion$video_games30"/>
   </void>
  </void>
 </void>
@@ -51746,47 +51758,47 @@
 <void class="com.example.javagoat.back.Passion" id="Field111" method="getField">
  <string>passionVG</string>
  <void id="HashSet111" method="get">
-  <object idref="Passion4"/>
+  <object idref="Passion75"/>
   <void method="add">
-   <object idref="Passion$video_games33"/>
+   <object idref="Passion$video_games26"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games29"/>
+   <object idref="Passion$video_games27"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games3"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games31"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games12"/>
+   <object idref="Passion$video_games19"/>
   </void>
  </void>
 </void>
 <void idref="HashSet111"/>
 <void class="com.example.javagoat.back.Passion" id="Field112" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet112" method="get">
-  <object idref="Passion68"/>
+  <object idref="Passion65"/>
   <void method="add">
-   <object idref="Passion$video_games19"/>
+   <object class="java.lang.Enum" id="Passion$miscellaneous43" method="valueOf">
+    <class>com.example.javagoat.back.Passion$miscellaneous</class>
+    <string>GARDENING</string>
+   </object>
   </void>
   <void method="add">
-   <object idref="Passion$video_games32"/>
+   <object idref="Passion$miscellaneous35"/>
   </void>
  </void>
 </void>
 <void idref="HashSet112"/>
 <void class="com.example.javagoat.back.Passion" id="Field113" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet113" method="get">
-  <object idref="Passion37"/>
+  <object idref="Passion62"/>
   <void method="add">
-   <object idref="Passion$video_games0"/>
+   <object idref="Passion$miscellaneous25"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games33"/>
+   <object idref="Passion$miscellaneous12"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous28"/>
   </void>
  </void>
 </void>
@@ -51794,28 +51806,28 @@
 <void class="com.example.javagoat.back.Passion" id="Field114" method="getField">
  <string>passionM</string>
  <void id="HashSet114" method="get">
-  <object idref="Passion92"/>
-  <void method="add">
-   <object idref="Passion$miscellaneous7"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous38"/>
-  </void>
+  <object idref="Passion12"/>
   <void method="add">
    <object idref="Passion$miscellaneous33"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous4"/>
   </void>
  </void>
 </void>
 <void idref="HashSet114"/>
 <void class="com.example.javagoat.back.Passion" id="Field115" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet115" method="get">
-  <object idref="Passion10"/>
+  <object idref="Passion91"/>
   <void method="add">
-   <object idref="Passion$video_games4"/>
+   <object idref="Passion$miscellaneous9"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games15"/>
+   <object idref="Passion$miscellaneous6"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous15"/>
   </void>
  </void>
 </void>
@@ -51823,34 +51835,37 @@
 <void class="com.example.javagoat.back.Passion" id="Field116" method="getField">
  <string>passionVG</string>
  <void id="HashSet116" method="get">
-  <object idref="Passion11"/>
+  <object idref="Passion64"/>
   <void method="add">
-   <object idref="Passion$video_games7"/>
+   <object idref="Passion$video_games4"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games14"/>
+   <object idref="Passion$video_games9"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games3"/>
+   <object idref="Passion$video_games2"/>
   </void>
  </void>
 </void>
 <void idref="HashSet116"/>
 <void class="com.example.javagoat.back.Passion" id="Field117" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet117" method="get">
-  <object idref="Passion90"/>
+  <object idref="Passion27"/>
   <void method="add">
-   <object idref="Passion$miscellaneous36"/>
+   <object idref="Passion$video_games8"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous31"/>
+   <object idref="Passion$video_games1"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous34"/>
+   <object idref="Passion$video_games17"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous16"/>
+   <object idref="Passion$video_games31"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games5"/>
   </void>
  </void>
 </void>
@@ -51858,12 +51873,15 @@
 <void class="com.example.javagoat.back.Passion" id="Field118" method="getField">
  <string>passionM</string>
  <void id="HashSet118" method="get">
-  <object idref="Passion17"/>
+  <object idref="Passion44"/>
   <void method="add">
-   <object idref="Passion$miscellaneous26"/>
+   <object idref="Passion$miscellaneous38"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous7"/>
+   <object idref="Passion$miscellaneous25"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous20"/>
   </void>
  </void>
 </void>
@@ -51873,16 +51891,16 @@
  <void id="HashSet119" method="get">
   <object idref="Passion80"/>
   <void method="add">
-   <object idref="Passion$miscellaneous7"/>
+   <object idref="Passion$miscellaneous39"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous34"/>
+   <object idref="Passion$miscellaneous10"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous42"/>
+   <object idref="Passion$miscellaneous23"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous2"/>
+   <object idref="Passion$miscellaneous22"/>
   </void>
  </void>
 </void>
@@ -51890,66 +51908,57 @@
 <void class="com.example.javagoat.back.Passion" id="Field120" method="getField">
  <string>passionM</string>
  <void id="HashSet120" method="get">
-  <object idref="Passion74"/>
+  <object idref="Passion84"/>
   <void method="add">
-   <object idref="Passion$miscellaneous22"/>
+   <object idref="Passion$miscellaneous37"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous23"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous15"/>
+   <object idref="Passion$miscellaneous0"/>
   </void>
  </void>
 </void>
 <void idref="HashSet120"/>
 <void class="com.example.javagoat.back.Passion" id="Field121" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet121" method="get">
-  <object idref="Passion70"/>
+  <object idref="Passion33"/>
   <void method="add">
-   <object idref="Passion$video_games16"/>
+   <object idref="Passion$miscellaneous20"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games2"/>
+   <object idref="Passion$miscellaneous21"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games0"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games22"/>
+   <object idref="Passion$miscellaneous4"/>
   </void>
  </void>
 </void>
 <void idref="HashSet121"/>
 <void class="com.example.javagoat.back.Passion" id="Field122" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet122" method="get">
-  <object idref="Passion0"/>
+  <object idref="Passion29"/>
   <void method="add">
-   <object idref="Passion$video_games26"/>
+   <object idref="Passion$miscellaneous9"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games17"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games29"/>
+   <object idref="Passion$miscellaneous35"/>
   </void>
  </void>
 </void>
 <void idref="HashSet122"/>
 <void class="com.example.javagoat.back.Passion" id="Field123" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet123" method="get">
-  <object idref="Passion24"/>
+  <object idref="Passion34"/>
   <void method="add">
-   <object idref="Passion$video_games25"/>
+   <object idref="Passion$miscellaneous28"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games18"/>
+   <object idref="Passion$miscellaneous34"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games34"/>
+   <object idref="Passion$miscellaneous39"/>
   </void>
  </void>
 </void>
@@ -51957,15 +51966,15 @@
 <void class="com.example.javagoat.back.Passion" id="Field124" method="getField">
  <string>passionM</string>
  <void id="HashSet124" method="get">
-  <object idref="Passion78"/>
+  <object idref="Passion70"/>
   <void method="add">
-   <object idref="Passion$miscellaneous15"/>
+   <object idref="Passion$miscellaneous33"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous6"/>
+   <object idref="Passion$miscellaneous18"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous0"/>
+   <object idref="Passion$miscellaneous37"/>
   </void>
  </void>
 </void>
@@ -51973,70 +51982,73 @@
 <void class="com.example.javagoat.back.Passion" id="Field125" method="getField">
  <string>passionVG</string>
  <void id="HashSet125" method="get">
-  <object idref="Passion91"/>
-  <void method="add">
-   <object idref="Passion$video_games22"/>
-  </void>
+  <object idref="Passion31"/>
   <void method="add">
    <object idref="Passion$video_games17"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games12"/>
+   <object idref="Passion$video_games26"/>
   </void>
  </void>
 </void>
 <void idref="HashSet125"/>
 <void class="com.example.javagoat.back.Passion" id="Field126" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet126" method="get">
-  <object idref="Passion73"/>
+  <object idref="Passion0"/>
   <void method="add">
-   <object idref="Passion$miscellaneous43"/>
+   <object idref="Passion$video_games0"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous21"/>
+   <object idref="Passion$video_games3"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games8"/>
   </void>
  </void>
 </void>
 <void idref="HashSet126"/>
 <void class="com.example.javagoat.back.Passion" id="Field127" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet127" method="get">
-  <object idref="Passion7"/>
+  <object idref="Passion51"/>
   <void method="add">
-   <object idref="Passion$miscellaneous19"/>
+   <object idref="Passion$video_games16"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous35"/>
+   <object idref="Passion$video_games15"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games28"/>
   </void>
  </void>
 </void>
 <void idref="HashSet127"/>
 <void class="com.example.javagoat.back.Passion" id="Field128" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet128" method="get">
-  <object idref="Passion49"/>
+  <object idref="Passion24"/>
   <void method="add">
-   <object idref="Passion$miscellaneous3"/>
+   <object idref="Passion$video_games30"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous35"/>
+   <object idref="Passion$video_games16"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games33"/>
   </void>
  </void>
 </void>
 <void idref="HashSet128"/>
 <void class="com.example.javagoat.back.Passion" id="Field129" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet129" method="get">
-  <object idref="Passion15"/>
+  <object idref="Passion43"/>
   <void method="add">
-   <object idref="Passion$video_games29"/>
+   <object idref="Passion$miscellaneous20"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games32"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games12"/>
+   <object idref="Passion$miscellaneous13"/>
   </void>
  </void>
 </void>
@@ -52044,50 +52056,50 @@
 <void class="com.example.javagoat.back.Passion" id="Field130" method="getField">
  <string>passionM</string>
  <void id="HashSet130" method="get">
-  <object idref="Passion22"/>
+  <object idref="Passion55"/>
   <void method="add">
-   <object idref="Passion$miscellaneous10"/>
+   <object idref="Passion$miscellaneous32"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous39"/>
+   <object idref="Passion$miscellaneous27"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous19"/>
   </void>
  </void>
 </void>
 <void idref="HashSet130"/>
 <void class="com.example.javagoat.back.Passion" id="Field131" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet131" method="get">
-  <object idref="Passion52"/>
+  <object idref="Passion27"/>
   <void method="add">
-   <object idref="Passion$video_games13"/>
+   <object idref="Passion$miscellaneous1"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games4"/>
+   <object idref="Passion$miscellaneous43"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games32"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games28"/>
+   <object idref="Passion$miscellaneous40"/>
   </void>
  </void>
 </void>
 <void idref="HashSet131"/>
 <void class="com.example.javagoat.back.Passion" id="Field132" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet132" method="get">
-  <object idref="Passion18"/>
+  <object idref="Passion87"/>
   <void method="add">
-   <object idref="Passion$miscellaneous4"/>
+   <object idref="Passion$video_games32"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous7"/>
+   <object idref="Passion$video_games3"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous38"/>
+   <object idref="Passion$video_games29"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous11"/>
+   <object idref="Passion$video_games26"/>
   </void>
  </void>
 </void>
@@ -52095,25 +52107,31 @@
 <void class="com.example.javagoat.back.Passion" id="Field133" method="getField">
  <string>passionM</string>
  <void id="HashSet133" method="get">
-  <object idref="Passion8"/>
+  <object idref="Passion72"/>
   <void method="add">
-   <object idref="Passion$miscellaneous19"/>
+   <object idref="Passion$miscellaneous5"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous20"/>
+   <object idref="Passion$miscellaneous33"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous6"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous32"/>
   </void>
  </void>
 </void>
 <void idref="HashSet133"/>
 <void class="com.example.javagoat.back.Passion" id="Field134" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet134" method="get">
-  <object idref="Passion44"/>
+  <object idref="Passion1"/>
   <void method="add">
-   <object idref="Passion$video_games1"/>
+   <object idref="Passion$miscellaneous5"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games26"/>
+   <object idref="Passion$miscellaneous16"/>
   </void>
  </void>
 </void>
@@ -52121,82 +52139,94 @@
 <void class="com.example.javagoat.back.Passion" id="Field135" method="getField">
  <string>passionM</string>
  <void id="HashSet135" method="get">
-  <object idref="Passion51"/>
-  <void method="add">
-   <object idref="Passion$miscellaneous8"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous7"/>
-  </void>
+  <object idref="Passion13"/>
   <void method="add">
    <object idref="Passion$miscellaneous31"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous17"/>
+   <object idref="Passion$miscellaneous21"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous33"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous1"/>
   </void>
  </void>
 </void>
 <void idref="HashSet135"/>
 <void class="com.example.javagoat.back.Passion" id="Field136" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet136" method="get">
-  <object idref="Passion17"/>
+  <object idref="Passion4"/>
   <void method="add">
-   <object idref="Passion$video_games26"/>
+   <object idref="Passion$miscellaneous25"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games19"/>
+   <object idref="Passion$miscellaneous33"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games34"/>
+   <object idref="Passion$miscellaneous37"/>
   </void>
  </void>
 </void>
 <void idref="HashSet136"/>
 <void class="com.example.javagoat.back.Passion" id="Field137" method="getField">
- <string>passionM</string>
- <void id="HashSet137" method="get">
-  <object idref="Passion54"/>
-  <void method="add">
-   <object idref="Passion$miscellaneous18"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous39"/>
-  </void>
- </void>
-</void>
-<void idref="HashSet137"/>
-<void class="com.example.javagoat.back.Passion" id="Field138" method="getField">
  <string>passionVG</string>
- <void id="HashSet138" method="get">
-  <object idref="Passion83"/>
+ <void id="HashSet137" method="get">
+  <object idref="Passion88"/>
   <void method="add">
-   <object idref="Passion$video_games28"/>
+   <object idref="Passion$video_games7"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games4"/>
+   <object idref="Passion$video_games23"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games19"/>
+   <object idref="Passion$video_games17"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games10"/>
   </void>
   <void method="add">
    <object idref="Passion$video_games33"/>
   </void>
  </void>
 </void>
+<void idref="HashSet137"/>
+<void class="com.example.javagoat.back.Passion" id="Field138" method="getField">
+ <string>passionM</string>
+ <void id="HashSet138" method="get">
+  <object idref="Passion50"/>
+  <void method="add">
+   <object idref="Passion$miscellaneous2"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous18"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous13"/>
+  </void>
+ </void>
+</void>
 <void idref="HashSet138"/>
 <void class="com.example.javagoat.back.Passion" id="Field139" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet139" method="get">
-  <object idref="Passion75"/>
+  <object idref="Passion87"/>
   <void method="add">
-   <object idref="Passion$video_games3"/>
+   <object idref="Passion$miscellaneous31"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games1"/>
+   <object idref="Passion$miscellaneous28"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games22"/>
+   <object idref="Passion$miscellaneous5"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous6"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous15"/>
   </void>
  </void>
 </void>
@@ -52204,21 +52234,15 @@
 <void class="com.example.javagoat.back.Passion" id="Field140" method="getField">
  <string>passionVG</string>
  <void id="HashSet140" method="get">
-  <object idref="Passion27"/>
+  <object idref="Passion34"/>
   <void method="add">
-   <object idref="Passion$video_games21"/>
+   <object idref="Passion$video_games8"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games4"/>
+   <object idref="Passion$video_games12"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games32"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games17"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games6"/>
+   <object idref="Passion$video_games33"/>
   </void>
  </void>
 </void>
@@ -52226,18 +52250,15 @@
 <void class="com.example.javagoat.back.Passion" id="Field141" method="getField">
  <string>passionVG</string>
  <void id="HashSet141" method="get">
-  <object idref="Passion90"/>
+  <object idref="Passion33"/>
   <void method="add">
-   <object idref="Passion$video_games26"/>
+   <object idref="Passion$video_games30"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games14"/>
+   <object idref="Passion$video_games2"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games17"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games5"/>
+   <object idref="Passion$video_games8"/>
   </void>
  </void>
 </void>
@@ -52245,15 +52266,15 @@
 <void class="com.example.javagoat.back.Passion" id="Field142" method="getField">
  <string>passionVG</string>
  <void id="HashSet142" method="get">
-  <object idref="Passion57"/>
+  <object idref="Passion80"/>
   <void method="add">
-   <object idref="Passion$video_games30"/>
+   <object idref="Passion$video_games16"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games13"/>
+   <object idref="Passion$video_games12"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games15"/>
+   <object idref="Passion$video_games7"/>
   </void>
  </void>
 </void>
@@ -52261,15 +52282,12 @@
 <void class="com.example.javagoat.back.Passion" id="Field143" method="getField">
  <string>passionVG</string>
  <void id="HashSet143" method="get">
-  <object idref="Passion76"/>
+  <object idref="Passion42"/>
   <void method="add">
-   <object idref="Passion$video_games11"/>
+   <object idref="Passion$video_games22"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games2"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games23"/>
+   <object idref="Passion$video_games18"/>
   </void>
  </void>
 </void>
@@ -52277,63 +52295,60 @@
 <void class="com.example.javagoat.back.Passion" id="Field144" method="getField">
  <string>passionVG</string>
  <void id="HashSet144" method="get">
-  <object idref="Passion69"/>
+  <object idref="Passion37"/>
   <void method="add">
-   <object idref="Passion$video_games11"/>
+   <object idref="Passion$video_games12"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games34"/>
+   <object idref="Passion$video_games13"/>
   </void>
  </void>
 </void>
 <void idref="HashSet144"/>
 <void class="com.example.javagoat.back.Passion" id="Field145" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet145" method="get">
-  <object idref="Passion5"/>
+  <object idref="Passion75"/>
   <void method="add">
-   <object idref="Passion$video_games3"/>
+   <object idref="Passion$miscellaneous8"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games27"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games28"/>
+   <object idref="Passion$miscellaneous19"/>
   </void>
  </void>
 </void>
 <void idref="HashSet145"/>
 <void class="com.example.javagoat.back.Passion" id="Field146" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet146" method="get">
-  <object idref="Passion88"/>
+  <object idref="Passion77"/>
   <void method="add">
-   <object idref="Passion$video_games25"/>
+   <object idref="Passion$miscellaneous13"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games30"/>
+   <object idref="Passion$miscellaneous16"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games13"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games21"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games5"/>
+   <object idref="Passion$miscellaneous41"/>
   </void>
  </void>
 </void>
 <void idref="HashSet146"/>
 <void class="com.example.javagoat.back.Passion" id="Field147" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet147" method="get">
-  <object idref="Passion42"/>
+  <object idref="Passion67"/>
   <void method="add">
-   <object idref="Passion$miscellaneous22"/>
+   <object idref="Passion$video_games19"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous11"/>
+   <object idref="Passion$video_games11"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games21"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games30"/>
   </void>
  </void>
 </void>
@@ -52341,34 +52356,31 @@
 <void class="com.example.javagoat.back.Passion" id="Field148" method="getField">
  <string>passionM</string>
  <void id="HashSet148" method="get">
-  <object idref="Passion24"/>
+  <object idref="Passion76"/>
   <void method="add">
-   <object idref="Passion$miscellaneous7"/>
+   <object idref="Passion$miscellaneous15"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous26"/>
+   <object idref="Passion$miscellaneous1"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous29"/>
+   <object idref="Passion$miscellaneous11"/>
   </void>
  </void>
 </void>
 <void idref="HashSet148"/>
 <void class="com.example.javagoat.back.Passion" id="Field149" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet149" method="get">
-  <object idref="Passion67"/>
+  <object idref="Passion31"/>
   <void method="add">
-   <object idref="Passion$video_games34"/>
+   <object idref="Passion$miscellaneous28"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games22"/>
+   <object idref="Passion$miscellaneous7"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games16"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games15"/>
+   <object idref="Passion$miscellaneous15"/>
   </void>
  </void>
 </void>
@@ -52376,21 +52388,18 @@
 <void class="com.example.javagoat.back.Passion" id="Field150" method="getField">
  <string>passionM</string>
  <void id="HashSet150" method="get">
-  <object idref="Passion6"/>
+  <object idref="Passion63"/>
   <void method="add">
-   <object idref="Passion$miscellaneous19"/>
+   <object idref="Passion$miscellaneous17"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous26"/>
+   <object idref="Passion$miscellaneous0"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous39"/>
+   <object idref="Passion$miscellaneous38"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous32"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous9"/>
+   <object idref="Passion$miscellaneous42"/>
   </void>
  </void>
 </void>
@@ -52398,15 +52407,18 @@
 <void class="com.example.javagoat.back.Passion" id="Field151" method="getField">
  <string>passionM</string>
  <void id="HashSet151" method="get">
-  <object idref="Passion91"/>
+  <object idref="Passion57"/>
   <void method="add">
-   <object idref="Passion$miscellaneous6"/>
+   <object idref="Passion$miscellaneous11"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous26"/>
+   <object idref="Passion$miscellaneous8"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous16"/>
+   <object idref="Passion$miscellaneous38"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous22"/>
   </void>
  </void>
 </void>
@@ -52414,18 +52426,18 @@
 <void class="com.example.javagoat.back.Passion" id="Field152" method="getField">
  <string>passionVG</string>
  <void id="HashSet152" method="get">
-  <object idref="Passion7"/>
+  <object idref="Passion85"/>
+  <void method="add">
+   <object idref="Passion$video_games0"/>
+  </void>
   <void method="add">
    <object idref="Passion$video_games3"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games27"/>
+   <object idref="Passion$video_games17"/>
   </void>
   <void method="add">
    <object idref="Passion$video_games19"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games34"/>
   </void>
  </void>
 </void>
@@ -52433,79 +52445,79 @@
 <void class="com.example.javagoat.back.Passion" id="Field153" method="getField">
  <string>passionVG</string>
  <void id="HashSet153" method="get">
-  <object idref="Passion22"/>
+  <object idref="Passion6"/>
   <void method="add">
-   <object idref="Passion$video_games31"/>
+   <object idref="Passion$video_games4"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games17"/>
+   <object idref="Passion$video_games29"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games13"/>
+   <object idref="Passion$video_games30"/>
   </void>
  </void>
 </void>
 <void idref="HashSet153"/>
 <void class="com.example.javagoat.back.Passion" id="Field154" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet154" method="get">
-  <object idref="Passion26"/>
+  <object idref="Passion71"/>
   <void method="add">
-   <object idref="Passion$video_games4"/>
+   <object idref="Passion$miscellaneous8"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games2"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games27"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games23"/>
+   <object idref="Passion$miscellaneous40"/>
   </void>
  </void>
 </void>
 <void idref="HashSet154"/>
 <void class="com.example.javagoat.back.Passion" id="Field155" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet155" method="get">
-  <object idref="Passion40"/>
+  <object idref="Passion21"/>
   <void method="add">
-   <object idref="Passion$video_games0"/>
+   <object idref="Passion$miscellaneous21"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games7"/>
+   <object idref="Passion$miscellaneous12"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games27"/>
+   <object idref="Passion$miscellaneous31"/>
   </void>
  </void>
 </void>
 <void idref="HashSet155"/>
 <void class="com.example.javagoat.back.Passion" id="Field156" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet156" method="get">
-  <object idref="Passion42"/>
+  <object idref="Passion58"/>
   <void method="add">
-   <object idref="Passion$video_games20"/>
+   <object idref="Passion$miscellaneous1"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games14"/>
+   <object idref="Passion$miscellaneous37"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous8"/>
   </void>
  </void>
 </void>
 <void idref="HashSet156"/>
 <void class="com.example.javagoat.back.Passion" id="Field157" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet157" method="get">
-  <object idref="Passion77"/>
+  <object idref="Passion14"/>
   <void method="add">
-   <object idref="Passion$video_games27"/>
+   <object idref="Passion$miscellaneous28"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games20"/>
+   <object idref="Passion$miscellaneous25"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games5"/>
+   <object idref="Passion$miscellaneous34"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous0"/>
   </void>
  </void>
 </void>
@@ -52513,21 +52525,15 @@
 <void class="com.example.javagoat.back.Passion" id="Field158" method="getField">
  <string>passionM</string>
  <void id="HashSet158" method="get">
-  <object idref="Passion23"/>
+  <object idref="Passion88"/>
   <void method="add">
-   <object idref="Passion$miscellaneous8"/>
+   <object idref="Passion$miscellaneous28"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous6"/>
+   <object idref="Passion$miscellaneous12"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous31"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous40"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous11"/>
+   <object idref="Passion$miscellaneous32"/>
   </void>
  </void>
 </void>
@@ -52535,12 +52541,12 @@
 <void class="com.example.javagoat.back.Passion" id="Field159" method="getField">
  <string>passionM</string>
  <void id="HashSet159" method="get">
-  <object idref="Passion75"/>
+  <object idref="Passion16"/>
   <void method="add">
-   <object idref="Passion$miscellaneous19"/>
+   <object idref="Passion$miscellaneous5"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous8"/>
+   <object idref="Passion$miscellaneous31"/>
   </void>
  </void>
 </void>
@@ -52548,34 +52554,28 @@
 <void class="com.example.javagoat.back.Passion" id="Field160" method="getField">
  <string>passionM</string>
  <void id="HashSet160" method="get">
-  <object idref="Passion69"/>
+  <object idref="Passion32"/>
   <void method="add">
    <object idref="Passion$miscellaneous39"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous5"/>
+   <object idref="Passion$miscellaneous33"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous35"/>
+   <object idref="Passion$miscellaneous13"/>
   </void>
  </void>
 </void>
 <void idref="HashSet160"/>
 <void class="com.example.javagoat.back.Passion" id="Field161" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet161" method="get">
-  <object idref="Passion72"/>
+  <object idref="Passion62"/>
   <void method="add">
-   <object idref="Passion$miscellaneous9"/>
+   <object idref="Passion$video_games4"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous28"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous26"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous0"/>
+   <object idref="Passion$video_games8"/>
   </void>
  </void>
 </void>
@@ -52583,15 +52583,12 @@
 <void class="com.example.javagoat.back.Passion" id="Field162" method="getField">
  <string>passionVG</string>
  <void id="HashSet162" method="get">
-  <object idref="Passion59"/>
+  <object idref="Passion39"/>
   <void method="add">
-   <object idref="Passion$video_games29"/>
+   <object idref="Passion$video_games25"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games7"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games23"/>
+   <object idref="Passion$video_games34"/>
   </void>
  </void>
 </void>
@@ -52599,34 +52596,28 @@
 <void class="com.example.javagoat.back.Passion" id="Field163" method="getField">
  <string>passionM</string>
  <void id="HashSet163" method="get">
-  <object idref="Passion60"/>
+  <object idref="Passion93"/>
   <void method="add">
-   <object idref="Passion$miscellaneous24"/>
+   <object idref="Passion$miscellaneous10"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous19"/>
+   <object idref="Passion$miscellaneous23"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous34"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous17"/>
+   <object idref="Passion$miscellaneous21"/>
   </void>
  </void>
 </void>
 <void idref="HashSet163"/>
 <void class="com.example.javagoat.back.Passion" id="Field164" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet164" method="get">
-  <object idref="Passion88"/>
+  <object idref="Passion79"/>
   <void method="add">
-   <object idref="Passion$miscellaneous28"/>
+   <object idref="Passion$video_games23"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous21"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous27"/>
+   <object idref="Passion$video_games4"/>
   </void>
  </void>
 </void>
@@ -52634,12 +52625,172 @@
 <void class="com.example.javagoat.back.Passion" id="Field165" method="getField">
  <string>passionVG</string>
  <void id="HashSet165" method="get">
-  <object idref="Passion9"/>
+  <object idref="Passion12"/>
   <void method="add">
-   <object idref="Passion$video_games13"/>
+   <object idref="Passion$video_games12"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games26"/>
+   <object idref="Passion$video_games3"/>
+  </void>
+ </void>
+</void>
+<void idref="HashSet165"/>
+<void class="com.example.javagoat.back.Passion" id="Field166" method="getField">
+ <string>passionVG</string>
+ <void id="HashSet166" method="get">
+  <object idref="Passion9"/>
+  <void method="add">
+   <object idref="Passion$video_games3"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games4"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games23"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games7"/>
+  </void>
+ </void>
+</void>
+<void idref="HashSet166"/>
+<void class="com.example.javagoat.back.Passion" id="Field167" method="getField">
+ <string>passionVG</string>
+ <void id="HashSet167" method="get">
+  <object idref="Passion81"/>
+  <void method="add">
+   <object idref="Passion$video_games22"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games21"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games20"/>
+  </void>
+ </void>
+</void>
+<void idref="HashSet167"/>
+<void class="com.example.javagoat.back.Passion" id="Field168" method="getField">
+ <string>passionVG</string>
+ <void id="HashSet168" method="get">
+  <object idref="Passion38"/>
+  <void method="add">
+   <object idref="Passion$video_games14"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games4"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games11"/>
+  </void>
+ </void>
+</void>
+<void idref="HashSet168"/>
+<void class="com.example.javagoat.back.Passion" id="Field169" method="getField">
+ <string>passionVG</string>
+ <void id="HashSet169" method="get">
+  <object idref="Passion45"/>
+  <void method="add">
+   <object idref="Passion$video_games21"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games31"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games0"/>
+  </void>
+ </void>
+</void>
+<void idref="HashSet169"/>
+<void class="com.example.javagoat.back.Passion" id="Field170" method="getField">
+ <string>passionVG</string>
+ <void id="HashSet170" method="get">
+  <object idref="Passion53"/>
+  <void method="add">
+   <object idref="Passion$video_games27"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games23"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games5"/>
+  </void>
+ </void>
+</void>
+<void idref="HashSet170"/>
+<void class="com.example.javagoat.back.Passion" id="Field171" method="getField">
+ <string>passionVG</string>
+ <void id="HashSet171" method="get">
+  <object idref="Passion63"/>
+  <void method="add">
+   <object idref="Passion$video_games5"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games7"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games33"/>
+  </void>
+ </void>
+</void>
+<void idref="HashSet171"/>
+<void class="com.example.javagoat.back.Passion" id="Field172" method="getField">
+ <string>passionVG</string>
+ <void id="HashSet172" method="get">
+  <object idref="Passion20"/>
+  <void method="add">
+   <object idref="Passion$video_games4"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games24"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games2"/>
+  </void>
+ </void>
+</void>
+<void idref="HashSet172"/>
+<void class="com.example.javagoat.back.Passion" id="Field173" method="getField">
+ <string>passionM</string>
+ <void id="HashSet173" method="get">
+  <object idref="Passion39"/>
+  <void method="add">
+   <object idref="Passion$miscellaneous36"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous10"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous13"/>
+  </void>
+ </void>
+</void>
+<void idref="HashSet173"/>
+<void class="com.example.javagoat.back.Passion" id="Field174" method="getField">
+ <string>passionM</string>
+ <void id="HashSet174" method="get">
+  <object idref="Passion52"/>
+  <void method="add">
+   <object idref="Passion$miscellaneous34"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous7"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous18"/>
+  </void>
+ </void>
+</void>
+<void idref="HashSet174"/>
+<void class="com.example.javagoat.back.Passion" id="Field175" method="getField">
+ <string>passionVG</string>
+ <void id="HashSet175" method="get">
+  <object idref="Passion26"/>
+  <void method="add">
+   <object idref="Passion$video_games20"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games28"/>
   </void>
   <void method="add">
    <object idref="Passion$video_games9"/>
@@ -52649,237 +52800,83 @@
   </void>
  </void>
 </void>
-<void idref="HashSet165"/>
-<void class="com.example.javagoat.back.Passion" id="Field166" method="getField">
- <string>passionM</string>
- <void id="HashSet166" method="get">
-  <object idref="Passion38"/>
-  <void method="add">
-   <object idref="Passion$miscellaneous9"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous3"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous41"/>
-  </void>
- </void>
-</void>
-<void idref="HashSet166"/>
-<void class="com.example.javagoat.back.Passion" id="Field167" method="getField">
+<void idref="HashSet175"/>
+<void class="com.example.javagoat.back.Passion" id="Field176" method="getField">
  <string>passionVG</string>
- <void id="HashSet167" method="get">
-  <object idref="Passion32"/>
+ <void id="HashSet176" method="get">
+  <object idref="Passion58"/>
   <void method="add">
-   <object idref="Passion$video_games32"/>
+   <object idref="Passion$video_games3"/>
   </void>
-  <void method="add">
-   <object idref="Passion$video_games19"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games7"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games10"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games30"/>
-  </void>
- </void>
-</void>
-<void idref="HashSet167"/>
-<void class="com.example.javagoat.back.Passion" id="Field168" method="getField">
- <string>passionVG</string>
- <void id="HashSet168" method="get">
-  <object idref="Passion100"/>
-  <void method="add">
-   <object idref="Passion$video_games32"/>
-  </void>
- </void>
-</void>
-<void idref="HashSet168"/>
-<void class="com.example.javagoat.back.Passion" id="Field169" method="getField">
- <string>passionVG</string>
- <void id="HashSet169" method="get">
-  <object idref="Passion82"/>
-  <void method="add">
-   <object idref="Passion$video_games12"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games28"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games34"/>
-  </void>
- </void>
-</void>
-<void idref="HashSet169"/>
-<void class="com.example.javagoat.back.Passion" id="Field170" method="getField">
- <string>passionM</string>
- <void id="HashSet170" method="get">
-  <object idref="Passion98"/>
-  <void method="add">
-   <object idref="Passion$miscellaneous27"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous33"/>
-  </void>
- </void>
-</void>
-<void idref="HashSet170"/>
-<void class="com.example.javagoat.back.Passion" id="Field171" method="getField">
- <string>passionVG</string>
- <void id="HashSet171" method="get">
-  <object idref="Passion13"/>
   <void method="add">
    <object idref="Passion$video_games14"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games1"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games29"/>
-  </void>
- </void>
-</void>
-<void idref="HashSet171"/>
-<void class="com.example.javagoat.back.Passion" id="Field172" method="getField">
- <string>passionVG</string>
- <void id="HashSet172" method="get">
-  <object idref="Passion23"/>
-  <void method="add">
-   <object idref="Passion$video_games7"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games24"/>
-  </void>
- </void>
-</void>
-<void idref="HashSet172"/>
-<void class="com.example.javagoat.back.Passion" id="Field173" method="getField">
- <string>passionVG</string>
- <void id="HashSet173" method="get">
-  <object idref="Passion96"/>
-  <void method="add">
    <object idref="Passion$video_games34"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games24"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games15"/>
-  </void>
- </void>
-</void>
-<void idref="HashSet173"/>
-<void class="com.example.javagoat.back.Passion" id="Field174" method="getField">
- <string>passionVG</string>
- <void id="HashSet174" method="get">
-  <object idref="Passion18"/>
-  <void method="add">
-   <object idref="Passion$video_games16"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games18"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games12"/>
-  </void>
- </void>
-</void>
-<void idref="HashSet174"/>
-<void class="com.example.javagoat.back.Passion" id="Field175" method="getField">
- <string>passionM</string>
- <void id="HashSet175" method="get">
-  <object idref="Passion61"/>
-  <void method="add">
-   <object idref="Passion$miscellaneous25"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous18"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous0"/>
-  </void>
- </void>
-</void>
-<void idref="HashSet175"/>
-<void class="com.example.javagoat.back.Passion" id="Field176" method="getField">
- <string>passionM</string>
- <void id="HashSet176" method="get">
-  <object idref="Passion45"/>
-  <void method="add">
-   <object idref="Passion$miscellaneous26"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous5"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous8"/>
   </void>
  </void>
 </void>
 <void idref="HashSet176"/>
 <void class="com.example.javagoat.back.Passion" id="Field177" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet177" method="get">
-  <object idref="Passion12"/>
+  <object idref="Passion74"/>
   <void method="add">
-   <object idref="Passion$miscellaneous39"/>
+   <object idref="Passion$video_games27"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous0"/>
+   <object idref="Passion$video_games19"/>
   </void>
  </void>
 </void>
 <void idref="HashSet177"/>
 <void class="com.example.javagoat.back.Passion" id="Field178" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet178" method="get">
-  <object idref="Passion43"/>
+  <object idref="Passion85"/>
   <void method="add">
-   <object idref="Passion$video_games30"/>
+   <object idref="Passion$miscellaneous5"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games1"/>
+   <object idref="Passion$miscellaneous7"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games25"/>
+   <object idref="Passion$miscellaneous16"/>
   </void>
  </void>
 </void>
 <void idref="HashSet178"/>
 <void class="com.example.javagoat.back.Passion" id="Field179" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet179" method="get">
-  <object idref="Passion99"/>
+  <object idref="Passion56"/>
   <void method="add">
-   <object idref="Passion$video_games26"/>
+   <object idref="Passion$miscellaneous39"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games18"/>
+   <object idref="Passion$miscellaneous20"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games0"/>
+   <object idref="Passion$miscellaneous14"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games7"/>
+   <object idref="Passion$miscellaneous27"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games21"/>
+   <object idref="Passion$miscellaneous19"/>
   </void>
  </void>
 </void>
 <void idref="HashSet179"/>
 <void class="com.example.javagoat.back.Passion" id="Field180" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet180" method="get">
-  <object idref="Passion43"/>
+  <object idref="Passion84"/>
   <void method="add">
-   <object idref="Passion$miscellaneous1"/>
+   <object idref="Passion$video_games21"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous33"/>
+   <object idref="Passion$video_games2"/>
   </void>
  </void>
 </void>
@@ -52887,15 +52884,15 @@
 <void class="com.example.javagoat.back.Passion" id="Field181" method="getField">
  <string>passionM</string>
  <void id="HashSet181" method="get">
-  <object idref="Passion50"/>
+  <object idref="Passion9"/>
   <void method="add">
-   <object idref="Passion$miscellaneous1"/>
+   <object idref="Passion$miscellaneous17"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous5"/>
+   <object idref="Passion$miscellaneous28"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous35"/>
+   <object idref="Passion$miscellaneous15"/>
   </void>
  </void>
 </void>
@@ -52905,23 +52902,26 @@
  <void id="HashSet182" method="get">
   <object idref="Passion46"/>
   <void method="add">
-   <object idref="Passion$miscellaneous13"/>
+   <object idref="Passion$miscellaneous30"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous29"/>
+   <object idref="Passion$miscellaneous38"/>
   </void>
  </void>
 </void>
 <void idref="HashSet182"/>
 <void class="com.example.javagoat.back.Passion" id="Field183" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet183" method="get">
-  <object idref="Passion71"/>
+  <object idref="Passion76"/>
   <void method="add">
-   <object idref="Passion$miscellaneous43"/>
+   <object idref="Passion$video_games34"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous19"/>
+   <object idref="Passion$video_games28"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games20"/>
   </void>
  </void>
 </void>
@@ -52929,47 +52929,56 @@
 <void class="com.example.javagoat.back.Passion" id="Field184" method="getField">
  <string>passionVG</string>
  <void id="HashSet184" method="get">
-  <object idref="Passion35"/>
+  <object idref="Passion94"/>
   <void method="add">
-   <object idref="Passion$video_games8"/>
+   <object idref="Passion$video_games19"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games14"/>
+   <object idref="Passion$video_games13"/>
   </void>
   <void method="add">
    <object idref="Passion$video_games31"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games15"/>
+   <object idref="Passion$video_games30"/>
   </void>
  </void>
 </void>
 <void idref="HashSet184"/>
 <void class="com.example.javagoat.back.Passion" id="Field185" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet185" method="get">
-  <object idref="Passion62"/>
+  <object idref="Passion81"/>
   <void method="add">
-   <object idref="Passion$video_games17"/>
+   <object idref="Passion$miscellaneous20"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games9"/>
+   <object idref="Passion$miscellaneous6"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous30"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous34"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous11"/>
   </void>
  </void>
 </void>
 <void idref="HashSet185"/>
 <void class="com.example.javagoat.back.Passion" id="Field186" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet186" method="get">
-  <object idref="Passion93"/>
+  <object idref="Passion28"/>
   <void method="add">
-   <object idref="Passion$miscellaneous38"/>
+   <object idref="Passion$video_games25"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous42"/>
+   <object idref="Passion$video_games15"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous34"/>
+   <object idref="Passion$video_games28"/>
   </void>
  </void>
 </void>
@@ -52977,18 +52986,12 @@
 <void class="com.example.javagoat.back.Passion" id="Field187" method="getField">
  <string>passionVG</string>
  <void id="HashSet187" method="get">
-  <object idref="Passion36"/>
+  <object idref="Passion68"/>
   <void method="add">
-   <object idref="Passion$video_games16"/>
+   <object idref="Passion$video_games14"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games21"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games32"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games3"/>
+   <object idref="Passion$video_games1"/>
   </void>
  </void>
 </void>
@@ -52996,18 +52999,15 @@
 <void class="com.example.javagoat.back.Passion" id="Field188" method="getField">
  <string>passionVG</string>
  <void id="HashSet188" method="get">
-  <object idref="Passion87"/>
+  <object idref="Passion54"/>
   <void method="add">
-   <object idref="Passion$video_games24"/>
+   <object idref="Passion$video_games15"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games26"/>
+   <object idref="Passion$video_games9"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games1"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games8"/>
+   <object idref="Passion$video_games16"/>
   </void>
  </void>
 </void>
@@ -53015,31 +53015,25 @@
 <void class="com.example.javagoat.back.Passion" id="Field189" method="getField">
  <string>passionVG</string>
  <void id="HashSet189" method="get">
-  <object idref="Passion25"/>
+  <object idref="Passion2"/>
+  <void method="add">
+   <object idref="Passion$video_games12"/>
+  </void>
   <void method="add">
    <object idref="Passion$video_games22"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games16"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games27"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games8"/>
   </void>
  </void>
 </void>
 <void idref="HashSet189"/>
 <void class="com.example.javagoat.back.Passion" id="Field190" method="getField">
- <string>passionVG</string>
+ <string>passionM</string>
  <void id="HashSet190" method="get">
-  <object idref="Passion12"/>
+  <object idref="Passion20"/>
   <void method="add">
-   <object idref="Passion$video_games0"/>
+   <object idref="Passion$miscellaneous36"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games26"/>
+   <object idref="Passion$miscellaneous20"/>
   </void>
  </void>
 </void>
@@ -53047,15 +53041,18 @@
 <void class="com.example.javagoat.back.Passion" id="Field191" method="getField">
  <string>passionVG</string>
  <void id="HashSet191" method="get">
-  <object idref="Passion56"/>
+  <object idref="Passion25"/>
   <void method="add">
    <object idref="Passion$video_games11"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games10"/>
+   <object idref="Passion$video_games32"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games29"/>
+   <object idref="Passion$video_games9"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games19"/>
   </void>
  </void>
 </void>
@@ -53063,18 +53060,18 @@
 <void class="com.example.javagoat.back.Passion" id="Field192" method="getField">
  <string>passionM</string>
  <void id="HashSet192" method="get">
-  <object idref="Passion5"/>
+  <object idref="Passion90"/>
   <void method="add">
-   <object idref="Passion$miscellaneous9"/>
+   <object idref="Passion$miscellaneous24"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous36"/>
+   <object idref="Passion$miscellaneous26"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous42"/>
+   <object idref="Passion$miscellaneous10"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous27"/>
+   <object idref="Passion$miscellaneous15"/>
   </void>
  </void>
 </void>
@@ -53082,28 +53079,25 @@
 <void class="com.example.javagoat.back.Passion" id="Field193" method="getField">
  <string>passionM</string>
  <void id="HashSet193" method="get">
-  <object idref="Passion19"/>
+  <object idref="Passion22"/>
   <void method="add">
-   <object idref="Passion$miscellaneous1"/>
+   <object idref="Passion$miscellaneous4"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous27"/>
+   <object idref="Passion$miscellaneous35"/>
   </void>
  </void>
 </void>
 <void idref="HashSet193"/>
 <void class="com.example.javagoat.back.Passion" id="Field194" method="getField">
- <string>passionM</string>
+ <string>passionVG</string>
  <void id="HashSet194" method="get">
-  <object idref="Passion34"/>
+  <object idref="Passion10"/>
   <void method="add">
-   <object idref="Passion$miscellaneous21"/>
+   <object idref="Passion$video_games21"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous23"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$miscellaneous2"/>
+   <object idref="Passion$video_games5"/>
   </void>
  </void>
 </void>
@@ -53111,12 +53105,15 @@
 <void class="com.example.javagoat.back.Passion" id="Field195" method="getField">
  <string>passionVG</string>
  <void id="HashSet195" method="get">
-  <object idref="Passion8"/>
+  <object idref="Passion16"/>
   <void method="add">
-   <object idref="Passion$video_games28"/>
+   <object idref="Passion$video_games11"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games8"/>
+   <object idref="Passion$video_games15"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games19"/>
   </void>
  </void>
 </void>
@@ -53124,18 +53121,12 @@
 <void class="com.example.javagoat.back.Passion" id="Field196" method="getField">
  <string>passionVG</string>
  <void id="HashSet196" method="get">
-  <object idref="Passion94"/>
+  <object idref="Passion50"/>
+  <void method="add">
+   <object idref="Passion$video_games7"/>
+  </void>
   <void method="add">
    <object idref="Passion$video_games33"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games6"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games22"/>
-  </void>
-  <void method="add">
-   <object idref="Passion$video_games34"/>
   </void>
  </void>
 </void>
@@ -53143,15 +53134,18 @@
 <void class="com.example.javagoat.back.Passion" id="Field197" method="getField">
  <string>passionVG</string>
  <void id="HashSet197" method="get">
-  <object idref="Passion81"/>
+  <object idref="Passion48"/>
   <void method="add">
-   <object idref="Passion$video_games2"/>
+   <object idref="Passion$video_games8"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games14"/>
+   <object idref="Passion$video_games11"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games15"/>
+   <object idref="Passion$video_games29"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$video_games33"/>
   </void>
  </void>
 </void>
@@ -53159,15 +53153,15 @@
 <void class="com.example.javagoat.back.Passion" id="Field198" method="getField">
  <string>passionVG</string>
  <void id="HashSet198" method="get">
-  <object idref="Passion28"/>
+  <object idref="Passion56"/>
   <void method="add">
-   <object idref="Passion$video_games28"/>
+   <object idref="Passion$video_games25"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games10"/>
+   <object idref="Passion$video_games0"/>
   </void>
   <void method="add">
-   <object idref="Passion$video_games23"/>
+   <object idref="Passion$video_games34"/>
   </void>
  </void>
 </void>
@@ -53175,15 +53169,18 @@
 <void class="com.example.javagoat.back.Passion" id="Field199" method="getField">
  <string>passionM</string>
  <void id="HashSet199" method="get">
-  <object idref="Passion52"/>
+  <object idref="Passion97"/>
   <void method="add">
-   <object idref="Passion$miscellaneous23"/>
+   <object idref="Passion$miscellaneous25"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous5"/>
+   <object idref="Passion$miscellaneous3"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous32"/>
+   <object idref="Passion$miscellaneous18"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous24"/>
   </void>
  </void>
 </void>
@@ -53191,15 +53188,18 @@
 <void class="com.example.javagoat.back.Passion" id="Field200" method="getField">
  <string>passionM</string>
  <void id="HashSet200" method="get">
-  <object idref="Passion21"/>
+  <object idref="Passion60"/>
   <void method="add">
-   <object idref="Passion$miscellaneous18"/>
+   <object idref="Passion$miscellaneous16"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous38"/>
+   <object idref="Passion$miscellaneous10"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous27"/>
+   <object idref="Passion$miscellaneous43"/>
+  </void>
+  <void method="add">
+   <object idref="Passion$miscellaneous8"/>
   </void>
  </void>
 </void>
@@ -53207,18 +53207,18 @@
 <void class="com.example.javagoat.back.Passion" id="Field201" method="getField">
  <string>passionM</string>
  <void id="HashSet201" method="get">
-  <object idref="Passion37"/>
+  <object idref="Passion15"/>
   <void method="add">
-   <object idref="Passion$miscellaneous25"/>
+   <object idref="Passion$miscellaneous17"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous26"/>
+   <object idref="Passion$miscellaneous36"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous13"/>
+   <object idref="Passion$miscellaneous43"/>
   </void>
   <void method="add">
-   <object idref="Passion$miscellaneous28"/>
+   <object idref="Passion$miscellaneous42"/>
   </void>
  </void>
 </void>

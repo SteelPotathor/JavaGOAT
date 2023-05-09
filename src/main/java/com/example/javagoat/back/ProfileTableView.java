@@ -14,8 +14,8 @@ import static com.example.javagoat.back.ModelProfile.profileHashMap;
 public class ProfileTableView {
 
     public int id;
-    public Circle priority;
-    public ImageView imageView;
+    public HBox priority;
+    public HBox imageView;
     public String firstname;
     public String lastname;
     public int age;
@@ -29,14 +29,27 @@ public class ProfileTableView {
 
     public ProfileTableView(int id, int significance, ImageView imageView, String firstname, String lastname, int age, String gender) {
         this.id = id;
+
+        Region region1Prio = new Region();
+        HBox.setHgrow(region1Prio, Priority.ALWAYS);
+        Region region2Prio = new Region();
+        HBox.setHgrow(region2Prio, Priority.ALWAYS);
+        Circle circle;
         switch (significance) {
-            case 1 -> this.priority = new Circle(10, javafx.scene.paint.Color.GREEN);
-            case 2 -> this.priority = new Circle(10, javafx.scene.paint.Color.ORANGE);
-            case 3 -> this.priority = new Circle(10, javafx.scene.paint.Color.RED);
-            default -> this.priority = new Circle(10, javafx.scene.paint.Color.BLACK);
+            case 1 -> circle = new Circle(15, javafx.scene.paint.Color.GREEN);
+            case 2 -> circle = new Circle(10, javafx.scene.paint.Color.ORANGE);
+            case 3 -> circle = new Circle(10, javafx.scene.paint.Color.RED);
+            default -> circle = new Circle(10, javafx.scene.paint.Color.BLACK);
         }
-        this.priority.setStroke(javafx.scene.paint.Color.BLACK);
-        this.imageView = imageView;
+        circle.setStroke(javafx.scene.paint.Color.BLACK);
+        this.priority = new HBox(region1Prio, circle, region2Prio);
+
+        Region region1Img = new Region();
+        HBox.setHgrow(region1Img, Priority.ALWAYS);
+        Region region2Img = new Region();
+        HBox.setHgrow(region2Img, Priority.ALWAYS);
+        this.imageView = new HBox(region1Img, imageView, region2Img);
+
         this.firstname = firstname;
         this.lastname = lastname;
         this.age = age;
@@ -73,22 +86,21 @@ public class ProfileTableView {
         this.id = id;
     }
 
-    public Circle getPriority() {
+    public HBox getPriority() {
         return priority;
     }
 
-    public void setPriority(Circle priority) {
+    public void setPriority(HBox priority) {
         this.priority = priority;
     }
 
-    public ImageView getImageView() {
+    public HBox getImageView() {
         return imageView;
     }
 
-    public void setImageView(ImageView imageView) {
+    public void setImageView(HBox imageView) {
         this.imageView = imageView;
     }
-
 
     public String getFirstname() {
         return firstname;
