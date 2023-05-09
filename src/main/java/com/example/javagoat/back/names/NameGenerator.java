@@ -27,7 +27,7 @@ public class NameGenerator {
 
             raf.seek(rand.nextInt(1000));
             raf.readLine();
-            return raf.readLine().split(",");
+            return raf.readLine().split(" ");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
