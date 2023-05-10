@@ -16,7 +16,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -24,8 +23,6 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import javax.swing.text.html.ImageView;
-import java.awt.*;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -250,7 +247,7 @@ public class Dashboard_Controller {
     void fillNotifications() {
         list_view_notification.getItems().clear();
         int i = 0;
-        Iterator<Map.Entry<Date, String>> iterator = modelNotification.stockNotification.entrySet().iterator();
+        Iterator<Map.Entry<Date, String>> iterator = ModelNotification.stockNotification.entrySet().iterator();
         while (i < 30 && iterator.hasNext()) {
             Map.Entry entry = iterator.next();
             list_view_notification.getItems().add(simpleDateFormat.format(entry.getKey()) + " : " + entry.getValue().toString());

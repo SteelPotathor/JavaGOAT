@@ -24,7 +24,7 @@ public class PhysicalAttributes implements Serializable, Cloneable {
         private static final List<hairColor> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
         private static final int SIZE = VALUES.size();
 
-        public static hairColor randomHColor()  {
+        public static hairColor randomHColor() {
             return VALUES.get(random.nextInt(SIZE));
         }
 
@@ -33,12 +33,12 @@ public class PhysicalAttributes implements Serializable, Cloneable {
     public enum hairType {
         STRAIGHT,
         WAVY,
-        CURLY ;
+        CURLY;
 
         private static final List<hairType> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
         private static final int SIZE = VALUES.size();
 
-        public static hairType randomHType()  {
+        public static hairType randomHType() {
             return VALUES.get(random.nextInt(SIZE));
         }
 
@@ -52,7 +52,7 @@ public class PhysicalAttributes implements Serializable, Cloneable {
         private static final List<hairLength> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
         private static final int SIZE = VALUES.size();
 
-        public static hairLength randomHLength()  {
+        public static hairLength randomHLength() {
             return VALUES.get(random.nextInt(SIZE));
         }
 
@@ -67,7 +67,8 @@ public class PhysicalAttributes implements Serializable, Cloneable {
     }
 
     // Random PhysicalAttributes
-    public PhysicalAttributes() {}
+    public PhysicalAttributes() {
+    }
 
     public void setRandomPhysicalAttributes() {
         setSize(random.nextInt(30) + 150);
@@ -139,12 +140,11 @@ public class PhysicalAttributes implements Serializable, Cloneable {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("PhysicalAttributes{");
-        sb.append("size=").append(size);
-        sb.append(", PAhairColor=").append(PAhairColor);
-        sb.append(", PAhairType=").append(PAhairType);
-        sb.append(", PAhairLength=").append(PAhairLength);
-        sb.append('}');
-        return sb.toString();
+        String sb = "PhysicalAttributes{" + "size=" + size +
+                ", PAhairColor=" + PAhairColor +
+                ", PAhairType=" + PAhairType +
+                ", PAhairLength=" + PAhairLength +
+                '}';
+        return sb;
     }
 }

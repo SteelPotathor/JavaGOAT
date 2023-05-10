@@ -1,636 +1,772 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import org.controlsfx.control.CheckComboBox?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="1426.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javagoat.New_Profile_Controller">
-   <children>
-      <ImageView fitHeight="699.0" fitWidth="1198.0" layoutX="228.0">
-         <image>
-            <Image url="@background_new_profile.png" />
-         </image>
-      </ImageView>
-      <ImageView layoutX="1365.0" onMouseClicked="#exit_script">
-         <image>
-            <Image url="@icons8-cross-50.png" />
-         </image>
-      </ImageView>
-      <Pane fx:id="leftRectangle" layoutX="261.0" layoutY="76.0" prefHeight="516.0" prefWidth="265.0" style="-fx-background-color: rgba(255, 255,255, 0.5); -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
-         <children>
-            <VBox layoutY="178.0" prefHeight="321.0" prefWidth="265.0">
-               <children>
-                  <HBox alignment="CENTER" prefWidth="240.0">
-                     <children>
-                        <TextField fx:id="textfield_first_name" alignment="CENTER" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: transparent; -fx-prompt-text-fill: grey;" text="John">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <padding>
-                              <Insets bottom="10.0" top="10.0" />
-                           </padding>
-                        </TextField>
-                        <TextField fx:id="textfield_last_name" alignment="CENTER" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: transparent; -fx-prompt-text-fill: grey;" text="Doe">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <padding>
-                              <Insets bottom="10.0" top="10.0" />
-                           </padding>
-                        </TextField>
-                     </children>
-                  </HBox>
-                  <Pane style="-fx-background-color: rgba(0,0,0,0);">
-                     <children>
-                        <Label layoutX="32.0" layoutY="12.0" text="Age">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="textfield_age" alignment="CENTER_RIGHT" layoutY="1.0" prefHeight="46.0" prefWidth="265.0" style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;" text="20">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <padding>
-                              <Insets right="20.0" />
-                           </padding>
-                        </TextField>
-                     </children>
-                  </Pane>
-                  <Pane style="-fx-background-color: rgba(0,0,0,0);">
-                     <children>
-                        <TextField fx:id="textfield_size" alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="265.0" style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;" text="180">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <padding>
-                              <Insets right="20.0" />
-                           </padding>
-                        </TextField>
-                        <Label layoutX="32.0" layoutY="15.0" text="Size (cm)">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane style="-fx-background-color: rgba(0, 100, 100, 0.0);">
-                     <children>
-                        <TextField fx:id="textfield_qi" alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="265.0" style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;" text="100">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                           <padding>
-                              <Insets right="20.0" />
-                           </padding>
-                        </TextField>
-                        <Label layoutX="35.0" layoutY="15.0" text="QI">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <padding>
-                        <Insets bottom="30.0" />
-                     </padding>
-                  </Pane>
-                  <ChoiceBox fx:id="sex_choicebox" prefHeight="39.0" prefWidth="265.0" />
-               </children>
-            </VBox>
-            <AnchorPane layoutX="62.0" layoutY="14.0" prefHeight="140.0" prefWidth="140.0">
-               <children>
-                  <Circle fx:id="circle_profile_picture" fill="DODGERBLUE" layoutX="70.0" layoutY="71.0" radius="71.0" stroke="WHITE" strokeType="INSIDE" />
-               </children>
-            </AnchorPane>
-            <Pane fx:id="newImageSelector" layoutX="201.0" layoutY="118.0" onMouseEntered="#newImageCursor" onMouseClicked="#import_new_image">
-               <children>
-                  <ImageView fitHeight="50.0" fitWidth="50.0">
-                     <image>
-                        <Image url="@appareil-photo-numerique.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-         </children>
-      </Pane>
-      <Pane fx:id="rightRectangle" layoutX="550.0" layoutY="76.0" prefHeight="516.0" prefWidth="779.0" style="-fx-background-color: rgba(255, 255,255, 0.0); -fx-background-radius: 10; -fx-border-width: 1;">
-         <children>
-            <Button fx:id="button_create_profile" alignment="CENTER" layoutX="477.0" layoutY="431.0" mnemonicParsing="false" onMouseClicked="#validate_profil" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: rgba(255,255,255,0.7);" text="Add new profile" wrapText="true">
-               <font>
-                  <Font size="35.0" />
-               </font>
-            </Button>
-            <Pane fx:id="topRectangle" layoutX="36.0" layoutY="7.0" prefHeight="101.0" prefWidth="454.0" style="-fx-border-color: white; -fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 20; -fx-border-radius: 20;">
-               <children>
-                  <HBox layoutX="14.0" layoutY="18.0" prefHeight="24.0" prefWidth="624.0">
-                     <children>
-                        <Circle fx:id="circlePersonal" fill="RED" radius="13.0" stroke="BLACK" strokeType="INSIDE">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </Circle>
-                        <Button fx:id="buttonPersonalInformation" onMouseReleased="#changeCircleColorNewTab" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_button" prefHeight="24.0" prefWidth="105.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: rgba(255,255,255,0.7);" text="Personal" textAlignment="CENTER">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Circle fx:id="circle_preferences" fill="RED" radius="13.0" stroke="BLACK" strokeType="INSIDE">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </Circle>
-                        <Button fx:id="button_preferences_information" onMouseReleased="#changeCircleColorNewTab" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_button" prefHeight="24.0" prefWidth="105.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: rgba(255,255,255,0.3);;" text="Preferences" textAlignment="CENTER" />
-                     </children>
-                  </HBox>
-                  <HBox layoutX="14.0" layoutY="58.0" prefHeight="24.0" prefWidth="624.0">
-                     <children>
-                        <Circle fx:id="circle_life_style" fill="RED" radius="13.0" stroke="BLACK" strokeType="INSIDE">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </Circle>
-                        <Button fx:id="button_lifestyle_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_style" prefHeight="24.0" prefWidth="105.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: rgba(255,255,255,0.7);" text="Lifestyle" textAlignment="CENTER">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Circle fx:id="circle_physical" fill="RED" radius="13.0" stroke="BLACK" strokeType="INSIDE">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </Circle>
-                        <Button fx:id="button_physical_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_style" prefHeight="24.0" prefWidth="105.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: rgba(255,255,255,0.3);;" text="Physical" textAlignment="CENTER">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Circle fx:id="circle_other" fill="RED" radius="13.0" stroke="BLACK" strokeType="INSIDE">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </Circle>
-                        <Button fx:id="button_passions_information" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_style" prefHeight="24.0" prefWidth="105.0" style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: rgba(255,255,255,0.3);;" text="Passion/Other" textAlignment="CENTER">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                        </Button>
-                     </children>
-                  </HBox>
-               </children>
-            </Pane>
-            <Pane fx:id="bottomRectangle" layoutX="36.0" layoutY="123.0" prefHeight="280.0" prefWidth="671.0" style="-fx-border-color: white; -fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 20; -fx-border-radius: 20;">
-               <children>
-                  <GridPane fx:id="grid_life_style" layoutX="29.0" layoutY="10.0" prefHeight="258.0" prefWidth="550.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Pane>
-                           <children>
-                              <ChoiceBox fx:id="Smoker_choicebox" onAction="#checkPersonalLifeStyle" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50; -fx-border-radius: 50;" />
-                              <Label text="Smoker">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0"
+            prefWidth="1426.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.javagoat.New_Profile_Controller">
+    <children>
+        <ImageView fitHeight="699.0" fitWidth="1198.0" layoutX="228.0">
+            <image>
+                <Image url="@background_new_profile.png"/>
+            </image>
+        </ImageView>
+        <ImageView layoutX="1365.0" onMouseClicked="#exit_script">
+            <image>
+                <Image url="@icons8-cross-50.png"/>
+            </image>
+        </ImageView>
+        <Pane fx:id="leftRectangle" layoutX="261.0" layoutY="76.0" prefHeight="516.0" prefWidth="265.0"
+              style="-fx-background-color: rgba(255, 255,255, 0.5); -fx-background-radius: 10; -fx-border-color: gray; -fx-border-radius: 10; -fx-border-width: 1;">
+            <children>
+                <VBox layoutY="178.0" prefHeight="321.0" prefWidth="265.0">
+                    <children>
+                        <HBox alignment="CENTER" prefWidth="240.0">
+                            <children>
+                                <TextField fx:id="textfield_first_name" alignment="CENTER" prefHeight="46.0"
+                                           prefWidth="192.0"
+                                           style="-fx-background-color: transparent; -fx-prompt-text-fill: grey;"
+                                           text="John">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="10.0" top="10.0"/>
+                                    </padding>
+                                </TextField>
+                                <TextField fx:id="textfield_last_name" alignment="CENTER" prefHeight="46.0"
+                                           prefWidth="192.0"
+                                           style="-fx-background-color: transparent; -fx-prompt-text-fill: grey;"
+                                           text="Doe">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="10.0" top="10.0"/>
+                                    </padding>
+                                </TextField>
+                            </children>
+                        </HBox>
+                        <Pane style="-fx-background-color: rgba(0,0,0,0);">
+                            <children>
+                                <Label layoutX="32.0" layoutY="12.0" text="Age">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                </Label>
+                                <TextField fx:id="textfield_age" alignment="CENTER_RIGHT" layoutY="1.0"
+                                           prefHeight="46.0" prefWidth="265.0"
+                                           style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;"
+                                           text="20">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets right="20.0"/>
+                                    </padding>
+                                </TextField>
+                            </children>
                         </Pane>
-                        <Pane GridPane.rowIndex="1">
-                           <children>
-                              <ChoiceBox fx:id="Athlete_choicebox" onAction="#checkPersonalLifeStyle" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Athlete">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
+                        <Pane style="-fx-background-color: rgba(0,0,0,0);">
+                            <children>
+                                <TextField fx:id="textfield_size" alignment="CENTER_RIGHT" prefHeight="46.0"
+                                           prefWidth="265.0"
+                                           style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;"
+                                           text="180">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets right="20.0"/>
+                                    </padding>
+                                </TextField>
+                                <Label layoutX="32.0" layoutY="15.0" text="Size (cm)">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                </Label>
+                            </children>
                         </Pane>
-                        <Pane GridPane.columnIndex="1">
-                           <children>
-                              <ChoiceBox fx:id="feed_choicebox" onAction="#checkPersonalLifeStyle" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-border-radius: 50; -fx-background-radius: 50;" />
-                              <Label text="Feed">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
+                        <Pane style="-fx-background-color: rgba(0, 100, 100, 0.0);">
+                            <children>
+                                <TextField fx:id="textfield_qi" alignment="CENTER_RIGHT" prefHeight="46.0"
+                                           prefWidth="265.0"
+                                           style="-fx-prompt-text-fill: grey; -fx-background-color: transparent;"
+                                           text="100">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets right="20.0"/>
+                                    </padding>
+                                </TextField>
+                                <Label layoutX="35.0" layoutY="15.0" text="QI">
+                                    <font>
+                                        <Font size="16.0"/>
+                                    </font>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets bottom="30.0"/>
+                            </padding>
                         </Pane>
-                        <Pane GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <children>
-                              <ChoiceBox fx:id="alcohol_choicebox" onAction="#checkPersonalLifeStyle" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Alcohol">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                     </children>
-                  </GridPane>
-                  <GridPane fx:id="grid_physical_information" layoutX="10.0" layoutY="10.0" prefHeight="258.0" prefWidth="550.0" visible="false">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Pane>
-                           <children>
-                              <ChoiceBox fx:id="bodybuild_choicebox" onAction="#checkPersonalPhysical" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Body build">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane GridPane.columnIndex="1">
-                           <children>
-                              <ChoiceBox fx:id="hair_type_choicebox" onAction="#checkPersonalPhysical" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Hair type">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane prefHeight="65.0" prefWidth="203.0" GridPane.rowIndex="1">
-                           <children>
-                              <ChoiceBox fx:id="choicebox_ethnicity" onAction="#checkPersonalPhysical" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Ethnicity">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <children>
-                              <ChoiceBox fx:id="hair_length_choicebox" onAction="#checkPersonalPhysical" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Hair length">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane GridPane.columnIndex="2">
-                           <children>
-                              <ChoiceBox fx:id="color_of_hair_choicebox" onAction="#checkPersonalPhysical" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Color of hair">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                     </children>
-                  </GridPane>
-                  <GridPane fx:id="grid_passions" layoutX="10.0" layoutY="10.0" prefHeight="258.0" prefWidth="550.0" visible="false">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints maxHeight="152.0" minHeight="10.0" prefHeight="112.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="146.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Pane>
-                           <children>
-                              <ChoiceBox fx:id="religion_choicebox" onAction="#checkPersonalOther" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Religion">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane GridPane.columnIndex="1">
-                           <children>
-                              <CheckComboBox fx:id="video_games_checkcombobox" layoutY="27.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Video games">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane GridPane.rowIndex="1">
-                           <children>
-                              <CheckComboBox fx:id="miscellanious_checkcombobox" layoutY="27.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Miscellaneous">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                     </children>
-                  </GridPane>
-                  <GridPane fx:id="grid_life_style_preferences" layoutX="10.0" layoutY="10.0" prefHeight="258.0" prefWidth="550.0" visible="false">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Pane>
-                           <children>
-                              <ChoiceBox fx:id="Smoker_choicebox_preferences" onAction="#checkPreferencesLifestyle" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Smoker">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane GridPane.rowIndex="1">
-                           <children>
-                              <ChoiceBox fx:id="Athlete_choicebox_preferences" onAction="#checkPreferencesLifestyle" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Athlete">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane GridPane.columnIndex="1">
-                           <children>
-                              <ChoiceBox fx:id="feed_choicebox_preferences" onAction="#checkPreferencesLifestyle" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Feed">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <children>
-                              <ChoiceBox fx:id="alcohol_choicebox_preferences" onAction="#checkPreferencesLifestyle" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Alcohol">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                     </children>
-                  </GridPane>
-                  <GridPane fx:id="grid_physical_information_preferences" layoutX="20.0" layoutY="20.0" prefHeight="258.0" prefWidth="550.0" visible="false">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Pane>
-                           <children>
-                              <ChoiceBox fx:id="bodybuild_choicebox_preferences" onAction="#checkPreferencesPhysical" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Body build">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane GridPane.columnIndex="1">
-                           <children>
-                              <ChoiceBox fx:id="hair_type_choicebox_preferences" onAction="#checkPreferencesPhysical" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Hair type">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane prefHeight="65.0" prefWidth="203.0" GridPane.rowIndex="1">
-                           <children>
-                              <ChoiceBox fx:id="choicebox_ethnicity_preferences" onAction="#checkPreferencesPhysical" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Ethnicity">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <children>
-                              <ChoiceBox fx:id="hair_length_choicebox_preferences" onAction="#checkPreferencesPhysical" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Hair length">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane GridPane.columnIndex="2">
-                           <children>
-                              <ChoiceBox fx:id="color_of_hair_choicebox_preferences" onAction="#checkPreferencesPhysical" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Color of hair">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane GridPane.columnIndex="2" GridPane.rowIndex="1">
-                           <children>
-                              <ChoiceBox fx:id="sex_choicebox_preferences" onAction="#checkPreferencesPhysical" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label prefHeight="27.0" prefWidth="114.0" text="Sex">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                     </children>
-                  </GridPane>
-                  <GridPane fx:id="grid_passions_preferences" layoutX="20.0" layoutY="20.0" prefHeight="258.0" prefWidth="550.0" visible="false">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints maxHeight="152.0" minHeight="10.0" prefHeight="112.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="146.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Pane>
-                           <children>
-                              <ChoiceBox fx:id="religion_choicebox_preferences" onAction="#checkPreferencesReligion" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Religion">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane GridPane.columnIndex="1">
-                           <children>
-                              <Label layoutY="-9.0" text="Age">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="textfield_age_preferences" onKeyReleased="#checkPreferencesOther" alignment="CENTER" layoutY="24.0" prefHeight="46.0" prefWidth="192.0" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50;">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets bottom="10.0" top="10.0" />
-                                 </padding>
-                              </TextField>
-                           </children>
-                        </Pane>
-                        <Pane GridPane.rowIndex="1">
-                           <children>
-                              <Label text="Size">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="textfield_size_preferences" onKeyReleased="#checkPreferencesOther" alignment="CENTER" layoutY="33.0" prefHeight="46.0" prefWidth="192.0" style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50;">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets bottom="10.0" top="10.0" />
-                                 </padding>
-                              </TextField>
-                           </children>
-                        </Pane>
-                     </children>
-                  </GridPane>
-                  <GridPane fx:id="grid_passions_preferences1" prefHeight="258.0" prefWidth="550.0" visible="false">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints maxHeight="152.0" minHeight="10.0" prefHeight="112.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="146.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Pane>
-                           <children>
-                              <ChoiceBox fx:id="religion_choicebox_preferences1" layoutY="28.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Religion">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane GridPane.columnIndex="1">
-                           <children>
-                              <CheckComboBox fx:id="video_games_checkcombobox_preferences" layoutY="27.0" prefHeight="37.0" prefWidth="203.0" />
-                              <Label text="Video games">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane GridPane.rowIndex="1">
-                           <children>
-                              <CheckComboBox fx:id="miscellanious_checkcombobox_preferences" layoutY="27.0" prefHeight="37.0" prefWidth="203.0" style="-fx-background-radius: 50;" />
-                              <Label text="Miscellaneous">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                     </children>
-                  </GridPane>
-               </children>
-            </Pane>
-         </children>
-      </Pane>
-      <Pane prefHeight="699.0" prefWidth="228.0" style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 0.0% 100.0%, #003eb2 0.0%, #8c00ff 100.0%);" stylesheets="@style.css">
-         <children>
-            <ImageView fitHeight="199.0" fitWidth="199.0" layoutY="44.0" preserveRatio="true">
-               <image>
-                  <Image url="@logo_image.png" />
-               </image>
-            </ImageView>
-            <VBox layoutY="278.0" prefHeight="407.0" prefWidth="228.0">
-               <children>
-                  <Pane fx:id="dashboard_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_dashboard" onMouseEntered="#change_background_color" onMouseExited="#unselectNavigation" prefHeight="69.0" prefWidth="228.0">
-                     <children>
-                        <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@lanalyse-des-donnees.png" />
-                           </image>
+                        <ChoiceBox fx:id="sex_choicebox" prefHeight="39.0" prefWidth="265.0"/>
+                    </children>
+                </VBox>
+                <AnchorPane layoutX="62.0" layoutY="14.0" prefHeight="140.0" prefWidth="140.0">
+                    <children>
+                        <Circle fx:id="circle_profile_picture" fill="DODGERBLUE" layoutX="70.0" layoutY="71.0"
+                                radius="71.0" stroke="WHITE" strokeType="INSIDE"/>
+                    </children>
+                </AnchorPane>
+                <Pane fx:id="newImageSelector" layoutX="201.0" layoutY="118.0" onMouseEntered="#newImageCursor"
+                      onMouseClicked="#import_new_image">
+                    <children>
+                        <ImageView fitHeight="50.0" fitWidth="50.0">
+                            <image>
+                                <Image url="@appareil-photo-numerique.png"/>
+                            </image>
                         </ImageView>
-                        <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="profile_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_new_profile" onMouseEntered="#change_background_color" onMouseExited="#unselectNavigation" prefHeight="69.0" prefWidth="228.0">
-                     <children>
-                        <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@profil.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New profile" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="search_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_search" onMouseEntered="#change_background_color" onMouseExited="#unselectNavigation" prefHeight="69.0" prefWidth="228.0">
-                     <children>
-                        <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@seo.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search" />
-                     </children>
-                  </Pane>
-                  <Pane fx:id="calendar_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#change_scene_to_page_calendar" onMouseEntered="#change_background_color" onMouseExited="#unselectNavigation" prefHeight="69.0" prefWidth="228.0">
-                     <children>
-                        <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@calendrier.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calendar" />
-                     </children>
-                  </Pane>
-               </children>
-            </VBox>
-         </children>
-      </Pane>
-   </children>
+                    </children>
+                </Pane>
+            </children>
+        </Pane>
+        <Pane fx:id="rightRectangle" layoutX="550.0" layoutY="76.0" prefHeight="516.0" prefWidth="779.0"
+              style="-fx-background-color: rgba(255, 255,255, 0.0); -fx-background-radius: 10; -fx-border-width: 1;">
+            <children>
+                <Button fx:id="button_create_profile" alignment="CENTER" layoutX="477.0" layoutY="431.0"
+                        mnemonicParsing="false" onMouseClicked="#validate_profil"
+                        style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: rgba(255,255,255,0.7);"
+                        text="Add new profile" wrapText="true">
+                    <font>
+                        <Font size="35.0"/>
+                    </font>
+                </Button>
+                <Pane fx:id="topRectangle" layoutX="36.0" layoutY="7.0" prefHeight="101.0" prefWidth="454.0"
+                      style="-fx-border-color: white; -fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 20; -fx-border-radius: 20;">
+                    <children>
+                        <HBox layoutX="14.0" layoutY="18.0" prefHeight="24.0" prefWidth="624.0">
+                            <children>
+                                <Circle fx:id="circlePersonal" fill="RED" radius="13.0" stroke="BLACK"
+                                        strokeType="INSIDE">
+                                    <HBox.margin>
+                                        <Insets right="5.0"/>
+                                    </HBox.margin>
+                                </Circle>
+                                <Button fx:id="buttonPersonalInformation" onMouseReleased="#changeCircleColorNewTab"
+                                        alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                                        onMouseClicked="#change_button" prefHeight="24.0" prefWidth="105.0"
+                                        style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: rgba(255,255,255,0.7);"
+                                        text="Personal" textAlignment="CENTER">
+                                    <HBox.margin>
+                                        <Insets right="5.0"/>
+                                    </HBox.margin>
+                                </Button>
+                                <Circle fx:id="circle_preferences" fill="RED" radius="13.0" stroke="BLACK"
+                                        strokeType="INSIDE">
+                                    <HBox.margin>
+                                        <Insets right="5.0"/>
+                                    </HBox.margin>
+                                </Circle>
+                                <Button fx:id="button_preferences_information"
+                                        onMouseReleased="#changeCircleColorNewTab" alignment="CENTER"
+                                        contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#change_button"
+                                        prefHeight="24.0" prefWidth="105.0"
+                                        style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: rgba(255,255,255,0.3);;"
+                                        text="Preferences" textAlignment="CENTER"/>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="14.0" layoutY="58.0" prefHeight="24.0" prefWidth="624.0">
+                            <children>
+                                <Circle fx:id="circle_life_style" fill="RED" radius="13.0" stroke="BLACK"
+                                        strokeType="INSIDE">
+                                    <HBox.margin>
+                                        <Insets right="5.0"/>
+                                    </HBox.margin>
+                                </Circle>
+                                <Button fx:id="button_lifestyle_information" alignment="CENTER" contentDisplay="CENTER"
+                                        mnemonicParsing="false" onMouseClicked="#change_style" prefHeight="24.0"
+                                        prefWidth="105.0"
+                                        style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: rgba(255,255,255,0.7);"
+                                        text="Lifestyle" textAlignment="CENTER">
+                                    <HBox.margin>
+                                        <Insets right="5.0"/>
+                                    </HBox.margin>
+                                </Button>
+                                <Circle fx:id="circle_physical" fill="RED" radius="13.0" stroke="BLACK"
+                                        strokeType="INSIDE">
+                                    <HBox.margin>
+                                        <Insets right="5.0"/>
+                                    </HBox.margin>
+                                </Circle>
+                                <Button fx:id="button_physical_information" alignment="CENTER" contentDisplay="CENTER"
+                                        mnemonicParsing="false" onMouseClicked="#change_style" prefHeight="24.0"
+                                        prefWidth="105.0"
+                                        style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: rgba(255,255,255,0.3);;"
+                                        text="Physical" textAlignment="CENTER">
+                                    <HBox.margin>
+                                        <Insets right="5.0"/>
+                                    </HBox.margin>
+                                </Button>
+                                <Circle fx:id="circle_other" fill="RED" radius="13.0" stroke="BLACK"
+                                        strokeType="INSIDE">
+                                    <HBox.margin>
+                                        <Insets right="5.0"/>
+                                    </HBox.margin>
+                                </Circle>
+                                <Button fx:id="button_passions_information" alignment="CENTER" contentDisplay="CENTER"
+                                        mnemonicParsing="false" onMouseClicked="#change_style" prefHeight="24.0"
+                                        prefWidth="105.0"
+                                        style="-fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: rgba(255,255,255,0.3);;"
+                                        text="Passion/Other" textAlignment="CENTER">
+                                    <HBox.margin>
+                                        <Insets right="5.0"/>
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </Pane>
+                <Pane fx:id="bottomRectangle" layoutX="36.0" layoutY="123.0" prefHeight="280.0" prefWidth="671.0"
+                      style="-fx-border-color: white; -fx-background-color: rgba(255,255,255,0.4); -fx-background-radius: 20; -fx-border-radius: 20;">
+                    <children>
+                        <GridPane fx:id="grid_life_style" layoutX="29.0" layoutY="10.0" prefHeight="258.0"
+                                  prefWidth="550.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <Pane>
+                                    <children>
+                                        <ChoiceBox fx:id="Smoker_choicebox" onAction="#checkPersonalLifeStyle"
+                                                   layoutY="28.0" prefHeight="37.0" prefWidth="203.0"
+                                                   style="-fx-background-radius: 50; -fx-border-radius: 50;"/>
+                                        <Label text="Smoker">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane GridPane.rowIndex="1">
+                                    <children>
+                                        <ChoiceBox fx:id="Athlete_choicebox" onAction="#checkPersonalLifeStyle"
+                                                   layoutY="28.0" prefHeight="37.0" prefWidth="203.0"
+                                                   style="-fx-background-radius: 50;"/>
+                                        <Label text="Athlete">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane GridPane.columnIndex="1">
+                                    <children>
+                                        <ChoiceBox fx:id="feed_choicebox" onAction="#checkPersonalLifeStyle"
+                                                   layoutY="28.0" prefHeight="37.0" prefWidth="203.0"
+                                                   style="-fx-border-radius: 50; -fx-background-radius: 50;"/>
+                                        <Label text="Feed">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <children>
+                                        <ChoiceBox fx:id="alcohol_choicebox" onAction="#checkPersonalLifeStyle"
+                                                   layoutY="28.0" prefHeight="37.0" prefWidth="203.0"
+                                                   style="-fx-background-radius: 50;"/>
+                                        <Label text="Alcohol">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </GridPane>
+                        <GridPane fx:id="grid_physical_information" layoutX="10.0" layoutY="10.0" prefHeight="258.0"
+                                  prefWidth="550.0" visible="false">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <Pane>
+                                    <children>
+                                        <ChoiceBox fx:id="bodybuild_choicebox" onAction="#checkPersonalPhysical"
+                                                   layoutY="28.0" prefHeight="37.0" prefWidth="203.0"
+                                                   style="-fx-background-radius: 50;"/>
+                                        <Label text="Body build">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane GridPane.columnIndex="1">
+                                    <children>
+                                        <ChoiceBox fx:id="hair_type_choicebox" onAction="#checkPersonalPhysical"
+                                                   layoutY="28.0" prefHeight="37.0" prefWidth="203.0"
+                                                   style="-fx-background-radius: 50;"/>
+                                        <Label text="Hair type">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane prefHeight="65.0" prefWidth="203.0" GridPane.rowIndex="1">
+                                    <children>
+                                        <ChoiceBox fx:id="choicebox_ethnicity" onAction="#checkPersonalPhysical"
+                                                   layoutY="28.0" prefHeight="37.0" prefWidth="203.0"
+                                                   style="-fx-background-radius: 50;"/>
+                                        <Label text="Ethnicity">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <children>
+                                        <ChoiceBox fx:id="hair_length_choicebox" onAction="#checkPersonalPhysical"
+                                                   layoutY="28.0" prefHeight="37.0" prefWidth="203.0"
+                                                   style="-fx-background-radius: 50;"/>
+                                        <Label text="Hair length">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane GridPane.columnIndex="2">
+                                    <children>
+                                        <ChoiceBox fx:id="color_of_hair_choicebox" onAction="#checkPersonalPhysical"
+                                                   layoutY="28.0" prefHeight="37.0" prefWidth="203.0"
+                                                   style="-fx-background-radius: 50;"/>
+                                        <Label text="Color of hair">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </GridPane>
+                        <GridPane fx:id="grid_passions" layoutX="10.0" layoutY="10.0" prefHeight="258.0"
+                                  prefWidth="550.0" visible="false">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="152.0" minHeight="10.0" prefHeight="112.0"
+                                                vgrow="SOMETIMES"/>
+                                <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="146.0"
+                                                vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <Pane>
+                                    <children>
+                                        <ChoiceBox fx:id="religion_choicebox" onAction="#checkPersonalOther"
+                                                   layoutY="28.0" prefHeight="37.0" prefWidth="203.0"
+                                                   style="-fx-background-radius: 50;"/>
+                                        <Label text="Religion">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane GridPane.columnIndex="1">
+                                    <children>
+                                        <CheckComboBox fx:id="video_games_checkcombobox" layoutY="27.0"
+                                                       prefHeight="37.0" prefWidth="203.0"
+                                                       style="-fx-background-radius: 50;"/>
+                                        <Label text="Video games">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane GridPane.rowIndex="1">
+                                    <children>
+                                        <CheckComboBox fx:id="miscellanious_checkcombobox" layoutY="27.0"
+                                                       prefHeight="37.0" prefWidth="203.0"
+                                                       style="-fx-background-radius: 50;"/>
+                                        <Label text="Miscellaneous">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </GridPane>
+                        <GridPane fx:id="grid_life_style_preferences" layoutX="10.0" layoutY="10.0" prefHeight="258.0"
+                                  prefWidth="550.0" visible="false">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <Pane>
+                                    <children>
+                                        <ChoiceBox fx:id="Smoker_choicebox_preferences"
+                                                   onAction="#checkPreferencesLifestyle" layoutY="28.0"
+                                                   prefHeight="37.0" prefWidth="203.0"
+                                                   style="-fx-background-radius: 50;"/>
+                                        <Label text="Smoker">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane GridPane.rowIndex="1">
+                                    <children>
+                                        <ChoiceBox fx:id="Athlete_choicebox_preferences"
+                                                   onAction="#checkPreferencesLifestyle" layoutY="28.0"
+                                                   prefHeight="37.0" prefWidth="203.0"
+                                                   style="-fx-background-radius: 50;"/>
+                                        <Label text="Athlete">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane GridPane.columnIndex="1">
+                                    <children>
+                                        <ChoiceBox fx:id="feed_choicebox_preferences"
+                                                   onAction="#checkPreferencesLifestyle" layoutY="28.0"
+                                                   prefHeight="37.0" prefWidth="203.0"
+                                                   style="-fx-background-radius: 50;"/>
+                                        <Label text="Feed">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <children>
+                                        <ChoiceBox fx:id="alcohol_choicebox_preferences"
+                                                   onAction="#checkPreferencesLifestyle" layoutY="28.0"
+                                                   prefHeight="37.0" prefWidth="203.0"
+                                                   style="-fx-background-radius: 50;"/>
+                                        <Label text="Alcohol">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </GridPane>
+                        <GridPane fx:id="grid_physical_information_preferences" layoutX="20.0" layoutY="20.0"
+                                  prefHeight="258.0" prefWidth="550.0" visible="false">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <Pane>
+                                    <children>
+                                        <ChoiceBox fx:id="bodybuild_choicebox_preferences"
+                                                   onAction="#checkPreferencesPhysical" layoutY="28.0" prefHeight="37.0"
+                                                   prefWidth="203.0" style="-fx-background-radius: 50;"/>
+                                        <Label text="Body build">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane GridPane.columnIndex="1">
+                                    <children>
+                                        <ChoiceBox fx:id="hair_type_choicebox_preferences"
+                                                   onAction="#checkPreferencesPhysical" layoutY="28.0" prefHeight="37.0"
+                                                   prefWidth="203.0" style="-fx-background-radius: 50;"/>
+                                        <Label text="Hair type">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane prefHeight="65.0" prefWidth="203.0" GridPane.rowIndex="1">
+                                    <children>
+                                        <ChoiceBox fx:id="choicebox_ethnicity_preferences"
+                                                   onAction="#checkPreferencesPhysical" layoutY="28.0" prefHeight="37.0"
+                                                   prefWidth="203.0" style="-fx-background-radius: 50;"/>
+                                        <Label text="Ethnicity">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <children>
+                                        <ChoiceBox fx:id="hair_length_choicebox_preferences"
+                                                   onAction="#checkPreferencesPhysical" layoutY="28.0" prefHeight="37.0"
+                                                   prefWidth="203.0" style="-fx-background-radius: 50;"/>
+                                        <Label text="Hair length">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane GridPane.columnIndex="2">
+                                    <children>
+                                        <ChoiceBox fx:id="color_of_hair_choicebox_preferences"
+                                                   onAction="#checkPreferencesPhysical" layoutY="28.0" prefHeight="37.0"
+                                                   prefWidth="203.0" style="-fx-background-radius: 50;"/>
+                                        <Label text="Color of hair">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                    <children>
+                                        <ChoiceBox fx:id="sex_choicebox_preferences"
+                                                   onAction="#checkPreferencesPhysical" layoutY="28.0" prefHeight="37.0"
+                                                   prefWidth="203.0" style="-fx-background-radius: 50;"/>
+                                        <Label prefHeight="27.0" prefWidth="114.0" text="Sex">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </GridPane>
+                        <GridPane fx:id="grid_passions_preferences" layoutX="20.0" layoutY="20.0" prefHeight="258.0"
+                                  prefWidth="550.0" visible="false">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="152.0" minHeight="10.0" prefHeight="112.0"
+                                                vgrow="SOMETIMES"/>
+                                <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="146.0"
+                                                vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <Pane>
+                                    <children>
+                                        <ChoiceBox fx:id="religion_choicebox_preferences"
+                                                   onAction="#checkPreferencesReligion" layoutY="28.0" prefHeight="37.0"
+                                                   prefWidth="203.0" style="-fx-background-radius: 50;"/>
+                                        <Label text="Religion">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane GridPane.columnIndex="1">
+                                    <children>
+                                        <Label layoutY="-9.0" text="Age">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="textfield_age_preferences"
+                                                   onKeyReleased="#checkPreferencesOther" alignment="CENTER"
+                                                   layoutY="24.0" prefHeight="46.0" prefWidth="192.0"
+                                                   style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50;">
+                                            <font>
+                                                <Font size="16.0"/>
+                                            </font>
+                                            <padding>
+                                                <Insets bottom="10.0" top="10.0"/>
+                                            </padding>
+                                        </TextField>
+                                    </children>
+                                </Pane>
+                                <Pane GridPane.rowIndex="1">
+                                    <children>
+                                        <Label text="Size">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="textfield_size_preferences"
+                                                   onKeyReleased="#checkPreferencesOther" alignment="CENTER"
+                                                   layoutY="33.0" prefHeight="46.0" prefWidth="192.0"
+                                                   style="-fx-border-color: gray; -fx-background-color: rgba(255,255,255,0.7); -fx-background-radius: 50; -fx-border-radius: 50;">
+                                            <font>
+                                                <Font size="16.0"/>
+                                            </font>
+                                            <padding>
+                                                <Insets bottom="10.0" top="10.0"/>
+                                            </padding>
+                                        </TextField>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </GridPane>
+                        <GridPane fx:id="grid_passions_preferences1" prefHeight="258.0" prefWidth="550.0"
+                                  visible="false">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="152.0" minHeight="10.0" prefHeight="112.0"
+                                                vgrow="SOMETIMES"/>
+                                <RowConstraints maxHeight="146.0" minHeight="10.0" prefHeight="146.0"
+                                                vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <Pane>
+                                    <children>
+                                        <ChoiceBox fx:id="religion_choicebox_preferences1" layoutY="28.0"
+                                                   prefHeight="37.0" prefWidth="203.0"
+                                                   style="-fx-background-radius: 50;"/>
+                                        <Label text="Religion">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane GridPane.columnIndex="1">
+                                    <children>
+                                        <CheckComboBox fx:id="video_games_checkcombobox_preferences" layoutY="27.0"
+                                                       prefHeight="37.0" prefWidth="203.0"/>
+                                        <Label text="Video games">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                                <Pane GridPane.rowIndex="1">
+                                    <children>
+                                        <CheckComboBox fx:id="miscellanious_checkcombobox_preferences" layoutY="27.0"
+                                                       prefHeight="37.0" prefWidth="203.0"
+                                                       style="-fx-background-radius: 50;"/>
+                                        <Label text="Miscellaneous">
+                                            <font>
+                                                <Font size="18.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </GridPane>
+                    </children>
+                </Pane>
+            </children>
+        </Pane>
+        <Pane prefHeight="699.0" prefWidth="228.0"
+              style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 0.0% 100.0%, #003eb2 0.0%, #8c00ff 100.0%);"
+              stylesheets="@style.css">
+            <children>
+                <ImageView fitHeight="199.0" fitWidth="199.0" layoutY="44.0" preserveRatio="true">
+                    <image>
+                        <Image url="@logo_image.png"/>
+                    </image>
+                </ImageView>
+                <VBox layoutY="278.0" prefHeight="407.0" prefWidth="228.0">
+                    <children>
+                        <Pane fx:id="dashboard_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                              minWidth="-Infinity" onMouseClicked="#change_scene_to_page_dashboard"
+                              onMouseEntered="#change_background_color" onMouseExited="#unselectNavigation"
+                              prefHeight="69.0" prefWidth="228.0">
+                            <children>
+                                <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0"
+                                           pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@lanalyse-des-donnees.png"/>
+                                    </image>
+                                </ImageView>
+                                <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                      text="Dashboard"/>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="profile_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                              minWidth="-Infinity" onMouseClicked="#change_scene_to_new_profile"
+                              onMouseEntered="#change_background_color" onMouseExited="#unselectNavigation"
+                              prefHeight="69.0" prefWidth="228.0">
+                            <children>
+                                <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0"
+                                           pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@profil.png"/>
+                                    </image>
+                                </ImageView>
+                                <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                      text="New profile"/>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="search_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                              minWidth="-Infinity" onMouseClicked="#change_scene_to_page_search"
+                              onMouseEntered="#change_background_color" onMouseExited="#unselectNavigation"
+                              prefHeight="69.0" prefWidth="228.0">
+                            <children>
+                                <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0"
+                                           pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@seo.png"/>
+                                    </image>
+                                </ImageView>
+                                <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                      text="Search"/>
+                            </children>
+                        </Pane>
+                        <Pane fx:id="calendar_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                              minWidth="-Infinity" onMouseClicked="#change_scene_to_page_calendar"
+                              onMouseEntered="#change_background_color" onMouseExited="#unselectNavigation"
+                              prefHeight="69.0" prefWidth="228.0">
+                            <children>
+                                <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0"
+                                           pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@calendrier.png"/>
+                                    </image>
+                                </ImageView>
+                                <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                      text="Calendar"/>
+                            </children>
+                        </Pane>
+                    </children>
+                </VBox>
+            </children>
+        </Pane>
+    </children>
 </AnchorPane>

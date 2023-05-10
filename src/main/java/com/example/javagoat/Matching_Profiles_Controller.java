@@ -177,8 +177,8 @@ public class Matching_Profiles_Controller {
                 lastNameList.get(i).setText(p.getIdentity().getLastname());
                 circleList.get(i).setFill(new ImagePattern(new Image(p.getImageView())));
 
-                labelBlueList.get(i).setText(Math.round(100 - (100 * profile.getDistance(p) / 51.4669)) + "%");
-                labelRedList.get(i).setText(Math.round(100 - (100 * p.getDistance(profile) / 51.4669)) + "%");
+                labelBlueList.get(i).setText(Math.round(100 - (100 * profile.getDistance(p) / 80)) + "%");
+                labelRedList.get(i).setText(Math.round(100 - (100 * p.getDistance(profile) / 80)) + "%");
 
                 i++;
             }

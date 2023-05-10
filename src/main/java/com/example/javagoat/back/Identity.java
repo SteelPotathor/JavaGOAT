@@ -19,7 +19,8 @@ public class Identity extends Biology implements Serializable, Cloneable {
     }
 
     // Random Identity
-    public Identity() {}
+    public Identity() {
+    }
 
     public void setRandomIdentity() {
         this.setRandomBiology();
@@ -67,16 +68,14 @@ public class Identity extends Biology implements Serializable, Cloneable {
     }
 
 
-
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Identity{");
-        sb.append("lastname='").append(lastname).append('\'');
-        sb.append(", firstname='").append(firstname).append('\'');
-        sb.append(", noId=").append(noId);
-        sb.append(super.toString());
-        sb.append('}');
-        return sb.toString();
+        String sb = "Identity{" + "lastname='" + lastname + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", noId=" + noId +
+                super.toString() +
+                '}';
+        return sb;
     }
 
 }

@@ -140,20 +140,19 @@ public class ProfileTableViewHistoric {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("ProfileTableViewHistoric{");
-        sb.append("id=").append(id);
-        sb.append(", imageView=").append(imageView);
-        sb.append(", firstname='").append(firstname).append('\'');
-        sb.append(", lastname='").append(lastname).append('\'');
-        sb.append(", age=").append(age);
-        sb.append(", gender='").append(gender).append('\'');
-        sb.append(", actions=").append(actions);
-        sb.append(", positiveRate=").append(positiveRate);
-        sb.append(", negativeRate=").append(negativeRate);
-        sb.append(", voted=").append(voted);
-        sb.append(", thumbsUp=").append(thumbsUp);
-        sb.append(", thumbsDown=").append(thumbsDown);
-        sb.append('}');
-        return sb.toString();
+        String sb = "ProfileTableViewHistoric{" + "id=" + id +
+                ", imageView=" + imageView +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", age=" + age +
+                ", gender='" + gender + '\'' +
+                ", actions=" + actions +
+                ", positiveRate=" + positiveRate +
+                ", negativeRate=" + negativeRate +
+                ", voted=" + voted +
+                ", thumbsUp=" + thumbsUp +
+                ", thumbsDown=" + thumbsDown +
+                '}';
+        return sb;
     }
 }

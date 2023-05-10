@@ -48,7 +48,8 @@ public class Biology implements Serializable, Cloneable {
     }
 
     // Random Biology
-    public Biology() {}
+    public Biology() {
+    }
 
     public void setRandomBiology() {
         Random random = new Random();
@@ -114,12 +115,11 @@ public class Biology implements Serializable, Cloneable {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Biology{");
-        sb.append("age=").append(age);
-        sb.append(", Bsex=").append(Bsex);
-        sb.append(", Bethnicity=").append(Bethnicity);
-        sb.append(", qi=").append(qi);
-        sb.append('}');
-        return sb.toString();
+        String sb = "Biology{" + "age=" + age +
+                ", Bsex=" + Bsex +
+                ", Bethnicity=" + Bethnicity +
+                ", qi=" + qi +
+                '}';
+        return sb;
     }
 }

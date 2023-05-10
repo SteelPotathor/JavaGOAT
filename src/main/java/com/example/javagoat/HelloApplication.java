@@ -1,9 +1,6 @@
 package com.example.javagoat;
 
 import com.example.javagoat.back.CheckPriorityStart;
-import com.example.javagoat.back.ModelMatch;
-import com.example.javagoat.back.ModelProfile;
-import com.example.javagoat.back.Profile;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,7 +8,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
-import java.util.Date;
 
 public class HelloApplication extends Application {
 

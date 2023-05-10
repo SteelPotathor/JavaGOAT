@@ -4,7 +4,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.Serializable;
-import java.util.HashMap;
 
 
 public class Profile implements Serializable, Comparable<Profile>, Cloneable {
@@ -243,14 +242,13 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Profile{");
-        sb.append("identity=").append(identity);
-        sb.append(", physicalAttributes=").append(physicalAttributes);
-        sb.append(", lifeStyle=").append(lifeStyle);
-        sb.append(", preferences=").append(preferences);
-        sb.append(", passion=").append(passion);
-        sb.append('}');
-        return sb.toString();
+        String sb = "Profile{" + "identity=" + identity +
+                ", physicalAttributes=" + physicalAttributes +
+                ", lifeStyle=" + lifeStyle +
+                ", preferences=" + preferences +
+                ", passion=" + passion +
+                '}';
+        return sb;
     }
 
     @Override

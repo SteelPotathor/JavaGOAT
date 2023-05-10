@@ -22,11 +22,11 @@ public class ModelMatch implements Serializable {
         try {
             modelP = new ModelProfile();
             // check if the DS is not null because of static (we don't want to reset it)
-            if (modelP.getProfileHashMap().size()==0) {
+            if (modelP.getProfileHashMap().size() == 0) {
                 FileInputStream fileInputStream = new FileInputStream(this.ProfilePath);
                 BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
                 decoder = new XMLDecoder(bufferedInputStream);
-                modelP.profileHashMap = ((HashMap<Integer, Profile>) decoder.readObject());
+                ModelProfile.profileHashMap = ((HashMap<Integer, Profile>) decoder.readObject());
             }
             // check if the DS is not null because of static (we don't want to reset it)
             if (stockDistance == null) {
@@ -48,7 +48,7 @@ public class ModelMatch implements Serializable {
         // Add in every TreeSets the new distance between the profile 'p' and every other profiles contained in this HashMap
         for (int idProfile : stockDistance.keySet()) {
             TreeSet<TupleTreeSet> treeSetProfile = stockDistance.get(idProfile);
-            Profile profile = this.modelP.profileHashMap.get(idProfile);
+            Profile profile = ModelProfile.profileHashMap.get(idProfile);
             treeSetProfile.add(new TupleTreeSet(p.identity.getNoId(), profile, p));
         }
 
@@ -57,20 +57,20 @@ public class ModelMatch implements Serializable {
         TreeSet<TupleTreeSet> treeSetP = stockDistance.get(p.identity.getNoId());
 
         // Add in the new TreeSet every distance with other profiles
-        for (int idProfile : this.modelP.profileHashMap.keySet()) {
-            Profile profile = this.modelP.profileHashMap.get(idProfile);
+        for (int idProfile : ModelProfile.profileHashMap.keySet()) {
+            Profile profile = ModelProfile.profileHashMap.get(idProfile);
             treeSetP.add(new TupleTreeSet(idProfile, p, profile));
         }
 
         // Add the profile 'p' in the hashMap
-        this.modelP.profileHashMap.put(p.identity.getNoId(), p);
+        ModelProfile.profileHashMap.put(p.identity.getNoId(), p);
         modelN.addNotification(new Date(), "Profile created : " + p.identity.getLastname() + " " + p.identity.getFirstname());
         createCounter++;
     }
 
     public void removeProfile(Profile p) {
         // Remove the profile 'p' from the HashMap
-        this.modelP.profileHashMap.remove(p.identity.getNoId());
+        ModelProfile.profileHashMap.remove(p.identity.getNoId());
 
         // Remove the profile 'p' from every TreeSet
         for (int idProfile : stockDistance.keySet()) {
@@ -89,7 +89,7 @@ public class ModelMatch implements Serializable {
         for (int idProfile : stockDistance.keySet()) {
             if (idProfile != newProfile.getIdentity().getNoId()) {
                 TreeSet<TupleTreeSet> treeSetProfile = stockDistance.get(idProfile);
-                Profile profile = modelP.profileHashMap.get(idProfile);
+                Profile profile = ModelProfile.profileHashMap.get(idProfile);
                 treeSetProfile.remove(new TupleTreeSet(newProfile.identity.getNoId(), profile, oldProfile));
                 treeSetProfile.add(new TupleTreeSet(newProfile.identity.getNoId(), profile, newProfile));
             }
@@ -100,12 +100,12 @@ public class ModelMatch implements Serializable {
         TreeSet<TupleTreeSet> treeSetP = stockDistance.get(newProfile.identity.getNoId());
 
         // Add in the new TreeSet every distance with other profiles
-        for (int idProfile : modelP.profileHashMap.keySet()) {
-            Profile profile = modelP.profileHashMap.get(idProfile);
+        for (int idProfile : ModelProfile.profileHashMap.keySet()) {
+            Profile profile = ModelProfile.profileHashMap.get(idProfile);
             treeSetP.add(new TupleTreeSet(idProfile, newProfile, profile));
         }
-        modelP.profileHashMap.remove(oldProfile.getIdentity().getNoId());
-        modelP.profileHashMap.put(newProfile.getIdentity().getNoId(), newProfile);
+        ModelProfile.profileHashMap.remove(oldProfile.getIdentity().getNoId());
+        ModelProfile.profileHashMap.put(newProfile.getIdentity().getNoId(), newProfile);
 
         modelN.addNotification(new Date(), "Profile edited : " + newProfile.identity.getLastname() + " " + newProfile.identity.getFirstname());
     }
@@ -113,7 +113,7 @@ public class ModelMatch implements Serializable {
     public HashMap<Profile, Integer> getKNN(int noProfile, int howMany) {
         // Get the treemap of the profile 'noProfile'
         TreeSet<TupleTreeSet> treeSetD = stockDistance.get(noProfile);
-        HashMap<Integer, Date> hashMapH = modelP.profileHashMap.get(noProfile).getModelHisto().getStockHisto();
+        HashMap<Integer, Date> hashMapH = ModelProfile.profileHashMap.get(noProfile).getModelHisto().getStockHisto();
 
         // Set an iterator to get 'howMany' first elements in the treemap (and an Arraylist to stock the results)
         // Obtains the nearest profiles in the ArrayList
@@ -123,12 +123,12 @@ public class ModelMatch implements Serializable {
 
         while (i < howMany && itr.hasNext()) {
             TupleTreeSet t = itr.next();
-            if ((hashMapH == null || !hashMapH.containsKey(t.id)) && t.id != noProfile && modelP.profileHashMap.get(t.id).getPreferences().getBiology().getBsex() == modelP.getProfileHashMap().get(noProfile).getIdentity().getBsex()) {
-                HashSet<Passion.miscellaneous> PMprofile = modelP.profileHashMap.get(noProfile).getPassion().getPassionM();
-                HashSet<Passion.video_games> PVGprofile = modelP.profileHashMap.get(noProfile).getPassion().getPassionVG();
-                int counter = modelP.profileHashMap.get(t.id).getPassion().getPassionM().stream().filter(PMprofile::contains).toArray().length;
-                counter += modelP.profileHashMap.get(t.id).getPassion().getPassionVG().stream().filter(PVGprofile::contains).toArray().length;
-                KNNProfiles.put(modelP.profileHashMap.get(t.id), counter);
+            if ((hashMapH == null || !hashMapH.containsKey(t.id)) && t.id != noProfile && ModelProfile.profileHashMap.get(t.id).getPreferences().getBiology().getBsex() == modelP.getProfileHashMap().get(noProfile).getIdentity().getBsex()) {
+                HashSet<Passion.miscellaneous> PMprofile = ModelProfile.profileHashMap.get(noProfile).getPassion().getPassionM();
+                HashSet<Passion.video_games> PVGprofile = ModelProfile.profileHashMap.get(noProfile).getPassion().getPassionVG();
+                int counter = ModelProfile.profileHashMap.get(t.id).getPassion().getPassionM().stream().filter(PMprofile::contains).toArray().length;
+                counter += ModelProfile.profileHashMap.get(t.id).getPassion().getPassionVG().stream().filter(PVGprofile::contains).toArray().length;
+                KNNProfiles.put(ModelProfile.profileHashMap.get(t.id), counter);
                 i++;
             }
 
@@ -195,8 +195,8 @@ public class ModelMatch implements Serializable {
     }
 
     public String toString() {
-        String s="";
-        for (Integer i: stockDistance.keySet()) {
+        String s = "";
+        for (Integer i : stockDistance.keySet()) {
             s += i + " : " + stockDistance.get(i);
         }
         return s;

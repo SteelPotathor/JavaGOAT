@@ -18,14 +18,14 @@ public class ModelProfile implements Serializable {
 
     public Set<String> getAllLastName() {
         Set<String> set = new HashSet<>();
-        set.addAll(this.profileHashMap.values().stream()
+        set.addAll(profileHashMap.values().stream()
                 .map(profile -> profile.getIdentity().getLastname()).toList());
         return set;
     }
 
     public Set<String> getAllFirstName() {
         Set<String> set = new HashSet<>();
-        set.addAll(this.profileHashMap.values().stream()
+        set.addAll(profileHashMap.values().stream()
                 .map(profile -> profile.getIdentity().getFirstname()).toList());
         return set;
     }
@@ -40,7 +40,7 @@ public class ModelProfile implements Serializable {
     }
 
     public Set<Profile> suggestion(String firstname, String lastname) {
-        Set<Profile> set = this.profileHashMap.values().stream()
+        Set<Profile> set = profileHashMap.values().stream()
                 .filter(profile -> profile.identity.firstname.toUpperCase().startsWith(firstname.toUpperCase())
                         && profile.identity.lastname.toUpperCase().startsWith(lastname.toUpperCase()))
                 .collect(Collectors.toSet());
@@ -48,7 +48,7 @@ public class ModelProfile implements Serializable {
     }
 
     public Set<Profile> searchProfile(String firstname, String lastname, int minSize, int maxSize, int minAge, int maxAge, List<String> hairType, List<String> hairColor, List<String> ethnicity, List<String> bodybuild, List<String> sex) {
-        Set<Profile> set = this.profileHashMap.values().stream()
+        Set<Profile> set = profileHashMap.values().stream()
                 .filter(profile -> profile.identity.firstname.toUpperCase().startsWith(firstname.toUpperCase())
                         && profile.identity.lastname.toUpperCase().startsWith(lastname.toUpperCase())
                         && profile.physicalAttributes.size >= minSize
@@ -120,7 +120,7 @@ public class ModelProfile implements Serializable {
     }
 
     public void setProfileHashMap(HashMap<Integer, Profile> profileHashMap) {
-        this.profileHashMap = profileHashMap;
+        ModelProfile.profileHashMap = profileHashMap;
     }
 
     @Override

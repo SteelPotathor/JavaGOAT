@@ -20,7 +20,8 @@ public class Preferences implements Serializable, Cloneable {
     }
 
     // Random Preferences
-    public Preferences() {}
+    public Preferences() {
+    }
 
     public void setRandomPreferences() {
         this.physicalAttributes = new PhysicalAttributes();
@@ -70,11 +71,10 @@ public class Preferences implements Serializable, Cloneable {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Preferences{");
-        sb.append("physicalAttributes=").append(physicalAttributes);
-        sb.append(", biology=").append(biology);
-        sb.append(", lifestyle=").append(lifestyle);
-        sb.append('}');
-        return sb.toString();
+        String sb = "Preferences{" + "physicalAttributes=" + physicalAttributes +
+                ", biology=" + biology +
+                ", lifestyle=" + lifestyle +
+                '}';
+        return sb;
     }
 }
