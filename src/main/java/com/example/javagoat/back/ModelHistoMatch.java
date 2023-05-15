@@ -6,13 +6,19 @@ import java.util.HashMap;
 
 public class ModelHistoMatch implements Serializable {
 
+    public static int matchCount = 0;
     public HashMap<Integer, Date> stockHisto = new HashMap<>();
-
     public ModelNotification modelNotification = new ModelNotification();
 
-    public static int matchCount = 0;
-
     public ModelHistoMatch() {
+    }
+
+    public static int getMatchCount() {
+        return matchCount;
+    }
+
+    public static void setMatchCount(int matchCount) {
+        ModelHistoMatch.matchCount = matchCount;
     }
 
     public void addMatch(Profile p1, Profile p2) {
@@ -41,14 +47,6 @@ public class ModelHistoMatch implements Serializable {
 
     public void setModelNotification(ModelNotification modelNotification) {
         this.modelNotification = modelNotification;
-    }
-
-    public static int getMatchCount() {
-        return matchCount;
-    }
-
-    public static void setMatchCount(int matchCount) {
-        ModelHistoMatch.matchCount = matchCount;
     }
 
     @Override

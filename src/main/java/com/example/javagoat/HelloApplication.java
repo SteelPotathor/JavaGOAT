@@ -11,6 +11,12 @@ import java.io.IOException;
 
 public class HelloApplication extends Application {
 
+    public static void main(String[] args) {
+        CheckPriorityStart checkPriorityStart = new CheckPriorityStart();
+        checkPriorityStart.initPriority();
+        launch();
+    }
+
     @Override
     public void start(Stage stage) throws IOException {
         try {
@@ -25,12 +31,5 @@ public class HelloApplication extends Application {
             System.out.println("Error : the application can't be launched");
             System.exit(0);
         }
-    }
-
-
-    public static void main(String[] args) {
-        CheckPriorityStart checkPriorityStart = new CheckPriorityStart();
-        checkPriorityStart.initPriority();
-        launch();
     }
 }

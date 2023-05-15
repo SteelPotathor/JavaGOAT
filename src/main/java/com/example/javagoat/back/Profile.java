@@ -220,6 +220,10 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
         this.positif = positif;
     }
 
+    public void setPositif(double positif) {
+        this.positif = positif;
+    }
+
     public double getTotal() {
         return total;
     }
@@ -228,16 +232,12 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
         this.total = total;
     }
 
-    public double getRatio() {
-        return this.total == 0 ? 0 : this.positif / this.total * 100;
-    }
-
-    public void setPositif(double positif) {
-        this.positif = positif;
-    }
-
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public double getRatio() {
+        return this.total == 0 ? 0 : this.positif / this.total * 100;
     }
 
     @Override

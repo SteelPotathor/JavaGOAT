@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class Identity extends Biology implements Serializable, Cloneable {
 
+    public static int currentMembers = 0;
     public String lastname;
     public String firstname;
     public int noId;
-    public static int currentMembers = 0;
 
 
     // Customised Identity
@@ -20,6 +20,14 @@ public class Identity extends Biology implements Serializable, Cloneable {
 
     // Random Identity
     public Identity() {
+    }
+
+    public static int getCurrentMembers() {
+        return currentMembers;
+    }
+
+    public static void setCurrentMembers(int currentMembers) {
+        Identity.currentMembers = currentMembers;
     }
 
     public void setRandomIdentity() {
@@ -39,34 +47,25 @@ public class Identity extends Biology implements Serializable, Cloneable {
         return lastname;
     }
 
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public int getNoId() {
-        return noId;
-    }
-
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public String getFirstname() {
+        return firstname;
     }
 
     public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
 
+    public int getNoId() {
+        return noId;
+    }
+
     public void setNoId(int noId) {
         this.noId = noId;
     }
-
-    public static int getCurrentMembers() {
-        return currentMembers;
-    }
-
-    public static void setCurrentMembers(int currentMembers) {
-        Identity.currentMembers = currentMembers;
-    }
-
 
     @Override
     public String toString() {

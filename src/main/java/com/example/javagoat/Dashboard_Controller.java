@@ -34,19 +34,8 @@ import static com.example.javagoat.back.ModelHistoMatch.getMatchCount;
 
 public class Dashboard_Controller {
 
-    ModelMatch modelMatch = new ModelMatch();
-
-    ModelNotification modelNotification = new ModelNotification();
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
-
-    @FXML
-    private Stage stage;
-    @FXML
-    private Scene scene;
-    @FXML
-    private Parent parent;
-    @FXML
-    private Pane coucoumike;
+    private static int click = 0;
+    private final int total = 60;
     @FXML
     public TableView<ProfileTableView> tableView;
     @FXML
@@ -66,14 +55,6 @@ public class Dashboard_Controller {
     @FXML
     public ListView<String> list_view_notification;
     @FXML
-    private Pane dashboard_pane;
-    @FXML
-    private Pane profile_pane;
-    @FXML
-    private Pane search_pane;
-    @FXML
-    private Pane calendar_pane;
-    @FXML
     public Pane first_stat_box;
     @FXML
     public Pane second_stat_box;
@@ -82,6 +63,27 @@ public class Dashboard_Controller {
     @FXML
     public Pane fourth_stat_box;
     @FXML
+    public TitledPane notificationsBox;
+    ModelMatch modelMatch = new ModelMatch();
+    ModelNotification modelNotification = new ModelNotification();
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+    @FXML
+    private Stage stage;
+    @FXML
+    private Scene scene;
+    @FXML
+    private Parent parent;
+    @FXML
+    private Pane coucoumike;
+    @FXML
+    private Pane dashboard_pane;
+    @FXML
+    private Pane profile_pane;
+    @FXML
+    private Pane search_pane;
+    @FXML
+    private Pane calendar_pane;
+    @FXML
     private Label label_today_matches;
     @FXML
     private Label label_total_profiles;
@@ -89,13 +91,6 @@ public class Dashboard_Controller {
     private Label label_today_new_profiles;
     @FXML
     private Label label_today_events;
-    @FXML
-    public TitledPane notificationsBox;
-
-    private static int click = 0;
-
-    private final int total = 60;
-
 
     @FXML
     void initialize() throws IOException {

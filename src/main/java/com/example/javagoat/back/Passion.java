@@ -5,11 +5,61 @@ import java.util.*;
 
 public class Passion implements Serializable, Cloneable {
 
+    private static final Random random = new Random();
     public HashSet<video_games> passionVG = new HashSet<>();
     public HashSet<miscellaneous> passionM = new HashSet<>();
 
-    private static final Random random = new Random();
 
+    // Customised Passion -> Add Profile
+    public Passion(HashSet<video_games> pVG, HashSet<miscellaneous> pM) {
+        this.passionVG = pVG;
+        this.passionM = pM;
+    }
+
+    // Random Passion
+    public Passion() {
+    }
+
+    public void setRandomPassion() {
+        while (this.passionVG.size() < random.nextInt(2, 6)) {
+            this.passionVG.add(video_games.randomVideoGame());
+        }
+        while (this.passionM.size() < random.nextInt(2, 6)) {
+            this.passionM.add(miscellaneous.randomMiscellaneous());
+        }
+    }
+
+    @Override
+    public Passion clone() throws CloneNotSupportedException {
+        Passion clone = (Passion) super.clone();
+        clone.passionVG = (HashSet<video_games>) passionVG.clone();
+        clone.passionM = (HashSet<miscellaneous>) passionM.clone();
+        return clone;
+    }
+
+    public HashSet<video_games> getPassionVG() {
+        return passionVG;
+    }
+
+    public void setPassionVG(HashSet<video_games> passionVG) {
+        this.passionVG = passionVG;
+    }
+
+    public HashSet<miscellaneous> getPassionM() {
+        return passionM;
+    }
+
+    public void setPassionM(HashSet<miscellaneous> passionM) {
+        this.passionM = passionM;
+    }
+
+    @Override
+    public String toString() {
+        String sb = "Passion{" + "passionVG=" + passionVG +
+                ", passionM=" + passionM +
+                '}';
+        return sb;
+    }
 
     public enum video_games {
         LEAGUE_OF_LEGENDS,
@@ -109,57 +159,6 @@ public class Passion implements Serializable, Cloneable {
         public static miscellaneous randomMiscellaneous() {
             return VALUES.get(random.nextInt(SIZE));
         }
-    }
-
-    // Customised Passion -> Add Profile
-    public Passion(HashSet<video_games> pVG, HashSet<miscellaneous> pM) {
-        this.passionVG = pVG;
-        this.passionM = pM;
-    }
-
-    // Random Passion
-    public Passion() {
-    }
-
-    public void setRandomPassion() {
-        while (this.passionVG.size() < random.nextInt(2, 6)) {
-            this.passionVG.add(video_games.randomVideoGame());
-        }
-        while (this.passionM.size() < random.nextInt(2, 6)) {
-            this.passionM.add(miscellaneous.randomMiscellaneous());
-        }
-    }
-
-    @Override
-    public Passion clone() throws CloneNotSupportedException {
-        Passion clone = (Passion) super.clone();
-        clone.passionVG = (HashSet<video_games>) passionVG.clone();
-        clone.passionM = (HashSet<miscellaneous>) passionM.clone();
-        return clone;
-    }
-
-    public HashSet<video_games> getPassionVG() {
-        return passionVG;
-    }
-
-    public void setPassionVG(HashSet<video_games> passionVG) {
-        this.passionVG = passionVG;
-    }
-
-    public HashSet<miscellaneous> getPassionM() {
-        return passionM;
-    }
-
-    public void setPassionM(HashSet<miscellaneous> passionM) {
-        this.passionM = passionM;
-    }
-
-    @Override
-    public String toString() {
-        String sb = "Passion{" + "passionVG=" + passionVG +
-                ", passionM=" + passionM +
-                '}';
-        return sb;
     }
 
 }

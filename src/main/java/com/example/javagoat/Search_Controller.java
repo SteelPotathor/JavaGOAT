@@ -45,8 +45,27 @@ import static com.example.javagoat.back.ModelProfile.profileHashMap;
 
 public class Search_Controller {
 
+    @FXML
+    public CheckComboBox<String> sexe_choice_box;
+    @FXML
+    public CheckComboBox<String> color_of_hair_choice_box;
+    @FXML
+    public CheckComboBox<String> type_of_hair_choice_box;
+    @FXML
+    public CheckComboBox<String> weight_choice_box;
+    @FXML
+    public CheckComboBox<String> ethnicity_choice_box;
     ModelMatch modelMatch = new ModelMatch();
-
+    @FXML
+    ObservableList<String> sexe = FXCollections.observableArrayList("Male", "Female");
+    @FXML
+    ObservableList<String> ethnicity = FXCollections.observableArrayList("WHITE", "BLACK", "ASIAN", "LATINO");
+    @FXML
+    ObservableList<String> color_of_hair = FXCollections.observableArrayList("BLONDE", "RED", "BRUNETTE", "BLACK");
+    @FXML
+    ObservableList<String> type_of_hair = FXCollections.observableArrayList("STRAIGHT", "WAVY", "CURLY");
+    @FXML
+    ObservableList<String> weight = FXCollections.observableArrayList("SKINNY", "MEDIUM", "OVERWEIGHT");
     @FXML
     private Stage stage;
     @FXML
@@ -83,31 +102,6 @@ public class Search_Controller {
     private TextField first_name_text_field;
     @FXML
     private TextField last_name_text_field;
-
-
-    @FXML
-    ObservableList<String> sexe = FXCollections.observableArrayList("Male", "Female");
-    @FXML
-    ObservableList<String> ethnicity = FXCollections.observableArrayList("WHITE", "BLACK", "ASIAN", "LATINO");
-    @FXML
-    ObservableList<String> color_of_hair = FXCollections.observableArrayList("BLONDE", "RED", "BRUNETTE", "BLACK");
-    @FXML
-    ObservableList<String> type_of_hair = FXCollections.observableArrayList("STRAIGHT", "WAVY", "CURLY");
-    @FXML
-    ObservableList<String> weight = FXCollections.observableArrayList("SKINNY", "MEDIUM", "OVERWEIGHT");
-
-    @FXML
-    public CheckComboBox<String> sexe_choice_box;
-    @FXML
-    public CheckComboBox<String> color_of_hair_choice_box;
-    @FXML
-    public CheckComboBox<String> type_of_hair_choice_box;
-    @FXML
-    public CheckComboBox<String> weight_choice_box;
-
-    @FXML
-    public CheckComboBox<String> ethnicity_choice_box;
-
     @FXML
     private boolean advanced_research_panel_is_open = false;
 

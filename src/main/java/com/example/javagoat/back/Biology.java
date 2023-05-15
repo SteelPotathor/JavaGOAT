@@ -15,30 +15,6 @@ public class Biology implements Serializable, Cloneable {
     public ethnicity Bethnicity;
     public int qi;
 
-    public enum sex {
-        MALE, FEMALE;
-        public static final Random random = new Random();
-        private static final List<sex> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
-        private static final int SIZE = VALUES.size();
-
-        public static sex randomSex() {
-            return VALUES.get(random.nextInt(SIZE));
-        }
-
-    }
-
-    public enum ethnicity {
-        WHITE, BLACK, ASIAN, LATINO;
-        public static final Random random = new Random();
-        private static final List<ethnicity> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
-        private static final int SIZE = VALUES.size();
-
-        public static ethnicity randomEthnicity() {
-            return VALUES.get(random.nextInt(SIZE));
-        }
-
-    }
-
     // Customised Biology -> Add Profile
     public Biology(int age, sex Bsex, ethnicity Bethnicity, int qi) {
         this.age = age;
@@ -85,12 +61,12 @@ public class Biology implements Serializable, Cloneable {
         return age;
     }
 
-    public sex getBsex() {
-        return Bsex;
-    }
-
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public sex getBsex() {
+        return Bsex;
     }
 
     public void setBsex(sex bsex) {
@@ -121,5 +97,29 @@ public class Biology implements Serializable, Cloneable {
                 ", qi=" + qi +
                 '}';
         return sb;
+    }
+
+    public enum sex {
+        MALE, FEMALE;
+        public static final Random random = new Random();
+        private static final List<sex> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
+        private static final int SIZE = VALUES.size();
+
+        public static sex randomSex() {
+            return VALUES.get(random.nextInt(SIZE));
+        }
+
+    }
+
+    public enum ethnicity {
+        WHITE, BLACK, ASIAN, LATINO;
+        public static final Random random = new Random();
+        private static final List<ethnicity> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
+        private static final int SIZE = VALUES.size();
+
+        public static ethnicity randomEthnicity() {
+            return VALUES.get(random.nextInt(SIZE));
+        }
+
     }
 }

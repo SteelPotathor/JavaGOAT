@@ -11,6 +11,8 @@ import static com.example.javagoat.back.ModelProfile.profileHashMap;
 
 public class ProfileTableViewHistoric {
 
+    public final ImageView thumbsUp = new ImageView(new Image("file:src/main/resources/com/example/javagoat/likeColor.png"));
+    public final ImageView thumbsDown = new ImageView(new Image("file:src/main/resources/com/example/javagoat/dislikeColor.png"));
     public int id;
     public ImageView imageView;
     public String firstname;
@@ -21,8 +23,6 @@ public class ProfileTableViewHistoric {
     public Pane positiveRate;
     public Pane negativeRate;
     public boolean voted = false;
-    public final ImageView thumbsUp = new ImageView(new Image("file:src/main/resources/com/example/javagoat/likeColor.png"));
-    public final ImageView thumbsDown = new ImageView(new Image("file:src/main/resources/com/example/javagoat/dislikeColor.png"));
 
     public ProfileTableViewHistoric(int id, ImageView imageView, String firstname, String lastname, int age, String gender) {
         this.id = id;
