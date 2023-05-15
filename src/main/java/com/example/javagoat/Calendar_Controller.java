@@ -111,104 +111,104 @@ public class Calendar_Controller {
         meetings.setInterval(LocalDate.of(2023, 5, 10));
         meetings.changeStartDate(LocalDate.of(2023, 5, 10));
         meetings.changeEndDate(LocalDate.of(2023, 5, 10));
-        meetings.changeStartTime(LocalTime.of(8,0));
-        meetings.changeEndTime(LocalTime.of(12,0));
+        meetings.changeStartTime(LocalTime.of(8, 0));
+        meetings.changeEndTime(LocalTime.of(12, 0));
         work.addEntry(meetings);
 
         Entry<String> meetings1 = new Entry<>("Meetings with Mr. Oxmaul");
         meetings1.setInterval(LocalDate.of(2023, 5, 11));
         meetings1.changeStartDate(LocalDate.of(2023, 5, 11));
         meetings1.changeEndDate(LocalDate.of(2023, 5, 11));
-        meetings1.changeStartTime(LocalTime.of(14,0));
-        meetings1.changeEndTime(LocalTime.of(15,0));
+        meetings1.changeStartTime(LocalTime.of(14, 0));
+        meetings1.changeEndTime(LocalTime.of(15, 0));
         work.addEntry(meetings1);
 
         Entry<String> meetings2 = new Entry<>("Meeting with colleagues");
         meetings2.setInterval(LocalDate.of(2023, 5, 12));
         meetings2.changeStartDate(LocalDate.of(2023, 5, 12));
         meetings2.changeEndDate(LocalDate.of(2023, 5, 12));
-        meetings2.changeStartTime(LocalTime.of(9,0));
-        meetings2.changeEndTime(LocalTime.of(10,0));
+        meetings2.changeStartTime(LocalTime.of(9, 0));
+        meetings2.changeEndTime(LocalTime.of(10, 0));
         work.addEntry(meetings2);
 
         Entry<String> meetings3 = new Entry<>("Meeting with Mr. Garcia-Gonzalez");
         meetings3.setInterval(LocalDate.of(2023, 5, 12));
         meetings3.changeStartDate(LocalDate.of(2023, 5, 12));
         meetings3.changeEndDate(LocalDate.of(2023, 5, 12));
-        meetings3.changeStartTime(LocalTime.of(16,0));
-        meetings3.changeEndTime(LocalTime.of(17,0));
+        meetings3.changeStartTime(LocalTime.of(16, 0));
+        meetings3.changeEndTime(LocalTime.of(17, 0));
         work.addEntry(meetings3);
 
         Entry<String> meetings4 = new Entry<>("Meeting with the chief");
         meetings4.setInterval(LocalDate.of(2023, 5, 15));
         meetings4.changeStartDate(LocalDate.of(2023, 5, 15));
         meetings4.changeEndDate(LocalDate.of(2023, 5, 15));
-        meetings4.changeStartTime(LocalTime.of(10,0));
-        meetings4.changeEndTime(LocalTime.of(13,0));
+        meetings4.changeStartTime(LocalTime.of(10, 0));
+        meetings4.changeEndTime(LocalTime.of(13, 0));
         work.addEntry(meetings4);
 
         Entry<String> meetings5 = new Entry<>("Training");
         meetings5.setInterval(LocalDate.of(2023, 5, 17));
         meetings5.changeStartDate(LocalDate.of(2023, 5, 17));
         meetings5.changeEndDate(LocalDate.of(2023, 5, 17));
-        meetings5.changeStartTime(LocalTime.of(8,30));
-        meetings5.changeEndTime(LocalTime.of(16,30));
+        meetings5.changeStartTime(LocalTime.of(8, 30));
+        meetings5.changeEndTime(LocalTime.of(16, 30));
         work.addEntry(meetings5);
 
         Entry<String> meetings6 = new Entry<>("Movie Marathon");
         meetings6.setInterval(LocalDate.of(2023, 5, 18));
         meetings6.changeStartDate(LocalDate.of(2023, 5, 18));
         meetings6.changeEndDate(LocalDate.of(2023, 5, 18));
-        meetings6.changeStartTime(LocalTime.of(9,30));
-        meetings6.changeEndTime(LocalTime.of(15,30));
+        meetings6.changeStartTime(LocalTime.of(9, 30));
+        meetings6.changeEndTime(LocalTime.of(15, 30));
         personal.addEntry(meetings6);
 
         Entry<String> meetings7 = new Entry<>("Training");
         meetings7.setInterval(LocalDate.of(2023, 5, 19));
         meetings7.changeStartDate(LocalDate.of(2023, 5, 19));
         meetings7.changeEndDate(LocalDate.of(2023, 5, 19));
-        meetings7.changeStartTime(LocalTime.of(8,30));
-        meetings7.changeEndTime(LocalTime.of(12,30));
+        meetings7.changeStartTime(LocalTime.of(8, 30));
+        meetings7.changeEndTime(LocalTime.of(12, 30));
         work.addEntry(meetings7);
 
         Entry<String> meetings8 = new Entry<>("Call with Miss. Greyrat");
         meetings8.setInterval(LocalDate.of(2023, 5, 22));
         meetings8.changeStartDate(LocalDate.of(2023, 5, 22));
         meetings8.changeEndDate(LocalDate.of(2023, 5, 22));
-        meetings8.changeStartTime(LocalTime.of(9,0));
-        meetings8.changeEndTime(LocalTime.of(10,0));
+        meetings8.changeStartTime(LocalTime.of(9, 0));
+        meetings8.changeEndTime(LocalTime.of(10, 0));
         work.addEntry(meetings8);
 
         Entry<String> meetings9 = new Entry<>("Meeting with colleagues");
         meetings9.setInterval(LocalDate.of(2023, 5, 23));
         meetings9.changeStartDate(LocalDate.of(2023, 5, 23));
         meetings9.changeEndDate(LocalDate.of(2023, 5, 23));
-        meetings9.changeStartTime(LocalTime.of(9,0));
-        meetings9.changeEndTime(LocalTime.of(10,0));
+        meetings9.changeStartTime(LocalTime.of(9, 0));
+        meetings9.changeEndTime(LocalTime.of(10, 0));
         work.addEntry(meetings9);
 
         Entry<String> meetings10 = new Entry<>("Meeting with Mr. Mike Razowski");
         meetings10.setInterval(LocalDate.of(2023, 5, 23));
         meetings10.changeStartDate(LocalDate.of(2023, 5, 23));
         meetings10.changeEndDate(LocalDate.of(2023, 5, 23));
-        meetings10.changeStartTime(LocalTime.of(16,0));
-        meetings10.changeEndTime(LocalTime.of(16,45));
+        meetings10.changeStartTime(LocalTime.of(16, 0));
+        meetings10.changeEndTime(LocalTime.of(16, 45));
         work.addEntry(meetings10);
 
         Entry<String> meetings11 = new Entry<>("Call with Miss. Weir");
         meetings11.setInterval(LocalDate.of(2023, 5, 10));
         meetings11.changeStartDate(LocalDate.of(2023, 5, 10));
         meetings11.changeEndDate(LocalDate.of(2023, 5, 10));
-        meetings11.changeStartTime(LocalTime.of(13,0));
-        meetings11.changeEndTime(LocalTime.of(14,30));
+        meetings11.changeStartTime(LocalTime.of(13, 0));
+        meetings11.changeEndTime(LocalTime.of(14, 30));
         work.addEntry(meetings11);
 
         Entry<String> meetings12 = new Entry<>("Rachel's birthday");
         meetings12.setInterval(LocalDate.of(2023, 5, 28));
         meetings12.changeStartDate(LocalDate.of(2023, 5, 28));
         meetings12.changeEndDate(LocalDate.of(2023, 5, 28));
-        meetings12.changeStartTime(LocalTime.of(14,0));
-        meetings12.changeEndTime(LocalTime.of(22,30));
+        meetings12.changeStartTime(LocalTime.of(14, 0));
+        meetings12.changeEndTime(LocalTime.of(22, 30));
         personal.addEntry(meetings12);
     }
 

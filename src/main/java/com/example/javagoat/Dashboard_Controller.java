@@ -45,7 +45,8 @@ public class Dashboard_Controller {
     private Scene scene;
     @FXML
     private Parent parent;
-
+    @FXML
+    private Pane coucoumike;
     @FXML
     public TableView<ProfileTableView> tableView;
     @FXML
@@ -104,6 +105,7 @@ public class Dashboard_Controller {
         fillTableView();
         fillNotifications();
         initStats();
+
         dashboard_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
     }
 
@@ -200,6 +202,12 @@ public class Dashboard_Controller {
         fourthAnimationText.play();
 
         new FadeInRightBig(notificationsBox).play();
+        coucoumike.setVisible(false);
+        PauseTransition imagemike = new PauseTransition(Duration.seconds(4));
+        imagemike.setOnFinished(e -> coucoumike.setVisible(true));
+        imagemike.play();
+
+
     }
 
     @FXML
@@ -239,7 +247,7 @@ public class Dashboard_Controller {
     void fillNotifications() {
         list_view_notification.getItems().clear();
         int i = 0;
-        Iterator<Map.Entry<Date, String>> iterator = modelNotification.stockNotification.entrySet().iterator();
+        Iterator<Map.Entry<Date, String>> iterator = ModelNotification.stockNotification.entrySet().iterator();
         while (i < 30 && iterator.hasNext()) {
             Map.Entry entry = iterator.next();
             list_view_notification.getItems().add(simpleDateFormat.format(entry.getKey()) + " : " + entry.getValue().toString());

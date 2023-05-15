@@ -1,9 +1,5 @@
 package com.example.javagoat.back;
 
-import java.beans.XMLEncoder;
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
@@ -86,10 +82,9 @@ public class ModelHistoMatch implements Serializable {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("ModelHistoMatch{");
-        sb.append("stockHisto=").append(stockHisto);
-        sb.append('}');
-        return sb.toString();
+        String sb = "ModelHistoMatch{" + "stockHisto=" + stockHisto +
+                '}';
+        return sb;
     }
 
 

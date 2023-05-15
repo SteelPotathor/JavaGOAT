@@ -114,7 +114,7 @@ public class ModelProfile implements Serializable {
     }
 
     public void setProfileHashMap(HashMap<Integer, Profile> profileHashMap) {
-        this.profileHashMap = profileHashMap;
+        ModelProfile.profileHashMap = profileHashMap;
     }
 
     @Override

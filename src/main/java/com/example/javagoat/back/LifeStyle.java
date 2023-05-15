@@ -119,7 +119,8 @@ public class LifeStyle implements Serializable, Cloneable {
     }
 
     // Random LifeStyle
-    public LifeStyle() {}
+    public LifeStyle() {
+    }
 
     public void setRandomLifeStyle() {
         setLSsmoker(smoker.randomLSsmoker());
@@ -185,14 +186,13 @@ public class LifeStyle implements Serializable, Cloneable {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("LifeStyle{");
-        sb.append("LSsmoker=").append(LSsmoker);
-        sb.append(", LSathlete=").append(LSathlete);
-        sb.append(", LSfeed=").append(LSfeed);
-        sb.append(", LSbodyBuild=").append(LSbodyBuild);
-        sb.append(", LSreligion=").append(LSreligion);
-        sb.append(", LSalcohol=").append(LSalcohol);
-        sb.append('}');
-        return sb.toString();
+        String sb = "LifeStyle{" + "LSsmoker=" + LSsmoker +
+                ", LSathlete=" + LSathlete +
+                ", LSfeed=" + LSfeed +
+                ", LSbodyBuild=" + LSbodyBuild +
+                ", LSreligion=" + LSreligion +
+                ", LSalcohol=" + LSalcohol +
+                '}';
+        return sb;
     }
 }

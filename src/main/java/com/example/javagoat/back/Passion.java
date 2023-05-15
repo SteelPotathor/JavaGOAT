@@ -122,10 +122,10 @@ public class Passion implements Serializable, Cloneable {
     }
 
     public void setRandomPassion() {
-        while (this.passionVG.size() < random.nextInt(2,6)) {
+        while (this.passionVG.size() < random.nextInt(2, 6)) {
             this.passionVG.add(video_games.randomVideoGame());
         }
-        while (this.passionM.size() < random.nextInt(2,6)) {
+        while (this.passionM.size() < random.nextInt(2, 6)) {
             this.passionM.add(miscellaneous.randomMiscellaneous());
         }
     }
@@ -156,11 +156,10 @@ public class Passion implements Serializable, Cloneable {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Passion{");
-        sb.append("passionVG=").append(passionVG);
-        sb.append(", passionM=").append(passionM);
-        sb.append('}');
-        return sb.toString();
+        String sb = "Passion{" + "passionVG=" + passionVG +
+                ", passionM=" + passionM +
+                '}';
+        return sb;
     }
 
 }
