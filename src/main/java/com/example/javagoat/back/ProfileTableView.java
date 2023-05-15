@@ -37,9 +37,9 @@ public class ProfileTableView {
         Circle circle;
         switch (significance) {
             case 1 -> circle = new Circle(15, javafx.scene.paint.Color.GREEN);
-            case 2 -> circle = new Circle(10, javafx.scene.paint.Color.ORANGE);
-            case 3 -> circle = new Circle(10, javafx.scene.paint.Color.RED);
-            default -> circle = new Circle(10, javafx.scene.paint.Color.BLACK);
+            case 2 -> circle = new Circle(15, javafx.scene.paint.Color.ORANGE);
+            case 3 -> circle = new Circle(15, javafx.scene.paint.Color.RED);
+            default -> circle = new Circle(15, javafx.scene.paint.Color.BLACK);
         }
         circle.setStroke(javafx.scene.paint.Color.BLACK);
         this.priority = new HBox(region1Prio, circle, region2Prio);

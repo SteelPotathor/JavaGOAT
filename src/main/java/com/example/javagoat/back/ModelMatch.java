@@ -1,5 +1,7 @@
 package com.example.javagoat.back;
 
+import animatefx.animation.SlideOutDown;
+
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
@@ -113,7 +115,7 @@ public class ModelMatch implements Serializable {
     public HashMap<Profile, Integer> getKNN(int noProfile, int howMany) {
         // Get the treemap of the profile 'noProfile'
         TreeSet<TupleTreeSet> treeSetD = stockDistance.get(noProfile);
-        HashMap<Integer, Date> hashMapH = modelP.profileHashMap.get(noProfile).getModelHisto().getStockHisto();
+        HashMap<TupleHistoHashMap, Date> hashMapH = modelP.profileHashMap.get(noProfile).getModelHisto().getStockHisto();
 
         // Set an iterator to get 'howMany' first elements in the treemap (and an Arraylist to stock the results)
         // Obtains the nearest profiles in the ArrayList
@@ -122,18 +124,19 @@ public class ModelMatch implements Serializable {
         Iterator<TupleTreeSet> itr = treeSetD.iterator();
 
         while (i < howMany && itr.hasNext()) {
-            TupleTreeSet t = itr.next();
-            if ((hashMapH == null || !hashMapH.containsKey(t.id)) && t.id != noProfile && modelP.profileHashMap.get(t.id).getPreferences().getBiology().getBsex() == modelP.getProfileHashMap().get(noProfile).getIdentity().getBsex()) {
+            TupleTreeSet tupleTreeSet = itr.next();
+            if ((hashMapH == null || !hashMapH.containsKey(tupleTreeSet.getId()) && tupleTreeSet.getId() != noProfile && modelP.profileHashMap.get(tupleTreeSet.getId()).getPreferences().getBiology().getBsex() == modelP.getProfileHashMap().get(noProfile).getIdentity().getBsex())) {
                 HashSet<Passion.miscellaneous> PMprofile = modelP.profileHashMap.get(noProfile).getPassion().getPassionM();
                 HashSet<Passion.video_games> PVGprofile = modelP.profileHashMap.get(noProfile).getPassion().getPassionVG();
-                int counter = modelP.profileHashMap.get(t.id).getPassion().getPassionM().stream().filter(PMprofile::contains).toArray().length;
-                counter += modelP.profileHashMap.get(t.id).getPassion().getPassionVG().stream().filter(PVGprofile::contains).toArray().length;
-                KNNProfiles.put(modelP.profileHashMap.get(t.id), counter);
+                int counter = modelP.profileHashMap.get(tupleTreeSet.id).getPassion().getPassionM().stream().filter(PMprofile::contains).toArray().length;
+                counter += modelP.profileHashMap.get(tupleTreeSet.id).getPassion().getPassionVG().stream().filter(PVGprofile::contains).toArray().length;
+                KNNProfiles.put(modelP.profileHashMap.get(tupleTreeSet.id), counter);
+                System.out.println(tupleTreeSet.distance);
                 i++;
             }
 
         }
-
+        System.out.println(KNNProfiles);
         return KNNProfiles;
     }
 
@@ -194,12 +197,14 @@ public class ModelMatch implements Serializable {
         ModelMatch.createCounter = createCounter;
     }
 
+    @Override
     public String toString() {
-        String s="";
-        for (Integer i: stockDistance.keySet()) {
-            s += i + " : " + stockDistance.get(i);
-        }
-        return s;
+        final StringBuilder sb = new StringBuilder("ModelMatch{");
+        sb.append("modelP=").append(modelP);
+        sb.append(", modelN=").append(modelN);
+        sb.append(", DistancePath='").append(DistancePath).append('\'');
+        sb.append(", ProfilePath='").append(ProfilePath).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
-
 }

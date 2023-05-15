@@ -19,6 +19,18 @@ public class Launcher {
         modelNotification.addNotification(new Date(), "Bonjour");
         Launcher launcher = new Launcher(new ModelMatch());
 
+
+        ModelMatch modelMatch = new ModelMatch();
+        // create red
+        for (int i = 1; i < 250; i++) {
+            Profile profile = modelMatch.getModelP().getProfileHashMap().get(i);
+            profile.modelHisto.addMatch(modelMatch.getModelP().getProfileHashMap().get(i), modelMatch.getModelP().getProfileHashMap().get(i + 1));
+        }
+        // create orange
+        for (int i = 250; i < 270; i++) {
+            Profile profile = modelMatch.getModelP().getProfileHashMap().get(i);
+            profile.modelHisto.addMatch(modelMatch.getModelP().getProfileHashMap().get(i), modelMatch.getModelP().getProfileHashMap().get(i + 1), new Date(123, 5, 1));
+        }
         HashMap<Integer, TreeSet<TupleTreeSet>> map = launcher.modelM.getStockDistance();
 
         float min = 1000000000000.0F;
@@ -39,6 +51,8 @@ public class Launcher {
 
         System.out.println((min + max) / 2);
         System.out.println(max);
+
+
     }
 
 }

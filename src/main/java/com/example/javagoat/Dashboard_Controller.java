@@ -97,7 +97,7 @@ public class Dashboard_Controller {
 
 
     @FXML
-    void initialize() throws IOException {
+    void initialize() {
         click++;
         earlyAnimation(0.1);
         initTableView();

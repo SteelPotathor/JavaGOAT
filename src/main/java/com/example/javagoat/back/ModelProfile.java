@@ -12,22 +12,17 @@ public class ModelProfile implements Serializable {
     }
 
     public PriorityQueue<Profile> toPriorityQueue() {
-        PriorityQueue<Profile> priorityQueue = new PriorityQueue<>(profileHashMap.values());
-        return priorityQueue;
+        return new PriorityQueue<>(profileHashMap.values());
     }
 
     public Set<String> getAllLastName() {
-        Set<String> set = new HashSet<>();
-        set.addAll(this.profileHashMap.values().stream()
+        return new HashSet<>(profileHashMap.values().stream()
                 .map(profile -> profile.getIdentity().getLastname()).toList());
-        return set;
     }
 
     public Set<String> getAllFirstName() {
-        Set<String> set = new HashSet<>();
-        set.addAll(this.profileHashMap.values().stream()
+        return new HashSet<>(profileHashMap.values().stream()
                 .map(profile -> profile.getIdentity().getFirstname()).toList());
-        return set;
     }
 
 
@@ -40,15 +35,14 @@ public class ModelProfile implements Serializable {
     }
 
     public Set<Profile> suggestion(String firstname, String lastname) {
-        Set<Profile> set = this.profileHashMap.values().stream()
+        return profileHashMap.values().stream()
                 .filter(profile -> profile.identity.firstname.toUpperCase().startsWith(firstname.toUpperCase())
                         && profile.identity.lastname.toUpperCase().startsWith(lastname.toUpperCase()))
                 .collect(Collectors.toSet());
-        return set;
     }
 
     public Set<Profile> searchProfile(String firstname, String lastname, int minSize, int maxSize, int minAge, int maxAge, List<String> hairType, List<String> hairColor, List<String> ethnicity, List<String> bodybuild, List<String> sex) {
-        Set<Profile> set = this.profileHashMap.values().stream()
+        Set<Profile> set = profileHashMap.values().stream()
                 .filter(profile -> profile.identity.firstname.toUpperCase().startsWith(firstname.toUpperCase())
                         && profile.identity.lastname.toUpperCase().startsWith(lastname.toUpperCase())
                         && profile.physicalAttributes.size >= minSize
@@ -79,7 +73,7 @@ public class ModelProfile implements Serializable {
 
 
     public Set<Profile> searchHairType(List<String> hairType) {
-        List<String> hairTypeMAJ = hairType.stream().map(String::toUpperCase).collect(Collectors.toList());
+        List<String> hairTypeMAJ = hairType.stream().map(String::toUpperCase).toList();
         return profileHashMap.values().stream()
                 .filter(profile -> hairTypeMAJ.contains(String.valueOf(profile.physicalAttributes.PAhairType).toUpperCase()))
                 .collect(Collectors.toSet());
@@ -87,21 +81,21 @@ public class ModelProfile implements Serializable {
 
 
     public Set<Profile> searchHairColor(List<String> hairColor) {
-        List<String> hairColorMAJ = hairColor.stream().map(String::toUpperCase).collect(Collectors.toList());
+        List<String> hairColorMAJ = hairColor.stream().map(String::toUpperCase).toList();
         return profileHashMap.values().stream()
                 .filter(profile -> hairColorMAJ.contains(String.valueOf(profile.physicalAttributes.PAhairColor).toUpperCase()))
                 .collect(Collectors.toSet());
     }
 
     public Set<Profile> searchEthnicity(List<String> ethnicity) {
-        List<String> ethnicityMAJ = ethnicity.stream().map(String::toUpperCase).collect(Collectors.toList());
+        List<String> ethnicityMAJ = ethnicity.stream().map(String::toUpperCase).toList();
         return profileHashMap.values().stream()
                 .filter(profile -> ethnicityMAJ.contains(String.valueOf(profile.identity.getBethnicity()).toUpperCase()))
                 .collect(Collectors.toSet());
     }
 
     public Set<Profile> searchBodyBuild(List<String> bodyBuild) {
-        List<String> bodyBuildMAJ = bodyBuild.stream().map(String::toUpperCase).collect(Collectors.toList());
+        List<String> bodyBuildMAJ = bodyBuild.stream().map(String::toUpperCase).toList();
         return profileHashMap.values().stream()
                 .filter(profile -> bodyBuildMAJ.contains(String.valueOf(profile.lifeStyle.getLSbodyBuild()).toUpperCase()))
                 .collect(Collectors.toSet());

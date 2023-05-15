@@ -69,6 +69,4 @@ public class DistanceCalculator {
     public void setAttributesWeights(HashMap<String, Integer> attributesWeights) {
         this.attributesWeights = attributesWeights;
     }
-
-
 }

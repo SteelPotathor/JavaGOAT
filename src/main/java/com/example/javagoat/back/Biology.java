@@ -18,7 +18,7 @@ public class Biology implements Serializable, Cloneable {
     public enum sex {
         MALE, FEMALE;
         public static final Random random = new Random();
-        private static final List<sex> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
+        private static final List<sex> VALUES = List.of(values());
         private static final int SIZE = VALUES.size();
 
         public static sex randomSex() {
@@ -30,7 +30,7 @@ public class Biology implements Serializable, Cloneable {
     public enum ethnicity {
         WHITE, BLACK, ASIAN, LATINO;
         public static final Random random = new Random();
-        private static final List<ethnicity> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
+        private static final List<ethnicity> VALUES = List.of(values());
         private static final int SIZE = VALUES.size();
 
         public static ethnicity randomEthnicity() {
@@ -39,6 +39,9 @@ public class Biology implements Serializable, Cloneable {
 
     }
 
+    // Random Biology
+    public Biology() {}
+
     // Customised Biology -> Add Profile
     public Biology(int age, sex Bsex, ethnicity Bethnicity, int qi) {
         this.age = age;
@@ -46,9 +49,6 @@ public class Biology implements Serializable, Cloneable {
         this.Bethnicity = Bethnicity;
         this.qi = qi;
     }
-
-    // Random Biology
-    public Biology() {}
 
     public void setRandomBiology() {
         Random random = new Random();
@@ -69,11 +69,6 @@ public class Biology implements Serializable, Cloneable {
     public int gauss_law_simulation(int average, int standard_deviation) {
         int number = gauss_law_simulation_classic();
         return average + standard_deviation * number;
-    }
-
-    @Override
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone();
     }
 
     public String[] getRandomName() {
@@ -121,5 +116,10 @@ public class Biology implements Serializable, Cloneable {
         sb.append(", qi=").append(qi);
         sb.append('}');
         return sb.toString();
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

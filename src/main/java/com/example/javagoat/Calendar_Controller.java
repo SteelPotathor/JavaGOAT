@@ -91,6 +91,22 @@ public class Calendar_Controller {
         Calendar work = calendarSource.getCalendars().get(0);
         Calendar personal = calendarSource.getCalendars().get(1);
 
+        Entry<String> meetings16 = new Entry<>("BreakFast with Bob");
+        meetings16.setInterval(LocalDate.of(2023, 5, 9));
+        meetings16.changeStartDate(LocalDate.of(2023, 5, 9));
+        meetings16.changeEndDate(LocalDate.of(2023, 5, 9));
+        meetings16.changeStartTime(LocalTime.of(8,0));
+        meetings16.changeEndTime(LocalTime.of(9,30));
+        personal.addEntry(meetings16);
+
+        Entry<String> meetings15 = new Entry<>("Algorithm course");
+        meetings15.setInterval(LocalDate.of(2023, 5, 9));
+        meetings15.changeStartDate(LocalDate.of(2023, 5, 9));
+        meetings15.changeEndDate(LocalDate.of(2023, 5, 9));
+        meetings15.changeStartTime(LocalTime.of(16,0));
+        meetings15.changeEndTime(LocalTime.of(17,30));
+        work.addEntry(meetings15);
+
         Entry<String> meetings = new Entry<>("Meeting with Mr. Panzoli");
         meetings.setInterval(LocalDate.of(2023, 5, 10));
         meetings.changeStartDate(LocalDate.of(2023, 5, 10));

@@ -21,16 +21,20 @@ public class ProfileTableViewHistoric {
     public Pane positiveRate;
     public Pane negativeRate;
     public boolean voted = false;
+    public int vote;
     public final ImageView thumbsUp = new ImageView(new Image("file:src/main/resources/com/example/javagoat/likeColor.png"));
     public final ImageView thumbsDown = new ImageView(new Image("file:src/main/resources/com/example/javagoat/dislikeColor.png"));
 
-    public ProfileTableViewHistoric(int id, ImageView imageView, String firstname, String lastname, int age, String gender) {
+    public ProfileTableViewHistoric(int id, ImageView imageView, String firstname, String lastname, int age, String gender, boolean voted, int vote) {
         this.id = id;
         this.imageView = imageView;
         this.firstname = firstname;
         this.lastname = lastname;
         this.age = age;
         this.gender = gender;
+        this.voted = voted;
+        this.vote = vote;
+
         thumbsUp.setPreserveRatio(true);
         thumbsUp.setFitHeight(40);
         thumbsDown.setPreserveRatio(true);
@@ -138,6 +142,14 @@ public class ProfileTableViewHistoric {
         this.voted = voted;
     }
 
+    public int getVote() {
+        return vote;
+    }
+
+    public void setVote(int vote) {
+        this.vote = vote;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("ProfileTableViewHistoric{");
@@ -151,6 +163,7 @@ public class ProfileTableViewHistoric {
         sb.append(", positiveRate=").append(positiveRate);
         sb.append(", negativeRate=").append(negativeRate);
         sb.append(", voted=").append(voted);
+        sb.append(", vote=").append(vote);
         sb.append(", thumbsUp=").append(thumbsUp);
         sb.append(", thumbsDown=").append(thumbsDown);
         sb.append('}');

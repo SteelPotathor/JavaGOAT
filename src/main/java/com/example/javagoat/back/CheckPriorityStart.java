@@ -2,17 +2,17 @@ package com.example.javagoat.back;
 
 import java.util.Date;
 
-public class CheckPriorityStart {
+import static com.example.javagoat.back.ModelProfile.profileHashMap;
 
-    public ModelMatch modelMatch = new ModelMatch();
+public class CheckPriorityStart {
 
     public void initPriority() {
         Date actualDate = new Date();
-        for (Integer key : ModelProfile.profileHashMap.keySet()) {
-            Profile profile = ModelProfile.profileHashMap.get(key);
+        for (Integer key : profileHashMap.keySet()) {
+            Profile profile = profileHashMap.get(key);
             Date aux = new Date(0, 1, 1); // Year => 1900, Month => 1, Day => 1
-            for (Integer id : profile.modelHisto.stockHisto.keySet()) {
-                Date date = profile.modelHisto.stockHisto.get(id);
+            for (TupleHistoHashMap tupleHistoHashMap : profile.modelHisto.stockHisto.keySet()) {
+                Date date = profile.modelHisto.stockHisto.get(tupleHistoHashMap);
                 // Determine the nearest date
                 if (date.after(aux)) {
                     aux = date;

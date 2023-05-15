@@ -129,6 +129,7 @@ public class Search_Controller {
 
     @FXML
     void initialize() {
+        System.out.println(modelMatch.getModelP().getProfileHashMap());
         early_animations();
         initAllCheckComboBox();
         setAgeTextField(20, 59);
