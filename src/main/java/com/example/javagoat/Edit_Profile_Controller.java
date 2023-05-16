@@ -145,10 +145,6 @@ public class Edit_Profile_Controller {
     @FXML
     private ChoiceBox<String> hair_length_choicebox_preferences;
     @FXML
-    private CheckComboBox<String> video_games_checkcombobox_preferences;
-    @FXML
-    private CheckComboBox<String> miscellanious_checkcombobox_preferences;
-    @FXML
     private ChoiceBox<String> sex_choicebox_preferences;
 
     //ALL THE BUTTONS
@@ -328,25 +324,18 @@ public class Edit_Profile_Controller {
     }
 
     private void initImage() {
-        Image image = new Image(getClass().getResource("profile_image.jpeg").toExternalForm(), false);
+        Image image = new Image(Objects.requireNonNull(getClass().getResource("profile_image.jpeg")).toExternalForm(), false);
         circle_profile_picture.setFill(new ImagePattern(image));
     }
 
     private void initAllPreferencesInfo() {
+        initAllPrefInfos(choicebox_ethnicity_preferences, element_ethnicity, Smoker_choicebox_preferences, element_smoker, alcohol_choicebox_preferences, element_alcohol, Athlete_choicebox_preferences, element_athlete, feed_choicebox_preferences, element_feed, bodybuild_choicebox_preferences, element_bodybuild, religion_choicebox_preferences, element_religion, color_of_hair_choicebox_preferences, element_hair_color, hair_type_choicebox_preferences, element_hair_type, hair_length_choicebox_preferences, element_hair_length, sex_choicebox_preferences, element_sex);
+    }
+
+    static void initAllPrefInfos(ChoiceBox<String> choicebox_ethnicity_preferences, ObservableList<String> element_ethnicity, ChoiceBox<String> smoker_choicebox_preferences, ObservableList<String> element_smoker, ChoiceBox<String> alcohol_choicebox_preferences, ObservableList<String> element_alcohol, ChoiceBox<String> athlete_choicebox_preferences, ObservableList<String> element_athlete, ChoiceBox<String> feed_choicebox_preferences, ObservableList<String> element_feed, ChoiceBox<String> bodybuild_choicebox_preferences, ObservableList<String> element_bodybuild, ChoiceBox<String> religion_choicebox_preferences, ObservableList<String> element_religion, ChoiceBox<String> color_of_hair_choicebox_preferences, ObservableList<String> element_hair_color, ChoiceBox<String> hair_type_choicebox_preferences, ObservableList<String> element_hair_type, ChoiceBox<String> hair_length_choicebox_preferences, ObservableList<String> element_hair_length, ChoiceBox<String> sex_choicebox_preferences, ObservableList<String> element_sex) {
         choicebox_ethnicity_preferences.setItems(element_ethnicity);
         choicebox_ethnicity_preferences.setValue("Select");
-        Smoker_choicebox_preferences.setValue("Select");
-        Smoker_choicebox_preferences.setItems(element_smoker);
-        alcohol_choicebox_preferences.setValue("Select");
-        alcohol_choicebox_preferences.setItems(element_alcohol);
-        Athlete_choicebox_preferences.setValue("Select");
-        Athlete_choicebox_preferences.setItems(element_athlete);
-        feed_choicebox_preferences.setValue("Select");
-        feed_choicebox_preferences.setItems(element_feed);
-        bodybuild_choicebox_preferences.setValue("Select");
-        bodybuild_choicebox_preferences.setItems(element_bodybuild);
-        religion_choicebox_preferences.setValue("Select");
-        religion_choicebox_preferences.setItems(element_religion);
+        initInfo(smoker_choicebox_preferences, element_smoker, alcohol_choicebox_preferences, element_alcohol, athlete_choicebox_preferences, element_athlete, feed_choicebox_preferences, element_feed, bodybuild_choicebox_preferences, element_bodybuild, religion_choicebox_preferences, element_religion);
         color_of_hair_choicebox_preferences.setValue("Select");
         color_of_hair_choicebox_preferences.setItems(element_hair_color);
         hair_type_choicebox_preferences.setValue("Select");
@@ -355,6 +344,21 @@ public class Edit_Profile_Controller {
         hair_length_choicebox_preferences.setItems(element_hair_length);
         sex_choicebox_preferences.setValue("MALE/FEMALE");
         sex_choicebox_preferences.setItems(element_sex);
+    }
+
+    static void initInfo(ChoiceBox<String> smoker_choicebox_preferences, ObservableList<String> element_smoker, ChoiceBox<String> alcohol_choicebox_preferences, ObservableList<String> element_alcohol, ChoiceBox<String> athlete_choicebox_preferences, ObservableList<String> element_athlete, ChoiceBox<String> feed_choicebox_preferences, ObservableList<String> element_feed, ChoiceBox<String> bodybuild_choicebox_preferences, ObservableList<String> element_bodybuild, ChoiceBox<String> religion_choicebox_preferences, ObservableList<String> element_religion) {
+        smoker_choicebox_preferences.setValue("Select");
+        smoker_choicebox_preferences.setItems(element_smoker);
+        alcohol_choicebox_preferences.setValue("Select");
+        alcohol_choicebox_preferences.setItems(element_alcohol);
+        athlete_choicebox_preferences.setValue("Select");
+        athlete_choicebox_preferences.setItems(element_athlete);
+        feed_choicebox_preferences.setValue("Select");
+        feed_choicebox_preferences.setItems(element_feed);
+        bodybuild_choicebox_preferences.setValue("Select");
+        bodybuild_choicebox_preferences.setItems(element_bodybuild);
+        religion_choicebox_preferences.setValue("Select");
+        religion_choicebox_preferences.setItems(element_religion);
     }
 
     private void initAllPersonnalInfo() {
@@ -366,18 +370,7 @@ public class Edit_Profile_Controller {
         alcohol_choicebox.setItems(element_alcohol);
         Athlete_choicebox.setValue("Select");
         Athlete_choicebox.setItems(element_athlete);
-        feed_choicebox.setValue("Select");
-        feed_choicebox.setItems(element_feed);
-        bodybuild_choicebox.setValue("Select");
-        bodybuild_choicebox.setItems(element_bodybuild);
-        religion_choicebox.setValue("Select");
-        religion_choicebox.setItems(element_religion);
-        color_of_hair_choicebox.setValue("Select");
-        color_of_hair_choicebox.setItems(element_hair_color);
-        hair_type_choicebox.setValue("Select");
-        hair_type_choicebox.setItems(element_hair_type);
-        hair_length_choicebox.setValue("Select");
-        hair_length_choicebox.setItems(element_hair_length);
+        initInfo(feed_choicebox, element_feed, bodybuild_choicebox, element_bodybuild, religion_choicebox, element_religion, color_of_hair_choicebox, element_hair_color, hair_type_choicebox, element_hair_type, hair_length_choicebox, element_hair_length);
         sex_choicebox.setValue("MALE/FEMALE");
         sex_choicebox.setItems(element_sex);
         video_games_checkcombobox.getItems().addAll(element_video_games);
