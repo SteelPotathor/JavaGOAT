@@ -20,10 +20,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Calendar_Controller {
 
@@ -232,7 +229,7 @@ public class Calendar_Controller {
 
     @FXML
     void change_scene_to_page_dashboard(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("home.fxml"));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Dashboard/home.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -247,7 +244,7 @@ public class Calendar_Controller {
 
     @FXML
     void change_scene_to_new_profile(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("new_profile.fxml"));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NewProfile/new_profile.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -257,7 +254,7 @@ public class Calendar_Controller {
 
     @FXML
     void change_scene_to_page_search(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("search.fxml"));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Search/search.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -267,7 +264,7 @@ public class Calendar_Controller {
 
     @FXML
     void change_scene_to_page_calendar(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("calendar.fxml"));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Calendar/calendar.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);

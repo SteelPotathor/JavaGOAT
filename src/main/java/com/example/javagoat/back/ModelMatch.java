@@ -9,8 +9,8 @@ public class ModelMatch implements Serializable {
     public static int createCounter = 0;
     public ModelProfile modelP;
     public ModelNotification modelN = new ModelNotification();
-    public final String DistancePath = "src\\main\\java\\com\\example\\javagoat\\back\\Distances.dat";
-    public final String ProfilePath = "src\\main\\java\\com\\example\\javagoat\\back\\Profiles.dat";
+    public final String DistancePath = "src\\main\\java\\com\\example\\javagoat\\back\\storage\\Distances.dat";
+    public final String ProfilePath = "src\\main\\java\\com\\example\\javagoat\\back\\storage\\Profiles.dat";
 
 
     public ModelMatch() {

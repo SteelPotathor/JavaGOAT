@@ -12,8 +12,8 @@ import static com.example.javagoat.back.ModelProfile.profileHashMap;
 
 public class ProfileTableView {
 
-    public final ImageView logoModif = new ImageView(new Image("file:src/main/resources/com/example/javagoat/reglage.png"));
-    public final ImageView logoMatch = new ImageView(new Image("file:src/main/resources/com/example/javagoat/aimer.png"));
+    public final ImageView logoModif = new ImageView(new Image("file:src/main/resources/com/example/javagoat/GlobalImages/reglage.png"));
+    public final ImageView logoMatch = new ImageView(new Image("file:src/main/resources/com/example/javagoat/GlobalImages/aimer.png"));
     public int id;
     public HBox priority;
     public HBox imageView;

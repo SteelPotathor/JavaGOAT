@@ -14,7 +14,7 @@
     <children>
         <ImageView fitHeight="699.0" fitWidth="1266.0">
             <image>
-                <Image url="@puple_back.png"/>
+                <Image url="@../NewProfile/puple_back.png"/>
             </image>
         </ImageView>
         <Pane fx:id="rightRectangle" layoutX="362.0" layoutY="76.0" prefHeight="516.0" prefWidth="779.0"

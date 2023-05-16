@@ -322,7 +322,7 @@ public class Edit_Profile_Controller {
     }
 
     private void initImage() {
-        Image image = new Image(Objects.requireNonNull(getClass().getResource("profile_image.jpeg")).toExternalForm(), false);
+        Image image = new Image(Objects.requireNonNull(getClass().getResource("GlobalImages/DefaultImage.png")).toExternalForm(), false);
         circle_profile_picture.setFill(new ImagePattern(image));
     }
 

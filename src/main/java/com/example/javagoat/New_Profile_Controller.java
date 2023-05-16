@@ -271,7 +271,7 @@ public class New_Profile_Controller {
     }
 
     private void initImage() {
-        Image image = new Image(getClass().getResource("DefaultImage.png").toExternalForm(), false);
+        Image image = new Image(getClass().getResource("GlobalImages/DefaultImage.png").toExternalForm(), false);
         circle_profile_picture.setFill(new ImagePattern(image));
     }
 
@@ -622,7 +622,7 @@ public class New_Profile_Controller {
 
     @FXML
     void change_scene_to_page_dashboard(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("home.fxml"));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Dashboard/home.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -631,7 +631,7 @@ public class New_Profile_Controller {
 
     @FXML
     void change_scene_to_new_profile(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("new_profile.fxml"));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NewProfile/new_profile.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -640,7 +640,7 @@ public class New_Profile_Controller {
 
     @FXML
     void change_scene_to_page_search(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("search.fxml"));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Search/search.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -649,7 +649,7 @@ public class New_Profile_Controller {
 
     @FXML
     void change_scene_to_page_calendar(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("calendar.fxml"));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Calendar/calendar.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);

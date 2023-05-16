@@ -395,11 +395,11 @@ public class Search_Controller {
     void show_advanced_research(MouseEvent event) {
         advanced_research_panel_is_open = !advanced_research_panel_is_open;
         if (advanced_research_panel_is_open) {
-            icon_to_show_or_hide_advanced_research_panel.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("minus.png"))));
+            icon_to_show_or_hide_advanced_research_panel.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("Search/minus.png"))));
             animateAdvancedOptionsOpening();
 
         } else {
-            icon_to_show_or_hide_advanced_research_panel.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("plus.png"))));
+            icon_to_show_or_hide_advanced_research_panel.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream("Search/plus.png"))));
             animateAdvancedOptionsClosing();
 
         }
@@ -449,7 +449,7 @@ public class Search_Controller {
 
     @FXML
     void change_scene_to_page_dashboard(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("home.fxml")));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Dashboard/home.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -458,7 +458,7 @@ public class Search_Controller {
 
     @FXML
     void change_scene_to_new_profile(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("new_profile.fxml")));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NewProfile/new_profile.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -467,7 +467,7 @@ public class Search_Controller {
 
     @FXML
     void change_scene_to_page_search(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("search.fxml")));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Search/search.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -476,7 +476,7 @@ public class Search_Controller {
 
     @FXML
     void change_scene_to_page_calendar(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("calendar.fxml")));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Calendar/calendar.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -486,7 +486,7 @@ public class Search_Controller {
     @FXML
     void change_scene_to_page_edit(Profile profile) throws IOException {
         // open new window
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("edit_profile.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("EditProfile/edit_profile.fxml"));
         Parent root = loader.load();
         // load the controller
         Edit_Profile_Controller edit_profile_controller = loader.getController();
@@ -499,7 +499,7 @@ public class Search_Controller {
 
     @FXML
     void change_scene_to_page_matching(Profile profile) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("matching_profiles.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Match/matching_profiles.fxml"));
         Parent root = loader.load();
 
         Matching_Profiles_Controller matching_profiles_controller = loader.getController();

@@ -76,7 +76,7 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
 
         this.modelHisto = new ModelHistoMatch();
 
-        this.imageView = "file:src/main/resources/com/example/javagoat/DefaultImage.png";
+        this.imageView = "file:src/main/resources/com/example/javagoat/GlobalImages/DefaultImage.png";
     }
 
     // Method used for multiple tests
@@ -109,7 +109,7 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
 
         this.modelHisto = new ModelHistoMatch();
 
-        this.imageView = "file:src/main/resources/com/example/javagoat/DefaultImage.png";
+        this.imageView = "file:src/main/resources/com/example/javagoat/GlobalImages/DefaultImage.png";
     }
 
     public ProfileTableView toProfileTableView() {

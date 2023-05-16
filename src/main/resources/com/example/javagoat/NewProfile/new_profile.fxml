@@ -18,7 +18,7 @@
         </ImageView>
         <ImageView layoutX="1365.0" onMouseClicked="#exit_script">
             <image>
-                <Image url="@icons8-cross-50.png"/>
+                <Image url="@../GlobalImages/icons8-cross-50.png"/>
             </image>
         </ImageView>
         <Pane fx:id="leftRectangle" layoutX="261.0" layoutY="76.0" prefHeight="516.0" prefWidth="265.0"
@@ -695,11 +695,11 @@
         </Pane>
         <Pane prefHeight="699.0" prefWidth="228.0"
               style="-fx-background-color: linear-gradient(from 0.0% 0.0% to 0.0% 100.0%, #003eb2 0.0%, #8c00ff 100.0%);"
-              stylesheets="@style.css">
+              stylesheets="@../style.css">
             <children>
                 <ImageView fitHeight="199.0" fitWidth="199.0" layoutY="44.0" preserveRatio="true">
                     <image>
-                        <Image url="@logo_image.png"/>
+                        <Image url="@../GlobalImages/logo_image.png"/>
                     </image>
                 </ImageView>
                 <VBox layoutY="278.0" prefHeight="407.0" prefWidth="228.0">
@@ -712,7 +712,7 @@
                                 <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0"
                                            pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@lanalyse-des-donnees.png"/>
+                                        <Image url="@../GlobalImages/lanalyse-des-donnees.png"/>
                                     </image>
                                 </ImageView>
                                 <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0"
@@ -727,7 +727,7 @@
                                 <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0"
                                            pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@profil.png"/>
+                                        <Image url="@../GlobalImages/profil.png"/>
                                     </image>
                                 </ImageView>
                                 <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0"
@@ -742,7 +742,7 @@
                                 <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0"
                                            pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@seo.png"/>
+                                        <Image url="@../GlobalImages/seo.png"/>
                                     </image>
                                 </ImageView>
                                 <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0"
@@ -757,7 +757,7 @@
                                 <ImageView fitHeight="46.0" fitWidth="48.0" layoutX="14.0" layoutY="12.0"
                                            pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@calendrier.png"/>
+                                        <Image url="@../GlobalImages/calendrier.png"/>
                                     </image>
                                 </ImageView>
                                 <Text fill="WHITE" layoutX="85.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0"

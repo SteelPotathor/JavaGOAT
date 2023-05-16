@@ -25,10 +25,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
 
 import static com.example.javagoat.back.ModelHistoMatch.getMatchCount;
 
@@ -265,7 +262,7 @@ public class Dashboard_Controller {
 
     @FXML
     void change_scene_to_page_dashboard(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("home.fxml"));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Dashboard/home.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -274,7 +271,7 @@ public class Dashboard_Controller {
 
     @FXML
     void change_scene_to_new_profile(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("new_profile.fxml"));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NewProfile/new_profile.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -283,7 +280,7 @@ public class Dashboard_Controller {
 
     @FXML
     void change_scene_to_page_search(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("search.fxml"));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Search/search.fxml")));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
         stage.setScene(scene);
@@ -293,7 +290,7 @@ public class Dashboard_Controller {
     @FXML
     void change_scene_to_page_edit(Profile event) throws IOException {
         // open new window
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("edit_profile.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("EditProfile/edit_profile.fxml"));
         Parent root = loader.load();
         // load the controller
         Edit_Profile_Controller edit_profile_controller = loader.getController();
@@ -309,7 +306,7 @@ public class Dashboard_Controller {
     @FXML
     void change_scene_to_page_matching(Profile profile) throws IOException {
         // open new window
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("matching_profiles.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Match/matching_profiles.fxml"));
         Parent root = loader.load();
 
         Matching_Profiles_Controller matching_profiles_controller = loader.getController();
@@ -322,7 +319,7 @@ public class Dashboard_Controller {
 
     @FXML
     void change_scene_to_page_calendar(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("calendar.fxml"));
+        parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Calendar/calendar.fxml")));
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(parent);
