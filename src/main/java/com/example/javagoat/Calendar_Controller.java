@@ -18,11 +18,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
-<<<<<<< HEAD
+
 import java.time.ZoneId;
 import java.util.*;
-=======
->>>>>>> main
 
 public class Calendar_Controller {
 
