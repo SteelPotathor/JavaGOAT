@@ -106,12 +106,13 @@ public class Biology implements Serializable, Cloneable {
 
     @Override
     public String toString() {
-        String sb = "Biology{" + "age=" + age +
-                ", Bsex=" + Bsex +
-                ", Bethnicity=" + Bethnicity +
-                ", qi=" + qi +
-                '}';
-        return sb;
+        final StringBuilder sb = new StringBuilder("Biology{");
+        sb.append("age=").append(age);
+        sb.append(", Bsex=").append(Bsex);
+        sb.append(", Bethnicity=").append(Bethnicity);
+        sb.append(", qi=").append(qi);
+        sb.append('}');
+        return sb.toString();
     }
 
     @Override
