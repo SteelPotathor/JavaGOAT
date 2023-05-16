@@ -10,13 +10,11 @@ import java.util.*;
 public class ModelMatch implements Serializable {
 
     public static HashMap<Integer /*id*/, TreeSet<TupleTreeSet>> stockDistance;
+    public static int createCounter = 0;
     public ModelProfile modelP;
     public ModelNotification modelN = new ModelNotification();
-
     public String DistancePath = "src\\main\\java\\com\\example\\javagoat\\back\\Distances.xml";
     public String ProfilePath = "src\\main\\java\\com\\example\\javagoat\\back\\Profiles.xml";
-
-    public static int createCounter = 0;
 
 
     public ModelMatch() {
@@ -44,6 +42,14 @@ public class ModelMatch implements Serializable {
             if (decoder != null) decoder.close();
         }
 
+    }
+
+    public static int getCreateCounter() {
+        return createCounter;
+    }
+
+    public static void setCreateCounter(int createCounter) {
+        ModelMatch.createCounter = createCounter;
     }
 
     public void addProfile(Profile p) {
@@ -84,7 +90,6 @@ public class ModelMatch implements Serializable {
         stockDistance.remove(p.identity.getNoId());
         createCounter--;
     }
-
 
     public void editProfile(Profile newProfile, Profile oldProfile) {
         // Set in every TreeSets the new distance between the profile 'newProfile' and every other profiles contained in this HashMap
@@ -189,6 +194,7 @@ public class ModelMatch implements Serializable {
         modelP = modelProfile;
     }
 
+<<<<<<< HEAD
     public static int getCreateCounter() {
         return createCounter;
     }
@@ -198,6 +204,8 @@ public class ModelMatch implements Serializable {
     }
 
     @Override
+=======
+>>>>>>> main
     public String toString() {
         final StringBuilder sb = new StringBuilder("ModelMatch{");
         sb.append("modelP=").append(modelP);

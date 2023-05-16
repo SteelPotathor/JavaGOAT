@@ -36,10 +36,60 @@ import static com.example.javagoat.back.ModelProfile.profileHashMap;
 
 public class Edit_Profile_Controller {
 
+    //ALL BUTTONS PREFERENCES INFORMATION
+    public TextField textfield_age_preferences;
+    public TextField textfield_size_preferences;
+    
+    //ALL THE TEXTFIELDS
+    public TextField textfield_first_name;
+    public TextField textfield_last_name;
+    public TextField textfield_age;
+    public TextField textfield_size;
+    public TextField textfield_qi;
+    public Label feedbackText;
+    @FXML
+    public Pane leftRectangle;
+    @FXML
+    public Pane rightRectangle;
+    @FXML
+    public Pane bottomRectangle;
+    @FXML
+    public Pane topRectangle;
     ModelNotification modelNotification = new ModelNotification();
     ModelMatch modelMatch = new ModelMatch();
     int idProfile;
     private ArrayList<TupleHistoHashMap> list;
+
+    //ALL THE OBSERVABLELISTS
+    @FXML
+    ObservableList<String> element_sex = FXCollections.observableArrayList("MALE", "FEMALE");
+    @FXML
+    ObservableList<String> element_miscellanious = FXCollections.observableArrayList("BIKE", "MOVIES", "ANIME", "MANGA", "NETFLIX", "COOKING", "RUNNING", "DANCING", "YOGA", "TRAVELING", "MODE", "GYM", "BASKET", "TENNIS", "SOCCER", "MARTIAL_ARTS", "LITTERATURE", "DIVING", "WRITING", "PROGRAMMATION", "PHOTOGRAPHY", "GARDENING", "HISTORY", "GEOGRAPHY", "VACATIONS", "MUSIC", "PAINTING", "PORN", "SLEEP", "ANIMALS", "SPIRITUALITY", "GRINDING", "PLAYING_WITH_KIDS", "CHESS", "COSPLAY", "FURRIES", "PSYCHOLOGY", "PHILOSOPHY", "SCIENCES", "THEATHER", "VLOGGING", "CLIMBING", "NUDISM", "DECORATIONS");
+    @FXML
+    ObservableList<String> element_video_games = FXCollections.observableArrayList("LEAGUE_OF_LEGENDS", "VALORANT", "MINECRAFT", "TERRARIA", "CALL_OF_DUTY", "DESTINY_2", "DIABLO_3", "WORLD_OF_WARCRAFT", "HEARTHSTONE", "BATTLEFIELD", "APEX_LEGENDS", "DOTA_2", "CS_GO", "SUPER_SMASH_BROS", "FORTNITE", "JACKBOX_PARTY", "DIVINE_KNOCKOUT", "AMOGUS", "STREET_FIGHTER", "ARK", "CRAB_GAME", "BRAWLHALLA", "MONSTER_HUNTER", "DRAGON_QUEST", "GTA", "GENSHIN_IMPACT"
+            , "SEA_OF_THIEVES", "DEAD_BY_DAYLIGHT", "THE_DOORS", "FALL_GUYS", "ROCKET_LEAGUE", "WARFRAME", "PUBG", "VALHEIM", "RUST");
+
+    //ALL THE CHOICEBOXES PREFERENCES INFORMATION
+    @FXML
+    ObservableList<String> element_hair_length = FXCollections.observableArrayList("LONG", "HALF_LONG", "SHORT");
+    @FXML
+    ObservableList<String> element_hair_type = FXCollections.observableArrayList("STRAIGHT", "WAVY", "CURLY");
+    @FXML
+    ObservableList<String> element_hair_color = FXCollections.observableArrayList("BLONDE", "RED", "BRUNETTE", "BLACK");
+    @FXML
+    ObservableList<String> element_religion = FXCollections.observableArrayList("MUSLIM", "CHRISTIAN", "JEWISH", "BUDDHIST", "HINDUIST", "OTHER", "ATHEIST");
+    @FXML
+    ObservableList<String> element_bodybuild = FXCollections.observableArrayList("SKINNY", "MEDIUM", "OVERWEIGHT");
+    @FXML
+    ObservableList<String> element_feed = FXCollections.observableArrayList("VEGAN", "VEGETARIAN", "OMNIVORE", "FLEXIVORE");
+    @FXML
+    ObservableList<String> element_athlete = FXCollections.observableArrayList("SPORTY", "SEDENTARY", "LAZY");
+    @FXML
+    ObservableList<String> element_alcohol = FXCollections.observableArrayList("NEVER", "OCCASIONNALY", "REGULARLY", "DAILY");
+    @FXML
+    ObservableList<String> element_smoker = FXCollections.observableArrayList("NEVER", "OCCASIONNALY", "REGULARLY", "DAILY");
+    @FXML
+    ObservableList<String> element_ethnicity = FXCollections.observableArrayList("WHITE", "BLACK", "ASIAN", "LATINO");
 
     //Image to put in circle
     @FXML
@@ -74,9 +124,6 @@ public class Edit_Profile_Controller {
     private CheckComboBox<String> miscellanious_checkcombobox;
     @FXML
     private ChoiceBox<String> sex_choicebox;
-
-    //ALL THE CHOICEBOXES PREFERENCES INFORMATION
-
     @FXML
     private ChoiceBox<String> choicebox_ethnicity_preferences;
     @FXML
@@ -104,9 +151,6 @@ public class Edit_Profile_Controller {
     @FXML
     private ChoiceBox<String> sex_choicebox_preferences;
 
-    //ALL BUTTONS PREFERENCES INFORMATION
-    public TextField textfield_age_preferences;
-    public TextField textfield_size_preferences;
     //ALL THE BUTTONS
     @FXML
     private Button button_create_profile;
@@ -122,16 +166,8 @@ public class Edit_Profile_Controller {
     private Button button_lifestyle_information;
     @FXML
     private Button button_passions_information;
-
     @FXML
     private TableView<ProfileTableViewHistoric> tableview_profile;
-    //ALL THE TEXTFIELDS
-    public TextField textfield_first_name;
-    public TextField textfield_last_name;
-    public TextField textfield_age;
-    public TextField textfield_size;
-    public TextField textfield_qi;
-    public Label feedbackText;
 
     //ALL GRIDS Personnal Information
     @FXML
@@ -149,35 +185,6 @@ public class Edit_Profile_Controller {
     @FXML
     private Pane grid_passions_preferences;
 
-    //ALL THE OBSERVABLELISTS
-    @FXML
-    ObservableList<String> element_sex = FXCollections.observableArrayList("MALE", "FEMALE");
-    @FXML
-    ObservableList<String> element_miscellanious = FXCollections.observableArrayList("BIKE", "MOVIES", "ANIME", "MANGA", "NETFLIX", "COOKING", "RUNNING", "DANCING", "YOGA", "TRAVELING", "MODE", "GYM", "BASKET", "TENNIS", "SOCCER", "MARTIAL_ARTS", "LITTERATURE", "DIVING", "WRITING", "PROGRAMMATION", "PHOTOGRAPHY", "GARDENING", "HISTORY", "GEOGRAPHY", "VACATIONS", "MUSIC", "PAINTING", "PORN", "SLEEP", "ANIMALS", "SPIRITUALITY", "GRINDING", "PLAYING_WITH_KIDS", "CHESS", "COSPLAY", "FURRIES", "PSYCHOLOGY", "PHILOSOPHY", "SCIENCES", "THEATHER", "VLOGGING", "CLIMBING", "NUDISM", "DECORATIONS");
-    @FXML
-    ObservableList<String> element_video_games = FXCollections.observableArrayList("LEAGUE_OF_LEGENDS", "VALORANT", "MINECRAFT", "TERRARIA", "CALL_OF_DUTY", "DESTINY_2", "DIABLO_3", "WORLD_OF_WARCRAFT", "HEARTHSTONE", "BATTLEFIELD", "APEX_LEGENDS", "DOTA_2", "CS_GO", "SUPER_SMASH_BROS", "FORTNITE", "JACKBOX_PARTY", "DIVINE_KNOCKOUT", "AMOGUS", "STREET_FIGHTER", "ARK", "CRAB_GAME", "BRAWLHALLA", "MONSTER_HUNTER", "DRAGON_QUEST", "GTA", "GENSHIN_IMPACT"
-            , "SEA_OF_THIEVES", "DEAD_BY_DAYLIGHT", "THE_DOORS", "FALL_GUYS", "ROCKET_LEAGUE", "WARFRAME", "PUBG", "VALHEIM", "RUST");
-    @FXML
-    ObservableList<String> element_hair_length = FXCollections.observableArrayList("LONG", "HALF_LONG", "SHORT");
-    @FXML
-    ObservableList<String> element_hair_type = FXCollections.observableArrayList("STRAIGHT", "WAVY", "CURLY");
-    @FXML
-    ObservableList<String> element_hair_color = FXCollections.observableArrayList("BLONDE", "RED", "BRUNETTE", "BLACK");
-    @FXML
-    ObservableList<String> element_religion = FXCollections.observableArrayList("MUSLIM", "CHRISTIAN", "JEWISH", "BUDDHIST", "HINDUIST", "OTHER", "ATHEIST");
-    @FXML
-    ObservableList<String> element_bodybuild = FXCollections.observableArrayList("SKINNY", "MEDIUM", "OVERWEIGHT");
-    @FXML
-    ObservableList<String> element_feed = FXCollections.observableArrayList("VEGAN", "VEGETARIAN", "OMNIVORE", "FLEXIVORE");
-    @FXML
-    ObservableList<String> element_athlete = FXCollections.observableArrayList("SPORTY", "SEDENTARY", "LAZY");
-    @FXML
-    ObservableList<String> element_alcohol = FXCollections.observableArrayList("NEVER", "OCCASIONNALY", "REGULARLY", "DAILY");
-    @FXML
-    ObservableList<String> element_smoker = FXCollections.observableArrayList("NEVER", "OCCASIONNALY", "REGULARLY", "DAILY");
-    @FXML
-    ObservableList<String> element_ethnicity = FXCollections.observableArrayList("WHITE", "BLACK", "ASIAN", "LATINO");
-
     @FXML
     private TableColumn<ProfileTableViewHistoric, Integer> avatar;
     @FXML
@@ -191,22 +198,13 @@ public class Edit_Profile_Controller {
     @FXML
     private TableColumn<ProfileTableViewHistoric, HBox> feedback;
 
-    @FXML
-    public Pane leftRectangle;
-    @FXML
-    public Pane rightRectangle;
-    @FXML
-    public Pane bottomRectangle;
-    @FXML
-    public Pane topRectangle;
-
     private Dashboard_Controller dashboard_controller;
     private Search_Controller search_controller;
+    private boolean personnal_preferences = true;
 
     public void setDashboard_controller(Dashboard_Controller dashboard_controller) {
         this.dashboard_controller = dashboard_controller;
     }
-
 
     public void setSearch_controller(Search_Controller search_controller) {
         this.search_controller = search_controller;
@@ -422,7 +420,6 @@ public class Edit_Profile_Controller {
         textfield_size_preferences.setTextFormatter(formatterNumbers5);
     }
 
-
     @FXML
     void validate_profil() throws IOException {
         if (Objects.equals(choicebox_ethnicity.getValue(), "Select")
@@ -623,8 +620,6 @@ public class Edit_Profile_Controller {
         tableview_profile.setItems(profiles);
 
     }
-
-    private boolean personnal_preferences = true;
 
     @FXML
     void change_button(MouseEvent event) {

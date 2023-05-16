@@ -10,8 +10,6 @@ public class ModelHistoMatch implements Serializable {
 
     public ModelNotification modelNotification = new ModelNotification();
 
-    public static int matchCount = 0;
-
     public ModelHistoMatch() {
     }
 
@@ -70,14 +68,6 @@ public class ModelHistoMatch implements Serializable {
 
     public void setModelNotification(ModelNotification modelNotification) {
         this.modelNotification = modelNotification;
-    }
-
-    public static int getMatchCount() {
-        return matchCount;
-    }
-
-    public static void setMatchCount(int matchCount) {
-        ModelHistoMatch.matchCount = matchCount;
     }
 
     @Override

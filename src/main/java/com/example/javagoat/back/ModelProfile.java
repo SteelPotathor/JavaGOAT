@@ -11,6 +11,14 @@ public class ModelProfile implements Serializable {
     public ModelProfile() {
     }
 
+    // Check if this combination of String exists in the DS
+    public static boolean correspondingName(String lastname, String firstname) {
+        List<Profile> list = profileHashMap.values().stream().
+                filter(profile -> profile.identity.lastname.toUpperCase().startsWith(lastname.toUpperCase())
+                        && profile.identity.firstname.toUpperCase().startsWith(firstname.toUpperCase())).toList();
+        return list.size() >= 1;
+    }
+
     public PriorityQueue<Profile> toPriorityQueue() {
         return new PriorityQueue<>(profileHashMap.values());
     }
@@ -23,15 +31,6 @@ public class ModelProfile implements Serializable {
     public Set<String> getAllFirstName() {
         return new HashSet<>(profileHashMap.values().stream()
                 .map(profile -> profile.getIdentity().getFirstname()).toList());
-    }
-
-
-    // Check if this combination of String exists in the DS
-    public static boolean correspondingName(String lastname, String firstname) {
-        List<Profile> list = profileHashMap.values().stream().
-                filter(profile -> profile.identity.lastname.toUpperCase().startsWith(lastname.toUpperCase())
-                        && profile.identity.firstname.toUpperCase().startsWith(firstname.toUpperCase())).toList();
-        return list.size() >= 1;
     }
 
     public Set<Profile> suggestion(String firstname, String lastname) {

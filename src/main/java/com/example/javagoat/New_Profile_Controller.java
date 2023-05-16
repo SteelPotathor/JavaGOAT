@@ -36,140 +36,23 @@ import java.util.regex.Pattern;
 
 public class New_Profile_Controller {
 
-    ModelMatch modelMatch = new ModelMatch();
-    File file;
-
-    @FXML
-    private Stage stage;
-    @FXML
-    private Scene scene;
-    @FXML
-    private Parent parent;
-
-    //ALL THE PANES
-    @FXML
-    private Pane dashboard_pane;
-    @FXML
-    private Pane profile_pane;
-    @FXML
-    private Pane search_pane;
-    @FXML
-    private Pane calendar_pane;
-
-    //Image to put in circle
-    @FXML
-    private Circle circle_profile_picture;
-    @FXML
-    private Pane newImageSelector;
-
-    //CIRCLE FOR ONGLETS
-
-    @FXML
-    private Circle circlePersonal;
-    @FXML
-    private Circle circle_preferences;
-    @FXML
-    private Circle circle_life_style;
-    @FXML
-    private Circle circle_physical;
-    @FXML
-    private Circle circle_other;
-
-
-    //ALL THE CHOICEBOXES PERSONNAL INFORMATION
-    @FXML
-    private ChoiceBox<String> choicebox_ethnicity;
-    @FXML
-    private ChoiceBox<String> Smoker_choicebox;
-    @FXML
-    private ChoiceBox<String> alcohol_choicebox;
-    @FXML
-    private ChoiceBox<String> Athlete_choicebox;
-    @FXML
-    private ChoiceBox<String> feed_choicebox;
-    @FXML
-    private ChoiceBox<String> bodybuild_choicebox;
-    @FXML
-    private ChoiceBox<String> religion_choicebox;
-    @FXML
-    private ChoiceBox<String> color_of_hair_choicebox;
-    @FXML
-    private ChoiceBox<String> hair_type_choicebox;
-    @FXML
-    private ChoiceBox<String> hair_length_choicebox;
-    @FXML
-    private CheckComboBox<String> video_games_checkcombobox;
-    @FXML
-    private CheckComboBox<String> miscellanious_checkcombobox;
-    @FXML
-    private ChoiceBox<String> sex_choicebox;
-
-    //ALL THE CHOICEBOXES PREFERENCES INFORMATION
-
-    @FXML
-    private ChoiceBox<String> choicebox_ethnicity_preferences;
-    @FXML
-    private ChoiceBox<String> Smoker_choicebox_preferences;
-    @FXML
-    private ChoiceBox<String> alcohol_choicebox_preferences;
-    @FXML
-    private ChoiceBox<String> Athlete_choicebox_preferences;
-    @FXML
-    private ChoiceBox<String> feed_choicebox_preferences;
-    @FXML
-    private ChoiceBox<String> bodybuild_choicebox_preferences;
-    @FXML
-    private ChoiceBox<String> religion_choicebox_preferences;
-    @FXML
-    private ChoiceBox<String> color_of_hair_choicebox_preferences;
-    @FXML
-    private ChoiceBox<String> hair_type_choicebox_preferences;
-    @FXML
-    private ChoiceBox<String> hair_length_choicebox_preferences;
-    @FXML
-    private ChoiceBox<String> sex_choicebox_preferences;
-
     //ALL BUTTONS PREFERENCES INFORMATION
     public TextField textfield_age_preferences;
     public TextField textfield_size_preferences;
-    //ALL THE BUTTONS
-    @FXML
-    private Button button_create_profile;
-    @FXML
-    private Button buttonPersonalInformation;
-    @FXML
-    private Button button_preferences_information;
-    @FXML
-    private Button button_physical_information;
-    @FXML
-    private Button button_lifestyle_information;
-    @FXML
-    private Button button_passions_information;
-
-
     //ALL THE TEXTFIELDS
     public TextField textfield_first_name;
     public TextField textfield_last_name;
     public TextField textfield_age;
     public TextField textfield_size;
     public TextField textfield_qi;
+    @FXML
+    public Pane topRectangle;
+    @FXML
+    public Pane bottomRectangle;
+    ModelMatch modelMatch = new ModelMatch();
+    File file;
 
-    //ALL GRIDS Personnal Information
-    @FXML
-    private Pane grid_life_style;
-    @FXML
-    private Pane grid_physical_information;
-    @FXML
-    private Pane grid_passions;
-
-    //ALL GRIDS Preferences Information
-    @FXML
-    private Pane grid_life_style_preferences;
-    @FXML
-    private Pane grid_physical_information_preferences;
-    @FXML
-    private Pane grid_passions_preferences;
-
+    //CIRCLE FOR ONGLETS
     //ALL THE OBSERVABLELISTS
     @FXML
     ObservableList<String> element_sex = FXCollections.observableArrayList("MALE", "FEMALE");
@@ -198,15 +81,125 @@ public class New_Profile_Controller {
     ObservableList<String> element_smoker = FXCollections.observableArrayList("NEVER", "OCCASIONNALY", "REGULARLY", "DAILY");
     @FXML
     ObservableList<String> element_ethnicity = FXCollections.observableArrayList("WHITE", "BLACK", "ASIAN", "LATINO");
+    boolean personnalLifestyle = false;
+    boolean personnalPhysical = false;
+    boolean personnalOther = false;
+    boolean preferencesLifestyle = false;
+    boolean preferencesPhysical = false;
 
+    //ALL THE CHOICEBOXES PREFERENCES INFORMATION
+    boolean preferencesOther = false;
+    @FXML
+    private Stage stage;
+    @FXML
+    private Scene scene;
+    @FXML
+    private Parent parent;
+    //ALL THE PANES
+    @FXML
+    private Pane dashboard_pane;
+    @FXML
+    private Pane profile_pane;
+    @FXML
+    private Pane search_pane;
+    @FXML
+    private Pane calendar_pane;
+    //Image to put in circle
+    @FXML
+    private Circle circle_profile_picture;
+    @FXML
+    private Pane newImageSelector;
+    @FXML
+    private Circle circlePersonal;
+    @FXML
+    private Circle circle_preferences;
+    @FXML
+    private Circle circle_life_style;
+    @FXML
+    private Circle circle_physical;
+    @FXML
+    private Circle circle_other;
+    //ALL THE CHOICEBOXES PERSONNAL INFORMATION
+    @FXML
+    private ChoiceBox<String> choicebox_ethnicity;
+    @FXML
+    private ChoiceBox<String> Smoker_choicebox;
+    @FXML
+    private ChoiceBox<String> alcohol_choicebox;
+    @FXML
+    private ChoiceBox<String> Athlete_choicebox;
+    @FXML
+    private ChoiceBox<String> feed_choicebox;
+    @FXML
+    private ChoiceBox<String> bodybuild_choicebox;
+    @FXML
+    private ChoiceBox<String> religion_choicebox;
+    @FXML
+    private ChoiceBox<String> color_of_hair_choicebox;
+    @FXML
+    private ChoiceBox<String> hair_type_choicebox;
+    @FXML
+    private ChoiceBox<String> hair_length_choicebox;
+    @FXML
+    private CheckComboBox<String> video_games_checkcombobox;
+    @FXML
+    private CheckComboBox<String> miscellanious_checkcombobox;
+    @FXML
+    private ChoiceBox<String> sex_choicebox;
+    @FXML
+    private ChoiceBox<String> choicebox_ethnicity_preferences;
+    @FXML
+    private ChoiceBox<String> Smoker_choicebox_preferences;
+    @FXML
+    private ChoiceBox<String> alcohol_choicebox_preferences;
+    @FXML
+    private ChoiceBox<String> Athlete_choicebox_preferences;
+    @FXML
+    private ChoiceBox<String> feed_choicebox_preferences;
+    @FXML
+    private ChoiceBox<String> bodybuild_choicebox_preferences;
+    @FXML
+    private ChoiceBox<String> religion_choicebox_preferences;
+    @FXML
+    private ChoiceBox<String> color_of_hair_choicebox_preferences;
+    @FXML
+    private ChoiceBox<String> hair_type_choicebox_preferences;
+    @FXML
+    private ChoiceBox<String> hair_length_choicebox_preferences;
+    @FXML
+    private ChoiceBox<String> sex_choicebox_preferences;
+    //ALL THE BUTTONS
+    @FXML
+    private Button button_create_profile;
+    @FXML
+    private Button buttonPersonalInformation;
+    @FXML
+    private Button button_preferences_information;
+    @FXML
+    private Button button_physical_information;
+    @FXML
+    private Button button_lifestyle_information;
+    @FXML
+    private Button button_passions_information;
+    //ALL GRIDS Personnal Information
+    @FXML
+    private Pane grid_life_style;
+    @FXML
+    private Pane grid_physical_information;
+    @FXML
+    private Pane grid_passions;
+    //ALL GRIDS Preferences Information
+    @FXML
+    private Pane grid_life_style_preferences;
+    @FXML
+    private Pane grid_physical_information_preferences;
+    @FXML
+    private Pane grid_passions_preferences;
     @FXML
     private Pane leftRectangle;
     @FXML
     private Pane rightRectangle;
-    @FXML
-    public Pane topRectangle;
-    @FXML
-    public Pane bottomRectangle;
+    private boolean personnal_preferences = true;
 
     @FXML
     void initialize() {
@@ -233,7 +226,6 @@ public class New_Profile_Controller {
             }
         });
     }
-
 
     private void earlyAnimations() {
         new FadeInLeftBig(leftRectangle).play();
@@ -335,7 +327,6 @@ public class New_Profile_Controller {
         miscellanious_checkcombobox.getItems().addAll(element_miscellanious);
     }
 
-
     @FXML
     void validate_profil() {
         if (Objects.equals(choicebox_ethnicity.getValue(), "Select")
@@ -401,8 +392,6 @@ public class New_Profile_Controller {
             modelMatch.addProfile(profile);
         }
     }
-
-    private boolean personnal_preferences = true;
 
     @FXML
     void change_button(MouseEvent event) {
@@ -488,7 +477,6 @@ public class New_Profile_Controller {
         }
     }
 
-
     @FXML
     void change_background_color(MouseEvent event) throws InterruptedException {
         if (event.getSource() == dashboard_pane) {
@@ -529,13 +517,6 @@ public class New_Profile_Controller {
     private void newImageCursor() {
         newImageSelector.setCursor(Cursor.HAND);
     }
-
-    boolean personnalLifestyle = false;
-    boolean personnalPhysical = false;
-    boolean personnalOther = false;
-    boolean preferencesLifestyle = false;
-    boolean preferencesPhysical = false;
-    boolean preferencesOther = false;
 
     public void checkPersonalLifeStyle(ActionEvent actionEvent) {
         circlePersonalLifestyle();
