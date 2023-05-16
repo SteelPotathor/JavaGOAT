@@ -118,7 +118,7 @@ public class ModelMatch implements Serializable {
         while (i < howMany && itr.hasNext()) {
             TupleTreeSet tupleTreeSet = itr.next();
 
-            if ((hashMapH == null || !containsId(hashMapH, tupleTreeSet.getId())) && (tupleTreeSet.getId() != noProfile) && (ModelProfile.profileHashMap.get(noProfile).getPreferences().getBiology().getBsex() == ModelProfile.profileHashMap.get(tupleTreeSet.getId()).getIdentity().getBsex()) && ModelProfile.profileHashMap.get(tupleTreeSet.getId()).getPreferences().getBiology().getBsex() == ModelProfile.profileHashMap.get(noProfile).getIdentity().getBsex()) {
+            if ((hashMapH == null || !matchesContainsId(hashMapH, tupleTreeSet.getId())) && (tupleTreeSet.getId() != noProfile) && (ModelProfile.profileHashMap.get(noProfile).getPreferences().getBiology().getBsex() == ModelProfile.profileHashMap.get(tupleTreeSet.getId()).getIdentity().getBsex()) && ModelProfile.profileHashMap.get(tupleTreeSet.getId()).getPreferences().getBiology().getBsex() == ModelProfile.profileHashMap.get(noProfile).getIdentity().getBsex()) {
                 HashSet<Passion.miscellaneous> PMprofile = modelP.profileHashMap.get(noProfile).getPassion().getPassionM();
                 HashSet<Passion.video_games> PVGprofile = modelP.profileHashMap.get(noProfile).getPassion().getPassionVG();
                 int counter = modelP.profileHashMap.get(tupleTreeSet.getId()).getPassion().getPassionM().stream().filter(PMprofile::contains).toArray().length;
@@ -131,7 +131,8 @@ public class ModelMatch implements Serializable {
         return KNNProfiles;
     }
 
-    public boolean containsId(HashMap<TupleHistoHashMap, Date> stockHisto, int id) {
+    // This function allows to know if a profile has already been matched with another profile (in order to avoid to match it again)
+    public boolean matchesContainsId(HashMap<TupleHistoHashMap, Date> stockHisto, int id) {
         for (TupleHistoHashMap tupleHistoHashMap : stockHisto.keySet()) {
             if (tupleHistoHashMap.getId() == id) {
                 return true;
