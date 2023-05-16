@@ -10,6 +10,8 @@ public class ModelHistoMatch implements Serializable {
 
     public ModelNotification modelNotification = new ModelNotification();
 
+    public static int matchCount = 0;
+
     public ModelHistoMatch() {
     }
 
@@ -70,12 +72,20 @@ public class ModelHistoMatch implements Serializable {
         this.modelNotification = modelNotification;
     }
 
-    @Override
-    public String toString() {
-        String sb = "ModelHistoMatch{" + "stockHisto=" + stockHisto +
-                '}';
-        return sb;
+    public static int getMatchCount() {
+        return matchCount;
     }
 
+    public static void setMatchCount(int matchCount) {
+        ModelHistoMatch.matchCount = matchCount;
+    }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("ModelHistoMatch{");
+        sb.append("stockHisto=").append(stockHisto);
+        sb.append(", modelNotification=").append(modelNotification);
+        sb.append('}');
+        return sb.toString();
+    }
 }

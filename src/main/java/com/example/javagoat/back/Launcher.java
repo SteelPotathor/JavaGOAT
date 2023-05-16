@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.TreeSet;
 
+
+// Class exclusively used for test
 public class Launcher {
 
     public ModelMatch modelM;

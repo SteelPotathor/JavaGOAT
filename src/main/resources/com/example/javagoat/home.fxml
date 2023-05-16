@@ -39,7 +39,7 @@
                                 <Image url="@Cover (4).png"/>
                             </image>
                         </ImageView>
-                        <Label fx:id="label_today_matches" layoutX="214.0" layoutY="108.0" text="502" textFill="WHITE">
+                        <Label fx:id="label_today_matches" layoutX="214.0" layoutY="108.0" text="0" textFill="WHITE">
                             <font>
                                 <Font size="22.0"/>
                             </font>

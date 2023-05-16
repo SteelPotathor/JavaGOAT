@@ -16,95 +16,6 @@ public class LifeStyle implements Serializable, Cloneable {
     public religion LSreligion;
     public alcohol LSalcohol;
 
-
-    // Customised LifeStyle -> Add Profile
-    public LifeStyle(smoker LSsmoker, athlete LSathlete, feed LSfeed, bodyBuild LSbodyBuild, religion LSreligion, alcohol LSalcohol) {
-        this.LSsmoker = LSsmoker;
-        this.LSathlete = LSathlete;
-        this.LSfeed = LSfeed;
-        this.LSbodyBuild = LSbodyBuild;
-        this.LSreligion = LSreligion;
-        this.LSalcohol = LSalcohol;
-    }
-
-    // Random LifeStyle
-    public LifeStyle() {
-    }
-
-    public void setRandomLifeStyle() {
-        setLSsmoker(smoker.randomLSsmoker());
-        setLSathlete(athlete.randomLSathlete());
-        setLSfeed(feed.randomLSfeed());
-        setLSbodyBuild(bodyBuild.randomLSbodyBuild());
-        setLSreligion(religion.randomLSreligion());
-        setLSalcohol(alcohol.randomLSalcohol());
-    }
-
-    @Override
-    public LifeStyle clone() throws CloneNotSupportedException {
-        return (LifeStyle) super.clone();
-    }
-
-    public smoker getLSsmoker() {
-        return LSsmoker;
-    }
-
-    public void setLSsmoker(smoker LSsmoker) {
-        this.LSsmoker = LSsmoker;
-    }
-
-    public athlete getLSathlete() {
-        return LSathlete;
-    }
-
-    public void setLSathlete(athlete LSathlete) {
-        this.LSathlete = LSathlete;
-    }
-
-    public feed getLSfeed() {
-        return LSfeed;
-    }
-
-    public void setLSfeed(feed LSfeed) {
-        this.LSfeed = LSfeed;
-    }
-
-    public bodyBuild getLSbodyBuild() {
-        return LSbodyBuild;
-    }
-
-    public void setLSbodyBuild(bodyBuild LSbodyBuild) {
-        this.LSbodyBuild = LSbodyBuild;
-    }
-
-    public religion getLSreligion() {
-        return LSreligion;
-    }
-
-    public void setLSreligion(religion LSreligion) {
-        this.LSreligion = LSreligion;
-    }
-
-    public alcohol getLSalcohol() {
-        return LSalcohol;
-    }
-
-    public void setLSalcohol(alcohol LSalcohol) {
-        this.LSalcohol = LSalcohol;
-    }
-
-    @Override
-    public String toString() {
-        String sb = "LifeStyle{" + "LSsmoker=" + LSsmoker +
-                ", LSathlete=" + LSathlete +
-                ", LSfeed=" + LSfeed +
-                ", LSbodyBuild=" + LSbodyBuild +
-                ", LSreligion=" + LSreligion +
-                ", LSalcohol=" + LSalcohol +
-                '}';
-        return sb;
-    }
-
     public enum smoker {
         NEVER,
         OCCASIONNALY,
@@ -193,5 +104,95 @@ public class LifeStyle implements Serializable, Cloneable {
         public static religion randomLSreligion() {
             return VALUES.get(random.nextInt(SIZE));
         }
+    }
+
+
+    // Customised LifeStyle -> Add Profile
+    public LifeStyle(smoker LSsmoker, athlete LSathlete, feed LSfeed, bodyBuild LSbodyBuild, religion LSreligion, alcohol LSalcohol) {
+        this.LSsmoker = LSsmoker;
+        this.LSathlete = LSathlete;
+        this.LSfeed = LSfeed;
+        this.LSbodyBuild = LSbodyBuild;
+        this.LSreligion = LSreligion;
+        this.LSalcohol = LSalcohol;
+    }
+
+    // Random LifeStyle
+    public LifeStyle() {
+    }
+
+    public void setRandomLifeStyle() {
+        setLSsmoker(smoker.randomLSsmoker());
+        setLSathlete(athlete.randomLSathlete());
+        setLSfeed(feed.randomLSfeed());
+        setLSbodyBuild(bodyBuild.randomLSbodyBuild());
+        setLSreligion(religion.randomLSreligion());
+        setLSalcohol(alcohol.randomLSalcohol());
+    }
+
+    public smoker getLSsmoker() {
+        return LSsmoker;
+    }
+
+    public void setLSsmoker(smoker LSsmoker) {
+        this.LSsmoker = LSsmoker;
+    }
+
+    public athlete getLSathlete() {
+        return LSathlete;
+    }
+
+    public void setLSathlete(athlete LSathlete) {
+        this.LSathlete = LSathlete;
+    }
+
+    public feed getLSfeed() {
+        return LSfeed;
+    }
+
+    public void setLSfeed(feed LSfeed) {
+        this.LSfeed = LSfeed;
+    }
+
+    public bodyBuild getLSbodyBuild() {
+        return LSbodyBuild;
+    }
+
+    public void setLSbodyBuild(bodyBuild LSbodyBuild) {
+        this.LSbodyBuild = LSbodyBuild;
+    }
+
+    public religion getLSreligion() {
+        return LSreligion;
+    }
+
+    public void setLSreligion(religion LSreligion) {
+        this.LSreligion = LSreligion;
+    }
+
+    public alcohol getLSalcohol() {
+        return LSalcohol;
+    }
+
+    public void setLSalcohol(alcohol LSalcohol) {
+        this.LSalcohol = LSalcohol;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("LifeStyle{");
+        sb.append("LSsmoker=").append(LSsmoker);
+        sb.append(", LSathlete=").append(LSathlete);
+        sb.append(", LSfeed=").append(LSfeed);
+        sb.append(", LSbodyBuild=").append(LSbodyBuild);
+        sb.append(", LSreligion=").append(LSreligion);
+        sb.append(", LSalcohol=").append(LSalcohol);
+        sb.append('}');
+        return sb.toString();
+    }
+
+    @Override
+    public LifeStyle clone() throws CloneNotSupportedException {
+        return (LifeStyle) super.clone();
     }
 }

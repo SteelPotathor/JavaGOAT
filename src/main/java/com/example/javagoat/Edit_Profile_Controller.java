@@ -282,7 +282,6 @@ public class Edit_Profile_Controller {
         Pane thumbsDown = (Pane) profileTableViewHistoric.actions.getChildren().get(3);
         ImageView imageDown = (ImageView) thumbsDown.getChildren().get(0);
         imageDown.setVisible(false);
-        System.out.println(profileTableViewHistoric.toProfile());
     }
 
     public void desactivateThumbsPos(ProfileTableViewHistoric profileTableViewHistoric) {
@@ -297,7 +296,6 @@ public class Edit_Profile_Controller {
         Pane thumbsUp = (Pane) profileTableViewHistoric.actions.getChildren().get(1);
         ImageView imageUp = (ImageView) thumbsUp.getChildren().get(0);
         imageUp.setVisible(false);
-        System.out.println(profileTableViewHistoric.toProfile());
     }
 
     public void changeCursor(ProfileTableViewHistoric profileTableViewHistoric) {

@@ -34,7 +34,6 @@ import static com.example.javagoat.back.ModelHistoMatch.getMatchCount;
 
 public class Dashboard_Controller {
 
-    private static int click = 0;
     private final int total = 60;
     @FXML
     public TableView<ProfileTableView> tableView;
@@ -94,7 +93,6 @@ public class Dashboard_Controller {
 
     @FXML
     void initialize() {
-        click++;
         earlyAnimation(0.1);
         initTableView();
         fillTableView();
@@ -113,13 +111,6 @@ public class Dashboard_Controller {
     private void initStats() {
         label_total_profiles.setText(String.valueOf(modelMatch.getModelP().getProfileHashMap().size()));
         label_today_matches.setText(String.valueOf(getMatchCount()));
-        // Purpose : Bait the work of the today's events stat
-        if (click >= 2) {
-            label_today_events.setText("3");
-        } else {
-            label_today_events.setText("2");
-        }
-
         label_today_new_profiles.setText(String.valueOf(ModelMatch.getCreateCounter()));
     }
 

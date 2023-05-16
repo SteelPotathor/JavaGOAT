@@ -12,6 +12,10 @@ public class ModelNotification implements Serializable {
     public ModelNotification() {
     }
 
+    public void addNotification(Date date, String string) {
+        stockNotification.put(date, string);
+    }
+
     public static TreeMap<Date, String> getStockNotification() {
         return stockNotification;
     }
@@ -20,23 +24,11 @@ public class ModelNotification implements Serializable {
         ModelNotification.stockNotification = stockNotification;
     }
 
-    public static void main(String[] args) {
-        ModelNotification modelNotification = new ModelNotification();
-        modelNotification.addNotification(new Date(123, 4, 3), "3");
-        modelNotification.addNotification(new Date(122, 4, 3), "2");
-        modelNotification.addNotification(new Date(121, 4, 3), "1");
-        modelNotification.addNotification(new Date(), "4");
-    }
-
-    public void addNotification(Date date, String string) {
-        stockNotification.put(date, string);
-    }
-
     public String toString() {
-        String s = "";
+        final StringBuilder sb = new StringBuilder();
         for (Date date : stockNotification.keySet()) {
-            s += date + " : " + stockNotification.get(date);
+            sb.append(date).append(" : ").append(stockNotification.get(date));
         }
-        return s;
+        return sb.toString();
     }
 }

@@ -5,6 +5,7 @@ import com.calendarfx.model.Calendar;
 import com.calendarfx.model.CalendarSource;
 import com.calendarfx.model.Entry;
 import com.calendarfx.view.CalendarView;
+import com.example.javagoat.back.CalendarSave;
 import com.example.javagoat.back.ModelMatch;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 public class Calendar_Controller {
 
@@ -41,41 +47,10 @@ public class Calendar_Controller {
     @FXML
     private CalendarView calendar;
 
-    @FXML
-    void change_scene_to_page_dashboard(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("home.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
+    private Calendar work;
+    private Calendar personal;
 
-    @FXML
-    void change_scene_to_new_profile(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("new_profile.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void change_scene_to_page_search(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("search.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    @FXML
-    void change_scene_to_page_calendar(MouseEvent event) throws IOException {
-        parent = FXMLLoader.load(getClass().getResource("calendar.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(parent);
-        stage.setScene(scene);
-        stage.show();
-    }
+    private CalendarSave calendarSave;
 
     @FXML
     public void initialize() {
@@ -88,9 +63,10 @@ public class Calendar_Controller {
 
     private void setUpCalendarEntry() {
         CalendarSource calendarSource = calendar.getCalendarSources().get(0);
-        Calendar work = calendarSource.getCalendars().get(0);
-        Calendar personal = calendarSource.getCalendars().get(1);
+        work = calendarSource.getCalendars().get(0);
+        personal = calendarSource.getCalendars().get(1);
 
+        /*
         Entry<String> meetings16 = new Entry<>("BreakFast with Bob");
         meetings16.setInterval(LocalDate.of(2023, 5, 9));
         meetings16.changeStartDate(LocalDate.of(2023, 5, 9));
@@ -210,6 +186,11 @@ public class Calendar_Controller {
         meetings12.changeStartTime(LocalTime.of(14, 0));
         meetings12.changeEndTime(LocalTime.of(22, 30));
         personal.addEntry(meetings12);
+         */
+
+        Map<Date, Entry> dic = work.findEntries(LocalDate.of(1900,5,5), LocalDate.of(2100,5,5), ZoneId.of("Europe/Paris"));
+        System.out.println(dic);
+        System.out.println(dic.get("2023-05-15"));
     }
 
     void setUpCalendarName() {
@@ -220,6 +201,7 @@ public class Calendar_Controller {
         work.setName("Work");
         calendarSource.setName("My calendars");
         calendarSource.getCalendars().addAll(personal);
+        calendarSave = new CalendarSave(calendar);
     }
 
     private void early_animations() {
@@ -249,9 +231,55 @@ public class Calendar_Controller {
     }
 
     @FXML
+    void change_scene_to_page_dashboard(MouseEvent event) throws IOException {
+        parent = FXMLLoader.load(getClass().getResource("home.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+        Map<Date, Entry> dic = work.findEntries(LocalDate.of(1900,5,5), LocalDate.of(2100,5,5), ZoneId.of("Europe/Paris"));
+        System.out.println(dic);
+        System.out.println("sous calendars avant save : " +calendar.getCalendars());
+        System.out.println("sous calendars sources avant save : " +calendar.getCalendarSources());
+        // manipulé les calendars sources!
+        calendarSave.saveEntries();
+    }
+
+    @FXML
+    void change_scene_to_new_profile(MouseEvent event) throws IOException {
+        parent = FXMLLoader.load(getClass().getResource("new_profile.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+        calendarSave.saveEntries();
+    }
+
+    @FXML
+    void change_scene_to_page_search(MouseEvent event) throws IOException {
+        parent = FXMLLoader.load(getClass().getResource("search.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+        calendarSave.saveEntries();
+    }
+
+    @FXML
+    void change_scene_to_page_calendar(MouseEvent event) throws IOException {
+        parent = FXMLLoader.load(getClass().getResource("calendar.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.show();
+        calendarSave.saveEntries();
+    }
+
+    @FXML
     void exit_script() {
         modelMatch.saveProfiles();
         modelMatch.saveDistances();
+        calendarSave.saveEntries();
         System.exit(0);
     }
 }

@@ -167,17 +167,20 @@ public class ProfileTableView {
 
     @Override
     public String toString() {
-        return "ProfileTableView{" +
-                "id=" + id +
-                ", priority=" + priority +
-                ", imageView=" + imageView +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", age=" + age +
-                ", gender='" + gender + '\'' +
-                ", hBox=" + actions +
-                ", modify=" + modify +
-                ", match=" + match +
-                '}';
+        final StringBuilder sb = new StringBuilder("ProfileTableView{");
+        sb.append("logoModif=").append(logoModif);
+        sb.append(", logoMatch=").append(logoMatch);
+        sb.append(", id=").append(id);
+        sb.append(", priority=").append(priority);
+        sb.append(", imageView=").append(imageView);
+        sb.append(", firstname='").append(firstname).append('\'');
+        sb.append(", lastname='").append(lastname).append('\'');
+        sb.append(", age=").append(age);
+        sb.append(", gender='").append(gender).append('\'');
+        sb.append(", actions=").append(actions);
+        sb.append(", modify=").append(modify);
+        sb.append(", match=").append(match);
+        sb.append('}');
+        return sb.toString();
     }
 }

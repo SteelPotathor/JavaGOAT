@@ -15,18 +15,6 @@ public class TupleTreeSet implements Comparable<TupleTreeSet>, Serializable {
     public TupleTreeSet() {
     }
 
-
-    @Override
-    public String toString() {
-        return "(id=" + id + ", distance=" + distance + ")";
-    }
-
-    // Useful for the TreeSet where this class will be used
-    @Override
-    public int compareTo(TupleTreeSet o) {
-        return (int) (this.distance - o.distance);
-    }
-
     public int getId() {
         return id;
     }
@@ -41,5 +29,22 @@ public class TupleTreeSet implements Comparable<TupleTreeSet>, Serializable {
 
     public void setDistance(float distance) {
         this.distance = distance;
+    }
+
+
+    // Useful for the TreeSet where this class will be used
+    @Override
+    public int compareTo(TupleTreeSet o) {
+        return (int) (this.distance - o.distance);
+    }
+
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("TupleTreeSet{");
+        sb.append("id=").append(id);
+        sb.append(", distance=").append(distance);
+        sb.append('}');
+        return sb.toString();
     }
 }

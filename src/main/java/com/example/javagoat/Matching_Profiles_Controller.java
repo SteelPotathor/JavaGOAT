@@ -159,6 +159,7 @@ public class Matching_Profiles_Controller {
         profileSelected = profile;
         result_matching = modelMatch.getKNN(profile.getIdentity().getNoId(), 5);
         profileList = new ArrayList<>(result_matching.keySet());
+
         List<Circle> circleList = Arrays.asList(circleProfilePictureNE, circleProfilePictureSE, circleProfilePictureS, circleProfilePictureSW, circleProfilePictureNW);
         List<Label> lastNameList = Arrays.asList(lastNameNE, lastNameSE, lastNameS, lastNameSW, lastNameNW);
         List<Label> firstNameList = Arrays.asList(firstNameNE, firstNameSE, firstNameS, firstNameSW, firstNameNW);
@@ -190,11 +191,8 @@ public class Matching_Profiles_Controller {
 
     private void extracted(Profile profile, List<Label> labelRedList, int i, Profile p) {
         TreeSet<TupleTreeSet> treeSetRed = modelMatch.getStockDistance().get(p.getIdentity().getNoId());
-        System.out.println("treeSetRed : " + treeSetRed);
         for (TupleTreeSet t : treeSetRed) {
-            System.out.println(modelMatch.modelP.getProfileHashMap().get(t.getId()) + " " + t.getDistance());
             if (t.getId() == profile.getIdentity().getNoId()) {
-                System.out.println("ok " + Math.round(100 - (100 * t.getDistance() / 51.4669)) + "% " + t.getDistance());
                 labelRedList.get(i).setText(Math.round(100 - (100 * t.getDistance() / 51.4669)) + "%");
                 break;
             }

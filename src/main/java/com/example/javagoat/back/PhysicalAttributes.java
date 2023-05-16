@@ -14,6 +14,49 @@ public class PhysicalAttributes implements Serializable, Cloneable {
     public hairType PAhairType;
     public hairLength PAhairLength;
 
+    public enum hairColor {
+        BLONDE,
+        RED,
+        BRUNETTE,
+        BLACK;
+
+        private static final List<hairColor> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
+        private static final int SIZE = VALUES.size();
+
+        public static hairColor randomHColor() {
+            return VALUES.get(random.nextInt(SIZE));
+        }
+
+    }
+
+    public enum hairType {
+        STRAIGHT,
+        WAVY,
+        CURLY;
+
+        private static final List<hairType> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
+        private static final int SIZE = VALUES.size();
+
+        public static hairType randomHType() {
+            return VALUES.get(random.nextInt(SIZE));
+        }
+
+    }
+
+    public enum hairLength {
+        LONG,
+        HALF_LONG,
+        SHORT;
+
+        private static final List<hairLength> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
+        private static final int SIZE = VALUES.size();
+
+        public static hairLength randomHLength() {
+            return VALUES.get(random.nextInt(SIZE));
+        }
+
+    }
+
     // Customised PhysicalAttributes -> Add Profile
     public PhysicalAttributes(int size, hairColor hColor, hairType hType, hairLength hLength) {
         this.size = size;
@@ -33,10 +76,6 @@ public class PhysicalAttributes implements Serializable, Cloneable {
         setHairLength(hairLength.randomHLength());
     }
 
-    @Override
-    public PhysicalAttributes clone() throws CloneNotSupportedException {
-        return (PhysicalAttributes) super.clone();
-    }
 
     public int getSize() {
         return size;
@@ -95,55 +134,18 @@ public class PhysicalAttributes implements Serializable, Cloneable {
     }
 
     @Override
+    public PhysicalAttributes clone() throws CloneNotSupportedException {
+        return (PhysicalAttributes) super.clone();
+    }
+
+    @Override
     public String toString() {
-        String sb = "PhysicalAttributes{" + "size=" + size +
-                ", PAhairColor=" + PAhairColor +
-                ", PAhairType=" + PAhairType +
-                ", PAhairLength=" + PAhairLength +
-                '}';
-        return sb;
-    }
-
-    public enum hairColor {
-        BLONDE,
-        RED,
-        BRUNETTE,
-        BLACK;
-
-        private static final List<hairColor> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
-        private static final int SIZE = VALUES.size();
-
-        public static hairColor randomHColor() {
-            return VALUES.get(random.nextInt(SIZE));
-        }
-
-    }
-
-    public enum hairType {
-        STRAIGHT,
-        WAVY,
-        CURLY;
-
-        private static final List<hairType> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
-        private static final int SIZE = VALUES.size();
-
-        public static hairType randomHType() {
-            return VALUES.get(random.nextInt(SIZE));
-        }
-
-    }
-
-    public enum hairLength {
-        LONG,
-        HALF_LONG,
-        SHORT;
-
-        private static final List<hairLength> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
-        private static final int SIZE = VALUES.size();
-
-        public static hairLength randomHLength() {
-            return VALUES.get(random.nextInt(SIZE));
-        }
-
+        final StringBuilder sb = new StringBuilder("PhysicalAttributes{");
+        sb.append("size=").append(size);
+        sb.append(", PAhairColor=").append(PAhairColor);
+        sb.append(", PAhairType=").append(PAhairType);
+        sb.append(", PAhairLength=").append(PAhairLength);
+        sb.append('}');
+        return sb.toString();
     }
 }

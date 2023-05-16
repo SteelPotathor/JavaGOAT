@@ -1,9 +1,5 @@
 package com.example.javagoat.back;
 
-import animatefx.animation.SlideOutDown;
-
-import java.beans.XMLDecoder;
-import java.beans.XMLEncoder;
 import java.io.*;
 import java.util.*;
 
@@ -13,44 +9,35 @@ public class ModelMatch implements Serializable {
     public static int createCounter = 0;
     public ModelProfile modelP;
     public ModelNotification modelN = new ModelNotification();
-    public String DistancePath = "src\\main\\java\\com\\example\\javagoat\\back\\Distances.xml";
-    public String ProfilePath = "src\\main\\java\\com\\example\\javagoat\\back\\Profiles.xml";
+    public final String DistancePath = "src\\main\\java\\com\\example\\javagoat\\back\\Distances.dat";
+    public final String ProfilePath = "src\\main\\java\\com\\example\\javagoat\\back\\Profiles.dat";
 
 
     public ModelMatch() {
-        XMLDecoder decoder = null;
         try {
             modelP = new ModelProfile();
             // check if the DS is not null because of static (we don't want to reset it)
             if (modelP.getProfileHashMap().size() == 0) {
                 FileInputStream fileInputStream = new FileInputStream(this.ProfilePath);
-                BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
-                decoder = new XMLDecoder(bufferedInputStream);
-                ModelProfile.profileHashMap = ((HashMap<Integer, Profile>) decoder.readObject());
+                ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+
+                ModelProfile.profileHashMap = ((HashMap<Integer, Profile>) objectInputStream.readObject());
             }
             // check if the DS is not null because of static (we don't want to reset it)
             if (stockDistance == null) {
                 FileInputStream fileInputStream = new FileInputStream(this.DistancePath);
-                BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
-                decoder = new XMLDecoder(bufferedInputStream);
-                stockDistance = (HashMap<Integer, TreeSet<TupleTreeSet>>) decoder.readObject();
+                ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+
+                stockDistance = (HashMap<Integer, TreeSet<TupleTreeSet>>) objectInputStream.readObject();
             }
         } catch (Exception e) {
             modelP = new ModelProfile();
             stockDistance = new HashMap<>();
-        } finally {
-            if (decoder != null) decoder.close();
+            System.out.println("No files found or error in files : generating empty Data Structures...");
         }
 
     }
 
-    public static int getCreateCounter() {
-        return createCounter;
-    }
-
-    public static void setCreateCounter(int createCounter) {
-        ModelMatch.createCounter = createCounter;
-    }
 
     public void addProfile(Profile p) {
         // Add in every TreeSets the new distance between the profile 'p' and every other profiles contained in this HashMap
@@ -71,8 +58,8 @@ public class ModelMatch implements Serializable {
         }
 
         // Add the profile 'p' in the hashMap
-        ModelProfile.profileHashMap.put(p.identity.getNoId(), p);
-        modelN.addNotification(new Date(), "Profile created : " + p.identity.getLastname() + " " + p.identity.getFirstname());
+        ModelProfile.profileHashMap.put(p.getIdentity().getNoId(), p);
+        modelN.addNotification(new Date(), "Profile created : " + p.getIdentity().getLastname() + " " + p.getIdentity().getFirstname());
         createCounter++;
     }
 
@@ -83,11 +70,11 @@ public class ModelMatch implements Serializable {
         // Remove the profile 'p' from every TreeSet
         for (int idProfile : stockDistance.keySet()) {
             TreeSet<TupleTreeSet> treeSetProfile = stockDistance.get(idProfile);
-            treeSetProfile.remove(new TupleTreeSet(p.identity.getNoId(), this.modelP.getProfileHashMap().get(idProfile), p));
+            treeSetProfile.remove(new TupleTreeSet(p.getIdentity().getNoId(), this.modelP.getProfileHashMap().get(idProfile), p));
         }
 
         // Remove the TreeSet of the profile 'p'
-        stockDistance.remove(p.identity.getNoId());
+        stockDistance.remove(p.getIdentity().getNoId());
         createCounter--;
     }
 
@@ -97,14 +84,14 @@ public class ModelMatch implements Serializable {
             if (idProfile != newProfile.getIdentity().getNoId()) {
                 TreeSet<TupleTreeSet> treeSetProfile = stockDistance.get(idProfile);
                 Profile profile = ModelProfile.profileHashMap.get(idProfile);
-                treeSetProfile.remove(new TupleTreeSet(newProfile.identity.getNoId(), profile, oldProfile));
-                treeSetProfile.add(new TupleTreeSet(newProfile.identity.getNoId(), profile, newProfile));
+                treeSetProfile.remove(new TupleTreeSet(newProfile.getIdentity().getNoId(), profile, oldProfile));
+                treeSetProfile.add(new TupleTreeSet(newProfile.getIdentity().getNoId(), profile, newProfile));
             }
         }
 
         // Clear the TreeSet for the profile 'newProfile'
         stockDistance.get(newProfile.identity.getNoId()).clear();
-        TreeSet<TupleTreeSet> treeSetP = stockDistance.get(newProfile.identity.getNoId());
+        TreeSet<TupleTreeSet> treeSetP = stockDistance.get(newProfile.getIdentity().getNoId());
 
         // Add in the new TreeSet every distance with other profiles
         for (int idProfile : ModelProfile.profileHashMap.keySet()) {
@@ -114,13 +101,13 @@ public class ModelMatch implements Serializable {
         ModelProfile.profileHashMap.remove(oldProfile.getIdentity().getNoId());
         ModelProfile.profileHashMap.put(newProfile.getIdentity().getNoId(), newProfile);
 
-        modelN.addNotification(new Date(), "Profile edited : " + newProfile.identity.getLastname() + " " + newProfile.identity.getFirstname());
+        modelN.addNotification(new Date(), "Profile edited : " + newProfile.getIdentity().getLastname() + " " + newProfile.getIdentity().getFirstname());
     }
 
     public HashMap<Profile, Integer> getKNN(int noProfile, int howMany) {
         // Get the treemap of the profile 'noProfile'
         TreeSet<TupleTreeSet> treeSetD = stockDistance.get(noProfile);
-        HashMap<TupleHistoHashMap, Date> hashMapH = modelP.profileHashMap.get(noProfile).getModelHisto().getStockHisto();
+        HashMap<TupleHistoHashMap, Date> hashMapH = ModelProfile.profileHashMap.get(noProfile).getModelHisto().getStockHisto();
 
         // Set an iterator to get 'howMany' first elements in the treemap (and an Arraylist to stock the results)
         // Obtains the nearest profiles in the ArrayList
@@ -130,50 +117,58 @@ public class ModelMatch implements Serializable {
 
         while (i < howMany && itr.hasNext()) {
             TupleTreeSet tupleTreeSet = itr.next();
-            if ((hashMapH == null || !hashMapH.containsKey(tupleTreeSet.getId()) && tupleTreeSet.getId() != noProfile && modelP.profileHashMap.get(tupleTreeSet.getId()).getPreferences().getBiology().getBsex() == modelP.getProfileHashMap().get(noProfile).getIdentity().getBsex())) {
+
+            if ((hashMapH == null || !containsId(hashMapH, tupleTreeSet.getId())) && (tupleTreeSet.getId() != noProfile) && (ModelProfile.profileHashMap.get(noProfile).getPreferences().getBiology().getBsex() == ModelProfile.profileHashMap.get(tupleTreeSet.getId()).getIdentity().getBsex()) && ModelProfile.profileHashMap.get(tupleTreeSet.getId()).getPreferences().getBiology().getBsex() == ModelProfile.profileHashMap.get(noProfile).getIdentity().getBsex()) {
                 HashSet<Passion.miscellaneous> PMprofile = modelP.profileHashMap.get(noProfile).getPassion().getPassionM();
                 HashSet<Passion.video_games> PVGprofile = modelP.profileHashMap.get(noProfile).getPassion().getPassionVG();
-                int counter = modelP.profileHashMap.get(tupleTreeSet.id).getPassion().getPassionM().stream().filter(PMprofile::contains).toArray().length;
-                counter += modelP.profileHashMap.get(tupleTreeSet.id).getPassion().getPassionVG().stream().filter(PVGprofile::contains).toArray().length;
-                KNNProfiles.put(modelP.profileHashMap.get(tupleTreeSet.id), counter);
-                System.out.println(tupleTreeSet.distance);
+                int counter = modelP.profileHashMap.get(tupleTreeSet.getId()).getPassion().getPassionM().stream().filter(PMprofile::contains).toArray().length;
+                counter += modelP.profileHashMap.get(tupleTreeSet.getId()).getPassion().getPassionVG().stream().filter(PVGprofile::contains).toArray().length;
+                KNNProfiles.put(modelP.profileHashMap.get(tupleTreeSet.getId()), counter);
                 i++;
             }
 
         }
-        System.out.println(KNNProfiles);
         return KNNProfiles;
     }
 
+    public boolean containsId(HashMap<TupleHistoHashMap, Date> stockHisto, int id) {
+        for (TupleHistoHashMap tupleHistoHashMap : stockHisto.keySet()) {
+            if (tupleHistoHashMap.getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void saveProfiles() {
-        XMLEncoder encoder = null;
         try {
             FileOutputStream fos = new FileOutputStream(ProfilePath);
-            BufferedOutputStream oos = new BufferedOutputStream(fos);
-            encoder = new XMLEncoder(oos);
-            encoder.writeObject(this.getModelP().getProfileHashMap());
-            encoder.flush();
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+            oos.writeObject(this.getModelP().getProfileHashMap());
+
+            oos.close();
+            fos.close();
+
         } catch (final IOException e) {
-            throw new RuntimeException();
-        } finally {
-            if (encoder != null) encoder.close();
+            throw new RuntimeException("Error while saving profiles");
         }
 
     }
 
     public void saveDistances() {
-        XMLEncoder encoder = null;
+
         try {
             FileOutputStream fos = new FileOutputStream(DistancePath);
-            BufferedOutputStream oos = new BufferedOutputStream(fos);
-            encoder = new XMLEncoder(oos);
-            encoder.writeObject(this.getStockDistance());
-            encoder.flush();
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+            oos.writeObject(this.getStockDistance());
+
+            oos.close();
+            fos.close();
 
         } catch (final IOException e) {
-            throw new RuntimeException();
-        } finally {
-            if (encoder != null) encoder.close();
+            throw new RuntimeException("Error while saving distances");
         }
 
     }
@@ -194,7 +189,6 @@ public class ModelMatch implements Serializable {
         modelP = modelProfile;
     }
 
-<<<<<<< HEAD
     public static int getCreateCounter() {
         return createCounter;
     }
@@ -204,8 +198,6 @@ public class ModelMatch implements Serializable {
     }
 
     @Override
-=======
->>>>>>> main
     public String toString() {
         final StringBuilder sb = new StringBuilder("ModelMatch{");
         sb.append("modelP=").append(modelP);

@@ -339,4 +339,24 @@ public class Vecteur implements Serializable, Cloneable {
     public void setxIQ(float xIQ) {
         this.xIQ = xIQ;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Vecteur{");
+        sb.append("xSize=").append(xSize);
+        sb.append(", xAge=").append(xAge);
+        sb.append(", xHairColor=").append(xHairColor);
+        sb.append(", xHairLenght=").append(xHairLenght);
+        sb.append(", xHairType=").append(xHairType);
+        sb.append(", xSmoker=").append(xSmoker);
+        sb.append(", xAthlete=").append(xAthlete);
+        sb.append(", xFeed=").append(xFeed);
+        sb.append(", xBodyBuild=").append(xBodyBuild);
+        sb.append(", xEthnicity=").append(xEthnicity);
+        sb.append(", xSex=").append(xSex);
+        sb.append(", xAlcohol=").append(xAlcohol);
+        sb.append(", xIQ=").append(xIQ);
+        sb.append('}');
+        return sb.toString();
+    }
 }

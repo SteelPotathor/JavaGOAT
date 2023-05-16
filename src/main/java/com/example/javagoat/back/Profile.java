@@ -232,16 +232,6 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
         return this.total == 0 ? 0 : this.positif / this.total * 100;
     }
 
-    @Override
-    public String toString() {
-        String sb = "Profile{" + "identity=" + identity +
-                ", physicalAttributes=" + physicalAttributes +
-                ", lifeStyle=" + lifeStyle +
-                ", preferences=" + preferences +
-                ", passion=" + passion +
-                '}';
-        return sb;
-    }
 
     @Override
     public int compareTo(Profile o) {
@@ -261,5 +251,24 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
         clone.setVectPreferences(clone.getVectPreferences().clone());
 
         return clone;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Profile{");
+        sb.append("identity=").append(identity);
+        sb.append(", physicalAttributes=").append(physicalAttributes);
+        sb.append(", lifeStyle=").append(lifeStyle);
+        sb.append(", preferences=").append(preferences);
+        sb.append(", passion=").append(passion);
+        sb.append(", vectProfile=").append(vectProfile);
+        sb.append(", vectPreferences=").append(vectPreferences);
+        sb.append(", modelHisto=").append(modelHisto);
+        sb.append(", imageView='").append(imageView).append('\'');
+        sb.append(", priority=").append(priority);
+        sb.append(", positif=").append(positif);
+        sb.append(", total=").append(total);
+        sb.append('}');
+        return sb.toString();
     }
 }

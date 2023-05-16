@@ -3,8 +3,6 @@ package com.example.javagoat.back;
 import com.example.javagoat.back.names.NameGenerator;
 
 import java.io.Serializable;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -14,6 +12,32 @@ public class Biology implements Serializable, Cloneable {
     public sex Bsex;
     public ethnicity Bethnicity;
     public int qi;
+
+    public enum sex {
+        MALE, FEMALE;
+        public static final Random random = new Random();
+        private static final List<sex> VALUES = List.of(values());
+        private static final int SIZE = VALUES.size();
+
+        public static sex randomSex() {
+            return VALUES.get(random.nextInt(SIZE));
+        }
+    }
+
+    public enum ethnicity {
+        WHITE, BLACK, ASIAN, LATINO;
+        public static final Random random = new Random();
+        private static final List<ethnicity> VALUES = List.of(values());
+        private static final int SIZE = VALUES.size();
+
+        public static ethnicity randomEthnicity() {
+            return VALUES.get(random.nextInt(SIZE));
+        }
+    }
+
+    public Biology() {
+
+    }
 
     // Customised Biology -> Add Profile
     public Biology(int age, sex Bsex, ethnicity Bethnicity, int qi) {
