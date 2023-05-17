@@ -1,7 +1,7 @@
 
 # Second Year Uni Java Project : Matrimonial Agency
 
-Team for the project : @l0rest, @mihawk and @SteelPotathor 
+Team for the project : l0rest, [@mihawk](https://github.com/OG-Mihawk) and @SteelPotathor 
 Thanks to Mr. Panzoli (PHD) for guiding us through this project.
 
 ## Purpose :gem:
