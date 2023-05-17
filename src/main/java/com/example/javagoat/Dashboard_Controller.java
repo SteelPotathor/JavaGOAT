@@ -4,10 +4,10 @@ import animatefx.animation.FadeInDown;
 import animatefx.animation.FadeInRightBig;
 import animatefx.animation.FadeInUpBig;
 import animatefx.animation.Swing;
-import com.example.javagoat.back.ModelMatch;
-import com.example.javagoat.back.ModelNotification;
-import com.example.javagoat.back.Profile;
-import com.example.javagoat.back.ProfileTableView;
+import com.example.javagoat.Model.ModelMatch;
+import com.example.javagoat.Model.ModelNotification;
+import com.example.javagoat.Model.Profile;
+import com.example.javagoat.Model.ProfileTableView;
 import javafx.animation.PauseTransition;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static com.example.javagoat.back.ModelHistoMatch.getMatchCount;
+import static com.example.javagoat.Model.ModelHistoMatch.getMatchCount;
 
 public class Dashboard_Controller {
 

@@ -1,4 +1,4 @@
-package com.example.javagoat.back;
+package com.example.javagoat.Model;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -8,7 +8,7 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Circle;
 
-import static com.example.javagoat.back.ModelProfile.profileHashMap;
+import static com.example.javagoat.Model.ModelProfile.profileHashMap;
 
 public class ProfileTableView {
 

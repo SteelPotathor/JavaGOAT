@@ -5,7 +5,7 @@ import com.calendarfx.model.Calendar;
 import com.calendarfx.model.CalendarSource;
 import com.calendarfx.model.Entry;
 import com.calendarfx.view.CalendarView;
-import com.example.javagoat.back.ModelMatch;
+import com.example.javagoat.Model.ModelMatch;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import java.time.ZoneId;
 import java.util.*;
 
 public class Calendar_Controller {

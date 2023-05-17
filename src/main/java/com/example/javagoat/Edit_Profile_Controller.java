@@ -4,7 +4,7 @@ import animatefx.animation.FadeInDownBig;
 import animatefx.animation.FadeInLeftBig;
 import animatefx.animation.FadeInRightBig;
 import animatefx.animation.FadeInUpBig;
-import com.example.javagoat.back.*;
+import com.example.javagoat.Model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -32,7 +32,7 @@ import java.util.Objects;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
 
-import static com.example.javagoat.back.ModelProfile.profileHashMap;
+import static com.example.javagoat.Model.ModelProfile.profileHashMap;
 
 public class Edit_Profile_Controller {
 

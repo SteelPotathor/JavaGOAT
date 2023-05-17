@@ -4,9 +4,9 @@ import animatefx.animation.FadeInRightBig;
 import animatefx.animation.FadeInUpBig;
 import animatefx.animation.FadeOutRightBig;
 import animatefx.animation.RotateInDownLeft;
-import com.example.javagoat.back.ModelMatch;
-import com.example.javagoat.back.Profile;
-import com.example.javagoat.back.ProfileTableView;
+import com.example.javagoat.Model.ModelMatch;
+import com.example.javagoat.Model.Profile;
+import com.example.javagoat.Model.ProfileTableView;
 import javafx.animation.PauseTransition;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
@@ -40,8 +40,8 @@ import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import static com.example.javagoat.back.ModelProfile.correspondingName;
-import static com.example.javagoat.back.ModelProfile.profileHashMap;
+import static com.example.javagoat.Model.ModelProfile.correspondingName;
+import static com.example.javagoat.Model.ModelProfile.profileHashMap;
 
 public class Search_Controller {
 

@@ -1,8 +1,8 @@
-package com.example.javagoat.back;
+package com.example.javagoat.Model;
 
 import java.util.Date;
 
-import static com.example.javagoat.back.ModelProfile.profileHashMap;
+import static com.example.javagoat.Model.ModelProfile.profileHashMap;
 
 public class CheckPriorityStart {
 

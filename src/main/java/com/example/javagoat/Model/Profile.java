@@ -1,4 +1,4 @@
-package com.example.javagoat.back;
+package com.example.javagoat.Model;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;

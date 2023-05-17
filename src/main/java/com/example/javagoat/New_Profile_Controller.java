@@ -4,7 +4,7 @@ import animatefx.animation.FadeInDownBig;
 import animatefx.animation.FadeInLeftBig;
 import animatefx.animation.FadeInRightBig;
 import animatefx.animation.FadeInUpBig;
-import com.example.javagoat.back.*;
+import com.example.javagoat.Model.*;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;

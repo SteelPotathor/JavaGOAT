@@ -1,4 +1,4 @@
-package com.example.javagoat.back;
+package com.example.javagoat.Model;
 
 import java.io.Serializable;
 import java.util.Date;
