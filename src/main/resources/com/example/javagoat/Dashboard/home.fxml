@@ -79,7 +79,7 @@
                                 <Image url="@today_event.png"/>
                             </image>
                         </ImageView>
-                        <Label fx:id="label_today_events" layoutX="184.0" layoutY="112.0" text="502" textFill="WHITE">
+                        <Label fx:id="label_today_events" layoutX="184.0" layoutY="112.0" text="0" textFill="WHITE">
                             <font>
                                 <Font size="22.0"/>
                             </font>
