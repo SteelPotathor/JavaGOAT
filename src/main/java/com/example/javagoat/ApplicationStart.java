@@ -16,14 +16,6 @@ public class ApplicationStart extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        ModelMatch modelMatch = new ModelMatch();
-
-        for (int i = 0; i < 500; i++) {
-            Profile p = new Profile();
-            p.setRandomProfile();
-            modelMatch.addProfile(p);
-        }
-
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Dashboard/home.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
