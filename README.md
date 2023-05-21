@@ -17,11 +17,11 @@ The code won't be changed, it was a crucial step in my learning curve but I want
 
 You need to setup this specific VM option : --add-exports=javafx.base/com.sun.javafx.event=org.controlsfx.controls  
 Without it, search bar will not work properly.  
-The video shows almost every functionnalities : insert video's url here!
+The video shows almost every functionnalities : Youtube video coming soon!
 
 ### Graphics :art:
 
-Special thanks to @Mihawk for the amazing UI.
+Special thanks to [OG-mihawk](https://github.com/OG-Mihawk) for the amazing UI.
 
 ### Disclaimer :x:
 
