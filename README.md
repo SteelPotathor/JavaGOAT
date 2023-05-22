@@ -20,6 +20,7 @@ Without it, search bar will not work properly.
 Moreover, you'll need to have these librairies :  
 https://github.com/Typhon0/AnimateFX  
 https://github.com/dlsc-software-consulting-gmbh/CalendarFX  
+
 The video shows almost every functionnalities : Youtube video coming soon!
 
 ### Graphics :art:
