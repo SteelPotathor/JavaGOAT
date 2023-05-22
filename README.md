@@ -17,6 +17,9 @@ The code won't be changed, it was a crucial step in my learning curve but I want
 
 You need to setup this specific VM option : --add-exports=javafx.base/com.sun.javafx.event=org.controlsfx.controls  
 Without it, search bar will not work properly.  
+Moreover, you'll need to have these librairies :  
+https://github.com/Typhon0/AnimateFX  
+https://github.com/dlsc-software-consulting-gmbh/CalendarFX
 The video shows almost every functionnalities : Youtube video coming soon!
 
 ### Graphics :art:
