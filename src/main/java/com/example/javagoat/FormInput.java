@@ -24,14 +24,18 @@ final class FormInput {
     }
 
     /** @return the problems found, empty when every value is in its range */
-    static List<String> checkProfileNumbers(String age, String size, String iq, String preferredAge, String preferredSize) {
+    static List<String> checkPersonNumbers(String age, String size, String iq) {
         List<String> problems = new ArrayList<>();
         checkRange(problems, "Age", age, MIN_AGE, MAX_AGE);
         checkRange(problems, "Size (cm)", size, MIN_SIZE, MAX_SIZE);
         checkRange(problems, "IQ", iq, MIN_IQ, MAX_IQ);
-        checkRange(problems, "Preferred age", preferredAge, MIN_AGE, MAX_AGE);
-        checkRange(problems, "Preferred size (cm)", preferredSize, MIN_SIZE, MAX_SIZE);
         return problems;
+    }
+
+    /** Choice lists built from the enums, so that every value can be converted back with valueOf(). */
+    static javafx.collections.ObservableList<String> names(Class<? extends Enum<?>> type) {
+        return javafx.collections.FXCollections.observableArrayList(
+                java.util.Arrays.stream(type.getEnumConstants()).map(Enum::name).toList());
     }
 
     private static void checkRange(List<String> problems, String label, String text, int min, int max) {

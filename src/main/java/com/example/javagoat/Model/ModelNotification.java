@@ -1,14 +1,11 @@
 package com.example.javagoat.Model;
 
-import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.TreeMap;
 
-public class ModelNotification implements Serializable {
+public class ModelNotification {
 
-    // Frozen value: keeps the existing .dat files readable after code changes.
-    private static final long serialVersionUID = -7805210958867488155L;
 
     public static TreeMap<Date, String> stockNotification = new TreeMap<Date, String>(Comparator.reverseOrder());
 

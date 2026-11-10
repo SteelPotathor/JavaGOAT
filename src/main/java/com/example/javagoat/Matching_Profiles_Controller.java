@@ -6,7 +6,7 @@ import animatefx.animation.RotateInDownLeft;
 import com.example.javagoat.Model.ImageLoader;
 import com.example.javagoat.Model.ModelMatch;
 import com.example.javagoat.Model.Profile;
-import com.example.javagoat.Model.TupleTreeSet;
+import com.example.javagoat.Model.matching.Matcher;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
@@ -49,7 +49,7 @@ public class Matching_Profiles_Controller {
 
     public Profile profileSelected;
 
-    public HashMap<Profile, Integer> result_matching;
+    public List<Matcher.Suggestion> suggestions;
 
     public List<Profile> profileList;
 
@@ -159,8 +159,9 @@ public class Matching_Profiles_Controller {
 
     public void set_match(Profile profile) {
         profileSelected = profile;
-        result_matching = modelMatch.getKNN(profile.getIdentity().getNoId(), 5);
-        profileList = new ArrayList<>(result_matching.keySet());
+        // Best mutual compatibility first (see matching.properties)
+        suggestions = modelMatch.getSuggestions(profile.getIdentity().getNoId());
+        profileList = suggestions.stream().map(Matcher.Suggestion::candidate).toList();
 
         List<Circle> circleList = Arrays.asList(circleProfilePictureNE, circleProfilePictureSE, circleProfilePictureS, circleProfilePictureSW, circleProfilePictureNW);
         List<Label> lastNameList = Arrays.asList(lastNameNE, lastNameSE, lastNameS, lastNameSW, lastNameNW);
@@ -173,15 +174,17 @@ public class Matching_Profiles_Controller {
         circleProfilePictureCenter.setFill(new ImagePattern(ImageLoader.profileImage(profile.getImageView())));
         for (int i = 0; i < circleList.size(); i++) {
             if (i < profileList.size()) {
-                Profile p = profileList.get(i);
-                passionList.get(i).setText("Common passions : " + result_matching.get(p));
+                Matcher.Suggestion suggestion = suggestions.get(i);
+                Profile p = suggestion.candidate();
+                passionList.get(i).setText(Math.round(suggestion.compatibility()) + "% match - " + suggestion.commonPassions() + " common passions");
                 ageList.get(i).setText("Age : " + p.getIdentity().getAge());
                 firstNameList.get(i).setText(p.getIdentity().getFirstname());
                 lastNameList.get(i).setText(p.getIdentity().getLastname());
                 circleList.get(i).setFill(new ImagePattern(ImageLoader.profileImage(p.getImageView())));
 
-                labelBlueList.get(i).setText(compatibility(profile.getDistance(p)) + "%");
-                labelRedList.get(i).setText(compatibility(p.getDistance(profile)) + "%");
+                // Blue: how well the candidate fits the selected person's preferences; red: the other way round
+                labelBlueList.get(i).setText(percent(suggestion.selectedSatisfaction()));
+                labelRedList.get(i).setText(percent(suggestion.candidateSatisfaction()));
             } else {
                 // Fewer compatible profiles than places: the slot stays empty and cannot be clicked
                 circleList.get(i).setDisable(true);
@@ -197,19 +200,8 @@ public class Matching_Profiles_Controller {
         animation();
     }
 
-    // Distance converted to a percentage, kept within 0..100 (it could be negative for distant profiles)
-    private static long compatibility(float distance) {
-        return Math.max(0, Math.min(100, Math.round(100 - (100 * distance / 80))));
-    }
-
-    private void extracted(Profile profile, List<Label> labelRedList, int i, Profile p) {
-        TreeSet<TupleTreeSet> treeSetRed = modelMatch.getStockDistance().get(p.getIdentity().getNoId());
-        for (TupleTreeSet t : treeSetRed) {
-            if (t.getId() == profile.getIdentity().getNoId()) {
-                labelRedList.get(i).setText(Math.round(100 - (100 * t.getDistance() / 51.4669)) + "%");
-                break;
-            }
-        }
+    private static String percent(double satisfaction) {
+        return Math.round(100 * satisfaction) + "%";
     }
 
     public void make_match(MouseEvent mouseEvent) throws IOException {

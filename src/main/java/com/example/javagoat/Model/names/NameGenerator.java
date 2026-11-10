@@ -13,25 +13,24 @@ import java.util.Random;
 
 /**
  * Random "Firstname Lastname" taken from female.csv / male.csv (classpath resources).
- * <p>
- * The previous version read the file through a working-directory path and only seeked into its
- * first 1000 bytes, so about 65 of the 10 000 names could ever be drawn.
+ * The caller provides the Random, so that a seeded generator always produces the same names.
  */
 public class NameGenerator {
 
-    private static final Random RANDOM = new Random();
     private static List<String> femaleNames;
     private static List<String> maleNames;
 
     private final List<String> names;
+    private final Random random;
 
-    public NameGenerator(Biology biology) {
-        this.names = biology.getBsex() == Biology.sex.FEMALE ? femaleNames() : maleNames();
+    public NameGenerator(Biology.sex sex, Random random) {
+        this.names = sex == Biology.sex.FEMALE ? femaleNames() : maleNames();
+        this.random = random;
     }
 
     /** @return {firstname, lastname} */
     public String[] getRandomName() {
-        return names.get(RANDOM.nextInt(names.size())).split(" ", 2);
+        return names.get(random.nextInt(names.size())).split(" ", 2);
     }
 
     private static synchronized List<String> femaleNames() {

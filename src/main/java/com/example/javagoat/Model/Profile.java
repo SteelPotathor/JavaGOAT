@@ -1,15 +1,9 @@
 package com.example.javagoat.Model;
 
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.io.Serializable;
 
-
-public class Profile implements Serializable, Comparable<Profile>, Cloneable {
-
-    // Frozen value: keeps the existing .dat files readable after code changes.
-    private static final long serialVersionUID = 6738467214294162552L;
+public class Profile implements Comparable<Profile> {
 
     public Identity identity;
     public PhysicalAttributes physicalAttributes;
@@ -17,74 +11,23 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
     public Preferences preferences;
     public Passion passion;
 
-    public Vecteur vectProfile;
-    public Vecteur vectPreferences;
-
     public ModelHistoMatch modelHisto;
 
     public String imageView;
-    public int priority = 1; // Base priority value
+    public int priority = 1; // Base priority value (computed at start-up by CheckPriorityStart)
+    // Feedback received from the people this profile was matched with (derived from their votes when loading)
     public double positif = 0;
     public double total = 0;
 
 
-    // Customised Profile -> Add Profile
     public Profile(Identity identity, PhysicalAttributes physicalAttributes, LifeStyle lifeStyle, Preferences preferences, Passion passion, String imageView) {
         this.identity = identity;
         this.physicalAttributes = physicalAttributes;
         this.lifeStyle = lifeStyle;
         this.preferences = preferences;
         this.passion = passion;
-        // The size typed in the form is stored as is (it used to get a hidden +15 cm for men)
-        refreshVectors();
         this.modelHisto = new ModelHistoMatch();
         this.imageView = imageView;
-    }
-
-    /** Recomputes the normalised vectors used by the distance. Must be called after any attribute change. */
-    public void refreshVectors() {
-        this.vectProfile = new Vecteur();
-        this.vectPreferences = new Vecteur();
-        this.vectProfile.setProfileVecteur(this);
-        this.vectPreferences.setPrefVecteur(this.getPreferences());
-    }
-
-    // Random Profile
-    public Profile() {
-    }
-
-    public void setRandomProfile() {
-        this.physicalAttributes = new PhysicalAttributes();
-        this.physicalAttributes.setRandomPhysicalAttributes();
-
-        this.identity = new Identity();
-        this.identity.setRandomIdentity();
-
-        this.lifeStyle = new LifeStyle();
-        this.lifeStyle.setRandomLifeStyle();
-
-        this.preferences = new Preferences();
-        this.preferences.setRandomPreferences();
-
-        if (this.identity.getBsex() == Biology.sex.MALE) {
-            this.physicalAttributes.setSize(this.physicalAttributes.getSize() + 15);
-        }
-
-        this.passion = new Passion();
-        this.passion.setRandomPassion();
-
-        refreshVectors();
-
-        this.modelHisto = new ModelHistoMatch();
-
-        this.imageView = ImageLoader.DEFAULT_PROFILE_IMAGE;
-    }
-
-    // Method used for multiple tests
-    public void setRandomProfileExceptName(String lastname, String firstname) {
-        setRandomProfile();
-        this.identity.firstname = firstname;
-        this.identity.lastname = lastname;
     }
 
     public ProfileTableView toProfileTableView() {
@@ -93,10 +36,6 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
         img.setFitHeight(40);
         img.setFitWidth(40);
         return new ProfileTableView(this.identity.noId, this.priority, img, this.identity.firstname, this.identity.lastname, this.identity.age, this.identity.Bsex.toString());
-    }
-
-    public float getDistance(Profile profile) {
-        return new DistanceCalculator(this).getDistance(profile);
     }
 
     public Identity getIdentity() {
@@ -129,22 +68,6 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
 
     public void setPreferences(Preferences preferences) {
         this.preferences = preferences;
-    }
-
-    public Vecteur getVectProfile() {
-        return vectProfile;
-    }
-
-    public void setVectProfile(Vecteur vectProfile) {
-        this.vectProfile = vectProfile;
-    }
-
-    public Vecteur getVectPreferences() {
-        return vectPreferences;
-    }
-
-    public void setVectPreferences(Vecteur vectPreferences) {
-        this.vectPreferences = vectPreferences;
     }
 
     public Passion getPassion() {
@@ -183,20 +106,12 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
         return positif;
     }
 
-    public void setPositif(int positif) {
-        this.positif = positif;
-    }
-
     public void setPositif(double positif) {
         this.positif = positif;
     }
 
     public double getTotal() {
         return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
     }
 
     public void setTotal(double total) {
@@ -214,21 +129,6 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
     }
 
     @Override
-    public Profile clone() throws CloneNotSupportedException {
-        Profile clone = (Profile) super.clone();
-
-        clone.setIdentity((Identity) clone.getIdentity().clone());
-        clone.setPhysicalAttributes(clone.getPhysicalAttributes().clone());
-        clone.setLifeStyle(clone.getLifeStyle().clone());
-        clone.setPreferences(clone.getPreferences().clone());
-        clone.setPassion(clone.getPassion().clone());
-        clone.setVectProfile(clone.getVectProfile().clone());
-        clone.setVectPreferences(clone.getVectPreferences().clone());
-
-        return clone;
-    }
-
-    @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Profile{");
         sb.append("identity=").append(identity);
@@ -236,8 +136,6 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
         sb.append(", lifeStyle=").append(lifeStyle);
         sb.append(", preferences=").append(preferences);
         sb.append(", passion=").append(passion);
-        sb.append(", vectProfile=").append(vectProfile);
-        sb.append(", vectPreferences=").append(vectPreferences);
         sb.append(", modelHisto=").append(modelHisto);
         sb.append(", imageView='").append(imageView).append('\'');
         sb.append(", priority=").append(priority);

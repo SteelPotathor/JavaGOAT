@@ -1,15 +1,10 @@
 package com.example.javagoat.Model;
 
-import com.example.javagoat.Model.names.NameGenerator;
-
-import java.io.Serializable;
 import java.util.List;
 import java.util.Random;
 
-public class Biology implements Serializable, Cloneable {
+public class Biology implements Cloneable {
 
-    // Frozen value: keeps the existing .dat files readable after code changes.
-    private static final long serialVersionUID = 3335013214069143045L;
 
     public int age;
     public sex Bsex;
@@ -48,33 +43,6 @@ public class Biology implements Serializable, Cloneable {
         this.Bsex = Bsex;
         this.Bethnicity = Bethnicity;
         this.qi = qi;
-    }
-
-    public void setRandomBiology() {
-        Random random = new Random();
-        setAge(random.nextInt(40) + 20);
-        setBsex(sex.randomSex());
-        setBethnicity(ethnicity.randomEthnicity());
-        setQi(gauss_law_simulation(100, 15));
-    }
-
-    // Standard normal value (Box-Muller). It used to be cast to int, so it was almost always -1, 0 or 1
-    // and every generated IQ was 85, 100 or 115. 1 - nextDouble() is in ]0, 1], so log() never receives 0.
-    public double gauss_law_simulation_classic() {
-        Random random = new Random();
-        double randomNumber = 1.0 - random.nextDouble();
-        double randomNumber2 = random.nextDouble();
-
-        return Math.sqrt(-2 * Math.log(randomNumber)) * Math.cos(2 * Math.PI * randomNumber2);
-    }
-
-    public int gauss_law_simulation(int average, int standard_deviation) {
-        double number = gauss_law_simulation_classic();
-        return (int) Math.round(average + standard_deviation * number);
-    }
-
-    public String[] getRandomName() {
-        return new NameGenerator(this).getRandomName();
     }
 
     public int getAge() {

@@ -37,3 +37,6 @@ build/
 ### Mac OS ###
 .DS_Store
 *.class
+
+### Temporary files of the atomic saves ###
+*.tmp

@@ -1,13 +1,10 @@
 package com.example.javagoat.Model;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 
-public class ModelHistoMatch implements Serializable {
+public class ModelHistoMatch {
 
-    // Frozen value: keeps the existing .dat files readable after code changes.
-    private static final long serialVersionUID = -6214436833951088644L;
 
     public HashMap<TupleHistoHashMap, Date> stockHisto = new HashMap<>();
 

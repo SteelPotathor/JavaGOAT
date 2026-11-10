@@ -37,10 +37,6 @@ import static com.example.javagoat.Model.ModelProfile.profileHashMap;
 
 public class Edit_Profile_Controller {
 
-    //ALL BUTTONS PREFERENCES INFORMATION
-    public TextField textfield_age_preferences;
-    public TextField textfield_size_preferences;
-    
     //ALL THE TEXTFIELDS
     public TextField textfield_first_name;
     public TextField textfield_last_name;
@@ -63,34 +59,33 @@ public class Edit_Profile_Controller {
 
     //ALL THE OBSERVABLELISTS
     @FXML
-    ObservableList<String> element_sex = FXCollections.observableArrayList("MALE", "FEMALE");
+    ObservableList<String> element_sex = FormInput.names(Biology.sex.class);
     @FXML
-    ObservableList<String> element_miscellanious = FXCollections.observableArrayList("BIKE", "MOVIES", "ANIME", "MANGA", "NETFLIX", "COOKING", "RUNNING", "DANCING", "YOGA", "TRAVELING", "MODE", "GYM", "BASKET", "TENNIS", "SOCCER", "MARTIAL_ARTS", "LITTERATURE", "DIVING", "WRITING", "PROGRAMMATION", "PHOTOGRAPHY", "GARDENING", "HISTORY", "GEOGRAPHY", "VACATIONS", "MUSIC", "PAINTING", "PORN", "SLEEP", "ANIMALS", "SPIRITUALITY", "GRINDING", "PLAYING_WITH_KIDS", "CHESS", "COSPLAY", "FURRIES", "PSYCHOLOGY", "PHILOSOPHY", "SCIENCES", "THEATHER", "VLOGGING", "CLIMBING", "NUDISM", "DECORATIONS");
+    ObservableList<String> element_miscellanious = FormInput.names(Passion.miscellaneous.class);
     @FXML
-    ObservableList<String> element_video_games = FXCollections.observableArrayList("LEAGUE_OF_LEGENDS", "VALORANT", "MINECRAFT", "TERRARIA", "CALL_OF_DUTY", "DESTINY_2", "DIABLO_3", "WORLD_OF_WARCRAFT", "HEARTHSTONE", "BATTLEFIELD", "APEX_LEGENDS", "DOTA_2", "CS_GO", "SUPER_SMASH_BROS", "FORTNITE", "JACKBOX_PARTY", "DIVINE_KNOCKOUT", "AMOGUS", "STREET_FIGHTER", "ARK", "CRAB_GAME", "BRAWLHALLA", "MONSTER_HUNTER", "DRAGON_QUEST", "GTA", "GENSHIN_IMPACT"
-            , "SEA_OF_THIEVES", "DEAD_BY_DAYLIGHT", "THE_DOORS", "FALL_GUYS", "ROCKET_LEAGUE", "WARFRAME", "PUBG", "VALHEIM", "RUST");
+    ObservableList<String> element_video_games = FormInput.names(Passion.video_games.class);
 
     //ALL THE CHOICEBOXES PREFERENCES INFORMATION
     @FXML
-    ObservableList<String> element_hair_length = FXCollections.observableArrayList("LONG", "HALF_LONG", "SHORT");
+    ObservableList<String> element_hair_length = FormInput.names(PhysicalAttributes.hairLength.class);
     @FXML
-    ObservableList<String> element_hair_type = FXCollections.observableArrayList("STRAIGHT", "WAVY", "CURLY");
+    ObservableList<String> element_hair_type = FormInput.names(PhysicalAttributes.hairType.class);
     @FXML
-    ObservableList<String> element_hair_color = FXCollections.observableArrayList("BLONDE", "RED", "BRUNETTE", "BLACK");
+    ObservableList<String> element_hair_color = FormInput.names(PhysicalAttributes.hairColor.class);
     @FXML
-    ObservableList<String> element_religion = FXCollections.observableArrayList("MUSLIM", "CHRISTIAN", "JEWISH", "BUDDHIST", "HINDUIST", "OTHER", "ATHEIST");
+    ObservableList<String> element_religion = FormInput.names(LifeStyle.religion.class);
     @FXML
-    ObservableList<String> element_bodybuild = FXCollections.observableArrayList("SKINNY", "MEDIUM", "OVERWEIGHT");
+    ObservableList<String> element_bodybuild = FormInput.names(LifeStyle.bodyBuild.class);
     @FXML
-    ObservableList<String> element_feed = FXCollections.observableArrayList("VEGAN", "VEGETARIAN", "OMNIVORE", "FLEXIVORE");
+    ObservableList<String> element_feed = FormInput.names(LifeStyle.feed.class);
     @FXML
-    ObservableList<String> element_athlete = FXCollections.observableArrayList("SPORTY", "SEDENTARY", "LAZY");
+    ObservableList<String> element_athlete = FormInput.names(LifeStyle.athlete.class);
     @FXML
-    ObservableList<String> element_alcohol = FXCollections.observableArrayList("NEVER", "OCCASIONNALY", "REGULARLY", "DAILY");
+    ObservableList<String> element_alcohol = FormInput.names(LifeStyle.alcohol.class);
     @FXML
-    ObservableList<String> element_smoker = FXCollections.observableArrayList("NEVER", "OCCASIONNALY", "REGULARLY", "DAILY");
+    ObservableList<String> element_smoker = FormInput.names(LifeStyle.smoker.class);
     @FXML
-    ObservableList<String> element_ethnicity = FXCollections.observableArrayList("WHITE", "BLACK", "ASIAN", "LATINO");
+    ObservableList<String> element_ethnicity = FormInput.names(Biology.ethnicity.class);
 
     //Image to put in circle
     @FXML
@@ -125,28 +120,6 @@ public class Edit_Profile_Controller {
     private CheckComboBox<String> miscellanious_checkcombobox;
     @FXML
     private ChoiceBox<String> sex_choicebox;
-    @FXML
-    private ChoiceBox<String> choicebox_ethnicity_preferences;
-    @FXML
-    private ChoiceBox<String> Smoker_choicebox_preferences;
-    @FXML
-    private ChoiceBox<String> alcohol_choicebox_preferences;
-    @FXML
-    private ChoiceBox<String> Athlete_choicebox_preferences;
-    @FXML
-    private ChoiceBox<String> feed_choicebox_preferences;
-    @FXML
-    private ChoiceBox<String> bodybuild_choicebox_preferences;
-    @FXML
-    private ChoiceBox<String> religion_choicebox_preferences;
-    @FXML
-    private ChoiceBox<String> color_of_hair_choicebox_preferences;
-    @FXML
-    private ChoiceBox<String> hair_type_choicebox_preferences;
-    @FXML
-    private ChoiceBox<String> hair_length_choicebox_preferences;
-    @FXML
-    private ChoiceBox<String> sex_choicebox_preferences;
 
     //ALL THE BUTTONS
     @FXML
@@ -198,6 +171,7 @@ public class Edit_Profile_Controller {
     private Dashboard_Controller dashboard_controller;
     private Search_Controller search_controller;
     private boolean personnal_preferences = true;
+    private PreferencesForm preferencesForm;
 
     public void setDashboard_controller(Dashboard_Controller dashboard_controller) {
         this.dashboard_controller = dashboard_controller;
@@ -215,7 +189,9 @@ public class Edit_Profile_Controller {
         earlyAnimations();
         setTextFieldsLimitations();
         initAllPersonnalInfo();
-        initAllPreferencesInfo();
+        preferencesForm = new PreferencesForm(grid_life_style_preferences, grid_physical_information_preferences,
+                grid_passions_preferences, () -> {
+        });
         initImage();
         initTableView();
     }
@@ -330,24 +306,6 @@ public class Edit_Profile_Controller {
         circle_profile_picture.setFill(new ImagePattern(image));
     }
 
-    private void initAllPreferencesInfo() {
-        initAllPrefInfos(choicebox_ethnicity_preferences, element_ethnicity, Smoker_choicebox_preferences, element_smoker, alcohol_choicebox_preferences, element_alcohol, Athlete_choicebox_preferences, element_athlete, feed_choicebox_preferences, element_feed, bodybuild_choicebox_preferences, element_bodybuild, religion_choicebox_preferences, element_religion, color_of_hair_choicebox_preferences, element_hair_color, hair_type_choicebox_preferences, element_hair_type, hair_length_choicebox_preferences, element_hair_length, sex_choicebox_preferences, element_sex);
-    }
-
-    static void initAllPrefInfos(ChoiceBox<String> choicebox_ethnicity_preferences, ObservableList<String> element_ethnicity, ChoiceBox<String> smoker_choicebox_preferences, ObservableList<String> element_smoker, ChoiceBox<String> alcohol_choicebox_preferences, ObservableList<String> element_alcohol, ChoiceBox<String> athlete_choicebox_preferences, ObservableList<String> element_athlete, ChoiceBox<String> feed_choicebox_preferences, ObservableList<String> element_feed, ChoiceBox<String> bodybuild_choicebox_preferences, ObservableList<String> element_bodybuild, ChoiceBox<String> religion_choicebox_preferences, ObservableList<String> element_religion, ChoiceBox<String> color_of_hair_choicebox_preferences, ObservableList<String> element_hair_color, ChoiceBox<String> hair_type_choicebox_preferences, ObservableList<String> element_hair_type, ChoiceBox<String> hair_length_choicebox_preferences, ObservableList<String> element_hair_length, ChoiceBox<String> sex_choicebox_preferences, ObservableList<String> element_sex) {
-        choicebox_ethnicity_preferences.setItems(element_ethnicity);
-        choicebox_ethnicity_preferences.setValue("Select");
-        initInfo(smoker_choicebox_preferences, element_smoker, alcohol_choicebox_preferences, element_alcohol, athlete_choicebox_preferences, element_athlete, feed_choicebox_preferences, element_feed, bodybuild_choicebox_preferences, element_bodybuild, religion_choicebox_preferences, element_religion);
-        color_of_hair_choicebox_preferences.setValue("Select");
-        color_of_hair_choicebox_preferences.setItems(element_hair_color);
-        hair_type_choicebox_preferences.setValue("Select");
-        hair_type_choicebox_preferences.setItems(element_hair_type);
-        hair_length_choicebox_preferences.setValue("Select");
-        hair_length_choicebox_preferences.setItems(element_hair_length);
-        sex_choicebox_preferences.setValue("MALE/FEMALE");
-        sex_choicebox_preferences.setItems(element_sex);
-    }
-
     static void initInfo(ChoiceBox<String> smoker_choicebox_preferences, ObservableList<String> element_smoker, ChoiceBox<String> alcohol_choicebox_preferences, ObservableList<String> element_alcohol, ChoiceBox<String> athlete_choicebox_preferences, ObservableList<String> element_athlete, ChoiceBox<String> feed_choicebox_preferences, ObservableList<String> element_feed, ChoiceBox<String> bodybuild_choicebox_preferences, ObservableList<String> element_bodybuild, ChoiceBox<String> religion_choicebox_preferences, ObservableList<String> element_religion) {
         smoker_choicebox_preferences.setValue("Select");
         smoker_choicebox_preferences.setItems(element_smoker);
@@ -406,13 +364,9 @@ public class Edit_Profile_Controller {
         TextFormatter<String> formatterNumbers = new TextFormatter<>(filterNumbers);
         TextFormatter<String> formatterNumbers2 = new TextFormatter<>(filterNumbers);
         TextFormatter<String> formatterNumbers3 = new TextFormatter<>(filterNumbers);
-        TextFormatter<String> formatterNumbers4 = new TextFormatter<>(filterNumbers);
-        TextFormatter<String> formatterNumbers5 = new TextFormatter<>(filterNumbers);
         textfield_age.setTextFormatter(formatterNumbers);
         textfield_size.setTextFormatter(formatterNumbers2);
         textfield_qi.setTextFormatter(formatterNumbers3);
-        textfield_age_preferences.setTextFormatter(formatterNumbers4);
-        textfield_size_preferences.setTextFormatter(formatterNumbers5);
     }
 
     @FXML
@@ -435,19 +389,6 @@ public class Edit_Profile_Controller {
                 || Objects.equals(textfield_age.getText().replace(" ", ""), "")
                 || Objects.equals(textfield_size.getText().replace(" ", ""), "")
                 || Objects.equals(textfield_qi.getText().replace(" ", ""), "")
-                || Objects.equals(Smoker_choicebox_preferences.getValue(), "Select")
-                || Objects.equals(alcohol_choicebox_preferences.getValue(), "Select")
-                || Objects.equals(Athlete_choicebox_preferences.getValue(), "Select")
-                || Objects.equals(feed_choicebox_preferences.getValue(), "Select")
-                || Objects.equals(bodybuild_choicebox_preferences.getValue(), "Select")
-                || Objects.equals(religion_choicebox_preferences.getValue(), "Select")
-                || Objects.equals(color_of_hair_choicebox_preferences.getValue(), "Select")
-                || Objects.equals(hair_type_choicebox_preferences.getValue(), "Select")
-                || Objects.equals(hair_length_choicebox_preferences.getValue(), "Select")
-                || Objects.equals(sex_choicebox_preferences.getValue(), "MALE/FEMALE")
-                || Objects.equals(choicebox_ethnicity_preferences.getValue(), "Select")
-                || Objects.equals(textfield_age_preferences.getText().replace(" ", ""), "")
-                || Objects.equals(textfield_size_preferences.getText().replace(" ", ""), "")
         ) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Information Dialog");
@@ -455,8 +396,8 @@ public class Edit_Profile_Controller {
             alert.setContentText("Your profile has not been edited, please fill all the fields");
             alert.showAndWait();
         } else {
-            List<String> problems = FormInput.checkProfileNumbers(textfield_age.getText(), textfield_size.getText(),
-                    textfield_qi.getText(), textfield_age_preferences.getText(), textfield_size_preferences.getText());
+            List<String> problems = FormInput.checkPersonNumbers(textfield_age.getText(), textfield_size.getText(), textfield_qi.getText());
+            problems.addAll(preferencesForm.problems());
             if (!problems.isEmpty()) {
                 FormInput.showProblems("Profile not edited", problems);
                 return;
@@ -464,7 +405,7 @@ public class Edit_Profile_Controller {
             Identity identity = new Identity(Integer.parseInt(textfield_age.getText()), Biology.sex.valueOf(sex_choicebox.getValue()), Biology.ethnicity.valueOf(choicebox_ethnicity.getValue()), Integer.parseInt(textfield_qi.getText()), textfield_last_name.getText(), textfield_first_name.getText(), idProfile);
             PhysicalAttributes physicalAttributes = new PhysicalAttributes(Integer.parseInt(textfield_size.getText()), PhysicalAttributes.hairColor.valueOf(color_of_hair_choicebox.getValue()), PhysicalAttributes.hairType.valueOf(hair_type_choicebox.getValue()), PhysicalAttributes.hairLength.valueOf(hair_length_choicebox.getValue()));
             LifeStyle lifeStyle = new LifeStyle(LifeStyle.smoker.valueOf(Smoker_choicebox.getValue()), LifeStyle.athlete.valueOf(Athlete_choicebox.getValue()), LifeStyle.feed.valueOf(feed_choicebox.getValue()), LifeStyle.bodyBuild.valueOf(bodybuild_choicebox.getValue()), LifeStyle.religion.valueOf(religion_choicebox.getValue()), LifeStyle.alcohol.valueOf(alcohol_choicebox.getValue()));
-            Preferences preferences = new Preferences(new PhysicalAttributes(Integer.parseInt(textfield_size_preferences.getText()), PhysicalAttributes.hairColor.valueOf(color_of_hair_choicebox_preferences.getValue()), PhysicalAttributes.hairType.valueOf(hair_type_choicebox_preferences.getValue()), PhysicalAttributes.hairLength.valueOf(hair_length_choicebox_preferences.getValue())), new Biology(Integer.parseInt(textfield_age_preferences.getText()), Biology.sex.valueOf(sex_choicebox_preferences.getValue()), Biology.ethnicity.valueOf(choicebox_ethnicity_preferences.getValue()), Integer.parseInt(textfield_qi.getText())), new LifeStyle(LifeStyle.smoker.valueOf(Smoker_choicebox_preferences.getValue()), LifeStyle.athlete.valueOf(Athlete_choicebox_preferences.getValue()), LifeStyle.feed.valueOf(feed_choicebox_preferences.getValue()), LifeStyle.bodyBuild.valueOf(bodybuild_choicebox_preferences.getValue()), LifeStyle.religion.valueOf(religion_choicebox_preferences.getValue()), LifeStyle.alcohol.valueOf(alcohol_choicebox_preferences.getValue())));
+            Preferences preferences = preferencesForm.read();
             Passion passion = new Passion();
             ObservableList<String> video_games_checked = video_games_checkcombobox.getCheckModel().getCheckedItems();
             ObservableList<String> miscellaneous_checked = miscellanious_checkcombobox.getCheckModel().getCheckedItems();
@@ -542,19 +483,7 @@ public class Edit_Profile_Controller {
         hair_length_choicebox.setValue(profile.getPhysicalAttributes().getHairLength().toString());
         religion_choicebox.setValue(profile.getLifeStyle().getLSreligion().toString());
 
-        Smoker_choicebox_preferences.setValue(profile.getPreferences().getLifestyle().getLSsmoker().toString());
-        choicebox_ethnicity_preferences.setValue(profile.getPreferences().getBiology().getBethnicity().toString());
-        alcohol_choicebox_preferences.setValue(profile.getPreferences().getLifestyle().getLSalcohol().toString());
-        Athlete_choicebox_preferences.setValue(profile.getPreferences().getLifestyle().getLSathlete().toString());
-        feed_choicebox_preferences.setValue(profile.getPreferences().getLifestyle().getLSfeed().toString());
-        bodybuild_choicebox_preferences.setValue(profile.getPreferences().getLifestyle().getLSbodyBuild().toString());
-        hair_type_choicebox_preferences.setValue(profile.getPreferences().getPhysicalAttributes().getHairType().toString());
-        color_of_hair_choicebox_preferences.setValue(profile.getPreferences().getPhysicalAttributes().getHairColor().toString());
-        hair_length_choicebox_preferences.setValue(profile.getPreferences().getPhysicalAttributes().getHairLength().toString());
-        religion_choicebox_preferences.setValue(profile.getPreferences().getLifestyle().getLSreligion().toString());
-        sex_choicebox_preferences.setValue(profile.getPreferences().getBiology().getBsex().toString());
-        textfield_age_preferences.setText(String.valueOf(profile.getPreferences().getBiology().getAge()));
-        textfield_size_preferences.setText(String.valueOf(profile.getPreferences().getPhysicalAttributes().getSize()));
+        preferencesForm.show(profile.getPreferences());
         // convert the arraylist in indexedCheckModel
 
         ArrayList<String> video_games_list = new ArrayList<>();

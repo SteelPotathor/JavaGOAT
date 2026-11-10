@@ -38,9 +38,27 @@ If you prefer running `ApplicationStart` directly, add the VM option
 `--add-exports=javafx.base/com.sun.javafx.event=org.controlsfx.controls` (needed by the search auto-completion)
 and keep the project root as working directory.
 
-Data: the profiles are stored in `src/main/java/com/example/javagoat/Model/storage/Profiles.dat`
-(Java serialization), saved when quitting (exit button or window close). Another directory can be used with
-the JVM option `-Djavagoat.dataDir=<directory>` (e.g. as a VM option of an IntelliJ run configuration). The distance table is recomputed at start-up; `Distances.dat` is no longer read.
+### Data and matching :busts_in_silhouette:
+
+The profiles are stored in [`data/profiles.json`](data/README.md) (readable JSON, saved when quitting with
+the exit button or the window close button). It contains 12 hand-written **showcase profiles** that
+demonstrate the algorithm, followed by 488 profiles produced by a reproducible generator
+(`.\mvnw.cmd compile exec:java`). The format, the generator and the settings are described in
+[data/README.md](data/README.md). Another data directory can be used with the JVM option
+`-Djavagoat.dataDir=<directory>` (e.g. as a VM option of an IntelliJ run configuration).
+
+Matching: each person states, for every criterion (age and size ranges, IQ, smoker, alcohol, sport, diet,
+religion, body build, hair, ethnicity), the accepted values and an importance: *Indifferent*,
+*Nice to have*, *Important* or *Required* (eliminatory). The sexes looked for are always eliminatory.
+For a candidate, each criterion gives a satisfaction between 0 and 1 (partial outside a range or for a
+neighbouring value such as "occasionally" instead of "never"); common passions are added. The
+**compatibility** is the geometric mean of the satisfaction of both people, so a suggestion has to suit
+both of them. The matching page shows the 5 best compatible people not matched yet (blue arrow: how well
+the candidate fits the selected person, red arrow: the other way round). Weights and tolerances are in
+`matching.properties` and can be overridden in `data/matching.properties`.
+
+Quick demo: open the matching page of **Camille Moreau** (first row of the search page): Thomas comes first;
+Hugo (smoker) and Julien (44) are never suggested; see the `note` of each showcase profile.
 
 The video shows almost every functionnalities : Youtube video coming soon!
 

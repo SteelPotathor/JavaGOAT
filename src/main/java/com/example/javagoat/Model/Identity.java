@@ -1,14 +1,9 @@
 package com.example.javagoat.Model;
 
-import java.io.Serializable;
 
-public class Identity extends Biology implements Serializable, Cloneable {
+public class Identity extends Biology implements Cloneable {
 
-    // Frozen value: keeps the existing .dat files readable after code changes.
-    private static final long serialVersionUID = 4634943877928295818L;
 
-    // currentMembers was used for test
-    public static int currentMembers = 0;
     public String lastname;
     public String firstname;
     public int noId;
@@ -24,22 +19,6 @@ public class Identity extends Biology implements Serializable, Cloneable {
 
     // Random Identity
     public Identity() {
-    }
-
-    public void setRandomIdentity() {
-        this.setRandomBiology();
-        this.setLastname(getRandomName()[1]);
-        this.setFirstname(getRandomName()[0]);
-        currentMembers++;
-        this.setNoId(currentMembers);
-    }
-
-    public static int getCurrentMembers() {
-        return currentMembers;
-    }
-
-    public static void setCurrentMembers(int currentMembers) {
-        Identity.currentMembers = currentMembers;
     }
 
     public String getLastname() {

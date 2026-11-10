@@ -3,14 +3,11 @@ package com.example.javagoat.Model;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.io.Serializable;
 
 import static com.example.javagoat.Model.ModelProfile.profileHashMap;
 
-public class TupleHistoHashMap implements Serializable {
+public class TupleHistoHashMap {
 
-    // Frozen value: keeps the existing .dat files readable after code changes.
-    private static final long serialVersionUID = 2595076064944729755L;
 
     public int id;
     public boolean voted;

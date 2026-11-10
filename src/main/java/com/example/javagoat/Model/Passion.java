@@ -1,12 +1,9 @@
 package com.example.javagoat.Model;
 
-import java.io.Serializable;
 import java.util.*;
 
-public class Passion implements Serializable, Cloneable {
+public class Passion implements Cloneable {
 
-    // Frozen value: keeps the existing .dat files readable after code changes.
-    private static final long serialVersionUID = 8546461914933243835L;
 
     private static final Random random = new Random();
     public HashSet<video_games> passionVG = new HashSet<>();
@@ -121,15 +118,6 @@ public class Passion implements Serializable, Cloneable {
 
     // Random Passion
     public Passion() {
-    }
-
-    public void setRandomPassion() {
-        while (this.passionVG.size() < random.nextInt(2, 6)) {
-            this.passionVG.add(video_games.randomVideoGame());
-        }
-        while (this.passionM.size() < random.nextInt(2, 6)) {
-            this.passionM.add(miscellaneous.randomMiscellaneous());
-        }
     }
 
     public HashSet<video_games> getPassionVG() {

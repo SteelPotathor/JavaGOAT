@@ -1,15 +1,12 @@
 package com.example.javagoat.Model;
 
-import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class PhysicalAttributes implements Serializable, Cloneable {
+public class PhysicalAttributes implements Cloneable {
 
-    // Frozen value: keeps the existing .dat files readable after code changes.
-    private static final long serialVersionUID = -1931963649394700826L;
 
     private static final Random random = new Random();
     public int size;
@@ -70,13 +67,6 @@ public class PhysicalAttributes implements Serializable, Cloneable {
 
     // Random PhysicalAttributes
     public PhysicalAttributes() {
-    }
-
-    public void setRandomPhysicalAttributes() {
-        setSize(random.nextInt(30) + 150);
-        setHairColor(hairColor.randomHColor());
-        setHairType(hairType.randomHType());
-        setHairLength(hairLength.randomHLength());
     }
 
 

@@ -1,0 +1,188 @@
+{
+  "version": 2,
+  "comment": "Hand-written showcase profiles: each one demonstrates a behaviour of the matching algorithm (see the 'note' fields and data/README.md). They are copied at the beginning of profiles.json by the dataset generator.",
+  "profiles": [
+    {
+      "id": 1,
+      "note": "Main demo. Open the matching page of Camille: Thomas (2) should come first. Hugo (3) is eliminated by her REQUIRED non-smoker criterion, Julien (4) by her REQUIRED age range.",
+      "firstname": "Camille", "lastname": "Moreau",
+      "sex": "FEMALE", "age": 29, "ethnicity": "WHITE", "iq": 118,
+      "size": 168, "hairColor": "BRUNETTE", "hairType": "WAVY", "hairLength": "LONG",
+      "smoker": "NEVER", "alcohol": "OCCASIONNALY", "athlete": "SPORTY", "feed": "VEGETARIAN", "bodyBuild": "SKINNY", "religion": "ATHEIST",
+      "videoGames": ["MINECRAFT", "SEA_OF_THIEVES"],
+      "passions": ["COOKING", "YOGA", "TRAVELING", "PHOTOGRAPHY", "CLIMBING"],
+      "preferences": {
+        "sexes": ["MALE"],
+        "age": {"min": 27, "max": 35, "importance": "REQUIRED"},
+        "size": {"min": 172, "max": 190, "importance": "NICE_TO_HAVE"},
+        "smoker": {"accepted": ["NEVER"], "importance": "REQUIRED"},
+        "alcohol": {"accepted": ["NEVER", "OCCASIONNALY"], "importance": "NICE_TO_HAVE"},
+        "athlete": {"accepted": ["SPORTY"], "importance": "IMPORTANT"},
+        "feed": {"accepted": ["VEGAN", "VEGETARIAN", "FLEXIVORE"], "importance": "IMPORTANT"}
+      }
+    },
+    {
+      "id": 2,
+      "note": "Ideal partner of Camille in both directions: he meets all her criteria, she meets all his, and they share most passions.",
+      "firstname": "Thomas", "lastname": "Lefèvre",
+      "sex": "MALE", "age": 31, "ethnicity": "WHITE", "iq": 115,
+      "size": 181, "hairColor": "BLACK", "hairType": "STRAIGHT", "hairLength": "SHORT",
+      "smoker": "NEVER", "alcohol": "OCCASIONNALY", "athlete": "SPORTY", "feed": "VEGETARIAN", "bodyBuild": "MEDIUM", "religion": "ATHEIST",
+      "videoGames": ["MINECRAFT", "SEA_OF_THIEVES", "VALHEIM"],
+      "passions": ["COOKING", "YOGA", "TRAVELING", "PHOTOGRAPHY", "CLIMBING"],
+      "preferences": {
+        "sexes": ["FEMALE"],
+        "age": {"min": 25, "max": 33, "importance": "IMPORTANT"},
+        "smoker": {"accepted": ["NEVER"], "importance": "IMPORTANT"},
+        "athlete": {"accepted": ["SPORTY", "SEDENTARY"], "importance": "NICE_TO_HAVE"},
+        "feed": {"accepted": ["VEGAN", "VEGETARIAN", "FLEXIVORE"], "importance": "NICE_TO_HAVE"}
+      }
+    },
+    {
+      "id": 3,
+      "note": "Dealbreaker demo: Hugo would like Camille and shares her passions, but he smokes every day and Camille's smoker criterion is REQUIRED, so he is never suggested to her (nor she to him).",
+      "firstname": "Hugo", "lastname": "Bernard",
+      "sex": "MALE", "age": 30, "ethnicity": "WHITE", "iq": 104,
+      "size": 179, "hairColor": "BRUNETTE", "hairType": "CURLY", "hairLength": "HALF_LONG",
+      "smoker": "DAILY", "alcohol": "REGULARLY", "athlete": "SPORTY", "feed": "VEGETARIAN", "bodyBuild": "MEDIUM", "religion": "ATHEIST",
+      "videoGames": ["MINECRAFT", "CALL_OF_DUTY"],
+      "passions": ["YOGA", "TRAVELING", "PHOTOGRAPHY", "MUSIC"],
+      "preferences": {
+        "sexes": ["FEMALE"],
+        "age": {"min": 25, "max": 34, "importance": "IMPORTANT"}
+      }
+    },
+    {
+      "id": 4,
+      "note": "Age range demo: Julien fits everything else Camille wants, but he is 44 and her age range 27-35 is REQUIRED.",
+      "firstname": "Julien", "lastname": "Petit",
+      "sex": "MALE", "age": 44, "ethnicity": "WHITE", "iq": 121,
+      "size": 183, "hairColor": "BLONDE", "hairType": "STRAIGHT", "hairLength": "SHORT",
+      "smoker": "NEVER", "alcohol": "OCCASIONNALY", "athlete": "SPORTY", "feed": "FLEXIVORE", "bodyBuild": "MEDIUM", "religion": "ATHEIST",
+      "videoGames": ["MINECRAFT"],
+      "passions": ["YOGA", "TRAVELING", "CLIMBING", "HISTORY"],
+      "preferences": {
+        "sexes": ["FEMALE"],
+        "age": {"min": 26, "max": 40, "importance": "IMPORTANT"}
+      }
+    },
+    {
+      "id": 5,
+      "note": "Asymmetry demo: Antoine meets Camille's criteria (high blue score on her matching page) but she does not meet his (Christian, 22-27, blond): low red score, so the mutual compatibility is only average.",
+      "firstname": "Antoine", "lastname": "Girard",
+      "sex": "MALE", "age": 33, "ethnicity": "WHITE", "iq": 110,
+      "size": 176, "hairColor": "BRUNETTE", "hairType": "STRAIGHT", "hairLength": "SHORT",
+      "smoker": "NEVER", "alcohol": "NEVER", "athlete": "SPORTY", "feed": "FLEXIVORE", "bodyBuild": "SKINNY", "religion": "CHRISTIAN",
+      "videoGames": ["ROCKET_LEAGUE"],
+      "passions": ["RUNNING", "TRAVELING", "BIKE"],
+      "preferences": {
+        "sexes": ["FEMALE"],
+        "age": {"min": 22, "max": 27, "importance": "IMPORTANT"},
+        "religion": {"accepted": ["CHRISTIAN"], "importance": "IMPORTANT"},
+        "hairColor": {"accepted": ["BLONDE"], "importance": "NICE_TO_HAVE"}
+      }
+    },
+    {
+      "id": 6,
+      "note": "Same-sex demo: Inès and Sarah (7) both look for a woman and share artistic passions.",
+      "firstname": "Inès", "lastname": "Haddad",
+      "sex": "FEMALE", "age": 27, "ethnicity": "LATINO", "iq": 108,
+      "size": 163, "hairColor": "BLACK", "hairType": "CURLY", "hairLength": "LONG",
+      "smoker": "NEVER", "alcohol": "OCCASIONNALY", "athlete": "SEDENTARY", "feed": "OMNIVORE", "bodyBuild": "MEDIUM", "religion": "OTHER",
+      "videoGames": ["JACKBOX_PARTY", "AMOGUS"],
+      "passions": ["DANCING", "MUSIC", "THEATER", "PAINTING"],
+      "preferences": {
+        "sexes": ["FEMALE"],
+        "age": {"min": 24, "max": 33, "importance": "IMPORTANT"},
+        "smoker": {"accepted": ["NEVER", "OCCASIONNALY"], "importance": "NICE_TO_HAVE"}
+      }
+    },
+    {
+      "id": 7,
+      "note": "Same-sex demo, partner of Inès (6).",
+      "firstname": "Sarah", "lastname": "Cohen",
+      "sex": "FEMALE", "age": 30, "ethnicity": "WHITE", "iq": 124,
+      "size": 170, "hairColor": "RED", "hairType": "WAVY", "hairLength": "HALF_LONG",
+      "smoker": "NEVER", "alcohol": "REGULARLY", "athlete": "SEDENTARY", "feed": "FLEXIVORE", "bodyBuild": "SKINNY", "religion": "JEWISH",
+      "videoGames": ["JACKBOX_PARTY", "FALL_GUYS"],
+      "passions": ["MUSIC", "THEATER", "PAINTING", "LITERATURE"],
+      "preferences": {
+        "sexes": ["FEMALE"],
+        "age": {"min": 25, "max": 35, "importance": "IMPORTANT"}
+      }
+    },
+    {
+      "id": 8,
+      "note": "Bisexual demo: Karim accepts both sexes; his suggestions contain men and women (who accept men).",
+      "firstname": "Karim", "lastname": "Benali",
+      "sex": "MALE", "age": 35, "ethnicity": "BLACK", "iq": 112,
+      "size": 185, "hairColor": "BLACK", "hairType": "CURLY", "hairLength": "SHORT",
+      "smoker": "OCCASIONNALY", "alcohol": "OCCASIONNALY", "athlete": "SPORTY", "feed": "OMNIVORE", "bodyBuild": "MEDIUM", "religion": "MUSLIM",
+      "videoGames": ["ROCKET_LEAGUE", "FALL_GUYS"],
+      "passions": ["COOKING", "TRAVELING", "MUSIC", "SOCCER"],
+      "preferences": {
+        "sexes": ["MALE", "FEMALE"],
+        "age": {"min": 28, "max": 42, "importance": "NICE_TO_HAVE"}
+      }
+    },
+    {
+      "id": 9,
+      "note": "Common passions demo: Léa and Maxime (10) have simple preferences but share many video games and passions, which ranks them first for each other.",
+      "firstname": "Léa", "lastname": "Rousseau",
+      "sex": "FEMALE", "age": 23, "ethnicity": "ASIAN", "iq": 131,
+      "size": 160, "hairColor": "BLACK", "hairType": "STRAIGHT", "hairLength": "HALF_LONG",
+      "smoker": "NEVER", "alcohol": "OCCASIONNALY", "athlete": "SEDENTARY", "feed": "OMNIVORE", "bodyBuild": "SKINNY", "religion": "BUDDHIST",
+      "videoGames": ["LEAGUE_OF_LEGENDS", "VALORANT", "MINECRAFT", "GENSHIN_IMPACT"],
+      "passions": ["ANIME", "MANGA", "COSPLAY", "PROGRAMMING"],
+      "preferences": {
+        "sexes": ["MALE"],
+        "age": {"min": 21, "max": 29, "importance": "IMPORTANT"}
+      }
+    },
+    {
+      "id": 10,
+      "note": "Common passions demo, partner of Léa (9).",
+      "firstname": "Maxime", "lastname": "Dubois",
+      "sex": "MALE", "age": 25, "ethnicity": "WHITE", "iq": 119,
+      "size": 177, "hairColor": "BLONDE", "hairType": "WAVY", "hairLength": "SHORT",
+      "smoker": "NEVER", "alcohol": "OCCASIONNALY", "athlete": "SEDENTARY", "feed": "OMNIVORE", "bodyBuild": "MEDIUM", "religion": "ATHEIST",
+      "videoGames": ["LEAGUE_OF_LEGENDS", "VALORANT", "GENSHIN_IMPACT", "ROCKET_LEAGUE"],
+      "passions": ["ANIME", "MANGA", "PROGRAMMING", "MOVIES"],
+      "preferences": {
+        "sexes": ["FEMALE"],
+        "age": {"min": 20, "max": 28, "importance": "IMPORTANT"}
+      }
+    },
+    {
+      "id": 11,
+      "note": "History demo: Margaux and Bernard (12) were already matched (both voted positively). They are not suggested to each other again; the match and the votes appear in the 'historic' tab of the edit page.",
+      "firstname": "Margaux", "lastname": "Lambert",
+      "sex": "FEMALE", "age": 67, "ethnicity": "WHITE", "iq": 109,
+      "size": 162, "hairColor": "BLONDE", "hairType": "WAVY", "hairLength": "SHORT",
+      "smoker": "NEVER", "alcohol": "OCCASIONNALY", "athlete": "SEDENTARY", "feed": "OMNIVORE", "bodyBuild": "MEDIUM", "religion": "CHRISTIAN",
+      "videoGames": ["HEARTHSTONE"],
+      "passions": ["COOKING", "GARDENING", "HISTORY", "LITERATURE"],
+      "preferences": {
+        "sexes": ["MALE"],
+        "age": {"min": 62, "max": 75, "importance": "REQUIRED"},
+        "religion": {"accepted": ["CHRISTIAN"], "importance": "NICE_TO_HAVE"}
+      },
+      "matches": [{"with": 12, "date": "2026-11-03T15:30", "vote": "POSITIVE"}]
+    },
+    {
+      "id": 12,
+      "note": "History demo, partner of Margaux (11).",
+      "firstname": "Bernard", "lastname": "Fontaine",
+      "sex": "MALE", "age": 70, "ethnicity": "WHITE", "iq": 113,
+      "size": 174, "hairColor": "BLONDE", "hairType": "STRAIGHT", "hairLength": "SHORT",
+      "smoker": "NEVER", "alcohol": "REGULARLY", "athlete": "SEDENTARY", "feed": "OMNIVORE", "bodyBuild": "OVERWEIGHT", "religion": "CHRISTIAN",
+      "videoGames": ["HEARTHSTONE"],
+      "passions": ["COOKING", "GARDENING", "HISTORY", "CHESS"],
+      "preferences": {
+        "sexes": ["FEMALE"],
+        "age": {"min": 60, "max": 72, "importance": "IMPORTANT"}
+      },
+      "matches": [{"with": 11, "date": "2026-11-03T15:30", "vote": "POSITIVE"}]
+    }
+  ]
+}

@@ -1,82 +1,161 @@
 package com.example.javagoat.Model;
 
-import java.io.Serializable;
+import com.example.javagoat.Model.matching.ChoiceCriterion;
+import com.example.javagoat.Model.matching.Importance;
+import com.example.javagoat.Model.matching.RangeCriterion;
 
-public class Preferences implements Serializable, Cloneable {
+import java.util.EnumSet;
+import java.util.Objects;
+import java.util.Set;
 
-    // Frozen value: keeps the existing .dat files readable after code changes.
-    private static final long serialVersionUID = -995273527076177817L;
+/**
+ * What a person is looking for.
+ * <p>
+ * Each criterion is either a range (age, size, IQ) or a set of accepted values, and carries an
+ * {@link Importance}. The accepted sexes are always eliminatory. A new instance accepts everything
+ * with the importance INDIFFERENT, except the sexes, which must be chosen.
+ */
+public class Preferences {
 
-    public PhysicalAttributes physicalAttributes;
-    public Biology biology;
-    public LifeStyle lifestyle;
+    public static final RangeCriterion DEFAULT_AGE = new RangeCriterion(18, 99, Importance.INDIFFERENT);
+    public static final RangeCriterion DEFAULT_SIZE = new RangeCriterion(140, 210, Importance.INDIFFERENT);
+    public static final RangeCriterion DEFAULT_IQ = new RangeCriterion(70, 130, Importance.INDIFFERENT);
 
-    // Customised Preferences
-    public Preferences(PhysicalAttributes physicalAttributes, Biology biology, LifeStyle lifestyle) {
-        this.physicalAttributes = physicalAttributes;
-        this.biology = biology;
-        this.lifestyle = lifestyle;
-        // The preferred size typed in the form is stored as is: the hidden +15 cm for a preferred man
-        // was added again at every edit of the profile.
-    }
+    private EnumSet<Biology.sex> sexes = EnumSet.noneOf(Biology.sex.class);
+    private RangeCriterion age = DEFAULT_AGE;
+    private RangeCriterion size = DEFAULT_SIZE;
+    private RangeCriterion iq = DEFAULT_IQ;
+    private ChoiceCriterion<PhysicalAttributes.hairColor> hairColor = ChoiceCriterion.indifferent(PhysicalAttributes.hairColor.class);
+    private ChoiceCriterion<PhysicalAttributes.hairType> hairType = ChoiceCriterion.indifferent(PhysicalAttributes.hairType.class);
+    private ChoiceCriterion<PhysicalAttributes.hairLength> hairLength = ChoiceCriterion.indifferent(PhysicalAttributes.hairLength.class);
+    private ChoiceCriterion<Biology.ethnicity> ethnicity = ChoiceCriterion.indifferent(Biology.ethnicity.class);
+    private ChoiceCriterion<LifeStyle.bodyBuild> bodyBuild = ChoiceCriterion.indifferent(LifeStyle.bodyBuild.class);
+    private ChoiceCriterion<LifeStyle.smoker> smoker = ChoiceCriterion.indifferent(LifeStyle.smoker.class);
+    private ChoiceCriterion<LifeStyle.alcohol> alcohol = ChoiceCriterion.indifferent(LifeStyle.alcohol.class);
+    private ChoiceCriterion<LifeStyle.athlete> athlete = ChoiceCriterion.indifferent(LifeStyle.athlete.class);
+    private ChoiceCriterion<LifeStyle.feed> feed = ChoiceCriterion.indifferent(LifeStyle.feed.class);
+    private ChoiceCriterion<LifeStyle.religion> religion = ChoiceCriterion.indifferent(LifeStyle.religion.class);
 
-    // Random Preferences
     public Preferences() {
     }
 
-    public void setRandomPreferences() {
-        this.physicalAttributes = new PhysicalAttributes();
-        this.physicalAttributes.setRandomPhysicalAttributes();
-        this.biology = new Biology();
-        this.biology.setRandomBiology();
-        this.lifestyle = new LifeStyle();
-        this.lifestyle.setRandomLifeStyle();
-        if (this.biology.getBsex() == Biology.sex.MALE) {
-            this.physicalAttributes.setSize(this.physicalAttributes.getSize() + 15);
-        }
+    public Set<Biology.sex> getSexes() {
+        return sexes.clone();
     }
 
-    @Override
-    public Preferences clone() throws CloneNotSupportedException {
-        Preferences clone = (Preferences) super.clone();
-        clone.setPhysicalAttributes(clone.physicalAttributes.clone());
-        clone.setBiology((Biology) clone.biology.clone());
-        clone.setLifestyle(clone.lifestyle.clone());
-
-        return clone;
+    public void setSexes(Set<Biology.sex> sexes) {
+        this.sexes = sexes.isEmpty() ? EnumSet.noneOf(Biology.sex.class) : EnumSet.copyOf(sexes);
     }
 
-    public PhysicalAttributes getPhysicalAttributes() {
-        return physicalAttributes;
+    public RangeCriterion getAge() {
+        return age;
     }
 
-    public void setPhysicalAttributes(PhysicalAttributes physicalAttributes) {
-        this.physicalAttributes = physicalAttributes;
+    public void setAge(RangeCriterion age) {
+        this.age = Objects.requireNonNull(age);
     }
 
-    public Biology getBiology() {
-        return biology;
+    public RangeCriterion getSize() {
+        return size;
     }
 
-    public void setBiology(Biology biology) {
-        this.biology = biology;
+    public void setSize(RangeCriterion size) {
+        this.size = Objects.requireNonNull(size);
     }
 
-    public LifeStyle getLifestyle() {
-        return lifestyle;
+    public RangeCriterion getIq() {
+        return iq;
     }
 
-    public void setLifestyle(LifeStyle lifestyle) {
-        this.lifestyle = lifestyle;
+    public void setIq(RangeCriterion iq) {
+        this.iq = Objects.requireNonNull(iq);
+    }
+
+    public ChoiceCriterion<PhysicalAttributes.hairColor> getHairColor() {
+        return hairColor;
+    }
+
+    public void setHairColor(ChoiceCriterion<PhysicalAttributes.hairColor> hairColor) {
+        this.hairColor = Objects.requireNonNull(hairColor);
+    }
+
+    public ChoiceCriterion<PhysicalAttributes.hairType> getHairType() {
+        return hairType;
+    }
+
+    public void setHairType(ChoiceCriterion<PhysicalAttributes.hairType> hairType) {
+        this.hairType = Objects.requireNonNull(hairType);
+    }
+
+    public ChoiceCriterion<PhysicalAttributes.hairLength> getHairLength() {
+        return hairLength;
+    }
+
+    public void setHairLength(ChoiceCriterion<PhysicalAttributes.hairLength> hairLength) {
+        this.hairLength = Objects.requireNonNull(hairLength);
+    }
+
+    public ChoiceCriterion<Biology.ethnicity> getEthnicity() {
+        return ethnicity;
+    }
+
+    public void setEthnicity(ChoiceCriterion<Biology.ethnicity> ethnicity) {
+        this.ethnicity = Objects.requireNonNull(ethnicity);
+    }
+
+    public ChoiceCriterion<LifeStyle.bodyBuild> getBodyBuild() {
+        return bodyBuild;
+    }
+
+    public void setBodyBuild(ChoiceCriterion<LifeStyle.bodyBuild> bodyBuild) {
+        this.bodyBuild = Objects.requireNonNull(bodyBuild);
+    }
+
+    public ChoiceCriterion<LifeStyle.smoker> getSmoker() {
+        return smoker;
+    }
+
+    public void setSmoker(ChoiceCriterion<LifeStyle.smoker> smoker) {
+        this.smoker = Objects.requireNonNull(smoker);
+    }
+
+    public ChoiceCriterion<LifeStyle.alcohol> getAlcohol() {
+        return alcohol;
+    }
+
+    public void setAlcohol(ChoiceCriterion<LifeStyle.alcohol> alcohol) {
+        this.alcohol = Objects.requireNonNull(alcohol);
+    }
+
+    public ChoiceCriterion<LifeStyle.athlete> getAthlete() {
+        return athlete;
+    }
+
+    public void setAthlete(ChoiceCriterion<LifeStyle.athlete> athlete) {
+        this.athlete = Objects.requireNonNull(athlete);
+    }
+
+    public ChoiceCriterion<LifeStyle.feed> getFeed() {
+        return feed;
+    }
+
+    public void setFeed(ChoiceCriterion<LifeStyle.feed> feed) {
+        this.feed = Objects.requireNonNull(feed);
+    }
+
+    public ChoiceCriterion<LifeStyle.religion> getReligion() {
+        return religion;
+    }
+
+    public void setReligion(ChoiceCriterion<LifeStyle.religion> religion) {
+        this.religion = Objects.requireNonNull(religion);
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Preferences{");
-        sb.append("physicalAttributes=").append(physicalAttributes);
-        sb.append(", biology=").append(biology);
-        sb.append(", lifestyle=").append(lifestyle);
-        sb.append('}');
-        return sb.toString();
+        return "Preferences{sexes=" + sexes + ", age=" + age + ", size=" + size + ", iq=" + iq
+                + ", hairColor=" + hairColor + ", hairType=" + hairType + ", hairLength=" + hairLength
+                + ", ethnicity=" + ethnicity + ", bodyBuild=" + bodyBuild + ", smoker=" + smoker
+                + ", alcohol=" + alcohol + ", athlete=" + athlete + ", feed=" + feed + ", religion=" + religion + '}';
     }
 }

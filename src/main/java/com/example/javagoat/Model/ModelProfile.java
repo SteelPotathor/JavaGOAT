@@ -1,13 +1,10 @@
 package com.example.javagoat.Model;
 
-import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class ModelProfile implements Serializable {
+public class ModelProfile {
 
-    // Frozen value: keeps the existing .dat files readable after code changes.
-    private static final long serialVersionUID = -3297052779723864223L;
 
     public static HashMap<Integer /*id*/, Profile> profileHashMap = new HashMap<>(); // This DS must be accessible and be the same for everyone
 

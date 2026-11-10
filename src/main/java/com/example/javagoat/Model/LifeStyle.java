@@ -1,15 +1,12 @@
 package com.example.javagoat.Model;
 
-import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class LifeStyle implements Serializable, Cloneable {
+public class LifeStyle implements Cloneable {
 
-    // Frozen value: keeps the existing .dat files readable after code changes.
-    private static final long serialVersionUID = -3038375756170421357L;
 
     private static final Random random = new Random();
     public smoker LSsmoker;
@@ -122,15 +119,6 @@ public class LifeStyle implements Serializable, Cloneable {
 
     // Random LifeStyle
     public LifeStyle() {
-    }
-
-    public void setRandomLifeStyle() {
-        setLSsmoker(smoker.randomLSsmoker());
-        setLSathlete(athlete.randomLSathlete());
-        setLSfeed(feed.randomLSfeed());
-        setLSbodyBuild(bodyBuild.randomLSbodyBuild());
-        setLSreligion(religion.randomLSreligion());
-        setLSalcohol(alcohol.randomLSalcohol());
     }
 
     public smoker getLSsmoker() {
