@@ -40,3 +40,7 @@ build/
 
 ### Temporary files of the atomic saves ###
 *.tmp
+
+### Working data of the application (started from data/seed/, see data/README.md) ###
+/data/profiles.json
+/data/calendar.json

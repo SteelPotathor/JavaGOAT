@@ -2,6 +2,8 @@ package com.example.javagoat.Model;
 
 import javafx.scene.image.ImageView;
 
+import java.time.LocalDate;
+
 
 public class Profile implements Comparable<Profile> {
 
@@ -18,6 +20,8 @@ public class Profile implements Comparable<Profile> {
     // Feedback received from the people this profile was matched with (derived from their votes when loading)
     public double positif = 0;
     public double total = 0;
+    // Day the profile was registered in the agency (null when unknown, e.g. generated profiles)
+    public LocalDate created;
 
 
     public Profile(Identity identity, PhysicalAttributes physicalAttributes, LifeStyle lifeStyle, Preferences preferences, Passion passion, String imageView) {
@@ -36,6 +40,14 @@ public class Profile implements Comparable<Profile> {
         img.setFitHeight(40);
         img.setFitWidth(40);
         return new ProfileTableView(this.identity.noId, this.priority, img, this.identity.firstname, this.identity.lastname, this.identity.age, this.identity.Bsex.toString());
+    }
+
+    public LocalDate getCreated() {
+        return created;
+    }
+
+    public void setCreated(LocalDate created) {
+        this.created = created;
     }
 
     public Identity getIdentity() {

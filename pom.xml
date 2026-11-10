@@ -114,7 +114,7 @@
                 <version>3.2.5</version>
             </plugin>
             <plugin>
-                <!-- Regenerates data/profiles.json: mvnw compile exec:java -->
+                <!-- Regenerates data/seed/profiles.json: mvnw compile exec:java -->
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>

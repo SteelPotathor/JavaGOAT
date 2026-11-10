@@ -8,6 +8,10 @@ import org.junit.jupiter.api.io.TempDir;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -112,6 +116,49 @@ class ModelMatchTest {
         assertEquals(1, reloadedB.getModelHisto().getStockHisto().size(), "both sides of the match are kept");
         assertEquals(1.0, reloadedB.getTotal());
         assertEquals(100.0, reloadedB.getRatio(), "feedback is derived from the votes");
+    }
+
+    @Test
+    void workingFilesStartFromTheShippedSeedAndAreSavedNextToIt() throws Exception {
+        Path seed = Files.createDirectories(dataDir.resolve(ModelMatch.SEED_DIR));
+        Files.copy(Path.of("data", "showcase-profiles.json"), seed.resolve(ModelMatch.PROFILES_FILE));
+        Files.copy(Path.of("data", "seed", "calendar.json"), seed.resolve(ModelMatch.CALENDAR_FILE));
+        String seedProfiles = Files.readString(seed.resolve(ModelMatch.PROFILES_FILE));
+
+        ModelMatch.loadData();
+        assertEquals(12, ModelProfile.profileHashMap.size());
+        assertFalse(ModelCalendar.events().isEmpty());
+
+        new ModelMatch().removeProfile(ModelProfile.profileHashMap.get(12)); // also removes the match with Margaux (11)
+        ModelCalendar.setEvents(ModelCalendar.events().subList(0, 1));
+        ModelMatch.saveData();
+        assertEquals(seedProfiles, Files.readString(seed.resolve(ModelMatch.PROFILES_FILE)), "the seed is never modified");
+
+        ModelMatch.loadData(); // now from the working files
+        assertEquals(11, ModelProfile.profileHashMap.size());
+        assertEquals(1, ModelCalendar.events().size());
+        ModelCalendar.setEvents(List.of());
+    }
+
+    @Test
+    void todayStatisticsComeFromTheSavedDates() throws Exception {
+        modelWithProfiles(6);
+        LocalDate today = LocalDate.now();
+        Profile a = ModelProfile.profileHashMap.get(1), b = ModelProfile.profileHashMap.get(2);
+        Profile c = ModelProfile.profileHashMap.get(3), d = ModelProfile.profileHashMap.get(4);
+        a.getModelHisto().addMatch(a, b);                                     // today
+        c.getModelHisto().addMatch(c, d, Date.from(Instant.now().minus(3, ChronoUnit.DAYS)));
+        ModelProfile.profileHashMap.get(5).setCreated(today);
+        ModelProfile.profileHashMap.get(6).setCreated(today.minusDays(1));
+
+        assertEquals(1, ModelMatch.matchesOn(today), "a match is stored by both people but counted once");
+        assertEquals(1, ModelMatch.matchesOn(today.minusDays(3)));
+        assertEquals(1, ModelMatch.profilesCreatedOn(today));
+
+        ModelMatch.saveData();
+        ModelMatch.loadData();
+        assertEquals(1, ModelMatch.matchesOn(today), "survives a restart");
+        assertEquals(1, ModelMatch.profilesCreatedOn(today), "survives a restart");
     }
 
     @Test

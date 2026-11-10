@@ -2,20 +2,22 @@
 
 | File | Role |
 |---|---|
-| `profiles.json` | The agency: read at start-up, written when the application is closed. |
+| `seed/profiles.json` | Shipped agency: the showcase profiles (ids 1–12) followed by 488 generated profiles. |
+| `seed/calendar.json` | Shipped calendar: demo events around the reference date 2026-11-10, one recurring every Monday. |
+| `profiles.json`, `calendar.json` | *Working files* (not versioned): read at start-up, written when the application is closed. |
 | `showcase-profiles.json` | 12 hand-written profiles that demonstrate the matching algorithm (see their `note`). |
 | `matching.properties` | *Optional.* Overrides some matching settings (see below). Absent by default. |
 
-`profiles.json` = the showcase profiles (ids 1–12) followed by 488 generated profiles. It is rewritten
-by the application on exit, so `git status` shows it as modified after using the app;
-`git checkout -- data/profiles.json` restores the shipped version.
+When a working file does not exist, the application starts from the shipped copy in `seed/` and creates
+the working file when it is closed; the shipped files are never modified. To start again from the shipped
+data, close the application and delete `data/profiles.json` and/or `data/calendar.json`.
 
 ## Regenerating the dataset
 
 From the project root (JAVA_HOME set, see the main README):
 
 ```powershell
-.\mvnw.cmd compile exec:java                                    # 500 profiles, seed 2026, today as reference date
+.\mvnw.cmd compile exec:java                                    # writes data/seed/profiles.json (500 profiles, seed 2026)
 .\mvnw.cmd compile exec:java "-Dexec.args=--count=300 --seed=7 --reference-date=2026-11-10"
 ```
 
@@ -52,6 +54,7 @@ with problems and lists them all (profile, field, accepted values), so mistakes 
       "videoGames": ["MINECRAFT"],
       "passions": ["YOGA", "TRAVELING"],
       "picture": "file:/C:/photos/camille.png",
+      "created": "2026-11-10",
       "preferences": {
         "sexes": ["MALE"],
         "age": {"min": 27, "max": 35, "importance": "REQUIRED"},
@@ -63,7 +66,7 @@ with problems and lists them all (profile, field, accepted values), so mistakes 
 }
 ```
 
-- Required: every field of the example except `videoGames`, `passions`, `picture`, `matches`;
+- Required: every field of the example except `videoGames`, `passions`, `picture`, `created`, `matches`;
   `preferences.sexes` must contain at least one value. Ids must be unique and positive.
 - Ranges checked: age 18–120, iq 40–200, size 100–250 (cm).
 - Values (exact spelling, the typos are historical):
@@ -74,6 +77,8 @@ with problems and lists them all (profile, field, accepted values), so mistakes 
   - `religion`: MUSLIM, CHRISTIAN, JEWISH, BUDDHIST, HINDUIST, OTHER, ATHEIST
   - `videoGames`, `passions`: the constants of `Passion.video_games` / `Passion.miscellaneous`
 - `picture`: optional URL of an image; absent or unreadable → default picture.
+- `created`: optional day the profile was registered (set by the application; used by the dashboard
+  statistic "today's new profiles").
 - Preferences: any criterion can be omitted (= indifferent).
   - ranges `age`, `size`, `iq`: `{"min": …, "max": …, "importance": …}`
   - choices `hairColor`, `hairType`, `hairLength`, `ethnicity`, `bodyBuild`, `smoker`, `alcohol`,
@@ -83,6 +88,26 @@ with problems and lists them all (profile, field, accepted values), so mistakes 
   `2026-11-03T15:30`. `vote` (optional): POSITIVE or NEGATIVE, the opinion of this profile about the
   other one. The feedback percentage of a profile is computed from the votes it received.
 - Unknown fields (such as `note`) are ignored.
+
+## Calendar (`calendar.json`)
+
+Written by the calendar page (every creation, move, edition or deletion is kept), one event per line:
+
+```json
+{
+  "version": 1,
+  "events": [
+    {"title": "Matching review", "calendar": "Work", "start": "2026-11-02T14:00", "end": "2026-11-02T15:00",
+     "location": "Agency office", "recurrence": "RRULE:FREQ=WEEKLY;BYDAY=MO"},
+    {"title": "Agency anniversary", "calendar": "Work", "start": "2026-11-14T00:00", "end": "2026-11-14T23:59",
+     "fullDay": true}
+  ]
+}
+```
+
+- `calendar`: `Work` or `Personal`. `start`, `end`: `2026-11-10T18:30` (or `2026-11-10`), end ≥ start.
+- Optional: `fullDay` (false), `location`, `recurrence` (an RFC 2445 rule, as written by the calendar's
+  "Repeat" option). Invalid events are all reported, nothing is loaded.
 
 ## Matching settings
 

@@ -131,6 +131,14 @@ public final class ProfileStore {
             HashSet<Passion.video_games> games = new HashSet<>(enumList(Passion.video_games.class, r.videoGames(), "videoGames"));
             HashSet<Passion.miscellaneous> passions = new HashSet<>(enumList(Passion.miscellaneous.class, r.passions(), "passions"));
             Preferences preferences = toPreferences(r.preferences());
+            LocalDate created = null;
+            if (r.created() != null) {
+                try {
+                    created = LocalDate.parse(r.created());
+                } catch (DateTimeParseException e) {
+                    problem("created '" + r.created() + "' must look like 2026-11-10");
+                }
+            }
             if (problems.size() > before) {
                 return null;
             }
@@ -138,7 +146,9 @@ public final class ProfileStore {
             PhysicalAttributes physical = new PhysicalAttributes(size, hairColor, hairType, hairLength);
             LifeStyle lifeStyle = new LifeStyle(smoker, athlete, feed, bodyBuild, religion, alcohol);
             String picture = r.picture() == null || r.picture().isBlank() ? ImageLoader.DEFAULT_PROFILE_IMAGE : r.picture();
-            return new Profile(identity, physical, lifeStyle, preferences, new Passion(games, passions), picture);
+            Profile profile = new Profile(identity, physical, lifeStyle, preferences, new Passion(games, passions), picture);
+            profile.setCreated(created);
+            return profile;
         }
 
         private Preferences toPreferences(PreferencesRecord r) {
@@ -318,19 +328,25 @@ public final class ProfileStore {
 
     /** Writes the profiles atomically, one profile per line (readable diffs, compact file). */
     public static void write(Path file, Collection<Profile> profiles, String comment) throws IOException {
+        List<Profile> sorted = profiles.stream().sorted(Comparator.comparingInt(p -> p.getIdentity().getNoId())).toList();
+        StringBuilder json = new StringBuilder("{\n  \"version\": " + JsonModel.VERSION + ",\n");
+        if (comment != null) {
+            json.append("  \"comment\": ").append(GSON.toJson(comment)).append(",\n");
+        }
+        json.append("  \"profiles\": [\n");
+        for (int i = 0; i < sorted.size(); i++) {
+            json.append("    ").append(GSON.toJson(toRecord(sorted.get(i)))).append(i < sorted.size() - 1 ? ",\n" : "\n");
+        }
+        json.append("  ]\n}\n");
+        writeAtomically(file, json.toString());
+    }
+
+    /** Writes a temporary file then renames it: a crash during the write cannot corrupt the existing file. */
+    static void writeAtomically(Path file, String content) throws IOException {
         Files.createDirectories(file.toAbsolutePath().getParent());
         Path tmp = file.resolveSibling(file.getFileName() + ".tmp");
-        List<Profile> sorted = profiles.stream().sorted(Comparator.comparingInt(p -> p.getIdentity().getNoId())).toList();
         try (Writer writer = Files.newBufferedWriter(tmp, StandardCharsets.UTF_8)) {
-            writer.write("{\n  \"version\": " + JsonModel.VERSION + ",\n");
-            if (comment != null) {
-                writer.write("  \"comment\": " + GSON.toJson(comment) + ",\n");
-            }
-            writer.write("  \"profiles\": [\n");
-            for (int i = 0; i < sorted.size(); i++) {
-                writer.write("    " + GSON.toJson(toRecord(sorted.get(i))) + (i < sorted.size() - 1 ? ",\n" : "\n"));
-            }
-            writer.write("  ]\n}\n");
+            writer.write(content);
         }
         try {
             Files.move(tmp, file, StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE);
@@ -355,6 +371,7 @@ public final class ProfileStore {
                 life.getLSbodyBuild().name(), life.getLSreligion().name(),
                 sortedNames(p.getPassion().getPassionVG()), sortedNames(p.getPassion().getPassionM()),
                 ImageLoader.isDefaultReference(p.getImageView()) ? null : p.getImageView(),
+                p.getCreated() == null ? null : p.getCreated().toString(),
                 toRecord(p.getPreferences()), matches.isEmpty() ? null : matches);
     }
 

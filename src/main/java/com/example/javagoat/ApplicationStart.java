@@ -63,7 +63,7 @@ public class ApplicationStart extends Application {
         } catch (IOException | RuntimeException e) {
             e.printStackTrace();
             Alert alert = new Alert(Alert.AlertType.ERROR,
-                    "The profiles could not be saved:\n" + e + "\n\nQuit anyway and lose the changes of this session?",
+                    "The profiles and the calendar could not be saved:\n" + e + "\n\nQuit anyway and lose the changes of this session?",
                     ButtonType.YES, ButtonType.NO);
             alert.setHeaderText("Save failed");
             return alert.showAndWait().orElse(ButtonType.NO) == ButtonType.YES;

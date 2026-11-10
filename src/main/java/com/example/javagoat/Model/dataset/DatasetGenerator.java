@@ -17,7 +17,7 @@ import java.time.ZoneId;
 import java.util.*;
 
 /**
- * Builds data/profiles.json: the hand-written showcase profiles (data/showcase-profiles.json) followed by
+ * Builds data/seed/profiles.json: the hand-written showcase profiles (data/showcase-profiles.json) followed by
  * generated profiles. The generation is deterministic for a given seed and reference date.
  * <p>
  * Usage, from the project root: {@code mvnw compile exec:java} or, with options,
@@ -45,7 +45,7 @@ public final class DatasetGenerator {
         long seed = Long.parseLong(options.getOrDefault("seed", "2026"));
         LocalDate referenceDate = LocalDate.parse(options.getOrDefault("reference-date", LocalDate.now().toString()));
         Path showcase = Path.of(options.getOrDefault("showcase", "data/showcase-profiles.json"));
-        Path output = Path.of(options.getOrDefault("output", "data/profiles.json"));
+        Path output = Path.of(options.getOrDefault("output", "data/seed/profiles.json"));
 
         LinkedHashMap<Integer, Profile> profiles = Files.exists(showcase) ? ProfileStore.read(showcase) : new LinkedHashMap<>();
         System.out.println("[generator] " + profiles.size() + " showcase profiles read from " + showcase);

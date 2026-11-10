@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "events": [
+    {"title":"Matching review","calendar":"Work","start":"2026-11-02T14:00","end":"2026-11-02T15:00","location":"Agency office","recurrence":"RRULE:FREQ=WEEKLY;BYDAY=MO"},
+    {"title":"Breakfast with Bob","calendar":"Personal","start":"2026-11-10T08:00","end":"2026-11-10T09:30"},
+    {"title":"Algorithm course","calendar":"Work","start":"2026-11-10T16:00","end":"2026-11-10T17:30"},
+    {"title":"Meeting with Mr. Panzoli","calendar":"Work","start":"2026-11-11T08:00","end":"2026-11-11T12:00"},
+    {"title":"Call with Miss. Weir","calendar":"Work","start":"2026-11-11T13:00","end":"2026-11-11T14:30"},
+    {"title":"Meetings with Mr. Oxmaul","calendar":"Work","start":"2026-11-12T14:00","end":"2026-11-12T15:00"},
+    {"title":"Meeting with colleagues","calendar":"Work","start":"2026-11-13T09:00","end":"2026-11-13T10:00"},
+    {"title":"Meeting with Mr. Garcia-Gonzalez","calendar":"Work","start":"2026-11-13T16:00","end":"2026-11-13T17:00"},
+    {"title":"Agency anniversary","calendar":"Work","start":"2026-11-14T00:00","end":"2026-11-14T23:59","fullDay":true},
+    {"title":"Meeting with the chief","calendar":"Work","start":"2026-11-16T10:00","end":"2026-11-16T13:00"},
+    {"title":"Training","calendar":"Work","start":"2026-11-18T08:30","end":"2026-11-18T16:30"},
+    {"title":"Movie Marathon","calendar":"Personal","start":"2026-11-19T09:30","end":"2026-11-19T15:30"},
+    {"title":"Training","calendar":"Work","start":"2026-11-20T08:30","end":"2026-11-20T12:30"},
+    {"title":"Call with Miss. Greyrat","calendar":"Work","start":"2026-11-23T09:00","end":"2026-11-23T10:00"},
+    {"title":"Meeting with colleagues","calendar":"Work","start":"2026-11-24T09:00","end":"2026-11-24T10:00"},
+    {"title":"Meeting with Mr. Mike Razowski","calendar":"Work","start":"2026-11-24T16:00","end":"2026-11-24T16:45"},
+    {"title":"Speed dating evening","calendar":"Work","start":"2026-11-27T19:00","end":"2026-11-27T22:00","location":"Agency lounge"},
+    {"title":"Rachel's birthday","calendar":"Personal","start":"2026-11-29T14:00","end":"2026-11-29T22:30"}
+  ]
+}

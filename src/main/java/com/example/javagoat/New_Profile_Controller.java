@@ -6,10 +6,8 @@ import animatefx.animation.FadeInRightBig;
 import animatefx.animation.FadeInUpBig;
 import com.example.javagoat.Model.*;
 import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
@@ -30,6 +28,7 @@ import org.controlsfx.control.CheckComboBox;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.UnaryOperator;
@@ -78,9 +77,6 @@ public class New_Profile_Controller {
     ObservableList<String> element_smoker = FormInput.names(LifeStyle.smoker.class);
     @FXML
     ObservableList<String> element_ethnicity = FormInput.names(Biology.ethnicity.class);
-    boolean personnalLifestyle = false;
-    boolean personnalPhysical = false;
-    boolean personnalOther = false;
     private PreferencesForm preferencesForm;
     @FXML
     private Stage stage;
@@ -178,26 +174,26 @@ public class New_Profile_Controller {
         setTextFieldsLimitations();
         initAllPersonnalInfo();
         preferencesForm = new PreferencesForm(grid_life_style_preferences, grid_physical_information_preferences,
-                grid_passions_preferences, this::refreshPreferenceCircles);
+                grid_passions_preferences, this::refreshCircles);
         preferencesForm.show(new Preferences());
         initImage();
-        initListenerCheckComboBox();
+        initCircleListeners();
+        refreshCircles();
         profile_pane.setStyle("-fx-background-color:  rgba(255, 255,255, 0.3)");
     }
 
-    private void initListenerCheckComboBox() {
-        video_games_checkcombobox.getCheckModel().getCheckedItems().addListener(new InvalidationListener() {
-            @Override
-            public void invalidated(Observable observable) {
-                circlePersonalOther();
-            }
-        });
-        miscellanious_checkcombobox.getCheckModel().getCheckedItems().addListener(new InvalidationListener() {
-            @Override
-            public void invalidated(Observable observable) {
-                circlePersonalOther();
-            }
-        });
+    // The status dots follow every change of the form (they used to be updated on some clicks only)
+    private void initCircleListeners() {
+        for (TextField field : List.of(textfield_first_name, textfield_last_name, textfield_age, textfield_size, textfield_qi)) {
+            field.textProperty().addListener((obs, old, value) -> refreshCircles());
+        }
+        for (ChoiceBox<String> box : List.of(sex_choicebox, Smoker_choicebox, alcohol_choicebox, Athlete_choicebox,
+                feed_choicebox, bodybuild_choicebox, religion_choicebox, color_of_hair_choicebox, hair_type_choicebox,
+                hair_length_choicebox, choicebox_ethnicity)) {
+            box.valueProperty().addListener((obs, old, value) -> refreshCircles());
+        }
+        video_games_checkcombobox.getCheckModel().getCheckedItems().addListener((InvalidationListener) obs -> refreshCircles());
+        miscellanious_checkcombobox.getCheckModel().getCheckedItems().addListener((InvalidationListener) obs -> refreshCircles());
     }
 
     private void earlyAnimations() {
@@ -308,6 +304,7 @@ public class New_Profile_Controller {
             // The picture is optional: without one, the profile uses the default picture
             String image = file != null ? file.toURI().toString() : ImageLoader.DEFAULT_PROFILE_IMAGE;
             Profile profile = new Profile(identity, physicalAttributes, lifeStyle, preferences, passion, image);
+            profile.setCreated(LocalDate.now());
             modelMatch.addProfile(profile);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -348,6 +345,7 @@ public class New_Profile_Controller {
             grid_physical_information.setVisible(false);
             grid_life_style.setVisible(false);
             personnal_preferences = false;
+            refreshCircles();
 
 
         } else {
@@ -366,6 +364,7 @@ public class New_Profile_Controller {
             grid_physical_information.setVisible(false);
             grid_life_style.setVisible(true);
             personnal_preferences = true;
+            refreshCircles();
         }
     }
 
@@ -454,83 +453,63 @@ public class New_Profile_Controller {
         newImageSelector.setCursor(Cursor.HAND);
     }
 
-    public void checkPersonalLifeStyle(ActionEvent actionEvent) {
-        circlePersonalLifestyle();
+    // ------------------------------------------------------------------ status dots
+
+    private static boolean chosen(ChoiceBox<String> box) {
+        return box.getValue() != null && box.getItems().contains(box.getValue()); // "Select" is not an item
     }
 
-    private void circlePersonalLifestyle() {
-        if (Smoker_choicebox.getSelectionModel().getSelectedItem() != null && feed_choicebox.getSelectionModel().getSelectedItem() != null && Athlete_choicebox.getSelectionModel().getSelectedItem() != null && alcohol_choicebox.getSelectionModel().getSelectedItem() != null) {
-            if (!Smoker_choicebox.getSelectionModel().getSelectedItem().equals("Select") && !feed_choicebox.getSelectionModel().getSelectedItem().equals("Select") && !Athlete_choicebox.getSelectionModel().getSelectedItem().equals("Select") && !alcohol_choicebox.getSelectionModel().getSelectedItem().equals("Select")) {
-                circle_life_style.setFill(Paint.valueOf("green"));
-                personnalLifestyle = true;
-            } else {
-                circle_life_style.setFill(Paint.valueOf("red"));
-                personnalLifestyle = false;
-            }
-            personalColor();
+    private static boolean filled(TextField field) {
+        return field.getText() != null && !field.getText().isBlank();
+    }
+
+    /** Name, age, size, IQ (within the accepted bounds) and sex: the left part of the form. */
+    boolean identityComplete() {
+        return filled(textfield_first_name) && filled(textfield_last_name) && chosen(sex_choicebox)
+                && FormInput.checkPersonNumbers(textfield_age.getText(), textfield_size.getText(), textfield_qi.getText()).isEmpty();
+    }
+
+    boolean lifestyleComplete() {
+        return chosen(Smoker_choicebox) && chosen(Athlete_choicebox) && chosen(feed_choicebox) && chosen(alcohol_choicebox);
+    }
+
+    boolean physicalComplete() {
+        return chosen(bodybuild_choicebox) && chosen(hair_type_choicebox) && chosen(choicebox_ethnicity)
+                && chosen(hair_length_choicebox) && chosen(color_of_hair_choicebox);
+    }
+
+    boolean otherComplete() {
+        return chosen(religion_choicebox) && !video_games_checkcombobox.getCheckModel().getCheckedItems().isEmpty()
+                && !miscellanious_checkcombobox.getCheckModel().getCheckedItems().isEmpty();
+    }
+
+    boolean personalComplete() {
+        return identityComplete() && lifestyleComplete() && physicalComplete() && otherComplete();
+    }
+
+    /**
+     * "Personal" and "Preferences" dots: is each tab complete. The lifestyle / physical / other dots are shared by
+     * the two tabs and show the tab currently displayed (they used to keep the colours of the other tab).
+     */
+    void refreshCircles() {
+        if (preferencesForm == null) {
+            return; // called by a listener during initialize()
         }
-    }
-
-    public void checkPersonalPhysical(ActionEvent actionEvent) {
-        circlePersonalPhysical();
-    }
-
-    private void circlePersonalPhysical() {
-        if (bodybuild_choicebox.getSelectionModel().getSelectedItem() != null && choicebox_ethnicity.getSelectionModel().getSelectedItem() != null && hair_type_choicebox.getSelectionModel().getSelectedItem() != null && hair_length_choicebox.getSelectionModel().getSelectedItem() != null && color_of_hair_choicebox.getSelectionModel().getSelectedItem() != null) {
-            if (!bodybuild_choicebox.getSelectionModel().getSelectedItem().equals("Select") && !choicebox_ethnicity.getSelectionModel().getSelectedItem().equals("Select") && !hair_type_choicebox.getSelectionModel().getSelectedItem().equals("Select") && !hair_length_choicebox.getSelectionModel().getSelectedItem().equals("Select") && !color_of_hair_choicebox.getSelectionModel().getSelectedItem().equals("Select")) {
-                circle_physical.setFill(Paint.valueOf("green"));
-                personnalPhysical = true;
-            } else {
-                circle_physical.setFill(Paint.valueOf("red"));
-                personnalPhysical = false;
-            }
-            personalColor();
-        }
-    }
-
-    public void checkPersonalOther(ActionEvent mouseEvent) {
-        circlePersonalOther();
-    }
-
-    private void circlePersonalOther() {
-        if (religion_choicebox.getSelectionModel().getSelectedItem() != null) {
-            if (!video_games_checkcombobox.getCheckModel().getCheckedItems().isEmpty() && !miscellanious_checkcombobox.getCheckModel().getCheckedItems().isEmpty() && !religion_choicebox.getSelectionModel().getSelectedItem().equals("Select")) {
-                circle_other.setFill(Paint.valueOf("green"));
-                personnalOther = true;
-            } else {
-                circle_other.setFill(Paint.valueOf("red"));
-                personnalOther = false;
-            }
-            personalColor();
-        }
-    }
-
-    void personalColor() {
-        if (personnalLifestyle && personnalPhysical && personnalOther) {
-            circlePersonal.setFill(Paint.valueOf("green"));
+        setGreen(circlePersonal, personalComplete());
+        setGreen(circle_preferences, preferencesForm.problems().isEmpty());
+        if (personnal_preferences) {
+            setGreen(circle_life_style, lifestyleComplete());
+            setGreen(circle_physical, physicalComplete());
+            setGreen(circle_other, otherComplete());
         } else {
-            circlePersonal.setFill(Paint.valueOf("red"));
+            setGreen(circle_life_style, preferencesForm.lifestyleValid());
+            setGreen(circle_physical, preferencesForm.physicalValid());
+            setGreen(circle_other, preferencesForm.otherValid());
         }
     }
 
-    public void changeCircleColorNewTab(MouseEvent mouseEvent) {
-        if (mouseEvent.getSource() == button_preferences_information) {
-            refreshPreferenceCircles();
-        } else if (mouseEvent.getSource() == buttonPersonalInformation) {
-            circlePersonalLifestyle();
-            circlePersonalPhysical();
-            circlePersonalOther();
-        }
-    }
-
-    // The lifestyle/physical/other circles are shared by the two tabs: only update them in the preferences tab
-    private void refreshPreferenceCircles() {
-        if (!personnal_preferences) {
-            circle_life_style.setFill(Paint.valueOf(preferencesForm.lifestyleValid() ? "green" : "red"));
-            circle_physical.setFill(Paint.valueOf(preferencesForm.physicalValid() ? "green" : "red"));
-            circle_other.setFill(Paint.valueOf(preferencesForm.otherValid() ? "green" : "red"));
-        }
-        circle_preferences.setFill(Paint.valueOf(preferencesForm.problems().isEmpty() ? "green" : "red"));
+    private static void setGreen(Circle circle, boolean ok) {
+        circle.setFill(Paint.valueOf(ok ? "green" : "red"));
     }
 
     @FXML

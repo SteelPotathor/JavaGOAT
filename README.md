@@ -40,11 +40,12 @@ and keep the project root as working directory.
 
 ### Data and matching :busts_in_silhouette:
 
-The profiles are stored in [`data/profiles.json`](data/README.md) (readable JSON, saved when quitting with
-the exit button or the window close button). It contains 12 hand-written **showcase profiles** that
-demonstrate the algorithm, followed by 488 profiles produced by a reproducible generator
-(`.\mvnw.cmd compile exec:java`). The format, the generator and the settings are described in
-[data/README.md](data/README.md). Another data directory can be used with the JVM option
+The profiles and the calendar are stored in `data/profiles.json` and `data/calendar.json` (readable JSON,
+saved when quitting with the exit button or the window close button). These working files are not versioned:
+on the first start they are created from the data shipped in `data/seed/`, and deleting one resets it.
+The shipped profiles are 12 hand-written **showcase profiles** that demonstrate the algorithm, followed by
+488 profiles produced by a reproducible generator (`.\mvnw.cmd compile exec:java`). The formats, the
+generator and the settings are described in [data/README.md](data/README.md). Another data directory can be used with the JVM option
 `-Djavagoat.dataDir=<directory>` (e.g. as a VM option of an IntelliJ run configuration).
 
 Matching: each person states, for every criterion (age and size ranges, IQ, smoker, alcohol, sport, diet,
@@ -57,7 +58,7 @@ both of them. The matching page shows the 5 best compatible people not matched y
 the candidate fits the selected person, red arrow: the other way round). Weights and tolerances are in
 `matching.properties` and can be overridden in `data/matching.properties`.
 
-Quick demo: open the matching page of **Camille Moreau** (first row of the search page): Thomas comes first;
+Quick demo (shipped data): open the matching page of **Camille Moreau** (first row of the search page): Thomas comes first;
 Hugo (smoker) and Julien (44) are never suggested; see the `note` of each showcase profile.
 
 The video shows almost every functionnalities : Youtube video coming soon!
@@ -68,4 +69,8 @@ Special thanks to [OG-mihawk](https://github.com/OG-Mihawk) for the amazing UI.
 
 ### Disclaimer :x:
 
-The calendar do not save and the stat box about "today's events" in the dashboard is factitious.
+The notifications of the dashboard are kept for the current session only.
+
+The dashboard statistics are computed from the saved data: today's matches (match dates), today's new
+profiles (creation date, recorded for the profiles created in the application) and today's events
+(calendar, recurring events included).

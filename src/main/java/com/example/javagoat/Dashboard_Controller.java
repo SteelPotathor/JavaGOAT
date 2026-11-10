@@ -4,6 +4,7 @@ import animatefx.animation.FadeInDown;
 import animatefx.animation.FadeInRightBig;
 import animatefx.animation.FadeInUpBig;
 import animatefx.animation.Swing;
+import com.example.javagoat.Model.ModelCalendar;
 import com.example.javagoat.Model.ModelMatch;
 import com.example.javagoat.Model.ModelNotification;
 import com.example.javagoat.Model.Profile;
@@ -25,9 +26,8 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
-
-import static com.example.javagoat.Model.ModelHistoMatch.getMatchCount;
 
 public class Dashboard_Controller {
 
@@ -105,10 +105,13 @@ public class Dashboard_Controller {
         initStats();
     }
 
+    // Computed from the saved data (match dates, creation dates, calendar), so they survive a restart
     private void initStats() {
+        LocalDate today = LocalDate.now();
         label_total_profiles.setText(String.valueOf(modelMatch.getModelP().getProfileHashMap().size()));
-        label_today_matches.setText(String.valueOf(getMatchCount()));
-        label_today_new_profiles.setText(String.valueOf(ModelMatch.getCreateCounter()));
+        label_today_matches.setText(String.valueOf(ModelMatch.matchesOn(today)));
+        label_today_new_profiles.setText(String.valueOf(ModelMatch.profilesCreatedOn(today)));
+        label_today_events.setText(String.valueOf(ModelCalendar.eventsOn(today)));
     }
 
     public void fillTableView() {

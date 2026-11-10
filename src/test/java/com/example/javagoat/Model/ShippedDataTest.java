@@ -6,23 +6,30 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/** The data committed in the repository (data/profiles.json) must load and keep the showcase scenarios. */
+/**
+ * The data shipped in the repository (data/seed/) must load and keep the showcase scenarios.
+ * The working files (data/profiles.json...) are not used: they change whenever the application is used.
+ */
 class ShippedDataTest {
 
     @BeforeAll
     static void loadShippedData() {
-        System.clearProperty(ModelMatch.DATA_DIR_PROPERTY); // default directory "data", relative to the project root
-        assertTrue(Files.exists(ModelMatch.profilesPath()), "run the tests from the project root");
+        Path seed = Path.of(ModelMatch.DEFAULT_DATA_DIR, ModelMatch.SEED_DIR);
+        assertTrue(Files.exists(seed.resolve(ModelMatch.PROFILES_FILE)), "run the tests from the project root");
+        System.setProperty(ModelMatch.DATA_DIR_PROPERTY, seed.toString());
         ModelMatch.loadData();
     }
 
     @AfterAll
     static void forget() {
+        System.clearProperty(ModelMatch.DATA_DIR_PROPERTY);
         ModelProfile.profileHashMap.clear();
+        ModelCalendar.setEvents(List.of());
     }
 
     @Test
@@ -30,6 +37,7 @@ class ShippedDataTest {
         assertTrue(ModelProfile.profileHashMap.size() >= 100);
         ModelProfile.profileHashMap.forEach((id, profile) -> assertEquals(id, profile.getIdentity().getNoId()));
         assertEquals("Camille", ModelProfile.profileHashMap.get(1).getIdentity().getFirstname());
+        assertFalse(ModelCalendar.events().isEmpty(), "the shipped calendar is loaded too");
     }
 
     @Test

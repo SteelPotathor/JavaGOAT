@@ -10,6 +10,7 @@ import java.util.List;
 final class JsonModel {
 
     static final int VERSION = 2;
+    static final int CALENDAR_VERSION = 1;
 
     private JsonModel() {
     }
@@ -20,7 +21,7 @@ final class JsonModel {
     record ProfileRecord(Integer id, String firstname, String lastname, String sex, Integer age, String ethnicity,
                          Integer iq, Integer size, String hairColor, String hairType, String hairLength,
                          String smoker, String alcohol, String athlete, String feed, String bodyBuild,
-                         String religion, List<String> videoGames, List<String> passions, String picture,
+                         String religion, List<String> videoGames, List<String> passions, String picture, String created,
                          PreferencesRecord preferences, List<MatchRecord> matches) {
     }
 
@@ -39,5 +40,13 @@ final class JsonModel {
 
     /** A match seen from the profile that contains it; 'vote' is the opinion of that profile about the other one. */
     record MatchRecord(Integer with, String date, String vote) {
+    }
+
+    /** Shape of data/calendar.json. */
+    record CalendarFile(Integer version, List<EventRecord> events) {
+    }
+
+    record EventRecord(String title, String calendar, String start, String end, Boolean fullDay, String location,
+                       String recurrence) {
     }
 }

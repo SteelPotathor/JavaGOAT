@@ -10,8 +10,6 @@ public class ModelHistoMatch {
 
     public ModelNotification modelNotification = new ModelNotification();
 
-    public static int matchCount = 0;
-
     public ModelHistoMatch() {
     }
 
@@ -28,7 +26,6 @@ public class ModelHistoMatch {
         TupleHistoHashMap tupleHistoHashMap2 = new TupleHistoHashMap(p1.getIdentity().getNoId());
         matchP2.put(tupleHistoHashMap2, new Date());
         modelNotification.addNotification(new Date(), "Match between " + p1.getIdentity().getFirstname() + " " + p1.getIdentity().getLastname() + " and " + p2.getIdentity().getFirstname() + " " + p2.getIdentity().getLastname());
-        matchCount++;
     }
 
     // Method to add a match at a specific date (used for test)
@@ -42,7 +39,6 @@ public class ModelHistoMatch {
         HashMap<TupleHistoHashMap, Date> matchP2 = p2.getModelHisto().getStockHisto();
         TupleHistoHashMap tupleHistoHashMap2 = new TupleHistoHashMap(p1.getIdentity().getNoId());
         matchP2.put(tupleHistoHashMap2, date);
-        matchCount++;
     }
 
 
@@ -70,14 +66,6 @@ public class ModelHistoMatch {
 
     public void setModelNotification(ModelNotification modelNotification) {
         this.modelNotification = modelNotification;
-    }
-
-    public static int getMatchCount() {
-        return matchCount;
-    }
-
-    public static void setMatchCount(int matchCount) {
-        ModelHistoMatch.matchCount = matchCount;
     }
 
     @Override
