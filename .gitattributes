@@ -1,0 +1,6 @@
+# The Maven wrapper shell script must keep LF endings (CRLF breaks it in Git Bash / WSL / Linux / macOS)
+mvnw        text eol=lf
+*.cmd       text eol=crlf
+*.dat       binary
+*.jar       binary
+*.png       binary
