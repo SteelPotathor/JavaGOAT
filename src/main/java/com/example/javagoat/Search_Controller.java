@@ -151,28 +151,38 @@ public class Search_Controller {
     private void firstFillTableView() {
         tableView.getItems().clear();
         ObservableList<ProfileTableView> profiles = tableView.getItems();
-        try {
-            for (int i = 1; i < 150; i++) {
-                Profile profile = profileHashMap.get(i);
-                // The object in the tableview must match the columns attributes
-                ProfileTableView profileTableView = profile.toProfileTableView();
-                Pane modify = (Pane) profileTableView.actions.getChildren().get(1);
-                Pane match = (Pane) profileTableView.actions.getChildren().get(3);
-                modify.setStyle("-fx-cursor: HAND");
-                modify.setOnMouseClicked(this::edit);
-                match.setStyle("-fx-cursor: HAND");
-                match.setOnMouseClicked(this::match);
-                profiles.add(profileTableView);
-            }
-            tableView.setItems(profiles);
-        } catch (NullPointerException nullPointerException) {
+        // The first 149 profiles by id. The old loop asked for ids 1..149 and stopped at the first missing id
+        // (NullPointerException caught), so a single deleted profile emptied the rest of the table.
+        profileHashMap.values().stream()
+                .sorted(java.util.Comparator.comparingInt(p -> p.getIdentity().getNoId()))
+                .limit(149)
+                .forEach(profile -> {
+                    // The object in the tableview must match the columns attributes
+                    ProfileTableView profileTableView = profile.toProfileTableView();
+                    Pane modify = (Pane) profileTableView.actions.getChildren().get(1);
+                    Pane match = (Pane) profileTableView.actions.getChildren().get(3);
+                    modify.setStyle("-fx-cursor: HAND");
+                    modify.setOnMouseClicked(this::edit);
+                    match.setStyle("-fx-cursor: HAND");
+                    match.setOnMouseClicked(this::match);
+                    profiles.add(profileTableView);
+                });
+        tableView.setItems(profiles);
+        if (profiles.isEmpty()) {
             tableView.setPlaceholder(new Label("No results"));
-            System.out.println("NullPointerException");
         }
     }
 
 
     private void setTextFieldsAutoCompletion() {
+        // Called again after each edit/match: dispose the previous bindings, otherwise every call
+        // stacked one more suggestion popup on the text fields
+        if (last_name_search_bar != null) {
+            last_name_search_bar.dispose();
+        }
+        if (first_name_search_bar != null) {
+            first_name_search_bar.dispose();
+        }
         Set<String> lastnameList = modelMatch.modelP.getAllLastName();
         last_name_search_bar = TextFields.bindAutoCompletion(last_name_text_field, suggestionRequest -> matchingLastName(lastnameList, suggestionRequest.getUserText()));
         last_name_search_bar.setDelay(0);
@@ -205,7 +215,7 @@ public class Search_Controller {
 
     private void setTextFieldsLimitations() {
         // Textfields for search bar accept only alphabetical characters
-        Pattern patternLetters = Pattern.compile("[a-zA-Z]*");
+        Pattern patternLetters = Pattern.compile(FormInput.NAME_PATTERN);
         UnaryOperator<TextFormatter.Change> filterLetters = change -> {
             if (patternLetters.matcher(change.getControlNewText()).matches()) {
                 return change;
@@ -219,7 +229,7 @@ public class Search_Controller {
         first_name_text_field.setTextFormatter(formatterLetters2);
 
         // Textfields for age and height accept only numbers
-        Pattern patternNumbers = Pattern.compile("[0-9]*");
+        Pattern patternNumbers = Pattern.compile(FormInput.NUMBER_PATTERN);
         UnaryOperator<TextFormatter.Change> filterNumbers = change -> {
             if (patternNumbers.matcher(change.getControlNewText()).matches()) {
                 return change;
@@ -512,9 +522,7 @@ public class Search_Controller {
 
     @FXML
     void exit_script() {
-        modelMatch.saveProfiles();
-        modelMatch.saveDistances();
-        System.exit(0);
+        ApplicationStart.saveAndExit();
     }
 
 }

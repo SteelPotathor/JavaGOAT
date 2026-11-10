@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 public class Preferences implements Serializable, Cloneable {
 
+    // Frozen value: keeps the existing .dat files readable after code changes.
+    private static final long serialVersionUID = -995273527076177817L;
+
     public PhysicalAttributes physicalAttributes;
     public Biology biology;
     public LifeStyle lifestyle;
@@ -13,10 +16,8 @@ public class Preferences implements Serializable, Cloneable {
         this.physicalAttributes = physicalAttributes;
         this.biology = biology;
         this.lifestyle = lifestyle;
-
-        if (this.biology.getBsex() == Biology.sex.MALE) {
-            this.physicalAttributes.setSize(this.physicalAttributes.getSize() + 15);
-        }
+        // The preferred size typed in the form is stored as is: the hidden +15 cm for a preferred man
+        // was added again at every edit of the profile.
     }
 
     // Random Preferences

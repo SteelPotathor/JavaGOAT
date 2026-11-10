@@ -9,6 +9,9 @@ import static com.example.javagoat.Model.ModelProfile.profileHashMap;
 
 public class TupleHistoHashMap implements Serializable {
 
+    // Frozen value: keeps the existing .dat files readable after code changes.
+    private static final long serialVersionUID = 2595076064944729755L;
+
     public int id;
     public boolean voted;
     public int vote;
@@ -24,7 +27,7 @@ public class TupleHistoHashMap implements Serializable {
 
     public ProfileTableViewHistoric toProfileTableViewHistoric() {
         Profile profile = profileHashMap.get(this.getId());
-        ImageView img = new ImageView(new Image(profile.getImageView()));
+        ImageView img = new ImageView(ImageLoader.profileImage(profile.getImageView()));
         img.setPreserveRatio(true);
         img.setFitHeight(40);
         img.setFitWidth(40);
@@ -62,6 +65,15 @@ public class TupleHistoHashMap implements Serializable {
         sb.append(", vote=").append(vote);
         sb.append('}');
         return sb.toString();
+    }
+
+    // A match is identified by the id of the other profile only (voted/vote are mutable state).
+    // Without equals(), HashMap.remove(new TupleHistoHashMap(id)) never found anything.
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TupleHistoHashMap other)) return false;
+        return id == other.id;
     }
 
     @Override

@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 public class Vecteur implements Serializable, Cloneable {
 
+    // Frozen value: keeps the existing .dat files readable after code changes.
+    private static final long serialVersionUID = -1232566414867976923L;
+
     public float xSize;
     public float xAge;
     public float xHairColor;

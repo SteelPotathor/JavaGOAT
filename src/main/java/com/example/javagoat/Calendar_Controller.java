@@ -259,8 +259,6 @@ public class Calendar_Controller {
 
     @FXML
     void exit_script() {
-        modelMatch.saveProfiles();
-        modelMatch.saveDistances();
-        System.exit(0);
+        ApplicationStart.saveAndExit();
     }
 }

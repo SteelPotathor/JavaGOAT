@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 public class Identity extends Biology implements Serializable, Cloneable {
 
+    // Frozen value: keeps the existing .dat files readable after code changes.
+    private static final long serialVersionUID = 4634943877928295818L;
+
     // currentMembers was used for test
     public static int currentMembers = 0;
     public String lastname;

@@ -7,13 +7,21 @@ import java.util.TreeMap;
 
 public class ModelNotification implements Serializable {
 
+    // Frozen value: keeps the existing .dat files readable after code changes.
+    private static final long serialVersionUID = -7805210958867488155L;
+
     public static TreeMap<Date, String> stockNotification = new TreeMap<Date, String>(Comparator.reverseOrder());
 
     public ModelNotification() {
     }
 
     public void addNotification(Date date, String string) {
-        stockNotification.put(date, string);
+        // Dates are the keys: two notifications in the same millisecond used to overwrite each other
+        Date key = date;
+        while (stockNotification.containsKey(key)) {
+            key = new Date(key.getTime() + 1);
+        }
+        stockNotification.put(key, string);
     }
 
     public static TreeMap<Date, String> getStockNotification() {

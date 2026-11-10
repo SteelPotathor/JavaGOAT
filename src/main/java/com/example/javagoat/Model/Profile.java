@@ -8,6 +8,9 @@ import java.io.Serializable;
 
 public class Profile implements Serializable, Comparable<Profile>, Cloneable {
 
+    // Frozen value: keeps the existing .dat files readable after code changes.
+    private static final long serialVersionUID = 6738467214294162552L;
+
     public Identity identity;
     public PhysicalAttributes physicalAttributes;
     public LifeStyle lifeStyle;
@@ -32,17 +35,18 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
         this.lifeStyle = lifeStyle;
         this.preferences = preferences;
         this.passion = passion;
+        // The size typed in the form is stored as is (it used to get a hidden +15 cm for men)
+        refreshVectors();
+        this.modelHisto = new ModelHistoMatch();
+        this.imageView = imageView;
+    }
 
-        if (this.identity.getBsex() == Biology.sex.MALE) {
-            this.physicalAttributes.setSize(this.physicalAttributes.getSize() + 15);
-        }
-
+    /** Recomputes the normalised vectors used by the distance. Must be called after any attribute change. */
+    public void refreshVectors() {
         this.vectProfile = new Vecteur();
         this.vectPreferences = new Vecteur();
         this.vectProfile.setProfileVecteur(this);
         this.vectPreferences.setPrefVecteur(this.getPreferences());
-        this.modelHisto = new ModelHistoMatch();
-        this.imageView = imageView;
     }
 
     // Random Profile
@@ -69,51 +73,22 @@ public class Profile implements Serializable, Comparable<Profile>, Cloneable {
         this.passion = new Passion();
         this.passion.setRandomPassion();
 
-        this.vectProfile = new Vecteur();
-        this.vectPreferences = new Vecteur();
-        this.vectProfile.setProfileVecteur(this);
-        this.vectPreferences.setPrefVecteur(this.getPreferences());
+        refreshVectors();
 
         this.modelHisto = new ModelHistoMatch();
 
-        this.imageView = "file:src/main/resources/com/example/javagoat/GlobalImages/DefaultImage.png";
+        this.imageView = ImageLoader.DEFAULT_PROFILE_IMAGE;
     }
 
     // Method used for multiple tests
     public void setRandomProfileExceptName(String lastname, String firstname) {
-        this.physicalAttributes = new PhysicalAttributes();
-        this.physicalAttributes.setRandomPhysicalAttributes();
-
-        this.identity = new Identity();
-        this.identity.setRandomIdentity();
+        setRandomProfile();
         this.identity.firstname = firstname;
         this.identity.lastname = lastname;
-
-        this.lifeStyle = new LifeStyle();
-        this.lifeStyle.setRandomLifeStyle();
-
-        this.preferences = new Preferences();
-        this.preferences.setRandomPreferences();
-
-        if (this.identity.getBsex() == Biology.sex.MALE) {
-            this.physicalAttributes.setSize(this.physicalAttributes.getSize() + 15);
-        }
-
-        this.passion = new Passion();
-        this.passion.setRandomPassion();
-
-        this.vectProfile = new Vecteur();
-        this.vectPreferences = new Vecteur();
-        this.vectProfile.setProfileVecteur(this);
-        this.vectPreferences.setPrefVecteur(this.getPreferences());
-
-        this.modelHisto = new ModelHistoMatch();
-
-        this.imageView = "file:src/main/resources/com/example/javagoat/GlobalImages/DefaultImage.png";
     }
 
     public ProfileTableView toProfileTableView() {
-        ImageView img = new ImageView(new Image(this.imageView));
+        ImageView img = new ImageView(ImageLoader.profileImage(this.imageView));
         img.setPreserveRatio(true);
         img.setFitHeight(40);
         img.setFitWidth(40);

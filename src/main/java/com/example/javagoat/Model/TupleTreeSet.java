@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 public class TupleTreeSet implements Comparable<TupleTreeSet>, Serializable {
 
+    // Frozen value: keeps the existing .dat files readable after code changes.
+    private static final long serialVersionUID = -2791213364130578542L;
+
     public int id;
     public float distance;
 
@@ -32,10 +35,25 @@ public class TupleTreeSet implements Comparable<TupleTreeSet>, Serializable {
     }
 
 
-    // Useful for the TreeSet where this class will be used
+    // Useful for the TreeSet where this class will be used.
+    // The old version returned (int) (distance difference): two profiles less than 1.0 apart were "equal",
+    // so the TreeSet silently dropped most of them (about 42 entries kept out of 500).
     @Override
     public int compareTo(TupleTreeSet o) {
-        return (int) (this.distance - o.distance);
+        int byDistance = Float.compare(this.distance, o.distance);
+        return byDistance != 0 ? byDistance : Integer.compare(this.id, o.id);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TupleTreeSet other)) return false;
+        return id == other.id && Float.compare(distance, other.distance) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * id + Float.hashCode(distance);
     }
 
 

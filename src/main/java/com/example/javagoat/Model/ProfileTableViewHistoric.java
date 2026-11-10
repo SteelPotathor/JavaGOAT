@@ -22,8 +22,9 @@ public class ProfileTableViewHistoric {
     public Pane negativeRate;
     public boolean voted = false;
     public int vote;
-    public final ImageView thumbsUp = new ImageView(new Image("file:src/main/resources/com/example/javagoat/likeColor.png"));
-    public final ImageView thumbsDown = new ImageView(new Image("file:src/main/resources/com/example/javagoat/dislikeColor.png"));
+    // The old paths pointed to javagoat/likeColor.png, but the files are in EditProfile/: the icons were invisible
+    public final ImageView thumbsUp = new ImageView(ImageLoader.resource("EditProfile/likeColor.png"));
+    public final ImageView thumbsDown = new ImageView(ImageLoader.resource("EditProfile/dislikeColor.png"));
 
     public ProfileTableViewHistoric(int id, ImageView imageView, String firstname, String lastname, int age, String gender, boolean voted, int vote) {
         this.id = id;

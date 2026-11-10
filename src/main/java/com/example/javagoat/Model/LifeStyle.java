@@ -8,6 +8,9 @@ import java.util.Random;
 
 public class LifeStyle implements Serializable, Cloneable {
 
+    // Frozen value: keeps the existing .dat files readable after code changes.
+    private static final long serialVersionUID = -3038375756170421357L;
+
     private static final Random random = new Random();
     public smoker LSsmoker;
     public athlete LSathlete;

@@ -3,10 +3,12 @@ package com.example.javagoat;
 import animatefx.animation.FadeInDownBig;
 import animatefx.animation.FadeInUpBig;
 import animatefx.animation.RotateInDownLeft;
+import com.example.javagoat.Model.ImageLoader;
 import com.example.javagoat.Model.ModelMatch;
 import com.example.javagoat.Model.Profile;
 import com.example.javagoat.Model.TupleTreeSet;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
@@ -168,25 +170,36 @@ public class Matching_Profiles_Controller {
         List<Label> labelBlueList = Arrays.asList(labelBlueNE, labelBlueSE, labelBlueS, labelBlueSW, labelBlueNW);
         List<Label> labelRedList = Arrays.asList(labelRedNE, labelRedSE, labelRedS, labelRedSW, labelRedNW);
 
-        try {
-            circleProfilePictureCenter.setFill(new ImagePattern(new Image(profile.getImageView())));
-            int i = 0;
-            for (Profile p : result_matching.keySet()) {
+        circleProfilePictureCenter.setFill(new ImagePattern(ImageLoader.profileImage(profile.getImageView())));
+        for (int i = 0; i < circleList.size(); i++) {
+            if (i < profileList.size()) {
+                Profile p = profileList.get(i);
                 passionList.get(i).setText("Common passions : " + result_matching.get(p));
                 ageList.get(i).setText("Age : " + p.getIdentity().getAge());
                 firstNameList.get(i).setText(p.getIdentity().getFirstname());
                 lastNameList.get(i).setText(p.getIdentity().getLastname());
-                circleList.get(i).setFill(new ImagePattern(new Image(p.getImageView())));
+                circleList.get(i).setFill(new ImagePattern(ImageLoader.profileImage(p.getImageView())));
 
-                labelBlueList.get(i).setText(Math.round(100 - (100 * profile.getDistance(p) / 80)) + "%");
-                labelRedList.get(i).setText(Math.round(100 - (100 * p.getDistance(profile) / 80)) + "%");
-
-                i++;
+                labelBlueList.get(i).setText(compatibility(profile.getDistance(p)) + "%");
+                labelRedList.get(i).setText(compatibility(p.getDistance(profile)) + "%");
+            } else {
+                // Fewer compatible profiles than places: the slot stays empty and cannot be clicked
+                circleList.get(i).setDisable(true);
+                circleList.get(i).setOpacity(0.3);
+                firstNameList.get(i).setText(i == 0 ? "No compatible profile" : "");
+                lastNameList.get(i).setText("");
+                ageList.get(i).setText("");
+                passionList.get(i).setText("");
+                labelBlueList.get(i).setText("");
+                labelRedList.get(i).setText("");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         animation();
+    }
+
+    // Distance converted to a percentage, kept within 0..100 (it could be negative for distant profiles)
+    private static long compatibility(float distance) {
+        return Math.max(0, Math.min(100, Math.round(100 - (100 * distance / 80))));
     }
 
     private void extracted(Profile profile, List<Label> labelRedList, int i, Profile p) {
@@ -200,34 +213,26 @@ public class Matching_Profiles_Controller {
     }
 
     public void make_match(MouseEvent mouseEvent) throws IOException {
+        List<String> slots = List.of("circleProfilePictureNE", "circleProfilePictureSE", "circleProfilePictureS", "circleProfilePictureSW", "circleProfilePictureNW");
+        int index = slots.indexOf(((Node) mouseEvent.getSource()).getId());
+        if (index < 0 || index >= profileList.size()) {
+            return; // empty slot
+        }
+        Profile chosen = profileList.get(index);
+
         Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
         confirm.setTitle("Confirmation Dialog");
         confirm.setHeaderText("Are you sure you want to add this match ?");
         confirm.setContentText("You can't undo this action");
         Optional<ButtonType> result = confirm.showAndWait();
-        if (result.isPresent() && result.get() != ButtonType.OK) {
+        // Closing the dialog (empty result) used to be treated as "OK"
+        if (result.isEmpty() || result.get() != ButtonType.OK) {
             return;
         }
 
-        switch (mouseEvent.getPickResult().getIntersectedNode().getId()) {
-            case "circleProfilePictureNE" -> {
-                modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(0));
-            }
-            case "circleProfilePictureSE" -> {
-                modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(1));
-            }
-            case "circleProfilePictureS" -> {
-                modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(2));
-            }
-            case "circleProfilePictureSW" -> {
-                modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(3));
-            }
-            case "circleProfilePictureNW" -> {
-                modelMatch.modelP.getProfileHashMap().get(profileSelected.getIdentity().getNoId()).modelHisto.addMatch(profileSelected, profileList.get(4));
-            }
-        }
+        profileSelected.modelHisto.addMatch(profileSelected, chosen);
 
-        Stage stage = (Stage) mouseEvent.getPickResult().getIntersectedNode().getScene().getWindow();
+        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         stage.close();
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

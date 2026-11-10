@@ -8,6 +8,9 @@ import java.util.Random;
 
 public class PhysicalAttributes implements Serializable, Cloneable {
 
+    // Frozen value: keeps the existing .dat files readable after code changes.
+    private static final long serialVersionUID = -1931963649394700826L;
+
     private static final Random random = new Random();
     public int size;
     public hairColor PAhairColor;

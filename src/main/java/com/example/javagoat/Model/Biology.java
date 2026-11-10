@@ -8,6 +8,9 @@ import java.util.Random;
 
 public class Biology implements Serializable, Cloneable {
 
+    // Frozen value: keeps the existing .dat files readable after code changes.
+    private static final long serialVersionUID = 3335013214069143045L;
+
     public int age;
     public sex Bsex;
     public ethnicity Bethnicity;
@@ -55,17 +58,19 @@ public class Biology implements Serializable, Cloneable {
         setQi(gauss_law_simulation(100, 15));
     }
 
-    public int gauss_law_simulation_classic() {
+    // Standard normal value (Box-Muller). It used to be cast to int, so it was almost always -1, 0 or 1
+    // and every generated IQ was 85, 100 or 115. 1 - nextDouble() is in ]0, 1], so log() never receives 0.
+    public double gauss_law_simulation_classic() {
         Random random = new Random();
-        double randomNumber = random.nextFloat(0, 1);
-        double randomNumber2 = random.nextFloat(0, 1);
+        double randomNumber = 1.0 - random.nextDouble();
+        double randomNumber2 = random.nextDouble();
 
-        return (int) (Math.sqrt(-2 * Math.log(randomNumber)) * Math.cos(2 * Math.PI * randomNumber2));
+        return Math.sqrt(-2 * Math.log(randomNumber)) * Math.cos(2 * Math.PI * randomNumber2);
     }
 
     public int gauss_law_simulation(int average, int standard_deviation) {
-        int number = gauss_law_simulation_classic();
-        return average + standard_deviation * number;
+        double number = gauss_law_simulation_classic();
+        return (int) Math.round(average + standard_deviation * number);
     }
 
     public String[] getRandomName() {

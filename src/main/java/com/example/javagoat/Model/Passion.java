@@ -5,6 +5,9 @@ import java.util.*;
 
 public class Passion implements Serializable, Cloneable {
 
+    // Frozen value: keeps the existing .dat files readable after code changes.
+    private static final long serialVersionUID = 8546461914933243835L;
+
     private static final Random random = new Random();
     public HashSet<video_games> passionVG = new HashSet<>();
     public HashSet<miscellaneous> passionM = new HashSet<>();

@@ -28,6 +28,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
@@ -206,6 +207,9 @@ public class Edit_Profile_Controller {
         this.search_controller = search_controller;
     }
 
+    // Reference of the picture saved with the profile (the URL of the displayed image is not reliable)
+    private String selectedImage = ImageLoader.DEFAULT_PROFILE_IMAGE;
+
     @FXML
     void initialize() {
         earlyAnimations();
@@ -377,7 +381,7 @@ public class Edit_Profile_Controller {
 
     private void setTextFieldsLimitations() {
         // Textfields for search bar accept only alphabetical characters
-        Pattern patternLetters = Pattern.compile("[a-zA-Z]*");
+        Pattern patternLetters = Pattern.compile(FormInput.NAME_PATTERN);
         UnaryOperator<TextFormatter.Change> filterLetters = change -> {
             if (patternLetters.matcher(change.getControlNewText()).matches()) {
                 return change;
@@ -391,7 +395,7 @@ public class Edit_Profile_Controller {
         textfield_last_name.setTextFormatter(formatterLetters2);
 
         // Textfields for age and height accept only numbers
-        Pattern patternNumbers = Pattern.compile("[0-9]*");
+        Pattern patternNumbers = Pattern.compile(FormInput.NUMBER_PATTERN);
         UnaryOperator<TextFormatter.Change> filterNumbers = change -> {
             if (patternNumbers.matcher(change.getControlNewText()).matches()) {
                 return change;
@@ -451,10 +455,16 @@ public class Edit_Profile_Controller {
             alert.setContentText("Your profile has not been edited, please fill all the fields");
             alert.showAndWait();
         } else {
+            List<String> problems = FormInput.checkProfileNumbers(textfield_age.getText(), textfield_size.getText(),
+                    textfield_qi.getText(), textfield_age_preferences.getText(), textfield_size_preferences.getText());
+            if (!problems.isEmpty()) {
+                FormInput.showProblems("Profile not edited", problems);
+                return;
+            }
             Identity identity = new Identity(Integer.parseInt(textfield_age.getText()), Biology.sex.valueOf(sex_choicebox.getValue()), Biology.ethnicity.valueOf(choicebox_ethnicity.getValue()), Integer.parseInt(textfield_qi.getText()), textfield_last_name.getText(), textfield_first_name.getText(), idProfile);
             PhysicalAttributes physicalAttributes = new PhysicalAttributes(Integer.parseInt(textfield_size.getText()), PhysicalAttributes.hairColor.valueOf(color_of_hair_choicebox.getValue()), PhysicalAttributes.hairType.valueOf(hair_type_choicebox.getValue()), PhysicalAttributes.hairLength.valueOf(hair_length_choicebox.getValue()));
             LifeStyle lifeStyle = new LifeStyle(LifeStyle.smoker.valueOf(Smoker_choicebox.getValue()), LifeStyle.athlete.valueOf(Athlete_choicebox.getValue()), LifeStyle.feed.valueOf(feed_choicebox.getValue()), LifeStyle.bodyBuild.valueOf(bodybuild_choicebox.getValue()), LifeStyle.religion.valueOf(religion_choicebox.getValue()), LifeStyle.alcohol.valueOf(alcohol_choicebox.getValue()));
-            Preferences preferences = new Preferences(new PhysicalAttributes(Integer.parseInt(textfield_size.getText()), PhysicalAttributes.hairColor.valueOf(color_of_hair_choicebox_preferences.getValue()), PhysicalAttributes.hairType.valueOf(hair_type_choicebox_preferences.getValue()), PhysicalAttributes.hairLength.valueOf(hair_length_choicebox_preferences.getValue())), new Biology(Integer.parseInt(textfield_age_preferences.getText()), Biology.sex.valueOf(sex_choicebox_preferences.getValue()), Biology.ethnicity.valueOf(choicebox_ethnicity_preferences.getValue()), Integer.parseInt(textfield_qi.getText())), new LifeStyle(LifeStyle.smoker.valueOf(Smoker_choicebox_preferences.getValue()), LifeStyle.athlete.valueOf(Athlete_choicebox_preferences.getValue()), LifeStyle.feed.valueOf(feed_choicebox_preferences.getValue()), LifeStyle.bodyBuild.valueOf(bodybuild_choicebox_preferences.getValue()), LifeStyle.religion.valueOf(religion_choicebox_preferences.getValue()), LifeStyle.alcohol.valueOf(alcohol_choicebox_preferences.getValue())));
+            Preferences preferences = new Preferences(new PhysicalAttributes(Integer.parseInt(textfield_size_preferences.getText()), PhysicalAttributes.hairColor.valueOf(color_of_hair_choicebox_preferences.getValue()), PhysicalAttributes.hairType.valueOf(hair_type_choicebox_preferences.getValue()), PhysicalAttributes.hairLength.valueOf(hair_length_choicebox_preferences.getValue())), new Biology(Integer.parseInt(textfield_age_preferences.getText()), Biology.sex.valueOf(sex_choicebox_preferences.getValue()), Biology.ethnicity.valueOf(choicebox_ethnicity_preferences.getValue()), Integer.parseInt(textfield_qi.getText())), new LifeStyle(LifeStyle.smoker.valueOf(Smoker_choicebox_preferences.getValue()), LifeStyle.athlete.valueOf(Athlete_choicebox_preferences.getValue()), LifeStyle.feed.valueOf(feed_choicebox_preferences.getValue()), LifeStyle.bodyBuild.valueOf(bodybuild_choicebox_preferences.getValue()), LifeStyle.religion.valueOf(religion_choicebox_preferences.getValue()), LifeStyle.alcohol.valueOf(alcohol_choicebox_preferences.getValue())));
             Passion passion = new Passion();
             ObservableList<String> video_games_checked = video_games_checkcombobox.getCheckModel().getCheckedItems();
             ObservableList<String> miscellaneous_checked = miscellanious_checkcombobox.getCheckModel().getCheckedItems();
@@ -463,27 +473,17 @@ public class Edit_Profile_Controller {
             for (String miscellaneous : miscellaneous_checked)
                 passion.passionM.add(Passion.miscellaneous.valueOf(miscellaneous));
 
-            ImagePattern imagePattern = (ImagePattern) circle_profile_picture.getFill();
-            String image = imagePattern.getImage().getUrl();
-
             Profile profile = modelMatch.modelP.getProfileHashMap().get(idProfile);
 
-            try {
-                Profile oldProfile = profile.clone();
+            profile.setIdentity(identity);
+            profile.setPhysicalAttributes(physicalAttributes);
+            profile.setLifeStyle(lifeStyle);
+            profile.setPreferences(preferences);
+            profile.setPassion(passion);
+            profile.setImageView(selectedImage);
 
-                profile.setIdentity(identity);
-                profile.setPhysicalAttributes(physicalAttributes);
-                profile.setLifeStyle(lifeStyle);
-                profile.setPreferences(preferences);
-                profile.setPassion(passion);
-                profile.setImageView(image);
-
-                modelMatch.editProfile(profile, oldProfile);
-
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            // Recomputes the vectors and the distances (they used to keep the values of the old profile)
+            modelMatch.editProfile(profile);
             Stage stage = (Stage) button_create_profile.getScene().getWindow();
             stage.close();
 
@@ -508,7 +508,8 @@ public class Edit_Profile_Controller {
         File file = fileChooser.showOpenDialog(null);
 
         if (file != null) {
-            circle_profile_picture.setFill(new ImagePattern(new Image(file.toURI().toString())));
+            selectedImage = file.toURI().toString();
+            circle_profile_picture.setFill(new ImagePattern(ImageLoader.profileImage(selectedImage)));
         }
 
     }
@@ -523,7 +524,8 @@ public class Edit_Profile_Controller {
         sex_choicebox.setValue(profile.getIdentity().getBsex().toString());
         textfield_size.setText(String.valueOf(profile.getPhysicalAttributes().getSize()));
         textfield_qi.setText(String.valueOf(profile.getIdentity().qi));
-        circle_profile_picture.setFill(new ImagePattern(new Image(profile.getImageView())));
+        selectedImage = profile.getImageView();
+        circle_profile_picture.setFill(new ImagePattern(ImageLoader.profileImage(selectedImage)));
         if (profile.getTotal() <= 1) {
             feedbackText.setText("Feedback : " + decimalFormat.format(profile.getRatio()) + " %    " + profile.getTotal() + " vote");
         } else {

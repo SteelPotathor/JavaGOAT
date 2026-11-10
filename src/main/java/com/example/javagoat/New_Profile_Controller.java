@@ -30,6 +30,7 @@ import org.controlsfx.control.CheckComboBox;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
@@ -236,7 +237,7 @@ public class New_Profile_Controller {
 
     private void setTextFieldsLimitations() {
         // Textfields for search bar accept only alphabetical characters
-        Pattern patternLetters = Pattern.compile("[a-zA-Z]*");
+        Pattern patternLetters = Pattern.compile(FormInput.NAME_PATTERN);
         UnaryOperator<TextFormatter.Change> filterLetters = change -> {
             if (patternLetters.matcher(change.getControlNewText()).matches()) {
                 return change;
@@ -250,7 +251,7 @@ public class New_Profile_Controller {
         textfield_last_name.setTextFormatter(formatterLetters2);
 
         // Textfields for age and height accept only numbers
-        Pattern patternNumbers = Pattern.compile("[0-9]*");
+        Pattern patternNumbers = Pattern.compile(FormInput.NUMBER_PATTERN);
         UnaryOperator<TextFormatter.Change> filterNumbers = change -> {
             if (patternNumbers.matcher(change.getControlNewText()).matches()) {
                 return change;
@@ -328,7 +329,6 @@ public class New_Profile_Controller {
                 || Objects.equals(choicebox_ethnicity_preferences.getValue(), "Select")
                 || Objects.equals(textfield_age_preferences.getText().replace(" ", ""), "")
                 || Objects.equals(textfield_size_preferences.getText().replace(" ", ""), "")
-                || Objects.equals(file, null)
         ) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Information Dialog");
@@ -336,10 +336,16 @@ public class New_Profile_Controller {
             alert.setContentText("Your profile has not been created, please fill all the fields");
             alert.showAndWait();
         } else {
-            Identity identity = new Identity(Integer.parseInt(textfield_age.getText()), Biology.sex.valueOf(sex_choicebox.getValue()), Biology.ethnicity.valueOf(choicebox_ethnicity.getValue()), Integer.parseInt(textfield_qi.getText()), textfield_last_name.getText(), textfield_first_name.getText(), modelMatch.modelP.getProfileHashMap().size() + 1);
+            List<String> problems = FormInput.checkProfileNumbers(textfield_age.getText(), textfield_size.getText(),
+                    textfield_qi.getText(), textfield_age_preferences.getText(), textfield_size_preferences.getText());
+            if (!problems.isEmpty()) {
+                FormInput.showProblems("Profile not created", problems);
+                return;
+            }
+            Identity identity = new Identity(Integer.parseInt(textfield_age.getText()), Biology.sex.valueOf(sex_choicebox.getValue()), Biology.ethnicity.valueOf(choicebox_ethnicity.getValue()), Integer.parseInt(textfield_qi.getText()), textfield_last_name.getText(), textfield_first_name.getText(), ModelMatch.nextId());
             PhysicalAttributes physicalAttributes = new PhysicalAttributes(Integer.parseInt(textfield_size.getText()), PhysicalAttributes.hairColor.valueOf(color_of_hair_choicebox.getValue()), PhysicalAttributes.hairType.valueOf(hair_type_choicebox.getValue()), PhysicalAttributes.hairLength.valueOf(hair_length_choicebox.getValue()));
             LifeStyle lifeStyle = new LifeStyle(LifeStyle.smoker.valueOf(Smoker_choicebox.getValue()), LifeStyle.athlete.valueOf(Athlete_choicebox.getValue()), LifeStyle.feed.valueOf(feed_choicebox.getValue()), LifeStyle.bodyBuild.valueOf(bodybuild_choicebox.getValue()), LifeStyle.religion.valueOf(religion_choicebox.getValue()), LifeStyle.alcohol.valueOf(alcohol_choicebox.getValue()));
-            Preferences preferences = new Preferences(new PhysicalAttributes(Integer.parseInt(textfield_size.getText()), PhysicalAttributes.hairColor.valueOf(color_of_hair_choicebox_preferences.getValue()), PhysicalAttributes.hairType.valueOf(hair_type_choicebox_preferences.getValue()), PhysicalAttributes.hairLength.valueOf(hair_length_choicebox_preferences.getValue())), new Biology(Integer.parseInt(textfield_age_preferences.getText()), Biology.sex.valueOf(sex_choicebox_preferences.getValue()), Biology.ethnicity.valueOf(choicebox_ethnicity_preferences.getValue()), Integer.parseInt(textfield_qi.getText())), new LifeStyle(LifeStyle.smoker.valueOf(Smoker_choicebox_preferences.getValue()), LifeStyle.athlete.valueOf(Athlete_choicebox_preferences.getValue()), LifeStyle.feed.valueOf(feed_choicebox_preferences.getValue()), LifeStyle.bodyBuild.valueOf(bodybuild_choicebox_preferences.getValue()), LifeStyle.religion.valueOf(religion_choicebox_preferences.getValue()), LifeStyle.alcohol.valueOf(alcohol_choicebox_preferences.getValue())));
+            Preferences preferences = new Preferences(new PhysicalAttributes(Integer.parseInt(textfield_size_preferences.getText()), PhysicalAttributes.hairColor.valueOf(color_of_hair_choicebox_preferences.getValue()), PhysicalAttributes.hairType.valueOf(hair_type_choicebox_preferences.getValue()), PhysicalAttributes.hairLength.valueOf(hair_length_choicebox_preferences.getValue())), new Biology(Integer.parseInt(textfield_age_preferences.getText()), Biology.sex.valueOf(sex_choicebox_preferences.getValue()), Biology.ethnicity.valueOf(choicebox_ethnicity_preferences.getValue()), Integer.parseInt(textfield_qi.getText())), new LifeStyle(LifeStyle.smoker.valueOf(Smoker_choicebox_preferences.getValue()), LifeStyle.athlete.valueOf(Athlete_choicebox_preferences.getValue()), LifeStyle.feed.valueOf(feed_choicebox_preferences.getValue()), LifeStyle.bodyBuild.valueOf(bodybuild_choicebox_preferences.getValue()), LifeStyle.religion.valueOf(religion_choicebox_preferences.getValue()), LifeStyle.alcohol.valueOf(alcohol_choicebox_preferences.getValue())));
             Passion passion = new Passion();
             ObservableList<String> video_games_checked = video_games_checkcombobox.getCheckModel().getCheckedItems();
             ObservableList<String> miscellaneous_checked = miscellanious_checkcombobox.getCheckModel().getCheckedItems();
@@ -348,16 +354,27 @@ public class New_Profile_Controller {
             for (String miscellaneous : miscellaneous_checked)
                 passion.passionM.add(Passion.miscellaneous.valueOf(miscellaneous));
 
-            ImagePattern imagePattern = (ImagePattern) circle_profile_picture.getFill();
-            String image = imagePattern.getImage().getUrl();
+            // The picture is optional: without one, the profile uses the default picture
+            String image = file != null ? file.toURI().toString() : ImageLoader.DEFAULT_PROFILE_IMAGE;
             Profile profile = new Profile(identity, physicalAttributes, lifeStyle, preferences, passion, image);
+            modelMatch.addProfile(profile);
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText("Profile created");
             alert.setContentText("Your profile has been created");
             alert.showAndWait();
+            resetForm();
+        }
+    }
 
-            modelMatch.addProfile(profile);
+    // Reloads an empty form: clicking "create" twice used to create the same person twice
+    private void resetForm() {
+        try {
+            Parent fresh = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NewProfile/new_profile.fxml")));
+            button_create_profile.getScene().setRoot(fresh);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -526,7 +543,7 @@ public class New_Profile_Controller {
 
     private void circlePersonalOther() {
         if (religion_choicebox.getSelectionModel().getSelectedItem() != null) {
-            if (video_games_checkcombobox.getCheckModel().getCheckedItems().get(0) != null && miscellanious_checkcombobox.getCheckModel().getCheckedItems().get(0) != null && !religion_choicebox.getSelectionModel().getSelectedItem().equals("Select")) {
+            if (!video_games_checkcombobox.getCheckModel().getCheckedItems().isEmpty() && !miscellanious_checkcombobox.getCheckModel().getCheckedItems().isEmpty() && !religion_choicebox.getSelectionModel().getSelectedItem().equals("Select")) {
                 circle_other.setFill(Paint.valueOf("green"));
                 personnalOther = true;
             } else {
@@ -658,9 +675,7 @@ public class New_Profile_Controller {
 
     @FXML
     void exit_script() {
-        modelMatch.saveProfiles();
-        modelMatch.saveDistances();
-        System.exit(0);
+        ApplicationStart.saveAndExit();
     }
 
 }
