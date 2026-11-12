@@ -71,10 +71,6 @@ calendar and statistics are now saved.
 - 📅 **Calendar** (day / week / month / year views, recurring events), saved between sessions.
 - 💾 **Readable JSON storage**, validated at start-up with clear error messages; atomic saves.
 
-<p align="center">
-    <img src="img/matching.png" alt="Matching page" width="560px">
-</p>
-
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <!-- GETTING STARTED -->
@@ -158,7 +154,7 @@ profile, common passions, already matched couple…) in [`data/showcase-profiles
 
 <table>
   <tr>
-    <td><img src="img/new_profile.png" alt="New profile"></td>
+    <td><img src="img/matching.png" alt="Matching page" width="560px"></td>
     <td><img src="img/calendar.png" alt="Calendar"></td>
   </tr>
 </table>
